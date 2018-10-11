@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		3E446BDD216FBD8A00B9C09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E446BDC216FBD8A00B9C09E /* AppDelegate.swift */; };
-		3E446BDF216FBD8A00B9C09E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E446BDE216FBD8A00B9C09E /* ViewController.swift */; };
 		3E446BE2216FBD8A00B9C09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE0216FBD8A00B9C09E /* Main.storyboard */; };
 		3E446BE4216FBD8B00B9C09E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE3216FBD8B00B9C09E /* Assets.xcassets */; };
 		3E446BE7216FBD8B00B9C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */; };
+		3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */; };
+		3E446BF1216FCE6000B9C09E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E446BF0216FCE6000B9C09E /* LoginViewController.swift */; };
+		DA1D6E15B4E10C7105B41375 /* Pods_FindBestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E446BD9216FBD8A00B9C09E /* FindBestArtist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindBestArtist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E446BDC216FBD8A00B9C09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E446BDE216FBD8A00B9C09E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3E446BE1216FBD8A00B9C09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E446BE3216FBD8B00B9C09E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E446BE6216FBD8B00B9C09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E446BE8216FBD8B00B9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E446BF0216FCE6000B9C09E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.debug.xcconfig"; sourceTree = "<group>"; };
+		6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.release.xcconfig"; sourceTree = "<group>"; };
+		8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindBestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1D6E15B4E10C7105B41375 /* Pods_FindBestArtist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				3E446BDB216FBD8A00B9C09E /* FindBestArtist */,
 				3E446BDA216FBD8A00B9C09E /* Products */,
+				906020F87311BB50553908B5 /* Pods */,
+				C821CA144620649C395D744E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,56 @@
 		3E446BDB216FBD8A00B9C09E /* FindBestArtist */ = {
 			isa = PBXGroup;
 			children = (
+				3E446BF2216FCE7300B9C09E /* Screens */,
+				3E446BF4216FCE8A00B9C09E /* UI */,
 				3E446BDC216FBD8A00B9C09E /* AppDelegate.swift */,
-				3E446BDE216FBD8A00B9C09E /* ViewController.swift */,
-				3E446BE0216FBD8A00B9C09E /* Main.storyboard */,
+				3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */,
 				3E446BE3216FBD8B00B9C09E /* Assets.xcassets */,
-				3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */,
 				3E446BE8216FBD8B00B9C09E /* Info.plist */,
 			);
 			path = FindBestArtist;
+			sourceTree = "<group>";
+		};
+		3E446BF2216FCE7300B9C09E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3E446BF3216FCE7B00B9C09E /* Login */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3E446BF3216FCE7B00B9C09E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3E446BF0216FCE6000B9C09E /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3E446BF4216FCE8A00B9C09E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3E446BE0216FBD8A00B9C09E /* Main.storyboard */,
+				3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		906020F87311BB50553908B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */,
+				6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C821CA144620649C395D744E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E446BEB216FBD8B00B9C09E /* Build configuration list for PBXNativeTarget "FindBestArtist" */;
 			buildPhases = (
+				4D8368EDA224CA3B21A8F1A9 /* [CP] Check Pods Manifest.lock */,
 				3E446BD5216FBD8A00B9C09E /* Sources */,
 				3E446BD6216FBD8A00B9C09E /* Frameworks */,
 				3E446BD7216FBD8A00B9C09E /* Resources */,
+				A29EF165190FB3D1F96C2C62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E446BE7216FBD8B00B9C09E /* LaunchScreen.storyboard in Resources */,
+				3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */,
 				3E446BE4216FBD8B00B9C09E /* Assets.xcassets in Resources */,
 				3E446BE2216FBD8A00B9C09E /* Main.storyboard in Resources */,
 			);
@@ -130,12 +184,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D8368EDA224CA3B21A8F1A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindBestArtist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A29EF165190FB3D1F96C2C62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3E446BD5216FBD8A00B9C09E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E446BDF216FBD8A00B9C09E /* ViewController.swift in Sources */,
+				3E446BF1216FCE6000B9C09E /* LoginViewController.swift in Sources */,
 				3E446BDD216FBD8A00B9C09E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +389,7 @@
 		};
 		3E446BEC216FBD8B00B9C09E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +408,7 @@
 		};
 		3E446BED216FBD8B00B9C09E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
