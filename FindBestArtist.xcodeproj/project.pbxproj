@@ -13,6 +13,9 @@
 		3E446BE7216FBD8B00B9C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */; };
 		3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */; };
 		3E446BF1216FCE6000B9C09E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E446BF0216FCE6000B9C09E /* LoginViewController.swift */; };
+		3E4CEF36217B3D3300EE5881 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4CEF35217B3D3300EE5881 /* ProfileCell.xib */; };
+		3E4CEF38217B457000EE5881 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CEF37217B457000EE5881 /* ProfileCell.swift */; };
+		3E4CEF3B217B4EA200EE5881 /* ProfilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CEF3A217B4EA200EE5881 /* ProfilesListViewController.swift */; };
 		C639A277217131B00025E318 /* HelpUIButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639A276217131B00025E318 /* HelpUIButtonClass.swift */; };
 		C6B3FC332170D9C5001A7423 /* ExampleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B3FC322170D9C5001A7423 /* ExampleLoginViewController.swift */; };
 		DA1D6E15B4E10C7105B41375 /* Pods_FindBestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */; };
@@ -27,6 +30,9 @@
 		3E446BE8216FBD8B00B9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E446BF0216FCE6000B9C09E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3E4CEF35217B3D3300EE5881 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		3E4CEF37217B457000EE5881 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		3E4CEF3A217B4EA200EE5881 /* ProfilesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesListViewController.swift; sourceTree = "<group>"; };
 		424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.debug.xcconfig"; sourceTree = "<group>"; };
 		6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.release.xcconfig"; sourceTree = "<group>"; };
 		8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindBestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +86,7 @@
 		3E446BF2216FCE7300B9C09E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E4CEF39217B4E7A00EE5881 /* New Group */,
 				3E446BF3216FCE7B00B9C09E /* Login */,
 				C639A275217130150025E318 /* Buttons */,
 			);
@@ -100,8 +107,18 @@
 			children = (
 				3E446BE0216FBD8A00B9C09E /* Main.storyboard */,
 				3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */,
+				3E4CEF35217B3D3300EE5881 /* ProfileCell.xib */,
+				3E4CEF37217B457000EE5881 /* ProfileCell.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		3E4CEF39217B4E7A00EE5881 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				3E4CEF3A217B4EA200EE5881 /* ProfilesListViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		906020F87311BB50553908B5 /* Pods */ = {
@@ -193,6 +210,7 @@
 				3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */,
 				3E446BE4216FBD8B00B9C09E /* Assets.xcassets in Resources */,
 				3E446BE2216FBD8A00B9C09E /* Main.storyboard in Resources */,
+				3E4CEF36217B3D3300EE5881 /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +280,8 @@
 				C6B3FC332170D9C5001A7423 /* ExampleLoginViewController.swift in Sources */,
 				3E446BDD216FBD8A00B9C09E /* AppDelegate.swift in Sources */,
 				C639A277217131B00025E318 /* HelpUIButtonClass.swift in Sources */,
+				3E4CEF3B217B4EA200EE5881 /* ProfilesListViewController.swift in Sources */,
+				3E4CEF38217B457000EE5881 /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

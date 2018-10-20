@@ -11,19 +11,15 @@ import UIKit
 
 class HelpUIButtonClass: UIButton {
     
-    @IBInspectable var cornerRadius: Double {
-        get {
-            return Double(self.layer.cornerRadius)
-        }set {
-            self.layer.cornerRadius = CGFloat(newValue)
+    @IBInspectable var cornerRadius: Double = 0 {
+        didSet {
+            self.layer.cornerRadius = CGFloat(cornerRadius)
         }
     }
-    @IBInspectable var borderWidth: Double {
-        get {
-            return Double(self.layer.borderWidth)
-        }
-        set {
-            self.layer.borderWidth = CGFloat(newValue)
+    
+    @IBInspectable var borderWidth: Double = 0 {
+        didSet {
+            self.layer.borderWidth = CGFloat(borderWidth)
         }
     }
     @IBInspectable var borderColor: UIColor? {
@@ -48,20 +44,6 @@ class HelpUIButtonClass: UIButton {
         }
         set {
             self.layer.shadowOpacity = newValue
-        }
-    }
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setTitle("MyTitle", for: .normal)
-        setTitleColor(UIColor.blue, for: .normal)
-    }
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    public var cornerRadius1: CGFloat = 2.0 {
-        didSet {
-            self.layer.cornerRadius = self.cornerRadius1
         }
     }
 }
