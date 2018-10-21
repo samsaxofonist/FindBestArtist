@@ -5,4 +5,5 @@ target 'FindBestArtist' do
   use_frameworks!
 pod 'Firebase/Core'
 pod 'FBSDKLoginKit'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 end

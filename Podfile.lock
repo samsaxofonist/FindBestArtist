@@ -55,10 +55,12 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Spring (1.0.6)
 
 DEPENDENCIES:
   - FBSDKLoginKit
   - Firebase/Core
+  - Spring (from `https://github.com/MengTo/Spring.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -73,6 +75,15 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
 
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
+    :git: https://github.com/MengTo/Spring.git
+
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
@@ -84,7 +95,8 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
 
-PODFILE CHECKSUM: 99f36d0809b7a6308faa3cf50e970f59c4d75cdf
+PODFILE CHECKSUM: c7c93ced3c0ffcc487041141050a2cbf322603db
 
 COCOAPODS: 1.5.3
