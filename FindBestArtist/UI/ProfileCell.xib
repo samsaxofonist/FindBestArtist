@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl">
                         <rect key="frame" x="36" y="19" width="423" height="162"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="#1" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
