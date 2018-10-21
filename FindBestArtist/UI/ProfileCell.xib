@@ -21,14 +21,14 @@
                         <rect key="frame" x="36" y="19" width="423" height="162"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="#1" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="162"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="162"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="qwv-4n-5cq"/>
+                                    <constraint firstAttribute="width" constant="100" id="qwv-4n-5cq"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="185" y="10" width="163" height="25"/>
+                                <rect key="frame" x="135" y="10" width="213" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2fF-O0-HAg"/>
                                 </constraints>
@@ -46,9 +46,9 @@
                                 <color key="textColor" red="0.23481383919715881" green="0.18825268745422363" blue="0.24773624539375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
-                                <rect key="frame" x="185" y="45" width="203" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Möchten Sie einen Funken Originalität Ihrer Veranstaltung hinzufügen?- dann laden Sie einen Saxophonisten ein!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
+                                <rect key="frame" x="135" y="45" width="253" height="54"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="15"/>
                                 <color key="textColor" red="0.23481383919715881" green="0.18825268745422363" blue="0.24773624539375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -99,7 +99,7 @@
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
             </connections>
-            <point key="canvasLocation" x="-194.40000000000001" y="80.50974512743629"/>
+            <point key="canvasLocation" x="-194.40000000000001" y="80.059970014992516"/>
         </tableViewCell>
     </objects>
     <resources>
