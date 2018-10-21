@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl">
                         <rect key="frame" x="36" y="19" width="423" height="162"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="#1" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="#1" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="162"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -68,6 +68,12 @@
                             <constraint firstAttribute="bottom" secondItem="GeW-nG-9Hv" secondAttribute="bottom" id="lbM-sv-LFY"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" id="o7k-yo-U30"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,7 +100,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="informationLabel" destination="xEd-WR-VXw" id="ig3-hq-0v8"/>
-                <outlet property="mainBackgroundProfileSell" destination="zPv-vp-gOl" id="tz8-BY-RiN"/>
+                <outlet property="mainBackgroundProfileCell" destination="zPv-vp-gOl" id="tz8-BY-RiN"/>
                 <outlet property="nameLabel" destination="Xkb-uD-3dM" id="Oa9-ms-iTU"/>
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
