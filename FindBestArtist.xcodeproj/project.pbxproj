@@ -427,7 +427,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7CLDF32BG;
 				INFOPLIST_FILE = FindBestArtist/Info.plist;
@@ -446,7 +445,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7CLDF32BG;
 				INFOPLIST_FILE = FindBestArtist/Info.plist;

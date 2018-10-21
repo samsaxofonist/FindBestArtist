@@ -14,4 +14,6 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var mainBackgroundProfileSell: UIView!
+  
 }

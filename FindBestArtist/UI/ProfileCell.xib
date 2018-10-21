@@ -10,60 +10,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="285" id="qPD-3d-WKs" customClass="ProfileCell" customModule="FindBestArtist" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="495" height="285"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="100" id="qPD-3d-WKs" customClass="ProfileCell" customModule="FindBestArtist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="495" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
-                <rect key="frame" x="0.0" y="0.0" width="495" height="284.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl">
-                        <rect key="frame" x="36" y="19" width="423" height="247"/>
+                        <rect key="frame" x="36" y="19" width="423" height="162"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="png" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="247"/>
-                                <color key="backgroundColor" red="1" green="0.47341225120000002" blue="0.30504082049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="#1" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="162"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="qwv-4n-5cq"/>
+                                    <constraint firstAttribute="width" constant="150" id="qwv-4n-5cq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitrios" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="235" y="35" width="88" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
+                                <rect key="frame" x="185" y="10" width="163" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2fF-O0-HAg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                <color key="textColor" red="0.23481383919715881" green="0.18825268745422363" blue="0.24773624539375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".000 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-N4-LJw">
-                                <rect key="frame" x="328" y="35" width="60" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-N4-LJw">
+                                <rect key="frame" x="353" y="10" width="60" height="25"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="8re-78-V7M"/>
                                     <constraint firstAttribute="width" constant="60" id="cv1-zo-Q0C"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
+                                <color key="textColor" red="0.23481383919715881" green="0.18825268745422363" blue="0.24773624539375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
-                                <rect key="frame" x="235" y="95" width="153" height="20.5"/>
+                                <rect key="frame" x="185" y="45" width="203" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.23481383919715881" green="0.18825268745422363" blue="0.24773624539375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95284086465835571" green="0.95300060510635376" blue="0.95281845331192017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Xkb-uD-3dM" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="35" id="3uE-AE-qrz"/>
-                            <constraint firstItem="vvZ-N4-LJw" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="35" id="80y-Sy-2m8"/>
-                            <constraint firstAttribute="trailing" secondItem="vvZ-N4-LJw" secondAttribute="trailing" constant="35" id="CVe-G8-YCi"/>
+                            <constraint firstItem="Xkb-uD-3dM" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="10" id="3uE-AE-qrz"/>
+                            <constraint firstItem="vvZ-N4-LJw" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="10" id="80y-Sy-2m8"/>
+                            <constraint firstAttribute="trailing" secondItem="vvZ-N4-LJw" secondAttribute="trailing" constant="10" id="CVe-G8-YCi"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" id="DHv-6g-GWY"/>
-                            <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" constant="35" id="Hcb-fx-K87"/>
+                            <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" constant="10" id="Hcb-fx-K87"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="35" id="SLp-0I-zQS"/>
                             <constraint firstItem="vvZ-N4-LJw" firstAttribute="leading" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="5" id="So6-8T-WbJ"/>
                             <constraint firstAttribute="trailing" secondItem="xEd-WR-VXw" secondAttribute="trailing" constant="35" id="TRe-rI-9iq"/>
                             <constraint firstItem="Xkb-uD-3dM" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="35" id="dJ4-T0-nrq"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xEd-WR-VXw" secondAttribute="bottom" constant="35" id="gJG-g5-kiW"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xEd-WR-VXw" secondAttribute="bottom" constant="10" id="gJG-g5-kiW"/>
                             <constraint firstAttribute="bottom" secondItem="GeW-nG-9Hv" secondAttribute="bottom" id="lbM-sv-LFY"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" id="o7k-yo-U30"/>
                         </constraints>
@@ -77,8 +78,23 @@
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" constant="8" id="aLg-Tw-L0N"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="informationLabel" destination="xEd-WR-VXw" id="ig3-hq-0v8"/>
+                <outlet property="mainBackgroundProfileSell" destination="zPv-vp-gOl" id="tz8-BY-RiN"/>
                 <outlet property="nameLabel" destination="Xkb-uD-3dM" id="Oa9-ms-iTU"/>
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
@@ -87,6 +103,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="png" width="600" height="600"/>
+        <image name="#1" width="1716" height="2574"/>
     </resources>
 </document>
