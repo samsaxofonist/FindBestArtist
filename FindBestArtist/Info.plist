@@ -2,26 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb1404019279742939</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1404019279742939</string>
-    <key>FacebookDisplayName</key>
-    <string>FindBestArtist</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1404019279742939</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1404019279742939</string>
+	<key>FacebookDisplayName</key>
+	<string>FindBestArtist</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -60,6 +60,59 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFUIDisplay-Black</string>
+		<string>SFUIDisplay-Bold</string>
+		<string>SFUIDisplay-Heavy</string>
+		<string>SFUIDisplay-Light</string>
+		<string>SFUIDisplay-Medium</string>
+		<string>SFUIDisplay-Regular</string>
+		<string>SFUIDisplay-Semibold</string>
+		<string>SFUIDisplay-Thin</string>
+		<string>SFUIDisplay-Ultralight</string>
+		<string>PlayfairDisplay-Black</string>
+		<string>PlayfairDisplay-BlackItalic</string>
+		<string>PlayfairDisplay-Bold</string>
+		<string>PlayfairDisplay-BoldItalic</string>
+		<string>PlayfairDisplay-Italic</string>
+		<string>PlayfairDisplay-Regular</string>
+		<string>PlayfairDisplaySC-Black</string>
+		<string>PlayfairDisplaySC-BlackItalic</string>
+		<string>PlayfairDisplaySC-Bold</string>
+		<string>PlayfairDisplaySC-BoldItalic</string>
+		<string>PlayfairDisplaySC-Italic</string>
+		<string>SF-Pro-Display-Black</string>
+		<string>SF-Pro-Display-BlackItalic</string>
+		<string>SF-Pro-Display-Bold</string>
+		<string>SF-Pro-Display-BoldItalic</string>
+		<string>SF-Pro-Display-HeavyItalic</string>
+		<string>SF-Pro-Display-Heavy</string>
+		<string>SF-Pro-Display-Light</string>
+		<string>SF-Pro-Display-LightItalic</string>
+		<string>SF-Pro-Display-Medium</string>
+		<string>SF-Pro-Display-MediumItalic</string>
+		<string>SF-Pro-Display-Regular</string>
+		<string>SF-Pro-Display-RegularItalic</string>
+		<string>SF-Pro-Display-Semibold</string>
+		<string>SF-Pro-Display-SemiboldItalic</string>
+		<string>SF-Pro-Display-Thin</string>
+		<string>SF-Pro-Display-ThinItalic</string>
+		<string>SF-Pro-Display-Ultralight</string>
+		<string>SF-Pro-Display-UltralightItalic</string>
+		<string>SF-Pro-Text-Bold</string>
+		<string>SF-Pro-Text-BoldItalic</string>
+		<string>SF-Pro-Text-Heavy</string>
+		<string>SF-Pro-Text-HeavyItalic</string>
+		<string>SF-Pro-Text-Light</string>
+		<string>SF-Pro-Text-LightItalic</string>
+		<string>SF-Pro-Text-Medium</string>
+		<string>SF-Pro-Text-MediumItalic</string>
+		<string>SF-Pro-Text-Regular</string>
+		<string>SF-Pro-Text-RegularItalic</string>
+		<string>SF-Pro-Text-Semibold</string>
+		<string>SF-Pro-Text-SemiboldItalic</string>
 	</array>
 </dict>
 </plist>
