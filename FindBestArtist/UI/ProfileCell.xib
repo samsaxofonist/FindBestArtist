@@ -111,6 +111,7 @@
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" id="aLg-Tw-L0N"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                     <real key="value" value="1"/>
@@ -136,6 +137,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="#1" width="1716" height="2574"/>
+        <image name="#1" width="823.67999267578125" height="1235.52001953125"/>
     </resources>
 </document>
