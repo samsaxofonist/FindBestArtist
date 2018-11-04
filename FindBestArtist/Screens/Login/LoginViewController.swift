@@ -15,9 +15,9 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         if FBSDKAccessToken.current() != nil {
-            performSegue(withIdentifier: "GoToMainScreen", sender: nil)
+            openMainScreen()
         }
     }
     
@@ -28,23 +28,20 @@ class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Show the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
     @IBAction func loginClicked(_ sender: Any) {
         
         FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if error == nil {
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
-                    
-                    self.performSegue(withIdentifier: "GoToMainScreen", sender: nil)
+                    self.openMainScreen()
                 })
             }
         }
+    }
+    
+    func openMainScreen() {
+        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
+        self.navigationController?.setViewControllers([mainTabBar], animated: true)
     }
 }

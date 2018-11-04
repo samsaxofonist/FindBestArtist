@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilesTableView: UITableView!
@@ -15,6 +16,12 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        NavigationHolder.navigation = self.navigationController!
+    }
+    
+    @objc func menuButtonClicked() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

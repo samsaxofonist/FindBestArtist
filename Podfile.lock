@@ -5,9 +5,39 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.36.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.36.0):
+  - FacebookSDK (4.38.0):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit (= 4.38.0)
+    - FacebookSDK/MarketingKit (= 4.38.0)
+  - FacebookSDK/CoreKit (4.38.0):
+    - Bolts (~> 1.9)
+    - FBSDKCoreKit
+  - FacebookSDK/LoginKit (4.38.0):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit
+    - FBSDKLoginKit
+  - FacebookSDK/MarketingKit (4.38.0):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit
+    - FBSDKMarketingKit
+  - FacebookSDK/PlacesKit (4.38.0):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit
+    - FBSDKPlacesKit
+  - FacebookSDK/ShareKit (4.38.0):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit
+    - FBSDKShareKit
+  - FBSDKCoreKit (4.38.0):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.38.0):
+    - FBSDKCoreKit
+  - FBSDKMarketingKit (4.38.0):
+    - FBSDKCoreKit
+  - FBSDKMessengerShareKit (1.3.2)
+  - FBSDKPlacesKit (4.38.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.38.0):
     - FBSDKCoreKit
   - Firebase/Auth (5.7.0):
     - Firebase/CoreOnly
@@ -65,19 +95,30 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SideMenu (5.0.2)
   - Spring (1.0.6)
 
 DEPENDENCIES:
-  - FBSDKLoginKit
+  - FacebookSDK
+  - FacebookSDK/LoginKit
+  - FacebookSDK/PlacesKit
+  - FacebookSDK/ShareKit
+  - FBSDKMessengerShareKit
   - Firebase/Auth
   - Firebase/Core
+  - SideMenu
   - Spring (from `https://github.com/MengTo/Spring.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - FacebookSDK
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - FBSDKMarketingKit
+    - FBSDKMessengerShareKit
+    - FBSDKPlacesKit
+    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -88,6 +129,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
+    - SideMenu
 
 EXTERNAL SOURCES:
   Spring:
@@ -100,8 +142,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
-  FBSDKLoginKit: 8bccb6064708ab2f4251a7fc4e3b6d8d00ad91ba
+  FacebookSDK: 73f54b8b94e09b05647cdef0af147f470cd3edc6
+  FBSDKCoreKit: 2ab7fdbf600dc6b628ba7a49aa29d357a7b4c74e
+  FBSDKLoginKit: 634fa27e72e33620eb6389253337342c03d4a407
+  FBSDKMarketingKit: e609f39d74ab273cf52e2f8b7e8829ed412b2827
+  FBSDKMessengerShareKit: 41c0b1a667d685c9433f993eb9611b3d5074e1cb
+  FBSDKPlacesKit: 3bb7974d25908ac90a48b6a784d8de707c334f31
+  FBSDKShareKit: 00290e3db446eed603ff80ac629dcc5e80cf8b74
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
   FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
   FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
@@ -112,8 +159,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SideMenu: e5094f0b2e7d9609e100a90ae69025abd994f882
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
 
-PODFILE CHECKSUM: e9e4ebbc9bc1f65c83c364e96ad6387993ba8376
+PODFILE CHECKSUM: aea542ec1ec02fc60fa3f83b92a195251ffa92ba
 
 COCOAPODS: 1.5.3
