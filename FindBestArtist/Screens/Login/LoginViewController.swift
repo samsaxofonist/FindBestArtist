@@ -17,10 +17,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         if FBSDKAccessToken.current() != nil {
-            // показать следующий экран
-            return
+            performSegue(withIdentifier: "GoToMainScreen", sender: nil)
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -36,11 +36,15 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginClicked(_ sender: Any) {
+        
         FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
-                print("Hello")
-            })
+            if error == nil {
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
+                    
+                    self.performSegue(withIdentifier: "GoToMainScreen", sender: nil)
+                })
+            }
         }
     }
 }

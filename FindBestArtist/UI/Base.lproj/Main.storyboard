@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S6Q-sP-DDo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l2P-T2-HLb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,10 +120,13 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="zTM-eT-cCj"/>
+                    <connections>
+                        <segue destination="S6Q-sP-DDo" kind="show" identifier="GoToMainScreen" id="nyN-KS-sHQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0EX-Su-dAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-682" y="-724"/>
+            <point key="canvasLocation" x="-626" y="-724"/>
         </scene>
         <!--Title-->
         <scene sceneID="Q8w-AT-Nrk">
@@ -272,9 +275,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9my-kI-5CI" kind="relationship" relationship="viewControllers" id="pcC-be-kfg"/>
-                        <segue destination="Zwx-HH-qBw" kind="relationship" relationship="viewControllers" id="qat-XP-zh0"/>
-                        <segue destination="1p7-Bg-rVl" kind="relationship" relationship="viewControllers" id="EHE-63-m1t"/>
+                        <segue destination="Eg1-Zk-soz" kind="relationship" relationship="viewControllers" id="jZ8-xe-7T3"/>
+                        <segue destination="k6R-CY-Tai" kind="relationship" relationship="viewControllers" id="fGZ-Qx-Pwl"/>
+                        <segue destination="jDG-Jb-65U" kind="relationship" relationship="viewControllers" id="h5k-8x-SXt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doO-Jy-LO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,68 +285,79 @@
             <point key="canvasLocation" x="314" y="-689"/>
         </scene>
         <!--Item-->
-        <scene sceneID="XG0-0T-2dT">
+        <scene sceneID="aAe-Td-khx">
             <objects>
-                <tableViewController id="9my-kI-5CI" customClass="ProfilesListViewController" customModule="FindBestArtist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uhq-LW-O20">
+                <viewController id="k6R-CY-Tai" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfd-vJ-4GV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second screen" id="dGo-Ij-zBO">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <connections>
-                            <outlet property="dataSource" destination="9my-kI-5CI" id="oEQ-Of-UWw"/>
-                            <outlet property="delegate" destination="9my-kI-5CI" id="ScF-NW-Qbd"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="fvk-47-tBg"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XGk-M2-bjh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="dYy-lK-pxz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rf-TQ-43J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1369" y="-436"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Xef-UD-WwX">
+            <objects>
+                <viewController id="jDG-Jb-65U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vxC-wQ-fr8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="E70-U1-J6J"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="pFZ-ge-1vA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYr-WI-JMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="293"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="drD-qV-JQz">
+            <objects>
+                <viewController id="Eg1-Zk-soz" customClass="ProfilesListViewController" customModule="FindBestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6lT-yp-Azf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second screen" translatesAutoresizingMaskIntoConstraints="NO" id="58z-5y-f4W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-mF-QRz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eg1-Zk-soz" id="yKA-yn-2BT"/>
+                                    <outlet property="delegate" destination="Eg1-Zk-soz" id="A2N-PY-CEw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QGZ-SU-ltf" firstAttribute="bottom" secondItem="fQ7-mF-QRz" secondAttribute="bottom" id="2dH-wq-OEP"/>
+                            <constraint firstItem="fQ7-mF-QRz" firstAttribute="leading" secondItem="QGZ-SU-ltf" secondAttribute="leading" id="6Pp-9x-UFM"/>
+                            <constraint firstItem="QGZ-SU-ltf" firstAttribute="trailing" secondItem="fQ7-mF-QRz" secondAttribute="trailing" id="VIv-AC-mqG"/>
+                            <constraint firstItem="QGZ-SU-ltf" firstAttribute="trailing" secondItem="58z-5y-f4W" secondAttribute="trailing" id="cV7-Rp-Aiy"/>
+                            <constraint firstItem="QGZ-SU-ltf" firstAttribute="bottom" secondItem="58z-5y-f4W" secondAttribute="bottom" id="dXl-xd-1dU"/>
+                            <constraint firstItem="58z-5y-f4W" firstAttribute="leading" secondItem="QGZ-SU-ltf" secondAttribute="leading" id="jOu-E5-irX"/>
+                            <constraint firstItem="fQ7-mF-QRz" firstAttribute="top" secondItem="6lT-yp-Azf" secondAttribute="top" id="pvV-La-HGs"/>
+                            <constraint firstItem="58z-5y-f4W" firstAttribute="top" secondItem="6lT-yp-Azf" secondAttribute="top" id="z56-x5-F0T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="wQu-nD-Nob"/>
                     <connections>
-                        <segue destination="ZV6-nl-0gL" kind="show" identifier="showDetailsSegue" id="p5T-x4-7H2"/>
+                        <outlet property="profilesTableView" destination="fQ7-mF-QRz" id="ciQ-ol-oFX"/>
+                        <segue destination="ZV6-nl-0gL" kind="show" identifier="showDetailsSegue" id="bdj-C5-9Ya"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A4h-ZN-HUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Zm-kw-raz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1301.5999999999999" y="-1141.0794602698652"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="YYa-l5-XDH">
-            <objects>
-                <tableViewController id="1p7-Bg-rVl" customClass="ProfilesListViewController" customModule="FindBestArtist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b5j-iq-qUj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="1p7-Bg-rVl" id="LBZ-Mm-bNj"/>
-                            <outlet property="delegate" destination="1p7-Bg-rVl" id="3Pt-WH-3dk"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Oke-os-Aaa"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N8a-i7-XW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1367" y="-393"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="dRy-qz-dqD">
-            <objects>
-                <tableViewController id="Zwx-HH-qBw" customClass="ProfilesListViewController" customModule="FindBestArtist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zrc-5C-7yW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Zwx-HH-qBw" id="yQN-AX-8hb"/>
-                            <outlet property="delegate" destination="Zwx-HH-qBw" id="q4U-eT-BDl"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="8G1-iM-nSG"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TDA-lM-Rbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2223" y="-330"/>
+            <point key="canvasLocation" x="1384" y="-1128"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9nd-rp-t42">
@@ -358,12 +372,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZn-Mr-vga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-1141"/>
+            <point key="canvasLocation" x="2257" y="-1128"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="562" height="1218"/>
-        <image name="second screen" width="562" height="1218"/>
-        <image name="third screen" width="562" height="1218"/>
+        <image name="first screen" width="176.85589599609375" height="383"/>
+        <image name="second screen" width="176.85589599609375" height="383"/>
+        <image name="third screen" width="176.85589599609375" height="383"/>
     </resources>
 </document>

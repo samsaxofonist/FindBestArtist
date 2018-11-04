@@ -11,11 +11,11 @@
 		3E446BE2216FBD8A00B9C09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE0216FBD8A00B9C09E /* Main.storyboard */; };
 		3E446BE4216FBD8B00B9C09E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE3216FBD8B00B9C09E /* Assets.xcassets */; };
 		3E446BE7216FBD8B00B9C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BE5216FBD8B00B9C09E /* LaunchScreen.storyboard */; };
-		3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */; };
 		3E446BF1216FCE6000B9C09E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E446BF0216FCE6000B9C09E /* LoginViewController.swift */; };
 		3E4CEF36217B3D3300EE5881 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4CEF35217B3D3300EE5881 /* ProfileCell.xib */; };
 		3E4CEF38217B457000EE5881 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CEF37217B457000EE5881 /* ProfileCell.swift */; };
 		3E4CEF3B217B4EA200EE5881 /* ProfilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CEF3A217B4EA200EE5881 /* ProfilesListViewController.swift */; };
+		3E53BC40218F209E0063E080 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E53BC3F218F209E0063E080 /* GoogleService-Info.plist */; };
 		C60F5F0E218D083100A5EDB0 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CAB1218C7A52007089D9 /* SF-Pro-Display-Black.otf */; };
 		C60F5F0F218D083100A5EDB0 /* SF-Pro-Display-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CA9D218C7A4F007089D9 /* SF-Pro-Display-BlackItalic.otf */; };
 		C60F5F10218D083100A5EDB0 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CAA5218C7A50007089D9 /* SF-Pro-Display-Bold.otf */; };
@@ -46,7 +46,6 @@
 		C60F5F29218D083100A5EDB0 /* SF-Pro-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CA9E218C7A4F007089D9 /* SF-Pro-Text-RegularItalic.otf */; };
 		C60F5F2A218D083100A5EDB0 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CAAE218C7A51007089D9 /* SF-Pro-Text-Semibold.otf */; };
 		C60F5F2B218D083100A5EDB0 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B7CAA2218C7A50007089D9 /* SF-Pro-Text-SemiboldItalic.otf */; };
-		C60F5F2D218D0D6100A5EDB0 /* ClarissaRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C60F5F2C218D0D6100A5EDB0 /* ClarissaRegular.ttf */; };
 		C639A277217131B00025E318 /* HelpUIButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639A276217131B00025E318 /* HelpUIButtonClass.swift */; };
 		C684BA01217D0998008FA29A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C684BA00217D0998008FA29A /* Podfile */; };
 		DA1D6E15B4E10C7105B41375 /* Pods_FindBestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */; };
@@ -89,15 +88,14 @@
 		3E446BE3216FBD8B00B9C09E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E446BE6216FBD8B00B9C09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E446BE8216FBD8B00B9C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E446BF0216FCE6000B9C09E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E4CEF35217B3D3300EE5881 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		3E4CEF37217B457000EE5881 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		3E4CEF3A217B4EA200EE5881 /* ProfilesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesListViewController.swift; sourceTree = "<group>"; };
+		3E53BC3F218F209E0063E080 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		424FBDFB268CC514D0D8FCBE /* Pods-FindBestArtist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.debug.xcconfig"; sourceTree = "<group>"; };
 		6F312A23D202213E625DB2B3 /* Pods-FindBestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindBestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindBestArtist/Pods-FindBestArtist.release.xcconfig"; sourceTree = "<group>"; };
 		8D98D0237751C4DBE9FEC33C /* Pods_FindBestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindBestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C60F5F2C218D0D6100A5EDB0 /* ClarissaRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ClarissaRegular.ttf; path = ../../../../../../Fonts/ClarissaRegular.ttf; sourceTree = "<group>"; };
 		C639A276217131B00025E318 /* HelpUIButtonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpUIButtonClass.swift; sourceTree = "<group>"; };
 		C684BA00217D0998008FA29A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -117,7 +115,6 @@
 		32B7CA9C218C7A4E007089D9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				C60F5F2C218D0D6100A5EDB0 /* ClarissaRegular.ttf */,
 				32B7CAB1218C7A52007089D9 /* SF-Pro-Display-Black.otf */,
 				32B7CA9D218C7A4F007089D9 /* SF-Pro-Display-BlackItalic.otf */,
 				32B7CAA5218C7A50007089D9 /* SF-Pro-Display-Bold.otf */,
@@ -176,8 +173,8 @@
 				3E446BF2216FCE7300B9C09E /* Screens */,
 				3E446BF4216FCE8A00B9C09E /* UI */,
 				3E446BDC216FBD8A00B9C09E /* AppDelegate.swift */,
-				3E446BEE216FBFC500B9C09E /* GoogleService-Info.plist */,
 				3E446BE3216FBD8B00B9C09E /* Assets.xcassets */,
+				3E53BC3F218F209E0063E080 /* GoogleService-Info.plist */,
 				32B7CA9C218C7A4E007089D9 /* Fonts */,
 				3E446BE8216FBD8B00B9C09E /* Info.plist */,
 			);
@@ -312,7 +309,6 @@
 				C60F5F21218D083100A5EDB0 /* SF-Pro-Text-BoldItalic.otf in Resources */,
 				C60F5F11218D083100A5EDB0 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				C60F5F29218D083100A5EDB0 /* SF-Pro-Text-RegularItalic.otf in Resources */,
-				C60F5F2D218D0D6100A5EDB0 /* ClarissaRegular.ttf in Resources */,
 				C60F5F1E218D083100A5EDB0 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				C60F5F12218D083100A5EDB0 /* SF-Pro-Display-Heavy.otf in Resources */,
 				C60F5F0E218D083100A5EDB0 /* SF-Pro-Display-Black.otf in Resources */,
@@ -329,7 +325,6 @@
 				C60F5F15218D083100A5EDB0 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				C60F5F19218D083100A5EDB0 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				3E446BE7216FBD8B00B9C09E /* LaunchScreen.storyboard in Resources */,
-				3E446BEF216FBFC500B9C09E /* GoogleService-Info.plist in Resources */,
 				C60F5F16218D083100A5EDB0 /* SF-Pro-Display-Medium.otf in Resources */,
 				C60F5F1F218D083100A5EDB0 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				C60F5F1C218D083100A5EDB0 /* SF-Pro-Display-Thin.otf in Resources */,
@@ -338,6 +333,7 @@
 				C60F5F2A218D083100A5EDB0 /* SF-Pro-Text-Semibold.otf in Resources */,
 				C60F5F2B218D083100A5EDB0 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				3E446BE2216FBD8A00B9C09E /* Main.storyboard in Resources */,
+				3E53BC40218F209E0063E080 /* GoogleService-Info.plist in Resources */,
 				3E4CEF36217B3D3300EE5881 /* ProfileCell.xib in Resources */,
 				C60F5F22218D083100A5EDB0 /* SF-Pro-Text-Heavy.otf in Resources */,
 				C60F5F20218D083100A5EDB0 /* SF-Pro-Text-Bold.otf in Resources */,
