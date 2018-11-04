@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l2P-T2-HLb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S6Q-sP-DDo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="width" constant="120" id="3xe-wK-sJL"/>
                                             <constraint firstAttribute="height" constant="60" id="sas-FR-jjn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -52,7 +52,7 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -288,7 +288,11 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uhq-LW-O20">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.25945662641309775" green="0.90297729905908386" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second screen" id="dGo-Ij-zBO">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <connections>
                             <outlet property="dataSource" destination="9my-kI-5CI" id="oEQ-Of-UWw"/>
                             <outlet property="delegate" destination="9my-kI-5CI" id="ScF-NW-Qbd"/>
@@ -301,7 +305,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4h-ZN-HUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-1141"/>
+            <point key="canvasLocation" x="1301.5999999999999" y="-1141.0794602698652"/>
         </scene>
         <!--Item-->
         <scene sceneID="YYa-l5-XDH">
@@ -358,7 +362,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="176.85589599609375" height="383"/>
-        <image name="third screen" width="176.85589599609375" height="383"/>
+        <image name="first screen" width="562" height="1218"/>
+        <image name="second screen" width="562" height="1218"/>
+        <image name="third screen" width="562" height="1218"/>
     </resources>
 </document>

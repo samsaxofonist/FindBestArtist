@@ -92,6 +92,7 @@
 		<string>SF-Pro-Text-RegularItalic</string>
 		<string>SF-Pro-Text-Semibold</string>
 		<string>SF-Pro-Text-SemiboldItalic</string>
+		<string>ClarissaRegular</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
