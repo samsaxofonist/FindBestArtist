@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,13 +22,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="100" id="qPD-3d-WKs" customClass="ProfileCell" customModule="FindBestArtist" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="100" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="495" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
                 <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA">
+                        <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl" customClass="DesignableView" customModule="Spring">
                         <rect key="frame" x="20" y="11" width="455" height="178"/>
                         <subviews>
@@ -111,9 +116,13 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="123-Vg-VEA" secondAttribute="trailing" id="19Y-67-dMN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zPv-vp-gOl" secondAttribute="trailing" id="2DS-mz-Kkb"/>
+                    <constraint firstAttribute="bottom" secondItem="123-Vg-VEA" secondAttribute="bottom" id="A8S-ef-Fau"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leadingMargin" id="Hwq-FR-31X"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="top" id="Hx1-Jd-MLZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="zPv-vp-gOl" secondAttribute="bottom" id="Qxw-Ml-kU9"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leading" id="ZXN-OZ-Ace"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" id="aLg-Tw-L0N"/>
                 </constraints>
             </tableViewCellContentView>
