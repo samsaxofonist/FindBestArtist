@@ -9,4 +9,5 @@ pod 'SideMenu'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'FacebookSDK'
 pod 'FacebookSDK/LoginKit'
+pod 'CropViewController'
 end
