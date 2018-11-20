@@ -24,4 +24,6 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    @IBAction func chooseButtonDidSelected(_ sender: Any) {
+    }
 }

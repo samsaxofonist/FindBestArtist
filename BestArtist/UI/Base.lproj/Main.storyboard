@@ -271,6 +271,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="chooseButtonDidSelected:" destination="hwS-L2-PwG" eventType="touchUpInside" id="9Ig-CU-tTE"/>
                                     <action selector="loginClicked:" destination="xgh-Tf-dZa" eventType="touchUpInside" id="qMz-8W-Pex"/>
                                 </connections>
                             </button>
