@@ -13,6 +13,9 @@
         <array key="SF-Pro-Display-Bold.otf">
             <string>SFProDisplay-Bold</string>
         </array>
+        <array key="SF-Pro-Display-Light.otf">
+            <string>SFProDisplay-Light</string>
+        </array>
         <array key="SF-Pro-Display-Regular.otf">
             <string>SFProDisplay-Regular</string>
         </array>
@@ -73,7 +76,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-DE-xMU">
-                                        <rect key="frame" x="40" y="165" width="295" height="41"/>
+                                        <rect key="frame" x="40" y="165" width="295" height="40"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -241,7 +244,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this photo?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBP-YY-Zaw">
-                                <rect key="frame" x="40" y="120" width="315" height="50"/>
+                                <rect key="frame" x="40" y="80" width="315" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WRI-jY-lsr"/>
                                 </constraints>
@@ -250,13 +253,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-Fa-6Wb" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="65.5" y="507" width="244" height="60"/>
+                                <rect key="frame" x="69" y="474" width="100" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7hv-vl-OKR"/>
+                                    <constraint firstAttribute="width" constant="100" id="S3L-iN-yUM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
-                                <state key="normal" title="Choose another photo">
+                                <state key="normal" title="Another">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -276,7 +280,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-5w-wzm">
-                                <rect key="frame" x="69" y="220" width="237" height="237"/>
+                                <rect key="frame" x="69" y="180" width="237" height="237"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="237" id="Izl-vW-zi6"/>
@@ -284,30 +288,71 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGY-b0-BAO">
-                                <rect key="frame" x="69" y="220" width="237" height="237"/>
+                                <rect key="frame" x="69" y="180" width="237" height="237"/>
                                 <connections>
                                     <action selector="openCropControllerClicked:" destination="hwS-L2-PwG" eventType="touchUpInside" id="htH-fK-o64"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="click photo to change" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYL-Mp-nPd">
+                                <rect key="frame" x="87.5" y="427" width="200" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="rbK-Cn-ccq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6m-Nq-zbF" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
+                                <rect key="frame" x="206" y="474" width="100" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LZp-LY-ZY5"/>
+                                    <constraint firstAttribute="width" constant="100" id="Ova-AX-5br"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="c9b-bC-gH7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.60365882869999998" green="0.53791627409999998" blue="0.66813081500000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.60365882869999998" green="0.53791627409999998" blue="0.66813081500000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseButtonDidSelected:" destination="hwS-L2-PwG" eventType="touchUpInside" id="Pno-3e-P29"/>
+                                    <action selector="loginClicked:" destination="xgh-Tf-dZa" eventType="touchUpInside" id="67q-Dn-Nvb"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UCg-X1-UVD" firstAttribute="trailing" secondItem="y6m-Nq-zbF" secondAttribute="trailing" constant="69" id="00M-LM-zd5"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="top" secondItem="TIF-5w-wzm" secondAttribute="top" id="8VH-v2-MBC"/>
                             <constraint firstItem="UCg-X1-UVD" firstAttribute="trailing" secondItem="ss4-vO-jYO" secondAttribute="trailing" id="D9E-qE-OvF"/>
+                            <constraint firstItem="9Tg-Fa-6Wb" firstAttribute="top" secondItem="DYL-Mp-nPd" secondAttribute="bottom" constant="30" id="GUo-BM-q7r"/>
                             <constraint firstItem="TIF-5w-wzm" firstAttribute="centerX" secondItem="ss4-vO-jYO" secondAttribute="centerX" id="Hf1-Hd-Ojk"/>
                             <constraint firstItem="ss4-vO-jYO" firstAttribute="top" secondItem="t5p-st-YUe" secondAttribute="top" id="Iuj-u8-Qhc"/>
-                            <constraint firstItem="9Tg-Fa-6Wb" firstAttribute="centerX" secondItem="ss4-vO-jYO" secondAttribute="centerX" id="J9S-nZ-14V"/>
                             <constraint firstItem="UCg-X1-UVD" firstAttribute="bottom" secondItem="ss4-vO-jYO" secondAttribute="bottom" id="JYe-4a-lUW"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="leading" secondItem="TIF-5w-wzm" secondAttribute="leading" id="Jfr-B9-aB0"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="width" secondItem="TIF-5w-wzm" secondAttribute="width" id="KcH-lb-OXc"/>
                             <constraint firstItem="TIF-5w-wzm" firstAttribute="top" secondItem="JBP-YY-Zaw" secondAttribute="bottom" constant="50" id="Qub-tT-rXh"/>
+                            <constraint firstItem="DYL-Mp-nPd" firstAttribute="top" secondItem="TIF-5w-wzm" secondAttribute="bottom" constant="10" id="RB4-AQ-JAl"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="bottom" secondItem="TIF-5w-wzm" secondAttribute="bottom" id="T55-Ib-TSh"/>
-                            <constraint firstItem="JBP-YY-Zaw" firstAttribute="top" secondItem="UCg-X1-UVD" secondAttribute="top" constant="100" id="Vgd-oB-qP9"/>
-                            <constraint firstItem="UCg-X1-UVD" firstAttribute="bottom" secondItem="9Tg-Fa-6Wb" secondAttribute="bottom" constant="100" id="bKG-pq-X9i"/>
+                            <constraint firstItem="JBP-YY-Zaw" firstAttribute="top" secondItem="UCg-X1-UVD" secondAttribute="top" constant="60" id="Vgd-oB-qP9"/>
+                            <constraint firstItem="9Tg-Fa-6Wb" firstAttribute="leading" secondItem="UCg-X1-UVD" secondAttribute="leading" constant="69" id="ejD-pk-PhR"/>
                             <constraint firstItem="UCg-X1-UVD" firstAttribute="trailing" secondItem="JBP-YY-Zaw" secondAttribute="trailing" constant="20" id="fc0-vv-T8t"/>
+                            <constraint firstItem="y6m-Nq-zbF" firstAttribute="top" secondItem="DYL-Mp-nPd" secondAttribute="bottom" constant="30" id="gWd-Fw-lXj"/>
                             <constraint firstItem="ss4-vO-jYO" firstAttribute="leading" secondItem="UCg-X1-UVD" secondAttribute="leading" id="oeV-yQ-nS1"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="height" secondItem="TIF-5w-wzm" secondAttribute="height" id="sOt-dS-Lbp"/>
                             <constraint firstItem="XGY-b0-BAO" firstAttribute="trailing" secondItem="TIF-5w-wzm" secondAttribute="trailing" id="sR5-zo-mLf"/>
+                            <constraint firstItem="DYL-Mp-nPd" firstAttribute="centerX" secondItem="XGY-b0-BAO" secondAttribute="centerX" id="xjQ-ss-UQB"/>
                             <constraint firstItem="JBP-YY-Zaw" firstAttribute="leading" secondItem="UCg-X1-UVD" secondAttribute="leading" constant="40" id="ye5-fa-91Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UCg-X1-UVD"/>
