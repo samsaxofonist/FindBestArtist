@@ -76,7 +76,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-DE-xMU">
-                                        <rect key="frame" x="40" y="165" width="295" height="40"/>
+                                        <rect key="frame" x="40" y="165" width="295" height="41"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -524,8 +524,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="176.85589599609375" height="383"/>
-        <image name="second screen" width="176.85589599609375" height="383"/>
-        <image name="third screen" width="176.85589599609375" height="383"/>
+        <image name="first screen" width="562" height="1218"/>
+        <image name="second screen" width="562" height="1218"/>
+        <image name="third screen" width="562" height="1218"/>
     </resources>
 </document>
