@@ -29,9 +29,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA">
-                        <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA" customClass="DesignableView" customModule="Spring">
+                        <rect key="frame" x="20" y="11" width="455" height="178"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-SL-B3r">
+                                <rect key="frame" x="0.0" y="0.0" width="455" height="178"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sss-Fa-lBU">
+                                    <rect key="frame" x="0.0" y="0.0" width="455" height="178"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LFN-SL-B3r" secondAttribute="trailing" id="Eih-Rk-AF4"/>
+                            <constraint firstItem="LFN-SL-B3r" firstAttribute="top" secondItem="123-Vg-VEA" secondAttribute="top" id="Gvx-8t-es4"/>
+                            <constraint firstAttribute="bottom" secondItem="LFN-SL-B3r" secondAttribute="bottom" id="kuB-sW-Uhm"/>
+                            <constraint firstItem="LFN-SL-B3r" firstAttribute="leading" secondItem="123-Vg-VEA" secondAttribute="leading" id="wSL-5d-Nq2"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl" customClass="DesignableView" customModule="Spring">
                         <rect key="frame" x="20" y="11" width="455" height="178"/>
@@ -64,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Möchten Sie einen Funken Originalität Ihrer Veranstaltung hinzufügen?- dann laden Sie einen Saxophonisten ein!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
-                                <rect key="frame" x="110" y="52" width="310" height="57.5"/>
+                                <rect key="frame" x="110" y="52" width="310" height="56"/>
                                 <fontDescription key="fontDescription" name="SFProText-Light" family="SF Pro Text" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -90,9 +114,6 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
@@ -103,27 +124,27 @@
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="123-Vg-VEA" secondAttribute="trailing" id="19Y-67-dMN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zPv-vp-gOl" secondAttribute="trailing" id="2DS-mz-Kkb"/>
-                    <constraint firstAttribute="bottom" secondItem="123-Vg-VEA" secondAttribute="bottom" id="A8S-ef-Fau"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leadingMargin" id="Hwq-FR-31X"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="top" id="Hx1-Jd-MLZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="zPv-vp-gOl" secondAttribute="bottom" id="Qxw-Ml-kU9"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leading" id="ZXN-OZ-Ace"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="trailing" secondItem="zPv-vp-gOl" secondAttribute="trailing" id="R2i-rV-RZ8"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" id="aLg-Tw-L0N"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" id="bYw-og-Eiu"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="bottom" secondItem="zPv-vp-gOl" secondAttribute="bottom" id="kI2-mz-etP"/>
+                    <constraint firstItem="123-Vg-VEA" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" id="tIb-w7-IoY"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

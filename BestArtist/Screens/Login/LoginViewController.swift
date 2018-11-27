@@ -13,9 +13,14 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var viewToHideAndShow: [UIView]!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        NavigationHolder.rootNavigation = self.navigationController
+        
         if FBSDKAccessToken.current() != nil {
             openMainScreen()
         }
@@ -29,13 +34,30 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: Any) {
+        setEverythingVisible(isVisible: false)
+        
         
         FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-            guard error == nil, let token = FBSDKAccessToken.current() else { return }
+            guard error == nil, let token = FBSDKAccessToken.current() else {
+                self.setEverythingVisible(isVisible: true)
+                return
+            }
+            
             let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
             Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
+                guard error == nil else {
+                    self.setEverythingVisible(isVisible: true)
+                    return
+                }
                 self.openMainScreen()
             })
+        }
+    }
+    
+    func setEverythingVisible(isVisible: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.viewToHideAndShow.forEach { $0.isHidden = !isVisible }
+            self.activity.isHidden = isVisible
         }
     }
     

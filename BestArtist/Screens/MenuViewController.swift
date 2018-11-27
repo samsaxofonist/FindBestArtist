@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import FBSDKLoginKit
 
 class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
@@ -19,8 +20,21 @@ class MenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let neededNavigation = NavigationHolder.navigation
-        let profileController = self.storyboard!.instantiateViewController(withIdentifier: "Profile")
-        neededNavigation?.pushViewController(profileController, animated: true)
-        dismiss(animated: true, completion: nil)
+        let rootNavigation = NavigationHolder.rootNavigation
+        
+        if indexPath.row == 0 {
+            let profileController = self.storyboard!.instantiateViewController(withIdentifier: "Profile")
+            neededNavigation?.pushViewController(profileController, animated: true)
+            dismiss(animated: true, completion: nil)
+        }
+        if indexPath.row == 1 {
+            FBSDKLoginManager().logOut()
+            let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            dismiss(animated: false) {
+                rootNavigation?.setViewControllers([newLoginView], animated: true)
+            }
+        }
     }
+    
 }

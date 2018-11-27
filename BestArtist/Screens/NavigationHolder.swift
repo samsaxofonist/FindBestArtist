@@ -10,4 +10,5 @@ import UIKit
 
 class NavigationHolder {
     static var navigation: UINavigationController?
+    static var rootNavigation: UINavigationController?
 }
