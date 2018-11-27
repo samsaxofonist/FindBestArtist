@@ -13,6 +13,8 @@ import CropViewController
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var profilePhotoImage: UIImageView!
+    @IBOutlet weak var textNewProfile: UITextView!
+    
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
