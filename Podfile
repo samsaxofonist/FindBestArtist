@@ -5,6 +5,7 @@ target 'BestArtist' do
   use_frameworks!
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 pod 'SideMenu'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'FacebookSDK'

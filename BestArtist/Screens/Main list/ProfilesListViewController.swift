@@ -8,9 +8,13 @@
 
 import UIKit
 import SideMenu
+import Firebase
+import FirebaseDatabase
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilesTableView: UITableView!
+    
+    var ref: DatabaseReference = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,20 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         NavigationHolder.navigation = self.navigationController!
+        
+        //testLoadData()
+    }
+    
+    func testLoadData() {
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.exists() { return }
+            
+            let username = snapshot.childSnapshot(forPath: "name").value
+            print(username!)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     @objc func menuButtonClicked() {

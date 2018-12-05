@@ -205,13 +205,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
-                            <tableViewSection id="Txa-Qn-91g">
+                            <tableViewSection headerTitle="Section-1" id="Txa-Qn-91g">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fX4-81-kCo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="47" id="fX4-81-kCo">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fX4-81-kCo" id="1xg-87-WOy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqW-yI-y0V">
@@ -225,7 +225,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0L5-ts-jSN">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="75" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0L5-ts-jSN" id="vaR-Bd-0XR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -256,7 +256,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZD-9z-sQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3567" y="-444"/>
+            <point key="canvasLocation" x="3565.5999999999999" y="-444.82758620689657"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="4sH-EB-w9u">
@@ -266,8 +266,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="third screen" translatesAutoresizingMaskIntoConstraints="NO" id="ss4-vO-jYO">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="third screen" translatesAutoresizingMaskIntoConstraints="NO" id="ss4-vO-jYO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kG7-sp-FJb" appends="YES" id="7AL-X1-aep"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-Fa-6Wb" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                 <rect key="frame" x="69" y="334" width="100" height="60"/>
@@ -383,53 +387,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="RYl-41-cFO"/>
                     <connections>
+                        <outlet property="imageToTop" destination="cM4-W2-q1m" id="QbQ-dc-x5O"/>
                         <outlet property="profilePhotoImage" destination="TIF-5w-wzm" id="odo-ug-CYV"/>
                         <outlet property="textNewProfile" destination="6Lf-6a-gdA" id="aKa-sq-fXO"/>
+                        <outlet property="textToBottom" destination="Q0l-JI-YxJ" id="nvu-Zv-XRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYJ-Jf-TfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kG7-sp-FJb">
+                    <connections>
+                        <action selector="allClicked:" destination="hwS-L2-PwG" id="Hnj-g0-tBQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4364" y="-443.02848575712147"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Vx8-Kp-Peo">
-            <objects>
-                <tableViewController id="g13-mu-ggf" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pUx-nk-SCM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="uht-MZ-Mwb">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="354" id="Tn2-nc-wdD">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tn2-nc-wdD" id="d01-ta-2r7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="353.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="123" id="Q7J-22-lxx">
-                                        <rect key="frame" x="0.0" y="354" width="375" height="123"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q7J-22-lxx" id="NwJ-jf-kQt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="g13-mu-ggf" id="uva-Fh-MX5"/>
-                            <outlet property="delegate" destination="g13-mu-ggf" id="fX2-v8-zxv"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mfU-Bv-vYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5138.3999999999996" y="-624.73763118440786"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="bET-WK-OQo">
