@@ -23,7 +23,8 @@ class MenuViewController: UITableViewController {
         let rootNavigation = NavigationHolder.rootNavigation
         
         if indexPath.row == 0 {
-            let profileController = self.storyboard!.instantiateViewController(withIdentifier: "Profile")
+            let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile")
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
         }

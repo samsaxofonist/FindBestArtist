@@ -14,8 +14,6 @@ import FirebaseDatabase
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilesTableView: UITableView!
     
-    var ref: DatabaseReference = Database.database().reference()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,15 +25,24 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func testLoadData() {
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            if !snapshot.exists() { return }
-            
-            let username = snapshot.childSnapshot(forPath: "name").value
-            print(username!)
-        }) { (error) in
+        
+        let ref = Database.database().reference().child("users")
+        ref.childByAutoId().setValue(["name": "Ivan", "price": 1000, "description": "Super good"])
+        ref.childByAutoId().setValue(["name": "Bill", "price": 200, "description": "Bad"])
+        
+        ref.observeSingleEvent(of: .value, with: { data in
+            guard let jsonData = data.value as? [String: [String: Any]] else { return }
+            for (key, value) in jsonData {
+                print("******* User with ID: \(key) **********")
+                print(value["name"] as! String)
+                print(value["description"] as! String)
+                print(value["price"] as! Int)
+                print("*****************")
+            }
+        }) { error in
             print(error.localizedDescription)
         }
+
     }
     
     @objc func menuButtonClicked() {

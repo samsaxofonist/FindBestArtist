@@ -13,10 +13,8 @@ import CropViewController
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var profilePhotoImage: UIImageView!
-    @IBOutlet weak var textNewProfile: UITextView!
     
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
-    @IBOutlet weak var textToBottom: NSLayoutConstraint!
     
     
     var imagePicker = UIImagePickerController()
@@ -26,35 +24,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyBoardWillShow(notification: NSNotification) {
-//        if let userInfo = notification.userInfo,
-//            let keyboardHeightValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-//            let keyboardRect = keyboardHeightValue.cgRectValue
-//
-//        }
-        
-        self.imageToTop.constant -= 180
-        textToBottom.constant += 180
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
         }
-    }
     
-    @IBAction func allClicked(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
-    @objc func keyBoardWillHide(notification: NSNotification) {
-        imageToTop.constant += 180
-        textToBottom.constant -= 180
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
