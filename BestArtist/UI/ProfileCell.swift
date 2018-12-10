@@ -9,14 +9,9 @@
 import UIKit
 
 class ProfileCell: UITableViewCell {
-
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
-  
-    
-    
-    }
-
+}
