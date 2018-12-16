@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="first screen" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-En-gCI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="-44" width="375" height="681"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-Nw-CXV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                         <rect key="frame" x="127.5" y="271.5" width="120" height="60"/>
@@ -71,7 +71,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-DE-xMU">
-                                        <rect key="frame" x="40" y="165" width="295" height="40"/>
+                                        <rect key="frame" x="40" y="165" width="295" height="41"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -86,11 +86,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E1m-FN-ONa">
-                                        <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                        <rect key="frame" x="169" y="278" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="dNl-En-gCI" secondAttribute="bottom" id="2I6-2J-BCe"/>
+                                    <constraint firstAttribute="bottom" secondItem="dNl-En-gCI" secondAttribute="bottom" constant="-34" id="2I6-2J-BCe"/>
                                     <constraint firstAttribute="trailing" secondItem="dNl-En-gCI" secondAttribute="trailing" id="5pd-eF-1ng"/>
                                     <constraint firstItem="dNl-En-gCI" firstAttribute="leading" secondItem="cGd-td-cWd" secondAttribute="leading" id="82G-tu-t1v"/>
                                     <constraint firstItem="zUT-2F-cVy" firstAttribute="top" secondItem="q0t-Nw-CXV" secondAttribute="bottom" constant="15" id="Rot-Na-mmA"/>
@@ -104,7 +104,7 @@
                                     <constraint firstItem="q0t-Nw-CXV" firstAttribute="centerX" secondItem="cGd-td-cWd" secondAttribute="centerX" id="nAT-LU-ghF"/>
                                     <constraint firstItem="E1m-FN-ONa" firstAttribute="centerY" secondItem="dNl-En-gCI" secondAttribute="centerY" id="oye-QR-eCw"/>
                                     <constraint firstItem="r9C-DE-xMU" firstAttribute="top" secondItem="muB-hZ-d1t" secondAttribute="bottom" constant="7.5" id="qo2-0F-blR"/>
-                                    <constraint firstItem="dNl-En-gCI" firstAttribute="top" secondItem="cGd-td-cWd" secondAttribute="top" id="thL-2B-Hsm"/>
+                                    <constraint firstItem="dNl-En-gCI" firstAttribute="top" secondItem="cGd-td-cWd" secondAttribute="top" constant="-44" id="thL-2B-Hsm"/>
                                     <constraint firstItem="muB-hZ-d1t" firstAttribute="leading" secondItem="cGd-td-cWd" secondAttribute="leading" constant="40" id="uYx-WP-Oiw"/>
                                     <constraint firstItem="zUT-2F-cVy" firstAttribute="leading" secondItem="cGd-td-cWd" secondAttribute="leading" constant="20" id="yHs-Fp-qR6"/>
                                 </constraints>

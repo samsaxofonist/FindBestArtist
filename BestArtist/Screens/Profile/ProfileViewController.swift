@@ -11,11 +11,8 @@ import FBSDKCoreKit
 import CropViewController
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
-
     @IBOutlet weak var profilePhotoImage: UIImageView!
-    
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
-    
     
     var imagePicker = UIImagePickerController()
     
@@ -23,9 +20,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118
-        
-        }
-    
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,6 +31,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     func loadProfilePhoto() {
         FBSDKProfile.loadCurrentProfile { (profile, error) in
             if let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) {
@@ -47,6 +43,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
+    
     @IBAction func chooseButtonDidSelected(_ sender: Any) {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
