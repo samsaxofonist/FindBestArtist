@@ -33,11 +33,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func loadProfilePhoto() {
-        FBSDKProfile.loadCurrentProfile { (profile, error) in
-            if let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) {
-                let data = try? Data(contentsOf: url)
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
+        DispatchQueue.global().async {
+            FBSDKProfile.loadCurrentProfile { (profile, error) in
+                guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else { return }
+                guard let data = try? Data(contentsOf: url), let image = UIImage(data: data) else { return }
+
+                DispatchQueue.main.async {
                     self.profilePhotoImage.image = image
                 }
             }
