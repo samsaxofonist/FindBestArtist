@@ -11,4 +11,5 @@ pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'FacebookSDK'
 pod 'FacebookSDK/LoginKit'
 pod 'CropViewController'
+pod "youtube-ios-player-helper", "~> 0.1.4"
 end

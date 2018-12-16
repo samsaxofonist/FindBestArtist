@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InformationUserViewController: UIViewController {
+class InformationUserViewController: WithoutTabbarViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

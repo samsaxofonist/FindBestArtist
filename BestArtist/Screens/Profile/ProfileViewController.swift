@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import CropViewController
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
+class ProfileViewController: WithoutTabbarViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
     
@@ -22,15 +22,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profilePhotoImage.layer.cornerRadius = 118
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
-    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
     
     func loadProfilePhoto() {
         DispatchQueue.global().async {
