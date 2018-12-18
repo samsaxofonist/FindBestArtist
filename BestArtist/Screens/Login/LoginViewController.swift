@@ -35,8 +35,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         setEverythingVisible(isVisible: false)
-        
-        
         FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             guard error == nil, let token = FBSDKAccessToken.current() else {
                 self.setEverythingVisible(isVisible: true)
