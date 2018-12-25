@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let maxAnimationDelay: Double = 0.15
+    let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     
     @IBOutlet weak var profilesTableView: UITableView!
