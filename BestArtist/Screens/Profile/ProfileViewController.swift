@@ -13,12 +13,15 @@ import CropViewController
 class ProfileViewController: WithoutTabbarViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activity.startAnimating()
         loadProfilePhoto()
+        activity.stopAnimating()
         profilePhotoImage.layer.cornerRadius = 118
     }
     

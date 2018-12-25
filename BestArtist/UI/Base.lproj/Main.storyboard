@@ -194,19 +194,19 @@
             </objects>
             <point key="canvasLocation" x="1167" y="-692"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Menu-->
         <scene sceneID="E1Y-ln-jKH">
             <objects>
                 <tableViewController id="h76-GU-FFq" customClass="MenuViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dw1-vq-eSH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.25028064849999998" green="0.66354298590000005" blue="0.85042470690000005" alpha="0.70042273119999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="Txa-Qn-91g">
+                            <tableViewSection id="Txa-Qn-91g">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="47" id="fX4-81-kCo">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fX4-81-kCo" id="1xg-87-WOy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
@@ -216,14 +216,16 @@
                                                     <rect key="frame" x="16" y="11" width="104" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0L5-ts-jSN">
-                                        <rect key="frame" x="0.0" y="75" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0L5-ts-jSN" id="vaR-Bd-0XR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -233,11 +235,12 @@
                                                     <rect key="frame" x="16" y="11" width="58" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.25028064849999998" green="0.66354298590000005" blue="0.85042470690000005" alpha="0.70042273119999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -247,7 +250,7 @@
                             <outlet property="delegate" destination="h76-GU-FFq" id="u7N-vA-FdN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="XFg-Fk-9C7"/>
+                    <navigationItem key="navigationItem" title="Menu" id="XFg-Fk-9C7"/>
                     <connections>
                         <outlet property="profileCellTitle" destination="DqW-yI-y0V" id="ptb-eA-uvD"/>
                     </connections>
@@ -414,6 +417,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="176.85589599609375" height="383"/>
+        <image name="first screen" width="562" height="1218"/>
     </resources>
 </document>

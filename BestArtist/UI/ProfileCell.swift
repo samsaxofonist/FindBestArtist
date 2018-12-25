@@ -14,4 +14,9 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
+    
+    override func awakeFromNib() {
+        photoImage.layer.cornerRadius = 180
+    
+    }
 }
