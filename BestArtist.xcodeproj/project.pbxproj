@@ -150,7 +150,6 @@
 				3E36FDC821A35462007781E5 /* UI */,
 				3E36FDB621A353AA007781E5 /* AppDelegate.swift */,
 				3E36FDBD21A353AB007781E5 /* Assets.xcassets */,
-				3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */,
 				3E36FDC221A353AB007781E5 /* Info.plist */,
 			);
 			path = BestArtist;
@@ -163,6 +162,7 @@
 				3E36FDCA21A35462007781E5 /* ProfileCell.xib */,
 				3E36FDCB21A35462007781E5 /* LaunchScreen.storyboard */,
 				3E36FDCD21A35462007781E5 /* Main.storyboard */,
+				3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */,
 				3EC0D00621BD38CF004627EA /* Profile.storyboard */,
 			);
 			path = UI;
@@ -606,7 +606,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.FindBestArtist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -625,7 +625,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.FindBestArtist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
