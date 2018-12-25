@@ -11,6 +11,7 @@ import UIKit
 class InformationUserViewController: WithoutTabbarViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameTitleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var informationAboutYourselfView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
