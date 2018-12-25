@@ -12,10 +12,15 @@ import Firebase
 import FirebaseDatabase
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let maxAnimationDelay: Double = 0.15
+    var indexShown = [Int]()
+    
     @IBOutlet weak var profilesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font.bold()]
         
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -61,5 +66,45 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetailsSegue", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !wasCellAlreadyPresent(index: indexPath) else {return}
+        
+        let originalY = cell.frame.origin.y
+        cell.frame.origin = CGPoint(x: -UIScreen.main.bounds.width, y: originalY)
+        cell.alpha = 0
+        
+        let delay = Double(indexPath.row) * 0.05
+        let finalDelay = delay < maxAnimationDelay ? delay : maxAnimationDelay
+        
+        UIView.animate(withDuration: 1.0, delay: finalDelay, options: [], animations: {
+            cell.frame.origin = CGPoint(x: 0, y: originalY)
+            cell.alpha = 1
+        }, completion: nil)
+        indexShown.append(indexPath.row)
+    }
+    
+    func wasCellAlreadyPresent(index: IndexPath) -> Bool {
+        if indexShown.contains(index.row) {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+extension UIFont {
+    func withTraits(traits:UIFontDescriptor.SymbolicTraits) -> UIFont {
+        let descriptor = fontDescriptor.withSymbolicTraits(traits)
+        return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
+    }
+    
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
+    
+    func italic() -> UIFont {
+        return withTraits(traits: .traitItalic)
     }
 }

@@ -25,6 +25,9 @@
         <array key="SF-Pro-Text-Regular.otf">
             <string>SFProText-Regular</string>
         </array>
+        <array key="SFUIText.ttf">
+            <string>.SFUIText</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Profile View Controller-->
@@ -177,20 +180,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4">
                                 <rect key="frame" x="35" y="70" width="305" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="*About Yourself" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCr-U3-alK">
-                                <rect key="frame" x="35" y="214" width="129" height="25"/>
+                                <rect key="frame" x="35" y="174" width="129" height="24"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-gA-pzH">
-                                <rect key="frame" x="35" y="244" width="305" height="228"/>
+                                <rect key="frame" x="35" y="203" width="305" height="228"/>
                                 <color key="backgroundColor" red="0.19584554430000001" green="0.68570202589999996" blue="0.86294752360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="228" id="im8-Ti-AWi"/>
@@ -212,25 +215,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Your Tallent (through one point)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ir-Gv-WTB">
-                                <rect key="frame" x="35" y="105" width="305" height="24"/>
+                                <rect key="frame" x="35" y="108" width="305" height="24"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHK-MT-nmf">
-                                <rect key="frame" x="35" y="134" width="305" height="30"/>
+                                <rect key="frame" x="35" y="136" width="305" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us who you are. But short." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz6-pA-wCa">
-                                <rect key="frame" x="35" y="477" width="305" height="24"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFa-Wn-8ha" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="240" y="174" width="100" height="60"/>
+                                <rect key="frame" x="240" y="447" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.23770850896835327" green="0.64179927110671997" blue="0.83875197172164917" alpha="0.70197452910958913" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="M9k-oQ-0E8"/>
@@ -266,28 +263,28 @@
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="bottom" secondItem="hp1-l6-5i4" secondAttribute="bottom" constant="-40" id="H8Q-3I-lbn"/>
                             <constraint firstItem="PeO-OV-Zln" firstAttribute="top" secondItem="IUG-aF-aZ0" secondAttribute="top" constant="21" id="HMW-K2-S7z"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="hp1-l6-5i4" secondAttribute="trailing" id="Icq-3C-nGc"/>
-                            <constraint firstItem="1Ir-Gv-WTB" firstAttribute="top" secondItem="a1H-nV-tA4" secondAttribute="bottom" constant="5" id="Pul-DV-Vjd"/>
+                            <constraint firstItem="fFa-Wn-8ha" firstAttribute="top" secondItem="h2g-gA-pzH" secondAttribute="bottom" constant="16" id="LzG-y0-XjH"/>
+                            <constraint firstItem="1Ir-Gv-WTB" firstAttribute="top" secondItem="a1H-nV-tA4" secondAttribute="bottom" constant="8" id="Pul-DV-Vjd"/>
                             <constraint firstItem="h2g-gA-pzH" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="Qr5-Se-y9d"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="a1H-nV-tA4" secondAttribute="trailing" constant="35" id="S12-qs-dwf"/>
-                            <constraint firstItem="h2g-gA-pzH" firstAttribute="top" secondItem="fFa-Wn-8ha" secondAttribute="bottom" constant="10" id="VOQ-He-Yhg"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="fFa-Wn-8ha" secondAttribute="trailing" constant="35" id="Wp7-gF-ldt"/>
                             <constraint firstItem="rHK-MT-nmf" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="bUp-x9-Ryj"/>
-                            <constraint firstItem="pz6-pA-wCa" firstAttribute="top" secondItem="h2g-gA-pzH" secondAttribute="bottom" constant="5" id="cYr-zh-pQu"/>
                             <constraint firstItem="PeO-OV-Zln" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="fCc-6E-F58"/>
                             <constraint firstItem="a1H-nV-tA4" firstAttribute="top" secondItem="PeO-OV-Zln" secondAttribute="bottom" constant="5" id="fxF-lP-xOq"/>
                             <constraint firstItem="hp1-l6-5i4" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" id="kgl-oB-6Rt"/>
-                            <constraint firstItem="pz6-pA-wCa" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="kiZ-Z8-37h"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="rHK-MT-nmf" secondAttribute="trailing" constant="35" id="m7M-Ja-33G"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="1Ir-Gv-WTB" secondAttribute="trailing" constant="35" id="n4B-3g-fSL"/>
-                            <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="pz6-pA-wCa" secondAttribute="trailing" constant="35" id="pbT-Gu-A1U"/>
-                            <constraint firstItem="UCr-U3-alK" firstAttribute="top" secondItem="rHK-MT-nmf" secondAttribute="bottom" constant="50" id="rKn-SN-uNY"/>
+                            <constraint firstItem="UCr-U3-alK" firstAttribute="top" secondItem="rHK-MT-nmf" secondAttribute="bottom" constant="8" id="rKn-SN-uNY"/>
                             <constraint firstItem="1Ir-Gv-WTB" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="sON-to-Lcb"/>
-                            <constraint firstItem="fFa-Wn-8ha" firstAttribute="top" secondItem="rHK-MT-nmf" secondAttribute="bottom" constant="10" id="wnX-8F-add"/>
                             <constraint firstItem="h2g-gA-pzH" firstAttribute="top" secondItem="UCr-U3-alK" secondAttribute="bottom" constant="5" id="xSO-T5-9Ek"/>
-                            <constraint firstItem="rHK-MT-nmf" firstAttribute="top" secondItem="1Ir-Gv-WTB" secondAttribute="bottom" constant="5" id="zqO-tk-DBI"/>
+                            <constraint firstItem="rHK-MT-nmf" firstAttribute="top" secondItem="1Ir-Gv-WTB" secondAttribute="bottom" constant="4" id="zqO-tk-DBI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IUG-aF-aZ0"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="a1H-nV-tA4" id="hWG-KJ-eX4"/>
+                        <outlet property="nameTitleLabelTopConstraint" destination="HMW-K2-S7z" id="40S-Jd-u2W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jI-fp-LFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="EW2-ac-D9s">
@@ -353,7 +350,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Enter Your Best Video (Youtube)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b15-Nc-ki9">
                                 <rect key="frame" x="35" y="92.5" width="305" height="25.5"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="21"/>
+                                <fontDescription key="fontDescription" name=".SFUIText" family=".SF UI Text" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -390,6 +387,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="562" height="1218"/>
+        <image name="first screen" width="176.85589599609375" height="383"/>
     </resources>
 </document>

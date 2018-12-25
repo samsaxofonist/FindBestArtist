@@ -16,7 +16,8 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
     
     override func awakeFromNib() {
-        photoImage.layer.cornerRadius = 180
+        super.awakeFromNib()
+        photoImage.layer.cornerRadius = 84
     
     }
 }
