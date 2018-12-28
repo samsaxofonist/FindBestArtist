@@ -122,8 +122,8 @@
                                     <segue destination="Szf-76-ehU" kind="show" id="txW-hg-KAt"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-pl-Pn6">
-                                <rect key="frame" x="177.5" y="228.5" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-pl-Pn6">
+                                <rect key="frame" x="169" y="220" width="37" height="37"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -410,6 +410,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="562" height="1218"/>
+        <image name="first screen" width="176.85589599609375" height="383"/>
     </resources>
 </document>

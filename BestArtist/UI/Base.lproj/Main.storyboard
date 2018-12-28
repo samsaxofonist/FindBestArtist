@@ -282,9 +282,10 @@
         <scene sceneID="bET-WK-OQo">
             <objects>
                 <navigationController id="YDO-4j-Wck" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cae-OG-j4N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" backIndicatorImage="second screen" id="Cae-OG-j4N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
@@ -436,6 +437,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first screen" width="562" height="1218"/>
+        <image name="first screen" width="176.85589599609375" height="383"/>
+        <image name="second screen" width="176.85589599609375" height="383"/>
     </resources>
 </document>
