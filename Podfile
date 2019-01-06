@@ -14,4 +14,5 @@ pod 'FacebookCore', '0.4'
 pod 'FacebookLogin', '0.4'
 pod 'CropViewController'
 pod "youtube-ios-player-helper", "~> 0.1.4"
+pod 'TextFieldEffects'
 end
