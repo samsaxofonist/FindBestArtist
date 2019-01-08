@@ -21,7 +21,7 @@ class InformationUserViewController: WithoutTabbarViewController, UITextViewDele
         
         nameTextField.becomeFirstResponder()
         informationAboutYourselfView.delegate = self
-        self.updateCharacterCount()
+       
         informationAboutYourselfView.text = "Artist of the original genre ..."
         informationAboutYourselfView.textColor = UIColor.lightGray
     }
@@ -37,27 +37,29 @@ class InformationUserViewController: WithoutTabbarViewController, UITextViewDele
     @objc func keyBoardWillHide(notification: NSNotification) {
         nameTitleLabelTopConstraint.constant = 21
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
         }
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Artist of the original genre ..."
             textView.textColor = UIColor.lightGray
         }
     }
+    
     func updateCharacterCount() {
         let numberCharacters = self.informationAboutYourselfView.text.characters.count
-        self.numberCharactersLabel.text = "\((0) + numberCharacters)/50"
+        self.numberCharactersLabel.text = "\((0) + numberCharacters)/500"
     }
     
     func textViewDidChange(_ textView: UITextView) {
         self.updateCharacterCount()
     }
-    
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         if(textView == informationAboutYourselfView){

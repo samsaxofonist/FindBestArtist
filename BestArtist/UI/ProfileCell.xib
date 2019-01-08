@@ -22,8 +22,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="200" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="495" height="200"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="396" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="917" height="396"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
                 <rect key="frame" x="0.0" y="0.0" width="495" height="199.5"/>
@@ -169,7 +169,7 @@
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
             </connections>
-            <point key="canvasLocation" x="-194.40000000000001" y="80.059970014992516"/>
+            <point key="canvasLocation" x="-195.19999999999999" y="80.059970014992516"/>
         </tableViewCell>
     </objects>
     <resources>
