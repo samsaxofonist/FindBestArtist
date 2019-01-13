@@ -36,8 +36,10 @@ class GetVideoViewController: WithoutTabbarViewController {
     }
     
     func processYoutube(string: String) {
-        let idText = (string as NSString).lastPathComponent
-        self.videoView.load(withVideoId: idText)
+        let components = string.components(separatedBy: "=")
+        if let idText = components.last {
+            self.videoView.load(withVideoId: idText)
+        }
     }
     
     func processOther(string: String) {

@@ -52,6 +52,9 @@
 		3E36FE1F21A35463007781E5 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDF721A35463007781E5 /* SF-Pro-Display-BoldItalic.otf */; };
 		3E36FE2021A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
+		3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */; };
+		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
+		3EBEC72821EBAE5200274C76 /* FinalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
 		3EC0D00921BD3FB4004627EA /* InformationUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */; };
 		3F49E216FAF3A73B392157ED /* Pods_BestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */; };
@@ -106,6 +109,9 @@
 		3E36FDF721A35463007781E5 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
 		3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
+		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProfileViewController.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationUserViewController.swift; sourceTree = "<group>"; };
 		57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +210,9 @@
 				3E36FDD621A35462007781E5 /* ProfileViewController.swift */,
 				3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */,
 				3E32991F21C68A5800BC33AB /* GetVideoViewController.swift */,
+				3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */,
+				3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */,
+				3EBEC72521EBA9C600274C76 /* Geocoder.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -387,6 +396,9 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
@@ -404,6 +416,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
@@ -447,10 +462,13 @@
 				3E32992021C68A5800BC33AB /* GetVideoViewController.swift in Sources */,
 				3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */,
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
+				3EBEC72821EBAE5200274C76 /* FinalProfileViewController.swift in Sources */,
 				3E32991E21C687B400BC33AB /* WithoutTabbarViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E36FE0021A35463007781E5 /* ProfileViewController.swift in Sources */,
+				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
+				3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* NavigationHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
