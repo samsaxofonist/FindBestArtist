@@ -17,7 +17,7 @@ class ProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        photoImage.layer.cornerRadius = 80
+        photoImage.layer.cornerRadius = 84
     
     }
 }
