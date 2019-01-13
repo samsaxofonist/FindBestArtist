@@ -21,7 +21,6 @@ class ProfileViewController: WithoutTabbarViewController, UIImagePickerControlle
         super.viewDidLoad()
         activity.startAnimating()
         loadProfilePhoto()
-        activity.stopAnimating()
         profilePhotoImage.layer.cornerRadius = 118
     }
     
@@ -35,6 +34,7 @@ class ProfileViewController: WithoutTabbarViewController, UIImagePickerControlle
 
                 DispatchQueue.main.async {
                     self.profilePhotoImage.image = image
+                    self.activity.stopAnimating()
                 }
             }
         }
