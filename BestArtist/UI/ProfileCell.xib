@@ -22,20 +22,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="396" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="917" height="396"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="396" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
-                <rect key="frame" x="0.0" y="0.0" width="917" height="395.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="151.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA" customClass="DesignableView" customModule="Spring">
-                        <rect key="frame" x="20" y="11" width="877" height="374"/>
+                        <rect key="frame" x="16" y="11" width="328" height="130"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-SL-B3r">
-                                <rect key="frame" x="0.0" y="0.0" width="877" height="374"/>
+                                <rect key="frame" x="0.0" y="0.0" width="328" height="130"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sss-Fa-lBU">
-                                    <rect key="frame" x="0.0" y="0.0" width="877" height="374"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="130"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -58,28 +58,28 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl" customClass="DesignableView" customModule="Spring">
-                        <rect key="frame" x="20" y="11" width="877" height="374"/>
+                        <rect key="frame" x="16" y="11" width="328" height="130"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fly" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-nG-9Hv">
-                                <rect key="frame" x="5" y="5" width="168" height="364"/>
+                                <rect key="frame" x="5" y="5" width="120" height="120"/>
                                 <color key="backgroundColor" red="0.23770850900000001" green="0.64179927110000001" blue="0.83875197170000004" alpha="0.70197452910000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="RU5-Vo-NX9"/>
+                                    <constraint firstAttribute="height" constant="120" id="JJZ-Am-QHq"/>
+                                    <constraint firstAttribute="width" constant="120" id="RU5-Vo-NX9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="183" y="12" width="609" height="40"/>
+                                <rect key="frame" x="135" y="5" width="108" height="26.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2fF-O0-HAg"/>
+                                    <constraint firstAttribute="height" constant="26.5" id="jdR-i2-DID"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000 €" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-N4-LJw">
-                                <rect key="frame" x="797" y="10" width="60" height="40"/>
+                                <rect key="frame" x="248" y="10" width="60" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8re-78-V7M"/>
                                     <constraint firstAttribute="width" constant="60" id="cv1-zo-Q0C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Italic" family="SF Pro Display" pointSize="17"/>
@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Möchten Sie einen Funken Originalität Ihrer Veranstaltung hinzufügen?- dann laden Sie einen Saxophonisten ein!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
-                                <rect key="frame" x="183" y="52" width="659" height="31.5"/>
+                                <rect key="frame" x="135" y="31.5" width="158" height="88.5"/>
                                 <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -95,19 +95,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.23770850896835327" green="0.64179927110671997" blue="0.83875197172164917" alpha="0.298828125" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Xkb-uD-3dM" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="12" id="3uE-AE-qrz"/>
-                            <constraint firstItem="vvZ-N4-LJw" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="10" id="80y-Sy-2m8"/>
-                            <constraint firstItem="GeW-nG-9Hv" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="5" id="BIk-Uh-KGH"/>
+                            <constraint firstItem="Xkb-uD-3dM" firstAttribute="top" secondItem="GeW-nG-9Hv" secondAttribute="top" id="23L-BM-Pdv"/>
+                            <constraint firstItem="GeW-nG-9Hv" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="5" id="CHW-Ri-nRV"/>
                             <constraint firstAttribute="trailing" secondItem="vvZ-N4-LJw" secondAttribute="trailing" constant="20" id="CVe-G8-YCi"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" id="Hcb-fx-K87"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="10" id="SLp-0I-zQS"/>
                             <constraint firstItem="vvZ-N4-LJw" firstAttribute="leading" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="5" id="So6-8T-WbJ"/>
                             <constraint firstAttribute="trailing" secondItem="xEd-WR-VXw" secondAttribute="trailing" constant="35" id="TRe-rI-9iq"/>
                             <constraint firstItem="Xkb-uD-3dM" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="10" id="dJ4-T0-nrq"/>
+                            <constraint firstAttribute="bottom" secondItem="GeW-nG-9Hv" secondAttribute="bottom" constant="5" id="dg6-Hp-zXs"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="centerY" secondItem="zPv-vp-gOl" secondAttribute="centerY" id="eqf-MO-Bpu"/>
+                            <constraint firstItem="vvZ-N4-LJw" firstAttribute="firstBaseline" secondItem="Xkb-uD-3dM" secondAttribute="firstBaseline" id="fSr-B3-9Hu"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xEd-WR-VXw" secondAttribute="bottom" constant="10" id="gJG-g5-kiW"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" constant="5" id="o7k-yo-U30"/>
-                            <constraint firstAttribute="bottom" secondItem="GeW-nG-9Hv" secondAttribute="bottom" constant="5" id="tVG-K7-mc3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>

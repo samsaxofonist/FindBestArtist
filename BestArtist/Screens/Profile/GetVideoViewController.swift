@@ -15,6 +15,8 @@ class GetVideoViewController: WithoutTabbarViewController {
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var videoView: YTPlayerView!
     
+    var artist: Artist!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -78,5 +80,11 @@ class GetVideoViewController: WithoutTabbarViewController {
             return imageFormats.contains(extensi)
         }
         return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! CitySelectionViewController
+        artist.youtubeLink = textfield.text ?? ""
+        nextViewController.artist = artist
     }
 }

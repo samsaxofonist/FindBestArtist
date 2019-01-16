@@ -78,7 +78,7 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
         let delay = Double(indexPath.row) * 0.05
         let finalDelay = delay < maxAnimationDelay ? delay : maxAnimationDelay
         
-        UIView.animate(withDuration: 1.0, delay: finalDelay, options: [], animations: {
+        UIView.animate(withDuration: 0.6, delay: finalDelay, options: [], animations: {
             cell.frame.origin = CGPoint(x: 0, y: originalY)
             cell.alpha = 1
         }, completion: nil)

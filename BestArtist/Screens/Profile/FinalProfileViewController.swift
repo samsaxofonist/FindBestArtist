@@ -9,29 +9,54 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreLocation
 
 class FinalProfileViewController: WithoutTabbarViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var finalPriceLabel: UILabel!
     
+    let berlin = City(name: "Berlin", location: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
+    let hamburg = City(name: "Hamburg", location: CLLocationCoordinate2D(latitude: 53.551086, longitude: 9.993682))
+    
     var disposeBag = DisposeBag()
     
-    var city: City!
+    var artist: Artist!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var distance: Double
+        
+        if artist.city! == berlin {
+            distance = hamburg.location.distance(from: artist.city!.location)
+        } else {
+            distance = berlin.location.distance(from: artist.city!.location)
+        }
+        distance = distance/1000
 
-        cityNameLabel.text = city.name
+        cityNameLabel.text = artist.city!.name
         priceTextField.rx.text.orEmpty
             .map {
-                if let number = Int($0) {
-                    return String(number * 2)
+                if let price = Double($0) {
+                    let result: Double = ceil(price + (distance/2) + 100)
+                    return String(result)
                 } else {
                     return "Введите сумму"
                 }
             }
             .bind(to: finalPriceLabel.rx.text)
             .disposed(by: disposeBag)
+    }
+    
+    @IBAction func saveAllButton(_ sender: Any) {
+        artist.price = Int(priceTextField.text ?? "") ?? 0
+    }
+}
+
+extension CLLocationCoordinate2D {
+    func distance(from: CLLocationCoordinate2D) -> CLLocationDistance {
+        let destination = CLLocation(latitude:from.latitude, longitude:from.longitude)
+        return CLLocation(latitude: self.latitude, longitude: self.longitude).distance(from: destination)
     }
 }

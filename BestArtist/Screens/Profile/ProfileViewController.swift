@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import CropViewController
+import FBSDKLoginKit
 
 class ProfileViewController: WithoutTabbarViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
@@ -16,6 +17,7 @@ class ProfileViewController: WithoutTabbarViewController, UIImagePickerControlle
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var imagePicker = UIImagePickerController()
+    var artist = Artist()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class ProfileViewController: WithoutTabbarViewController, UIImagePickerControlle
 
                 DispatchQueue.main.async {
                     self.profilePhotoImage.image = image
+                    
                     self.activity.stopAnimating()
                 }
             }
@@ -66,5 +69,12 @@ class ProfileViewController: WithoutTabbarViewController, UIImagePickerControlle
             return
         }
         profilePhotoImage.image = selectedImage
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! InformationUserViewController
+        artist.photo = profilePhotoImage.image
+        artist.facebookId = FBSDKProfile.current()?.userID ?? ""
+        nextViewController.artist = artist
     }
 }

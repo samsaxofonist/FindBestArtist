@@ -14,6 +14,8 @@ class CitySelectionViewController: WithoutTabbarViewController {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     
+    var artist: Artist!
+    
     @IBOutlet weak var searchResultsTableView: UITableView!
     
     override func viewDidLoad() {
@@ -64,7 +66,8 @@ extension CitySelectionViewController: UITableViewDataSource, UITableViewDelegat
         
         Geocoder.getCityName(locationObject: completion) { city in
             let finalViewController = self.storyboard!.instantiateViewController(withIdentifier: "FinalProfileViewController") as! FinalProfileViewController
-            finalViewController.city = city
+            self.artist.city = city
+            finalViewController.artist = self.artist
             self.navigationController?.pushViewController(finalViewController, animated: true)
         }
     }

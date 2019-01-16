@@ -11,8 +11,11 @@ import UIKit
 class InformationUserViewController: WithoutTabbarViewController, UITextViewDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameTitleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var talent: UITextField!
     @IBOutlet weak var informationAboutYourselfView: UITextView!
     @IBOutlet weak var numberCharactersLabel: UILabel!
+    
+    var artist: Artist!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class InformationUserViewController: WithoutTabbarViewController, UITextViewDele
         informationAboutYourselfView.text = "Artist of the original genre ..."
         informationAboutYourselfView.textColor = UIColor.lightGray
     }
+
     
     @IBAction func hideKeyboardForClicked(_ sender: Any) {
         view.endEditing(true)
@@ -53,7 +57,7 @@ class InformationUserViewController: WithoutTabbarViewController, UITextViewDele
     }
     
     func updateCharacterCount() {
-        let numberCharacters = self.informationAboutYourselfView.text.characters.count
+        let numberCharacters = self.informationAboutYourselfView.text.count
         self.numberCharactersLabel.text = "\((0) + numberCharacters)/500"
     }
     
@@ -63,9 +67,18 @@ class InformationUserViewController: WithoutTabbarViewController, UITextViewDele
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         if(textView == informationAboutYourselfView){
-            return textView.text.characters.count +  (text.characters.count - range.length) <= 50
+            return textView.text.count +  (text.count - range.length) <= 50
         } else {
-        return false
+            return false
+        }
+        
     }
-}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! GetVideoViewController
+        artist.name = nameTextField.text ?? ""
+        artist.talent = talent.text ?? ""
+        artist.description = informationAboutYourselfView.text
+        nextViewController.artist = artist
+    }
 }

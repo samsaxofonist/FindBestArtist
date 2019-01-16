@@ -324,6 +324,7 @@
                         <outlet property="nameTextField" destination="a1H-nV-tA4" id="hWG-KJ-eX4"/>
                         <outlet property="nameTitleLabelTopConstraint" destination="HMW-K2-S7z" id="40S-Jd-u2W"/>
                         <outlet property="numberCharactersLabel" destination="SaM-ld-bci" id="piP-jO-5Ga"/>
+                        <outlet property="talent" destination="rHK-MT-nmf" id="0qJ-kg-zXj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jI-fp-LFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -540,18 +541,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SU-zy-2B7" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
+                                <rect key="frame" x="16" y="507" width="100" height="60"/>
+                                <color key="backgroundColor" red="0.26207393410000002" green="0.34370160100000002" blue="0.42262113089999997" alpha="0.80035316779999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="DuD-Gs-u3Z"/>
+                                    <constraint firstAttribute="width" constant="100" id="VL4-vl-bTY"/>
+                                    <constraint firstAttribute="height" constant="60" id="bhy-cD-kif"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="bqA-ZX-SfR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveAllButton:" destination="uzD-3d-0q3" eventType="touchUpInside" id="DN7-e6-bMN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="9SU-zy-2B7" firstAttribute="top" secondItem="lp6-du-yFv" secondAttribute="bottom" constant="396" id="7S4-AT-3lm"/>
                             <constraint firstItem="Lq2-AX-lIz" firstAttribute="bottom" secondItem="mMV-fL-3IW" secondAttribute="bottom" id="P6Q-fo-I2j"/>
                             <constraint firstItem="lp6-du-yFv" firstAttribute="top" secondItem="Qyp-gT-TRR" secondAttribute="bottom" constant="16" id="V0N-Nr-S82"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="top" secondItem="mMV-fL-3IW" secondAttribute="top" constant="24" id="Wwz-Yd-afY"/>
+                            <constraint firstItem="mMV-fL-3IW" firstAttribute="bottom" secondItem="9SU-zy-2B7" secondAttribute="bottom" constant="100" id="XHx-wJ-fqP"/>
                             <constraint firstItem="Lq2-AX-lIz" firstAttribute="trailing" secondItem="mMV-fL-3IW" secondAttribute="trailing" id="cft-kM-pI3"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="dG4-Ot-4TN"/>
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="trailing" secondItem="ye8-qK-oib" secondAttribute="trailing" constant="24" id="gCc-0y-DW5"/>
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="bottom" secondItem="ye8-qK-oib" secondAttribute="bottom" constant="100" id="oHB-IW-G3e"/>
                             <constraint firstItem="Lq2-AX-lIz" firstAttribute="leading" secondItem="mMV-fL-3IW" secondAttribute="leading" id="oN6-NI-eCY"/>
                             <constraint firstItem="Lq2-AX-lIz" firstAttribute="top" secondItem="kSN-5F-ndF" secondAttribute="top" id="sfL-cm-aDz"/>
+                            <constraint firstItem="9SU-zy-2B7" firstAttribute="leading" secondItem="mMV-fL-3IW" secondAttribute="leading" constant="16" id="tiT-y6-1fR"/>
                             <constraint firstItem="lp6-du-yFv" firstAttribute="leading" secondItem="mMV-fL-3IW" secondAttribute="leading" constant="16" id="ujm-3x-lqL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mMV-fL-3IW"/>

@@ -52,6 +52,7 @@
 		3E36FE1F21A35463007781E5 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDF721A35463007781E5 /* SF-Pro-Display-BoldItalic.otf */; };
 		3E36FE2021A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
+		3E3ECA8521EFC60D007B1FC3 /* AllInformationArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* AllInformationArtist.swift */; };
 		3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */; };
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EBEC72821EBAE5200274C76 /* FinalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */; };
@@ -109,6 +110,7 @@
 		3E36FDF721A35463007781E5 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
 		3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E3ECA8421EFC60D007B1FC3 /* AllInformationArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInformationArtist.swift; sourceTree = "<group>"; };
 		3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProfileViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				3E36FDD621A35462007781E5 /* ProfileViewController.swift */,
 				3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */,
+				3E3ECA8421EFC60D007B1FC3 /* AllInformationArtist.swift */,
 				3E32991F21C68A5800BC33AB /* GetVideoViewController.swift */,
 				3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */,
 				3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */,
@@ -466,6 +469,7 @@
 				3E32991E21C687B400BC33AB /* WithoutTabbarViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E36FE0021A35463007781E5 /* ProfileViewController.swift in Sources */,
+				3E3ECA8521EFC60D007B1FC3 /* AllInformationArtist.swift in Sources */,
 				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
 				3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */,

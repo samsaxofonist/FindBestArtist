@@ -10,7 +10,11 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class City {
+class City: Equatable {
+    static func == (lhs: City, rhs: City) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     let name: String
     let location: CLLocationCoordinate2D
     
