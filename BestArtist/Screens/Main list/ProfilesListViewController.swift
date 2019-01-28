@@ -23,6 +23,8 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font.bold()]
         
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
+        profilesTableView.estimatedRowHeight = 396
+        profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         NavigationHolder.navigation = self.navigationController!
         
@@ -60,7 +62,6 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-        
         return cell
     }
     
@@ -70,7 +71,7 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard !wasCellAlreadyPresent(index: indexPath) else {return}
-        
+        cell.layoutIfNeeded()
         let originalY = cell.frame.origin.y
         cell.frame.origin = CGPoint(x: -UIScreen.main.bounds.width, y: originalY)
         cell.alpha = 0

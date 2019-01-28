@@ -14,10 +14,24 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
+    @IBOutlet weak var viewForGradient: UIView!
+    
+    var gradient = CAGradientLayer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         photoImage.layer.cornerRadius = 60
+        drawGradient()
+    }
     
+    func drawGradient() {
+        gradient.frame = self.viewForGradient.bounds
+        gradient.colors = [UIColor(red: 198/255, green: 244/255, blue: 249/255, alpha: 1.0).cgColor, UIColor(red: 26/255, green: 126/255, blue: 192/255, alpha: 1.0).cgColor]
+        viewForGradient.layer.addSublayer(gradient)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = self.viewForGradient.bounds
     }
 }

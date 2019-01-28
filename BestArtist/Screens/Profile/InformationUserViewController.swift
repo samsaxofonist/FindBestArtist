@@ -70,8 +70,7 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
             return textView.text.count +  (text.count - range.length) <= 50
         } else {
             return false
-        }
-        
+        }        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

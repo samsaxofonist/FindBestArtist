@@ -509,10 +509,8 @@
                                 <rect key="frame" x="16" y="507" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.26207393410000002" green="0.34370160100000002" blue="0.42262113089999997" alpha="0.80035316779999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="DuD-Gs-u3Z"/>
                                     <constraint firstAttribute="width" constant="100" id="VL4-vl-bTY"/>
                                     <constraint firstAttribute="height" constant="60" id="bhy-cD-kif"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="bqA-ZX-SfR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
                                 <state key="normal" title="Save">
@@ -536,7 +534,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9SU-zy-2B7" firstAttribute="top" secondItem="lp6-du-yFv" secondAttribute="bottom" constant="396" id="7S4-AT-3lm"/>
                             <constraint firstItem="lp6-du-yFv" firstAttribute="top" secondItem="Qyp-gT-TRR" secondAttribute="bottom" constant="16" id="V0N-Nr-S82"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="top" secondItem="mMV-fL-3IW" secondAttribute="top" constant="24" id="Wwz-Yd-afY"/>
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="bottom" secondItem="9SU-zy-2B7" secondAttribute="bottom" constant="100" id="XHx-wJ-fqP"/>
