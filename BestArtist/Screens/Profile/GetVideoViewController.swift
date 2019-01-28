@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import youtube_ios_player_helper
 
-class GetVideoViewController: WithoutTabbarViewController {
+class GetVideoViewController: BaseViewController {
 
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var videoView: YTPlayerView!

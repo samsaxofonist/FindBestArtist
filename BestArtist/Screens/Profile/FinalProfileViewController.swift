@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import CoreLocation
 
-class FinalProfileViewController: WithoutTabbarViewController {
+class FinalProfileViewController: BaseViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var finalPriceLabel: UILabel!

@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import CropViewController
 import FBSDKLoginKit
 
-class ProfileViewController: WithoutTabbarViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
+class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
     @IBOutlet weak var activity: UIActivityIndicatorView!

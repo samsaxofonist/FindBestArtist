@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InformationUserViewController: WithoutTabbarViewController, UITextViewDelegate {
+class InformationUserViewController: BaseViewController, UITextViewDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var talent: UITextField!

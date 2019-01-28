@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class CitySelectionViewController: WithoutTabbarViewController {
+class CitySelectionViewController: BaseViewController {
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
