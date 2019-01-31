@@ -14,6 +14,8 @@ class GradientView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         drawGradient()
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
     }
     
     override func layoutSubviews() {

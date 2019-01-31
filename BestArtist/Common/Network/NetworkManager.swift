@@ -22,21 +22,24 @@ struct ArtistKeys {
     static let cityName = "cityName"
     static let cityLatitude = "cityLat"
     static let cityLongitude = "cityLon"
+    static let facebookID = "fbId"
 }
 
 class NetworkManager {
     static func addArtist(_ artist: Artist) {
         uploadPhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             let ref = Database.database().reference().child("users")
+            
             ref.childByAutoId().setValue([ArtistKeys.name: artist.name,
                                           ArtistKeys.talent: artist.talent,
                                           ArtistKeys.description: artist.description,
                                           ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
                                           ArtistKeys.youtubeLink: artist.youtubeLink,
                                           ArtistKeys.price: artist.price,
-                                          ArtistKeys.cityName: artist.city?.name ?? "",
-                                          ArtistKeys.cityLatitude: artist.city?.location.latitude ?? 0,
-                                          ArtistKeys.cityLongitude: artist.city?.location.longitude ?? 0])
+                                          ArtistKeys.cityName: artist.city.name,
+                                          ArtistKeys.cityLatitude: artist.city.location.latitude,
+                                          ArtistKeys.cityLongitude: artist.city.location.longitude,
+                                          ArtistKeys.facebookID: artist.facebookId])
         })
     }
     
@@ -56,20 +59,20 @@ class NetworkManager {
     
     static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {
         let ref = Database.database().reference().child("users")
-        var artists = [Artist]()
         
         ref.observeSingleEvent(of: .value, with: { data in
             guard let jsonData = data.value as? [String: [String: Any]] else { return }
             var artists = [Artist]()
             
-            for (key, value) in jsonData {
-                var artist = Artist()
+            for (_, value) in jsonData {
+                let artist = Artist()
                 artist.name = (value[ArtistKeys.name] as? String) ?? ""
                 artist.talent = (value[ArtistKeys.talent] as? String) ?? ""
                 artist.description = (value[ArtistKeys.description] as? String) ?? ""
                 artist.photoLink = value[ArtistKeys.photoLink] as? String
                 artist.youtubeLink = (value[ArtistKeys.youtubeLink] as? String) ?? ""
                 artist.price = (value[ArtistKeys.price] as? Int) ?? 0
+                artist.facebookId = (value[ArtistKeys.facebookID] as? String) ?? ""
                 
                 let cityName = (value[ArtistKeys.cityName] as? String) ?? ""
                 let lat = (value[ArtistKeys.cityLatitude] as? Double) ?? 0

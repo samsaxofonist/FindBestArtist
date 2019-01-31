@@ -13,13 +13,14 @@ import FBSDKLoginKit
 class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileCellTitle.text = GlobalManager.isExistUser ? "Edit Profile" : "Create Profile"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let neededNavigation = NavigationHolder.navigation
-        let rootNavigation = NavigationHolder.rootNavigation
+        let neededNavigation = GlobalManager.navigation
+        let rootNavigation = GlobalManager.rootNavigation
         
         if indexPath.row == 0 {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)

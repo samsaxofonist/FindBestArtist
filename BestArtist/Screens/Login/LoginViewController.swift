@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NavigationHolder.rootNavigation = self.navigationController
+        GlobalManager.rootNavigation = self.navigationController
         
         if FBSDKAccessToken.current() != nil {
             openMainScreen()

@@ -11,12 +11,12 @@ import UIKit
 
 class Artist  {
     var facebookId: String = ""
-    var photo: UIImage?
-    var photoLink: String?
+    var photo: UIImage!
+    var photoLink: String!
     var name: String = ""
     var talent: String = ""
     var description: String = ""
     var youtubeLink: String = ""
-    var city: City?
+    var city: City!
     var price: Int = 0
 }

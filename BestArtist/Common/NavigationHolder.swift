@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NavigationHolder {
+class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
+    static var isExistUser: Bool = false
 }

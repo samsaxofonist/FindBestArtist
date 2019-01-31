@@ -10,6 +10,7 @@ import UIKit
 import SideMenu
 import Firebase
 import FirebaseDatabase
+import FBSDKCoreKit
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilesTableView: UITableView!
@@ -25,6 +26,9 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
             if error == nil {
                 self.artists = artists
                 self.profilesTableView.reloadData()
+                let idUser = FBSDKProfile.current()?.userID ?? ""
+                let isUser = self.isExistUser(id: idUser)
+                GlobalManager.isExistUser = isUser
             } else {
                 //TODO: Show error to user
             }
@@ -36,7 +40,7 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        NavigationHolder.navigation = self.navigationController!
+        GlobalManager.navigation = self.navigationController!
     }
     
     @objc func menuButtonClicked() {
@@ -81,6 +85,10 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             return false
         }
+    }
+    
+    func isExistUser(id: String) -> Bool {
+        return artists.contains(where: { $0.facebookId == id })
     }
 }
 
