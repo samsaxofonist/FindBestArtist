@@ -10,10 +10,8 @@ import UIKit
 import MapKit
 
 class CitySelectionViewController: BaseViewController {
-    
     var searchCompleter = MKLocalSearchCompleter()
-    var searchResults = [MKLocalSearchCompletion]()
-    
+    var searchResults = [MKLocalSearchCompletion]()    
     var artist: Artist!
     
     @IBOutlet weak var searchResultsTableView: UITableView!
@@ -22,7 +20,6 @@ class CitySelectionViewController: BaseViewController {
         super.viewDidLoad()
         searchCompleter.delegate = self
     }
-    
 }
 
 extension CitySelectionViewController: UISearchBarDelegate {

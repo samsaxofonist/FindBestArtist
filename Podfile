@@ -19,4 +19,5 @@ pod 'CropViewController'
 pod "youtube-ios-player-helper", "~> 0.1.4"
 pod 'TextFieldEffects'
 pod 'M13Checkbox'
+pod 'Kingfisher', '~> 5.0'
 end

@@ -28,7 +28,6 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
         informationAboutYourselfView.text = "Artist of the original genre ..."
         informationAboutYourselfView.textColor = UIColor.lightGray
     }
-
     
     @IBAction func hideKeyboardForClicked(_ sender: Any) {
         view.endEditing(true)

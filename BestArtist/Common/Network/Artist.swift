@@ -12,6 +12,7 @@ import UIKit
 class Artist  {
     var facebookId: String = ""
     var photo: UIImage?
+    var photoLink: String?
     var name: String = ""
     var talent: String = ""
     var description: String = ""

@@ -12,44 +12,31 @@ import Firebase
 import FirebaseDatabase
 
 class ProfilesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var profilesTableView: UITableView!
+    
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
-    
-    @IBOutlet weak var profilesTableView: UITableView!
+    var artists = [Artist]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font.bold()]
-        
+        setup()
+        NetworkManager.loadArtists(completion: { artists, error in
+            if error == nil {
+                self.artists = artists
+                self.profilesTableView.reloadData()
+            } else {
+                //TODO: Show error to user
+            }
+        })
+    }
+    
+    func setup() {
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         NavigationHolder.navigation = self.navigationController!
-        
-        //testLoadData()
-    }
-    
-    func testLoadData() {
-        
-        let ref = Database.database().reference().child("users")
-        ref.childByAutoId().setValue(["name": "Ivan", "price": 1000, "description": "Super good"])
-        ref.childByAutoId().setValue(["name": "Bill", "price": 200, "description": "Bad"])
-        
-        ref.observeSingleEvent(of: .value, with: { data in
-            guard let jsonData = data.value as? [String: [String: Any]] else { return }
-            for (key, value) in jsonData {
-                print("******* User with ID: \(key) **********")
-                print(value["name"] as! String)
-                print(value["description"] as! String)
-                print(value["price"] as! Int)
-                print("*****************")
-            }
-        }) { error in
-            print(error.localizedDescription)
-        }
-
     }
     
     @objc func menuButtonClicked() {
@@ -57,11 +44,13 @@ class ProfilesListViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return artists.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+        let artist = artists[indexPath.row]
+        cell.setupWithArtist(artist)
         return cell
     }
     

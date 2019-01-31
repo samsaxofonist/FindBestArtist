@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="360" height="151.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA">
+                    <view clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA" customClass="GradientView" customModule="BestArtist" customModuleProvider="target">
                         <rect key="frame" x="16" y="11" width="328" height="130"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -174,7 +174,6 @@
                 <outlet property="nameLabel" destination="Xkb-uD-3dM" id="Oa9-ms-iTU"/>
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
-                <outlet property="viewForGradient" destination="123-Vg-VEA" id="76m-57-mo2"/>
             </connections>
             <point key="canvasLocation" x="-195.19999999999999" y="80.059970014992516"/>
         </tableViewCell>

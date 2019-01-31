@@ -51,6 +51,7 @@ class FinalProfileViewController: BaseViewController {
     
     @IBAction func saveAllButton(_ sender: Any) {
         artist.price = Int(priceTextField.text ?? "") ?? 0
+        NetworkManager.addArtist(artist)
     }
 }
 

@@ -26,8 +26,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         profilePhotoImage.layer.cornerRadius = 118
     }
     
-    
-    
     func loadProfilePhoto() {
         DispatchQueue.global().async {
             FBSDKProfile.loadCurrentProfile { (profile, error) in
