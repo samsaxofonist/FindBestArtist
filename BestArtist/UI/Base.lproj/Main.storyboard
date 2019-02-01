@@ -32,7 +32,7 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-td-cWd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="first screen" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-En-gCI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-En-gCI">
                                         <rect key="frame" x="0.0" y="-44" width="375" height="681"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-Nw-CXV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
@@ -299,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="1305" y="18"/>
         </scene>
-        <!--Title-->
+        <!--Musicians-->
         <scene sceneID="drD-qV-JQz">
             <objects>
                 <viewController id="Eg1-Zk-soz" customClass="ProfilesListViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,7 +332,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Pfc-Ay-Vom">
+                    <navigationItem key="navigationItem" title="Musicians" id="Pfc-Ay-Vom">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
@@ -363,11 +363,11 @@
             </objects>
             <point key="canvasLocation" x="1802" y="-1428"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="kVw-ff-7fv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wQu-nD-Nob"/>
+                    <tabBarItem key="tabBarItem" id="wQu-nD-Nob"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ctv-L6-ahN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -30,19 +30,21 @@ class FinalProfileViewController: BaseViewController {
         
         if artist.city! == berlin {
             distance = hamburg.location.distance(from: artist.city!.location)
+            cityNameLabel.text = "Hamburg"
         } else {
             distance = berlin.location.distance(from: artist.city!.location)
+            cityNameLabel.text = "Berlin"
         }
         distance = distance/1000
 
-        cityNameLabel.text = artist.city!.name
+        
         priceTextField.rx.text.orEmpty
             .map {
                 if let price = Double($0) {
-                    let result: Double = ceil(price + (distance/2) + 100)
+                    let result: Double = ceil(price + (distance/2))
                     return String(result)
                 } else {
-                    return "Введите сумму"
+                    return ""
                 }
             }
             .bind(to: finalPriceLabel.rx.text)

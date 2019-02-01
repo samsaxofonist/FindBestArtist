@@ -11,7 +11,7 @@ import Firebase
 import FBSDKLoginKit
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
     @IBOutlet weak var activity: UIActivityIndicatorView!
