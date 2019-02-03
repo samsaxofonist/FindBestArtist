@@ -15,6 +15,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var backgroundPhotoProfile: UIView!
     
     var imagePicker = UIImagePickerController()
     var artist = Artist()
@@ -24,6 +25,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         activity.startAnimating()
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118
+        backgroundPhotoProfile.layer.cornerRadius = 120
     }
     
     func loadProfilePhoto() {

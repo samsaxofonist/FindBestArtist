@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="width" constant="100" id="jWg-MJ-EwX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
-                                <state key="normal" title="Change">
+                                <state key="normal" title="Another">
                                     <color key="titleColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -61,6 +61,14 @@
                                     <action selector="chooseButtonDidSelected:" destination="lST-ue-NwV" eventType="touchUpInside" id="TBb-Ci-lg9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARC-dw-tH3">
+                                <rect key="frame" x="67" y="118" width="241" height="241"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="38Q-Fg-h0O"/>
+                                    <constraint firstAttribute="height" constant="241" id="gRs-zG-Qlk"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cuh-70-syA">
                                 <rect key="frame" x="69" y="120" width="237" height="237"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,33 +122,37 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-pl-Pn6">
                                 <rect key="frame" x="169" y="220" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kGv-vT-QXl" firstAttribute="top" secondItem="XY0-d1-uTr" secondAttribute="bottom" constant="30" id="ASB-M8-BPP"/>
-                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerY" secondItem="i9O-4p-YC8" secondAttribute="centerY" id="Ah3-s1-TXp"/>
+                            <constraint firstItem="CiY-2T-Rtm" firstAttribute="trailing" secondItem="ARC-dw-tH3" secondAttribute="trailing" constant="67" id="EIt-NO-8Yb"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="bottom" secondItem="Cuh-70-syA" secondAttribute="bottom" id="HH8-Db-8OR"/>
                             <constraint firstItem="XY0-d1-uTr" firstAttribute="top" secondItem="Cuh-70-syA" secondAttribute="bottom" constant="10" id="JXk-ey-7nA"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="top" secondItem="CiY-2T-Rtm" secondAttribute="top" constant="100" id="KkB-ZR-QQH"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="top" secondItem="Cuh-70-syA" secondAttribute="top" id="L1E-St-jhS"/>
-                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerX" secondItem="i9O-4p-YC8" secondAttribute="centerX" id="LAS-Oq-xE6"/>
                             <constraint firstItem="XY0-d1-uTr" firstAttribute="centerX" secondItem="i9O-4p-YC8" secondAttribute="centerX" id="LMK-68-jTV"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="leading" secondItem="Cuh-70-syA" secondAttribute="leading" id="Pya-NV-sLg"/>
                             <constraint firstItem="kGv-vT-QXl" firstAttribute="leading" secondItem="CiY-2T-Rtm" secondAttribute="leading" constant="69" id="S5T-j9-qjZ"/>
                             <constraint firstItem="Cuh-70-syA" firstAttribute="centerX" secondItem="CiY-2T-Rtm" secondAttribute="centerX" id="YFy-rX-xOZ"/>
+                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerX" secondItem="ARC-dw-tH3" secondAttribute="centerX" id="elu-Qh-ttZ"/>
+                            <constraint firstItem="ARC-dw-tH3" firstAttribute="leading" secondItem="CiY-2T-Rtm" secondAttribute="leading" constant="67" id="fgm-pH-rdK"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="trailing" secondItem="Cuh-70-syA" secondAttribute="trailing" id="gHz-VZ-gNo"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="width" secondItem="Cuh-70-syA" secondAttribute="width" id="gfH-nj-Pk5"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="height" secondItem="Cuh-70-syA" secondAttribute="height" id="j97-zP-Yi6"/>
                             <constraint firstItem="CiY-2T-Rtm" firstAttribute="trailing" secondItem="HjV-4m-RKF" secondAttribute="trailing" constant="69" id="jHF-We-qu7"/>
+                            <constraint firstItem="ARC-dw-tH3" firstAttribute="top" secondItem="CiY-2T-Rtm" secondAttribute="top" constant="98" id="urQ-DB-xlB"/>
                             <constraint firstItem="HjV-4m-RKF" firstAttribute="top" secondItem="XY0-d1-uTr" secondAttribute="bottom" constant="30" id="x2a-2J-s3j"/>
+                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerY" secondItem="ARC-dw-tH3" secondAttribute="centerY" id="zex-2o-vbo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CiY-2T-Rtm"/>
                     </view>
                     <navigationItem key="navigationItem" id="uIV-pr-FiJ"/>
                     <connections>
                         <outlet property="activity" destination="SSf-pl-Pn6" id="PUs-XP-0TY"/>
+                        <outlet property="backgroundPhotoProfile" destination="ARC-dw-tH3" id="bSi-he-84T"/>
                         <outlet property="imageToTop" destination="KkB-ZR-QQH" id="Miz-ya-tRj"/>
                         <outlet property="profilePhotoImage" destination="Cuh-70-syA" id="ed3-yN-NQp"/>
                     </connections>
@@ -171,9 +183,9 @@
                             </label>
                             <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Justin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4" customClass="UITextfield">
                                 <rect key="frame" x="35" y="69" width="305" height="30"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,7 +213,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Artist of the original genre ...">
                                         <attributes>
-                                            <color key="NSColor" red="0.97561072335025378" green="0.97561072335025378" blue="0.97561072335025378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="SFProText-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -234,9 +246,9 @@
                             </label>
                             <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Singer. Showman. Dancer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHK-MT-nmf">
                                 <rect key="frame" x="35" y="135" width="305" height="30"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-ld-bci">
                                 <rect key="frame" x="35" y="445" width="100" height="30"/>
@@ -332,22 +344,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-A6-GhT" customClass="YTPlayerView">
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-A6-GhT" customClass="YTPlayerView">
                                 <rect key="frame" x="35" y="279.5" width="305" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="AbC-fm-lrC"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://www.youtube.com/watch?v=UfaL6HJZTTA" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s6S-nT-Gnj">
+                            <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s6S-nT-Gnj">
                                 <rect key="frame" x="35" y="128" width="305" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wcm-HN-WgF"/>
                                 </constraints>
-                                <color key="textColor" red="0.67051601409999995" green="0.67063099150000005" blue="0.67049986120000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
                             </textField>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bl9-Ai-0FG" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="178" width="100" height="60"/>
@@ -536,7 +547,7 @@
                                 <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inclusiv transport coasts, hotel you will get paid ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-Jo-Vrd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inclusiv transport costs, hotel you will get paid ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-Jo-Vrd">
                                 <rect key="frame" x="35" y="316" width="305" height="48"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

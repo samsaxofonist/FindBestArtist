@@ -19,6 +19,7 @@ class GetVideoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        videoView.layer.cornerRadius = 10
     }
     
     @IBAction func loadVideoClicked(_ sender: Any) {

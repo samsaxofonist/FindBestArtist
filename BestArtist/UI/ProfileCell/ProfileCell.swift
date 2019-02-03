@@ -15,10 +15,12 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
+    @IBOutlet weak var backgroundPhotoView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         photoImage.layer.cornerRadius = 60
+        backgroundPhotoView.layer.cornerRadius = 61
     }
     
     func setupWithArtist(_ artist: Artist) {
