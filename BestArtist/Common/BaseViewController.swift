@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     func drawGradient() {
         let gradient = CAGradientLayer()
         gradient.frame = self.view.frame
-        gradient.colors = [UIColor(red: 4/255, green: 188/255, blue: 210/255, alpha: 1.0).cgColor, UIColor(red: 45/255, green: 74/255, blue: 143/255, alpha: 1.0).cgColor]
+        gradient.colors = [UIColor(red: 0/255, green: 179/255, blue: 241/255, alpha: 1.0).cgColor, UIColor(red: 12/255, green: 54/255, blue: 153/255, alpha: 1.0).cgColor]
         
         let gradientView = UIView(frame: self.view.frame)
         self.view.insertSubview(gradientView, at: 0)

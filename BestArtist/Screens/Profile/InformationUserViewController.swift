@@ -14,6 +14,7 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
     @IBOutlet weak var talent: UITextField!
     @IBOutlet weak var informationAboutYourselfView: UITextView!
     @IBOutlet weak var numberCharactersLabel: UILabel!
+    @IBOutlet weak var numberNameLabel: UILabel!
     
     var artist: Artist!
     
