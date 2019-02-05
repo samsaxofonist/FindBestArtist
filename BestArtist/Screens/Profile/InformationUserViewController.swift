@@ -67,10 +67,12 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         if(textView == informationAboutYourselfView){
-            return textView.text.count +  (text.count - range.length) <= 50
-        } else {
+            return textView.text.count +  (text.count - range.length) <= 10
+        } ; if(textView == nameTextField){
+            return textView.text.count +  (text.count - range.length) <= 10
+            } else {
             return false
-        }        
+            }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

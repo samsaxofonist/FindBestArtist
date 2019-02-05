@@ -85,9 +85,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E1m-FN-ONa">
-                                        <rect key="frame" x="169" y="278" width="37" height="37"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dNl-En-gCI" secondAttribute="bottom" constant="-34" id="2I6-2J-BCe"/>
@@ -98,11 +95,9 @@
                                     <constraint firstItem="muB-hZ-d1t" firstAttribute="top" secondItem="cGd-td-cWd" secondAttribute="top" constant="150" id="Sr1-cS-gXg"/>
                                     <constraint firstItem="r9C-DE-xMU" firstAttribute="leading" secondItem="cGd-td-cWd" secondAttribute="leading" constant="40" id="Sxx-m5-vF2"/>
                                     <constraint firstAttribute="trailing" secondItem="zUT-2F-cVy" secondAttribute="trailing" constant="20" id="UH2-2Z-DAt"/>
-                                    <constraint firstItem="E1m-FN-ONa" firstAttribute="centerX" secondItem="dNl-En-gCI" secondAttribute="centerX" id="Vkt-pw-qnJ"/>
                                     <constraint firstAttribute="trailing" secondItem="muB-hZ-d1t" secondAttribute="trailing" constant="40" id="anp-S3-ysy"/>
                                     <constraint firstAttribute="trailing" secondItem="r9C-DE-xMU" secondAttribute="trailing" constant="40" id="kC0-yy-YJu"/>
                                     <constraint firstItem="q0t-Nw-CXV" firstAttribute="centerX" secondItem="cGd-td-cWd" secondAttribute="centerX" id="nAT-LU-ghF"/>
-                                    <constraint firstItem="E1m-FN-ONa" firstAttribute="centerY" secondItem="dNl-En-gCI" secondAttribute="centerY" id="oye-QR-eCw"/>
                                     <constraint firstItem="r9C-DE-xMU" firstAttribute="top" secondItem="muB-hZ-d1t" secondAttribute="bottom" constant="7.5" id="qo2-0F-blR"/>
                                     <constraint firstItem="dNl-En-gCI" firstAttribute="top" secondItem="cGd-td-cWd" secondAttribute="top" constant="-44" id="thL-2B-Hsm"/>
                                     <constraint firstItem="muB-hZ-d1t" firstAttribute="leading" secondItem="cGd-td-cWd" secondAttribute="leading" constant="40" id="uYx-WP-Oiw"/>
@@ -128,7 +123,6 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="zTM-eT-cCj"/>
                     <connections>
-                        <outlet property="activity" destination="E1m-FN-ONa" id="kiR-NV-js0"/>
                         <outletCollection property="viewToHideAndShow" destination="muB-hZ-d1t" collectionClass="NSMutableArray" id="Dj3-Ia-v4R"/>
                         <outletCollection property="viewToHideAndShow" destination="r9C-DE-xMU" collectionClass="NSMutableArray" id="zb0-lX-Mvn"/>
                         <outletCollection property="viewToHideAndShow" destination="q0t-Nw-CXV" collectionClass="NSMutableArray" id="AH6-k8-SEJ"/>

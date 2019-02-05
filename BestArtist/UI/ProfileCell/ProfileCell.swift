@@ -21,6 +21,7 @@ class ProfileCell: UITableViewCell {
         super.awakeFromNib()
         photoImage.layer.cornerRadius = 60
         backgroundPhotoView.layer.cornerRadius = 61
+        
     }
     
     func setupWithArtist(_ artist: Artist) {

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import ARSLineProgress
 
 
 class LoginViewController: BaseViewController {
@@ -18,10 +19,12 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         GlobalManager.rootNavigation = self.navigationController
         
         if FBSDKAccessToken.current() != nil {
+            ARSLineProgress.hide()
             openMainScreen()
         }
     }
@@ -55,12 +58,13 @@ class LoginViewController: BaseViewController {
     func setEverythingVisible(isVisible: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.viewToHideAndShow.forEach { $0.isHidden = !isVisible }
-            self.activity.isHidden = isVisible
         }
     }
     
     func openMainScreen() {
+        ARSLineProgress.showSuccess()
         let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
         self.navigationController?.setViewControllers([mainTabBar], animated: true)
+        ARSLineProgress.hide()
     }
 }

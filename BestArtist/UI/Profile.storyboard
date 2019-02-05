@@ -120,10 +120,6 @@
                                     <segue destination="Szf-76-ehU" kind="show" id="txW-hg-KAt"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-pl-Pn6">
-                                <rect key="frame" x="169" y="220" width="37" height="37"/>
-                                <color key="color" red="0.0021185232326388359" green="0.26890450716018677" blue="0.60209524631500244" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -137,7 +133,6 @@
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="leading" secondItem="Cuh-70-syA" secondAttribute="leading" id="Pya-NV-sLg"/>
                             <constraint firstItem="kGv-vT-QXl" firstAttribute="leading" secondItem="CiY-2T-Rtm" secondAttribute="leading" constant="69" id="S5T-j9-qjZ"/>
                             <constraint firstItem="Cuh-70-syA" firstAttribute="centerX" secondItem="CiY-2T-Rtm" secondAttribute="centerX" id="YFy-rX-xOZ"/>
-                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerX" secondItem="ARC-dw-tH3" secondAttribute="centerX" id="elu-Qh-ttZ"/>
                             <constraint firstItem="ARC-dw-tH3" firstAttribute="leading" secondItem="CiY-2T-Rtm" secondAttribute="leading" constant="67" id="fgm-pH-rdK"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="trailing" secondItem="Cuh-70-syA" secondAttribute="trailing" id="gHz-VZ-gNo"/>
                             <constraint firstItem="i9O-4p-YC8" firstAttribute="width" secondItem="Cuh-70-syA" secondAttribute="width" id="gfH-nj-Pk5"/>
@@ -145,13 +140,11 @@
                             <constraint firstItem="CiY-2T-Rtm" firstAttribute="trailing" secondItem="HjV-4m-RKF" secondAttribute="trailing" constant="69" id="jHF-We-qu7"/>
                             <constraint firstItem="ARC-dw-tH3" firstAttribute="top" secondItem="CiY-2T-Rtm" secondAttribute="top" constant="98" id="urQ-DB-xlB"/>
                             <constraint firstItem="HjV-4m-RKF" firstAttribute="top" secondItem="XY0-d1-uTr" secondAttribute="bottom" constant="30" id="x2a-2J-s3j"/>
-                            <constraint firstItem="SSf-pl-Pn6" firstAttribute="centerY" secondItem="ARC-dw-tH3" secondAttribute="centerY" id="zex-2o-vbo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CiY-2T-Rtm"/>
                     </view>
                     <navigationItem key="navigationItem" id="uIV-pr-FiJ"/>
                     <connections>
-                        <outlet property="activity" destination="SSf-pl-Pn6" id="PUs-XP-0TY"/>
                         <outlet property="backgroundPhotoProfile" destination="ARC-dw-tH3" id="bSi-he-84T"/>
                         <outlet property="imageToTop" destination="KkB-ZR-QQH" id="Miz-ya-tRj"/>
                         <outlet property="profilePhotoImage" destination="Cuh-70-syA" id="ed3-yN-NQp"/>

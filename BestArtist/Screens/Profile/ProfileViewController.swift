@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import CropViewController
 import FBSDKLoginKit
+import ARSLineProgress
 
 class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
@@ -22,7 +23,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activity.startAnimating()
+        ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118
         backgroundPhotoProfile.layer.cornerRadius = 120
@@ -37,7 +38,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
                 DispatchQueue.main.async {
                     self.profilePhotoImage.image = image
                     
-                    self.activity.stopAnimating()
+                    ARSLineProgress.hide()
                 }
             }
         }

@@ -11,6 +11,7 @@ import SideMenu
 import Firebase
 import FirebaseDatabase
 import FBSDKCoreKit
+import ARSLineProgress
 
 class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilesTableView: UITableView!
@@ -21,7 +22,9 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ARSLineProgress.show()
         setup()
+        ARSLineProgress.hide()
         NetworkManager.loadArtists(completion: { artists, error in
             if error == nil {
                 self.artists = artists
@@ -29,6 +32,7 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
                 let idUser = FBSDKProfile.current()?.userID ?? ""
                 let isUser = self.isExistUser(id: idUser)
                 GlobalManager.isExistUser = isUser
+                
             } else {
                 //TODO: Show error to user
             }
