@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import MKDropdownMenu
 
-class InformationUserViewController: BaseViewController, UITextViewDelegate {
+class InformationUserViewController: BaseViewController, UITextViewDelegate, MKDropdownMenuDelegate, MKDropdownMenuDataSource {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameTitleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var talent: UITextField!
     @IBOutlet weak var informationAboutYourselfView: UITextView!
     @IBOutlet weak var numberCharactersLabel: UILabel!
     @IBOutlet weak var numberNameLabel: UILabel!
+    
+    let roles = ["Dancer", "Singer", "DJ"]
+    var selectedRole: String?
     
     var artist: Artist!
     
@@ -40,6 +43,28 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
     
     @objc func keyBoardWillHide(notification: NSNotification) {
         nameTitleLabelTopConstraint.constant = 21
+    }
+    
+    func numberOfComponents(in dropdownMenu: MKDropdownMenu) -> Int {
+        return 1
+    }
+    
+    func dropdownMenu(_ dropdownMenu: MKDropdownMenu, numberOfRowsInComponent component: Int) -> Int {
+        return roles.count
+    }
+    
+    func dropdownMenu(_ dropdownMenu: MKDropdownMenu, titleForComponent component: Int) -> String? {
+        return selectedRole
+    }
+    
+    func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didSelectRow row: Int, inComponent component: Int) {
+        selectedRole = roles[row]
+        dropdownMenu.closeAllComponents(animated: true)
+        dropdownMenu.reloadAllComponents()
+    }
+    
+    func dropdownMenu(_ dropdownMenu: MKDropdownMenu, titleForRow row: Int, forComponent component: Int) -> String? {
+        return roles[row]
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -86,7 +111,7 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! GetVideoViewController
         artist.name = nameTextField.text ?? ""
-        artist.talent = talent.text ?? ""
+        //artist.talent = talent.text ?? ""
         artist.description = informationAboutYourselfView.text
         nextViewController.artist = artist
     }

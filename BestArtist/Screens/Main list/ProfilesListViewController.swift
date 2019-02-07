@@ -22,17 +22,18 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        needTabBar = true
         ARSLineProgress.show()
         setup()
-        ARSLineProgress.hide()
+        
         NetworkManager.loadArtists(completion: { artists, error in
+            ARSLineProgress.hide()
             if error == nil {
                 self.artists = artists
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKProfile.current()?.userID ?? ""
                 let isUser = self.isExistUser(id: idUser)
-                GlobalManager.isExistUser = isUser
-                
+                GlobalManager.isExistUser = isUser                
             } else {
                 //TODO: Show error to user
             }

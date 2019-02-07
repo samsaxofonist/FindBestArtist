@@ -15,7 +15,6 @@ import ARSLineProgress
 class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +38,7 @@ class LoginViewController: BaseViewController {
     @IBAction func loginClicked(_ sender: Any) {
         setEverythingVisible(isVisible: false)
         FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            ARSLineProgress.show()
             guard error == nil, let token = FBSDKAccessToken.current() else {
                 self.setEverythingVisible(isVisible: true)
                 return
@@ -57,12 +57,12 @@ class LoginViewController: BaseViewController {
     
     func setEverythingVisible(isVisible: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            ARSLineProgress.hide()
             self.viewToHideAndShow.forEach { $0.isHidden = !isVisible }
         }
     }
     
     func openMainScreen() {
-        ARSLineProgress.showSuccess()
         let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
         self.navigationController?.setViewControllers([mainTabBar], animated: true)
         ARSLineProgress.hide()

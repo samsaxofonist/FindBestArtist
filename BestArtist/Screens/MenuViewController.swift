@@ -13,6 +13,11 @@ import FBSDKLoginKit
 class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        SideMenuManager.defaultManager.menuFadeStatusBar = false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileCellTitle.text = GlobalManager.isExistUser ? "Edit Profile" : "Create Profile"

@@ -23,6 +23,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118
