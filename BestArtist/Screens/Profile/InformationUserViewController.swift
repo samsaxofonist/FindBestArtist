@@ -56,15 +56,23 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate {
         }
     }
     
-    func updateCharacterCount() {
+    func updateInfoCharacterCount() {
         let numberCharacters = self.informationAboutYourselfView.text.count
         self.numberCharactersLabel.text = "\((0) + numberCharacters)/500"
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        self.updateCharacterCount()
+    private func textViewDidChange(_ textView: UITextView) {
+        self.updateInfoCharacterCount()
     }
     
+    func updateNameCharacterCount() {
+        let numberCharacters = self.informationAboutYourselfView.text.count
+        self.numberNameLabel.text = "\((0) + numberCharacters)/10"
+    }
+    
+    func textViewDidChange(_ textView: UITextField) {
+        self.updateNameCharacterCount()
+    }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         if(textView == informationAboutYourselfView){
             return textView.text.count +  (text.count - range.length) <= 10
