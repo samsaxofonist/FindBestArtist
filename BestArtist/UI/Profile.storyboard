@@ -174,9 +174,10 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Justin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4" customClass="UITextfield">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Justin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4" customClass="UITextfield">
                                 <rect key="frame" x="35" y="69" width="305" height="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
@@ -186,7 +187,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCr-U3-alK">
-                                <rect key="frame" x="35" y="173" width="129" height="24"/>
+                                <rect key="frame" x="35" y="169" width="129" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="*About Yourself">
                                         <attributes>
@@ -197,16 +198,16 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-gA-pzH">
-                                <rect key="frame" x="35" y="201" width="305" height="228"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-gA-pzH">
+                                <rect key="frame" x="35" y="197" width="305" height="228"/>
+                                <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="228" id="im8-Ti-AWi"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Artist of the original genre ...">
                                         <attributes>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="SFProText-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -238,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-ld-bci">
-                                <rect key="frame" x="35" y="445" width="100" height="30"/>
+                                <rect key="frame" x="35" y="441" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cia-1Z-oaw"/>
@@ -254,7 +255,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFa-Wn-8ha" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="240" y="445" width="100" height="60"/>
+                                <rect key="frame" x="240" y="441" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="M9k-oQ-0E8"/>
@@ -289,10 +290,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywt-dt-67j" customClass="MKDropdownMenu">
-                                <rect key="frame" x="35" y="115" width="305" height="37"/>
-                                <color key="backgroundColor" red="0.85469964379999996" green="0.096729288050000001" blue="0.016014877600000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="35" y="135" width="305" height="30"/>
+                                <color key="backgroundColor" red="0.6705882352941176" green="0.88627450980392153" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="sqP-z5-Aek"/>
+                                    <constraint firstAttribute="height" constant="30" id="U30-Vq-xLi"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="Szf-76-ehU" id="FnO-qc-5jb"/>
@@ -309,16 +310,16 @@
                             <constraint firstItem="SaM-ld-bci" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="9wF-wF-NWy"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="S8N-eC-G4J" secondAttribute="trailing" constant="35" id="H92-vI-Dru"/>
                             <constraint firstItem="PeO-OV-Zln" firstAttribute="top" secondItem="IUG-aF-aZ0" secondAttribute="top" constant="21" id="HMW-K2-S7z"/>
+                            <constraint firstItem="Ywt-dt-67j" firstAttribute="top" secondItem="1Ir-Gv-WTB" secondAttribute="bottom" constant="4" id="L7C-46-Gmn"/>
                             <constraint firstItem="1Ir-Gv-WTB" firstAttribute="top" secondItem="a1H-nV-tA4" secondAttribute="bottom" constant="8" id="Pul-DV-Vjd"/>
                             <constraint firstItem="h2g-gA-pzH" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="Qr5-Se-y9d"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="a1H-nV-tA4" secondAttribute="trailing" constant="35" id="S12-qs-dwf"/>
-                            <constraint firstItem="UCr-U3-alK" firstAttribute="top" secondItem="Ywt-dt-67j" secondAttribute="bottom" constant="21" id="SS7-gl-PPj"/>
+                            <constraint firstItem="UCr-U3-alK" firstAttribute="top" secondItem="Ywt-dt-67j" secondAttribute="bottom" constant="4" id="SS7-gl-PPj"/>
                             <constraint firstItem="a1H-nV-tA4" firstAttribute="top" secondItem="S8N-eC-G4J" secondAttribute="bottom" constant="8" id="WKJ-RY-VGS"/>
                             <constraint firstItem="SaM-ld-bci" firstAttribute="top" secondItem="h2g-gA-pzH" secondAttribute="bottom" constant="16" id="Yay-hM-EJC"/>
                             <constraint firstItem="fFa-Wn-8ha" firstAttribute="top" secondItem="h2g-gA-pzH" secondAttribute="bottom" constant="16" id="aKh-Cz-9Oh"/>
                             <constraint firstItem="PeO-OV-Zln" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="fCc-6E-F58"/>
                             <constraint firstItem="a1H-nV-tA4" firstAttribute="top" secondItem="PeO-OV-Zln" secondAttribute="bottom" constant="4" id="fxF-lP-xOq"/>
-                            <constraint firstItem="Ywt-dt-67j" firstAttribute="top" secondItem="a1H-nV-tA4" secondAttribute="bottom" constant="16" id="jMP-fs-1fT"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="1Ir-Gv-WTB" secondAttribute="trailing" constant="35" id="n4B-3g-fSL"/>
                             <constraint firstItem="Ywt-dt-67j" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="nZ4-be-Yj2"/>
                             <constraint firstItem="1Ir-Gv-WTB" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="sON-to-Lcb"/>

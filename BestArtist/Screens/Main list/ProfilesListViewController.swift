@@ -64,7 +64,9 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetailsSegue", sender: nil)
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsController") as! ArtistDetailsViewController
+        // тут передаем выбранного артиста
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

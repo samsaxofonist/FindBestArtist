@@ -54,6 +54,8 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate, MKD
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, titleForComponent component: Int) -> String? {
+        dropdownMenu.dropdownBackgroundColor = .white
+        dropdownMenu.dropdownCornerRadius = 10
         return selectedRole
     }
     
