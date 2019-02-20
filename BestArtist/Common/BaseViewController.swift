@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.drawGradientFoto()
+        self.view.drawGradient()
     }
     
     override func viewWillAppear(_ animated: Bool) {

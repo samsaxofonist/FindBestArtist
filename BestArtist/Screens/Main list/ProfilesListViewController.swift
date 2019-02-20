@@ -65,7 +65,8 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsController") as! ArtistDetailsViewController
-        // тут передаем выбранного артиста
+        let artist = artists[indexPath.row]
+        detailsVC.selectedArtist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
