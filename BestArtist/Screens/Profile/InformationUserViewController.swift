@@ -37,6 +37,7 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate, UIT
         
         nameTextField.text = artist.name
         informationAboutYourselfView.text = artist.description
+        selectedRole = artist.talent
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,11 +124,11 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate, UIT
         let numberSymbolToAdd = string.count - range.length
         return numberSymbolsBefore + numberSymbolToAdd <= 10
     }
-        
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! GetVideoViewController
         artist.name = nameTextField.text ?? ""
-        artist.talent = talents[talentArtist.selectedComponent]
+        artist.talent = selectedRole ?? ""
         artist.description = informationAboutYourselfView.text
         nextViewController.artist = artist
     }
