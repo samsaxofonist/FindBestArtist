@@ -216,8 +216,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Justin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-nV-tA4" customClass="UITextfield">
                                 <rect key="frame" x="35" y="69" width="305" height="30"/>
-                                <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
@@ -240,14 +239,14 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-gA-pzH">
                                 <rect key="frame" x="35" y="197" width="305" height="228"/>
-                                <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="228" id="im8-Ti-AWi"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Artist of the original genre ...">
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="SFProText-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
