@@ -32,8 +32,8 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
                 self.artists = artists
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKProfile.current()?.userID ?? ""
-                let isUser = self.isExistUser(id: idUser)
-                GlobalManager.isExistUser = isUser                
+                let myUser = self.myUserIfExists(id: idUser)
+                GlobalManager.myUser = myUser
             } else {
                 //TODO: Show error to user
             }
@@ -95,8 +95,8 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    func isExistUser(id: String) -> Bool {
-        return artists.contains(where: { $0.facebookId == id })
+    func myUserIfExists(id: String) -> Artist? {
+        return artists.filter({ $0.facebookId == id }).first
     }
 }
 

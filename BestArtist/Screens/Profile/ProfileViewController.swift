@@ -26,7 +26,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var galerySlider: ImageSlideshow!
     
     var imagePicker = UIImagePickerController()
-    var artist = Artist()
+    var artist: Artist!
     var isGalleryOpenedForProfilePhoto = false
     var allPhotos = [ImageSource]()
     

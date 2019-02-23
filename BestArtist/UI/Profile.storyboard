@@ -374,6 +374,7 @@
                         <outlet property="nameTitleLabelTopConstraint" destination="HMW-K2-S7z" id="40S-Jd-u2W"/>
                         <outlet property="numberCharactersLabel" destination="SaM-ld-bci" id="piP-jO-5Ga"/>
                         <outlet property="numberNameLabel" destination="S8N-eC-G4J" id="oZH-hf-GGc"/>
+                        <outlet property="talentArtist" destination="Ywt-dt-67j" id="z94-4e-Ge8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jI-fp-LFy" userLabel="First Responder" sceneMemberID="firstResponder"/>

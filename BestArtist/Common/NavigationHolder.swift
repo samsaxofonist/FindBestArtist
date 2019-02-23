@@ -11,5 +11,5 @@ import UIKit
 class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
-    static var isExistUser: Bool = false
+    static var myUser: Artist?
 }

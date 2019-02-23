@@ -20,12 +20,15 @@ class ArtistDetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
         
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
-            artistPhotoImageView.layer.cornerRadius = 80
+            artistPhotoImageView.layer.cornerRadius = 100
+            infoArtistLabel.text = selectedArtist.description
             
         }
+        
         func setupWithArtist(_ artist: Artist) {
             //nameLabel.text = artist.name
             //priceLabel.text = String(artist.price)
@@ -41,5 +44,9 @@ class ArtistDetailsViewController: UITableViewController {
     
     @objc func didTap() {
         slideShow.presentFullScreenController(from: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

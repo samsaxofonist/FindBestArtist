@@ -20,7 +20,7 @@ class MenuViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        profileCellTitle.text = GlobalManager.isExistUser ? "Edit Profile" : "Create Profile"
+        profileCellTitle.text = GlobalManager.myUser != nil ? "Edit Profile" : "Create Profile"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -29,7 +29,14 @@ class MenuViewController: UITableViewController {
         
         if indexPath.row == 0 {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile")
+            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+            
+            if let myUser = GlobalManager.myUser {
+                profileController.artist = myUser
+            } else {
+                profileController.artist = Artist()
+            }
+            
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
         }
