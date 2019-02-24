@@ -172,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="-641" y="-1116"/>
         </scene>
-        <!--View Controller-->
+        <!--Piano-->
         <scene sceneID="aAe-Td-khx">
             <objects>
                 <viewController id="k6R-CY-Tai" sceneMemberID="viewController">
@@ -182,7 +182,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XGk-M2-bjh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1cJ-Zq-05G"/>
+                    <navigationItem key="navigationItem" title="Piano" id="1cJ-Zq-05G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rf-TQ-43J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -216,7 +216,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DUG-qy-AKp">
@@ -276,7 +276,7 @@
             </objects>
             <point key="canvasLocation" x="2702" y="-443"/>
         </scene>
-        <!--View Controller-->
+        <!--Paint-->
         <scene sceneID="Xef-UD-WwX">
             <objects>
                 <viewController id="jDG-Jb-65U" sceneMemberID="viewController">
@@ -286,13 +286,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="E70-U1-J6J"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rby-Y1-fyM"/>
+                    <navigationItem key="navigationItem" title="Paint" id="rby-Y1-fyM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYr-WI-JMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1305" y="18"/>
         </scene>
-        <!--Musicians-->
+        <!--Dj-->
         <scene sceneID="drD-qV-JQz">
             <objects>
                 <viewController id="Eg1-Zk-soz" customClass="ProfilesListViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,7 +318,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Musicians" id="Pfc-Ay-Vom">
+                    <navigationItem key="navigationItem" title="Dj" id="Pfc-Ay-Vom">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
@@ -351,6 +351,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-n9-png">
+                                                    <rect key="frame" x="31" y="26" width="201" height="201"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="201" id="naX-3Z-T3f"/>
+                                                        <constraint firstAttribute="width" constant="201" id="z7n-3L-XOZ"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Musikers" translatesAutoresizingMaskIntoConstraints="NO" id="CzS-gw-ZZ3">
                                                     <rect key="frame" x="16" y="16" width="200" height="200"/>
                                                     <constraints>
@@ -362,7 +370,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CzS-gw-ZZ3" secondAttribute="bottom" constant="16" id="1Mu-vV-jiv"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="top" secondItem="Dk6-6D-5je" secondAttribute="top" constant="16" id="IWr-6R-Lbe"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MQ6-n9-png" secondAttribute="bottom" constant="15" id="TAi-Jo-9x9"/>
+                                                <constraint firstItem="MQ6-n9-png" firstAttribute="leading" secondItem="Dk6-6D-5je" secondAttribute="leadingMargin" constant="15" id="VT7-7q-opg"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="leading" secondItem="Dk6-6D-5je" secondAttribute="leading" constant="16" id="hCg-J6-0ZP"/>
+                                                <constraint firstItem="MQ6-n9-png" firstAttribute="top" secondItem="Dk6-6D-5je" secondAttribute="topMargin" constant="15" id="tKI-kN-WKg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

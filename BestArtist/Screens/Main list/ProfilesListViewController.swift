@@ -23,6 +23,7 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         needTabBar = true
+        ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
         setup()
         

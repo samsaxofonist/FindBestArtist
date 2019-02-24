@@ -17,7 +17,7 @@ class InformationUserViewController: BaseViewController, UITextViewDelegate, UIT
     @IBOutlet weak var numberNameLabel: UILabel!
     @IBOutlet weak var talentArtist: MKDropdownMenu!
     
-    let talents = ["Dancer", "Singer", "DJ"]
+    let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
     var selectedRole: String?
     
     var artist: Artist!

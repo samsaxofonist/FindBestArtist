@@ -26,13 +26,12 @@ class ArtistDetailsViewController: UITableViewController {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             artistPhotoImageView.layer.cornerRadius = 100
             infoArtistLabel.text = selectedArtist.description
-            
-        }
+            }
         
         func setupWithArtist(_ artist: Artist) {
             //nameLabel.text = artist.name
             //priceLabel.text = String(artist.price)
-            infoArtistLabel.text = artist.talent
+            infoArtistLabel.text = artist.description
         }
         
         let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
@@ -40,6 +39,7 @@ class ArtistDetailsViewController: UITableViewController {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ArtistDetailsViewController.didTap))
         slideShow.addGestureRecognizer(gestureRecognizer)
+        self.view.drawGradient()
     }
     
     @objc func didTap() {
