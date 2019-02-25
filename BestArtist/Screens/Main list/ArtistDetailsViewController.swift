@@ -42,7 +42,6 @@ class ArtistDetailsViewController: UITableViewController {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ArtistDetailsViewController.didTap))
         slideShow.addGestureRecognizer(gestureRecognizer)
-        //self.view.drawGradient()
     }
     
     @objc func didTap() {
