@@ -319,7 +319,7 @@
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dj" id="Pfc-Ay-Vom">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="7Bu-6b-mO4">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
                             </connections>
@@ -351,12 +351,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-n9-png">
-                                                    <rect key="frame" x="31" y="26" width="201" height="201"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-n9-png">
+                                                    <rect key="frame" x="31" y="26" width="202" height="202"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="201" id="naX-3Z-T3f"/>
-                                                        <constraint firstAttribute="width" constant="201" id="z7n-3L-XOZ"/>
+                                                        <constraint firstAttribute="height" constant="202" id="naX-3Z-T3f"/>
+                                                        <constraint firstAttribute="width" constant="202" id="z7n-3L-XOZ"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Musikers" translatesAutoresizingMaskIntoConstraints="NO" id="CzS-gw-ZZ3">
@@ -366,14 +366,23 @@
                                                         <constraint firstAttribute="width" constant="200" id="Wmi-AT-Fzl"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNk-NN-1ug">
+                                                    <rect key="frame" x="249" y="105.5" width="94" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CzS-gw-ZZ3" secondAttribute="bottom" constant="16" id="1Mu-vV-jiv"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="top" secondItem="Dk6-6D-5je" secondAttribute="top" constant="16" id="IWr-6R-Lbe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qNk-NN-1ug" secondAttribute="trailing" constant="16" id="N36-yO-jxb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MQ6-n9-png" secondAttribute="bottom" constant="15" id="TAi-Jo-9x9"/>
                                                 <constraint firstItem="MQ6-n9-png" firstAttribute="leading" secondItem="Dk6-6D-5je" secondAttribute="leadingMargin" constant="15" id="VT7-7q-opg"/>
+                                                <constraint firstItem="qNk-NN-1ug" firstAttribute="centerY" secondItem="CzS-gw-ZZ3" secondAttribute="centerY" id="gLl-y2-Nvf"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="leading" secondItem="Dk6-6D-5je" secondAttribute="leading" constant="16" id="hCg-J6-0ZP"/>
                                                 <constraint firstItem="MQ6-n9-png" firstAttribute="top" secondItem="Dk6-6D-5je" secondAttribute="topMargin" constant="15" id="tKI-kN-WKg"/>
+                                                <constraint firstItem="qNk-NN-1ug" firstAttribute="leading" secondItem="MQ6-n9-png" secondAttribute="trailing" constant="16" id="wYl-Bf-zR6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -385,8 +394,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3H-gF-Dtz">
-                                                    <rect key="frame" x="4" y="4" width="367" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="16" y="4" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -394,8 +403,8 @@
                                             <constraints>
                                                 <constraint firstItem="y3H-gF-Dtz" firstAttribute="top" secondItem="EDz-3P-WiF" secondAttribute="top" constant="4" id="6qD-9N-Njl"/>
                                                 <constraint firstAttribute="bottom" secondItem="y3H-gF-Dtz" secondAttribute="bottom" constant="4" id="9k6-Ai-hc0"/>
-                                                <constraint firstAttribute="trailing" secondItem="y3H-gF-Dtz" secondAttribute="trailing" constant="4" id="EZp-Rp-7j2"/>
-                                                <constraint firstItem="y3H-gF-Dtz" firstAttribute="leading" secondItem="EDz-3P-WiF" secondAttribute="leading" constant="4" id="FGD-Th-hvG"/>
+                                                <constraint firstAttribute="trailing" secondItem="y3H-gF-Dtz" secondAttribute="trailing" constant="16" id="EZp-Rp-7j2"/>
+                                                <constraint firstItem="y3H-gF-Dtz" firstAttribute="leading" secondItem="EDz-3P-WiF" secondAttribute="leading" constant="16" id="FGD-Th-hvG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -430,7 +439,9 @@
                     </tableView>
                     <connections>
                         <outlet property="artistPhotoImageView" destination="CzS-gw-ZZ3" id="ShT-HG-E8W"/>
+                        <outlet property="backgroundImageView" destination="MQ6-n9-png" id="yXU-rG-nJ5"/>
                         <outlet property="infoArtistLabel" destination="y3H-gF-Dtz" id="Eyc-M3-Wbg"/>
+                        <outlet property="nameLabel" destination="qNk-NN-1ug" id="YHA-pi-u3l"/>
                         <outlet property="slideShow" destination="yDA-vI-2ry" id="Xqi-ui-daM"/>
                     </connections>
                 </tableViewController>
@@ -500,6 +511,7 @@
     </scenes>
     <resources>
         <image name="Dj" width="45" height="45"/>
+        <image name="Menu" width="60" height="60"/>
         <image name="Musikers" width="199" height="199"/>
         <image name="Painting" width="60" height="60"/>
         <image name="Piano" width="60" height="60"/>

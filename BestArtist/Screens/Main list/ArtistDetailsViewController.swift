@@ -11,6 +11,8 @@ import Kingfisher
 import ImageSlideshow
 
 class ArtistDetailsViewController: UITableViewController {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var backgroundImageView: UIView!
     @IBOutlet weak var artistPhotoImageView: UIImageView!
     var selectedArtist: Artist!
     
@@ -25,11 +27,12 @@ class ArtistDetailsViewController: UITableViewController {
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             artistPhotoImageView.layer.cornerRadius = 100
+            backgroundImageView.layer.cornerRadius = 101
             infoArtistLabel.text = selectedArtist.description
             }
         
         func setupWithArtist(_ artist: Artist) {
-            //nameLabel.text = artist.name
+            nameLabel.text = artist.name
             //priceLabel.text = String(artist.price)
             infoArtistLabel.text = artist.description
         }
@@ -39,7 +42,7 @@ class ArtistDetailsViewController: UITableViewController {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ArtistDetailsViewController.didTap))
         slideShow.addGestureRecognizer(gestureRecognizer)
-        self.view.drawGradient()
+        //self.view.drawGradient()
     }
     
     @objc func didTap() {

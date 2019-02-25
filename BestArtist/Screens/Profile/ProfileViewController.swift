@@ -91,7 +91,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         if isGalleryOpenedForProfilePhoto == true {
             profilePhotoImage.image = selectedImage
         } else {
-            var imageSource = ImageSource(image: selectedImage)
+            let imageSource = ImageSource(image: selectedImage)
             allPhotos.append(imageSource)
             galerySlider.setImageInputs(allPhotos)
         }
