@@ -27,7 +27,7 @@ class ArtistDetailsViewController: UITableViewController {
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             artistPhotoImageView.layer.cornerRadius = 100
-            backgroundImageView.layer.cornerRadius = 101
+            backgroundImageView.layer.cornerRadius = 102
             infoArtistLabel.text = selectedArtist.description
             }
         
