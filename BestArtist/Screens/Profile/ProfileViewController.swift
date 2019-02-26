@@ -21,7 +21,6 @@ enum GallerySource {
 class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var backgroundPhotoProfile: UIView!
     @IBOutlet weak var galerySlider: ImageSlideshow!
     
@@ -32,7 +31,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
         loadProfilePhoto()
         profilePhotoImage.layer.cornerRadius = 118

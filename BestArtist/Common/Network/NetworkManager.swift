@@ -26,7 +26,7 @@ struct ArtistKeys {
 }
 
 class NetworkManager {
-    static func saveArtist(_ artist: Artist) {
+    static func saveArtist(_ artist: Artist, finish: @escaping (()->()) ) {
         uploadPhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             let ref: DatabaseReference
             
@@ -46,7 +46,9 @@ class NetworkManager {
                                           ArtistKeys.cityLatitude: artist.city.location.latitude,
                                           ArtistKeys.cityLongitude: artist.city.location.longitude,
                                           ArtistKeys.facebookID: artist.facebookId])
+            finish()
         })
+        
     }
     
     private static func uploadPhoto(_ photo: UIImage?, forFacebookId fbID: String, completion: @escaping ((URL?) -> Void)) {

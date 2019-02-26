@@ -23,12 +23,19 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         needTabBar = true
+        
+        setup()
+        reloadDataList()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
+    }
+    
+    @objc func reloadDataList() {
         ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
-        setup()
-        
         NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
+            ARSLineProgressConfiguration.backgroundViewStyle = .simple
             if error == nil {
                 self.artists = artists
                 self.profilesTableView.reloadData()
@@ -48,6 +55,8 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         GlobalManager.navigation = self.navigationController!
     }
+    
+    
     
     @objc func menuButtonClicked() {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
