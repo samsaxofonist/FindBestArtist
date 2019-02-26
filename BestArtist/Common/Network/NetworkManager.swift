@@ -26,11 +26,17 @@ struct ArtistKeys {
 }
 
 class NetworkManager {
-    static func addArtist(_ artist: Artist) {
+    static func saveArtist(_ artist: Artist) {
         uploadPhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
-            let ref = Database.database().reference().child("users")
+            let ref: DatabaseReference
             
-            ref.childByAutoId().setValue([ArtistKeys.name: artist.name,
+            if let userId = artist.databaseId {
+                ref = Database.database().reference().child("users/\(userId)")
+            } else {
+                ref = Database.database().reference().child("users").childByAutoId()
+            }
+            
+            ref.setValue([ArtistKeys.name: artist.name,
                                           ArtistKeys.talent: artist.talent,
                                           ArtistKeys.description: artist.description,
                                           ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
@@ -64,8 +70,9 @@ class NetworkManager {
             guard let jsonData = data.value as? [String: [String: Any]] else { return }
             var artists = [Artist]()
             
-            for (_, value) in jsonData {
+            for (userId, value) in jsonData {
                 let artist = Artist()
+                artist.databaseId = userId
                 artist.name = (value[ArtistKeys.name] as? String) ?? ""
                 artist.talent = (value[ArtistKeys.talent] as? String) ?? ""
                 artist.description = (value[ArtistKeys.description] as? String) ?? ""

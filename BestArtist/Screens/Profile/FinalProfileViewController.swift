@@ -12,14 +12,14 @@ import RxCocoa
 import CoreLocation
 
 class FinalProfileViewController: BaseViewController {
+    var disposeBag = DisposeBag()
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var finalPriceLabel: UILabel!
     
     let berlin = City(name: "Berlin", location: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
     let hamburg = City(name: "Hamburg", location: CLLocationCoordinate2D(latitude: 53.551086, longitude: 9.993682))
-    
-    var disposeBag = DisposeBag()
     
     var artist: Artist!
     
@@ -36,7 +36,6 @@ class FinalProfileViewController: BaseViewController {
             cityNameLabel.text = "Berlin"
         }
         distance = distance/1000
-
         
         priceTextField.rx.text.orEmpty
             .map {
@@ -53,7 +52,7 @@ class FinalProfileViewController: BaseViewController {
     
     @IBAction func saveAllButton(_ sender: Any) {
         artist.price = Int(priceTextField.text ?? "") ?? 0
-        NetworkManager.addArtist(artist)
+        NetworkManager.saveArtist(artist)
     }
 }
 

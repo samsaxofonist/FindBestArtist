@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Artist  {
+    var databaseId: String?
     var facebookId: String = ""
     var photo: UIImage!
     var photoLink: String!
