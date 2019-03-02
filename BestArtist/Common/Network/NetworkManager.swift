@@ -23,41 +23,70 @@ struct ArtistKeys {
     static let cityLatitude = "cityLat"
     static let cityLongitude = "cityLon"
     static let facebookID = "fbId"
+    static let photoGaleryLinks = "photoGaleryLinks"
 }
 
 class NetworkManager {
     static func saveArtist(_ artist: Artist, finish: @escaping (()->()) ) {
-        uploadPhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
-            let ref: DatabaseReference
-            
-            if let userId = artist.databaseId {
-                ref = Database.database().reference().child("users/\(userId)")
-            } else {
-                ref = Database.database().reference().child("users").childByAutoId()
-            }
-            
-            ref.setValue([ArtistKeys.name: artist.name,
-                                          ArtistKeys.talent: artist.talent,
-                                          ArtistKeys.description: artist.description,
-                                          ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
-                                          ArtistKeys.youtubeLink: artist.youtubeLink,
-                                          ArtistKeys.price: artist.price,
-                                          ArtistKeys.cityName: artist.city.name,
-                                          ArtistKeys.cityLatitude: artist.city.location.latitude,
-                                          ArtistKeys.cityLongitude: artist.city.location.longitude,
-                                          ArtistKeys.facebookID: artist.facebookId])
-            finish()
+        self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
+            self.uploadGalleryPhotos(artist.photoGalery, forFacebookId: artist.facebookId, completion: { photoURLs in
+                let ref: DatabaseReference
+                
+                if let userId = artist.databaseId {
+                    ref = Database.database().reference().child("users/\(userId)")
+                } else {
+                    ref = Database.database().reference().child("users").childByAutoId()
+                }
+                
+                ref.setValue([ArtistKeys.name: artist.name,
+                              ArtistKeys.talent: artist.talent,
+                              ArtistKeys.description: artist.description,
+                              ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
+                              ArtistKeys.youtubeLink: artist.youtubeLink,
+                              ArtistKeys.price: artist.price,
+                              ArtistKeys.cityName: artist.city.name,
+                              ArtistKeys.cityLatitude: artist.city.location.latitude,
+                              ArtistKeys.cityLongitude: artist.city.location.longitude,
+                              ArtistKeys.facebookID: artist.facebookId,
+                              ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
+                finish()
+            })
         })
-        
     }
     
-    private static func uploadPhoto(_ photo: UIImage?, forFacebookId fbID: String, completion: @escaping ((URL?) -> Void)) {
+    private static func uploadProfilePhoto(_ photo: UIImage?, forFacebookId fbID: String, completion: @escaping ((URL?) -> Void)) {
+        uploadAnyPhoto(photo, name: "\(fbID).png", completion: completion)
+    }
+    
+    private static func uploadGalleryPhotos(_ photos: [UIImage], forFacebookId fbID: String, completion: @escaping (([URL]) -> Void)) {
+        var allPhotosURL = [URL]()
+        var countProcessedPhotos = 0
+        
+        for (index, onePhoto) in photos.enumerated() {
+            uploadAnyPhoto(onePhoto, name: "\(fbID)-\(index).png", completion: { photoURL in
+                // ОБЕСПЕЧИТЬ ПОТОКОБЕЗОПАСНОСТЬ!
+                
+                // сохранить URL в массив, чтобы накопить
+                countProcessedPhotos += 1
+                guard let url = photoURL else { return }
+                allPhotosURL.append(url)
+                
+                // выяснить, не последняя ли картинка загружена
+                if countProcessedPhotos == photos.count {
+                    // если последняя - вызвать completion с массивом всех URL
+                    completion(allPhotosURL)
+                }
+            })
+        }
+    }
+    
+    private static func uploadAnyPhoto(_ photo: UIImage?, name: String, completion: @escaping ((URL?) -> Void)) {
         guard let photo = photo else {
             completion(nil)
             return
         }
         
-        let riversRef = Storage.storage().reference().child("images/\(fbID).png")
+        let riversRef = Storage.storage().reference().child("images/\(name)")
         let _ = riversRef.putData(photo.pngData()!, metadata: nil) { (metadata, error) in
             riversRef.downloadURL { (url, error) in
                 completion(url)

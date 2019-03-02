@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="-44" width="375" height="681"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-Nw-CXV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                        <rect key="frame" x="127.5" y="308" width="120" height="60"/>
+                                        <rect key="frame" x="127.5" y="309" width="120" height="60"/>
                                         <color key="backgroundColor" red="0.32888546586036682" green="0.80144029855728149" blue="0.91668939590454102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="3xe-wK-sJL"/>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we don't publish anything without your permission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUT-2F-cVy">
-                                        <rect key="frame" x="20" y="383" width="335" height="30"/>
+                                        <rect key="frame" x="20" y="384" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AnI-z1-18C"/>
                                         </constraints>
@@ -74,7 +74,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-DE-xMU">
-                                        <rect key="frame" x="40" y="203" width="295" height="40"/>
+                                        <rect key="frame" x="40" y="203" width="295" height="41"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -365,7 +365,7 @@
             </objects>
             <point key="canvasLocation" x="1721" y="-1443"/>
         </scene>
-        <!--Ib Calendar Data Source-->
+        <!--Artist Details View Controller-->
         <scene sceneID="DK5-Vn-Q83">
             <objects>
                 <tableViewController storyboardIdentifier="detailsController" id="Qle-5f-Imi" customClass="ArtistDetailsViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
@@ -441,16 +441,19 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="156" id="TFD-Zc-Ell" userLabel="gallery">
-                                        <rect key="frame" x="0.0" y="251" width="375" height="156"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="TFD-Zc-Ell" userLabel="gallery">
+                                        <rect key="frame" x="0.0" y="251" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TFD-Zc-Ell" id="ZUc-jf-Rh7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-vI-2ry" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="cnA-3o-ZTC"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -463,65 +466,27 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="156" id="kJ8-sP-lWg" userLabel="calendar">
-                                        <rect key="frame" x="0.0" y="407" width="375" height="156"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="300" id="kJ8-sP-lWg" userLabel="calendar">
+                                        <rect key="frame" x="0.0" y="451" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJ8-sP-lWg" id="E5F-8R-EM6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJ8-sP-lWg" id="E5F-8R-EM6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PYo-AS-sFF" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxu-nh-3X0" customClass="CalendarView" customModule="KDCalendar">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="Iy8-L8-nYf"/>
+                                                        <constraint firstAttribute="height" constant="300" id="eAX-V9-gam"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zPn-vn-Qw6">
-                                                        <size key="itemSize" width="50" height="50"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="HM6-fn-W3o" customClass="CalendarCell" customModule="BestArtist" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-Xc-fp4">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </view>
-                                                            <color key="backgroundColor" red="1" green="0.47341225120000002" blue="0.30504082049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstItem="SQK-Xc-fp4" firstAttribute="top" secondItem="HM6-fn-W3o" secondAttribute="top" id="3WG-Aa-raf"/>
-                                                                <constraint firstAttribute="bottom" secondItem="SQK-Xc-fp4" secondAttribute="bottom" id="6YG-u0-oB1"/>
-                                                                <constraint firstAttribute="trailing" secondItem="SQK-Xc-fp4" secondAttribute="trailing" id="6da-9d-Nwx"/>
-                                                                <constraint firstItem="SQK-Xc-fp4" firstAttribute="leading" secondItem="HM6-fn-W3o" secondAttribute="leading" id="oDy-Xo-jyH"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="dateLabel" destination="SQK-Xc-fp4" id="b8V-4a-x0O"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                    <connections>
-                                                        <outlet property="ibCalendarDataSource" destination="Qle-5f-Imi" id="WCx-Q8-71D"/>
-                                                        <outlet property="ibCalendarDelegate" destination="Qle-5f-Imi" id="IAZ-aU-5bm"/>
-                                                    </connections>
-                                                </collectionView>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="PYo-AS-sFF" firstAttribute="leading" secondItem="E5F-8R-EM6" secondAttribute="leading" id="TAq-VT-N4P"/>
-                                                <constraint firstItem="PYo-AS-sFF" firstAttribute="top" secondItem="E5F-8R-EM6" secondAttribute="top" id="XY9-Cr-B9d"/>
-                                                <constraint firstAttribute="bottom" secondItem="PYo-AS-sFF" secondAttribute="bottom" id="gch-Xv-sZ1"/>
-                                                <constraint firstAttribute="trailing" secondItem="PYo-AS-sFF" secondAttribute="trailing" id="gpe-pb-7vM"/>
+                                                <constraint firstItem="xxu-nh-3X0" firstAttribute="leading" secondItem="E5F-8R-EM6" secondAttribute="leading" id="NLm-uU-Gqv"/>
+                                                <constraint firstAttribute="trailing" secondItem="xxu-nh-3X0" secondAttribute="trailing" id="Tc1-7X-oe0"/>
+                                                <constraint firstItem="xxu-nh-3X0" firstAttribute="top" secondItem="E5F-8R-EM6" secondAttribute="top" id="jmO-Ls-VRg"/>
+                                                <constraint firstAttribute="bottom" secondItem="xxu-nh-3X0" secondAttribute="bottom" id="lIf-jh-NOa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,7 +502,7 @@
                     <connections>
                         <outlet property="artistPhotoImageView" destination="CzS-gw-ZZ3" id="ShT-HG-E8W"/>
                         <outlet property="backgroundImageView" destination="MQ6-n9-png" id="yXU-rG-nJ5"/>
-                        <outlet property="calendar" destination="PYo-AS-sFF" id="kAT-dV-r0L"/>
+                        <outlet property="calendar" destination="xxu-nh-3X0" id="CKE-tz-SrY"/>
                         <outlet property="infoArtistLabel" destination="y3H-gF-Dtz" id="Eyc-M3-Wbg"/>
                         <outlet property="nameLabel" destination="qNk-NN-1ug" id="YHA-pi-u3l"/>
                         <outlet property="slideShow" destination="yDA-vI-2ry" id="Xqi-ui-daM"/>
@@ -608,10 +573,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Dj" width="30" height="30"/>
-        <image name="Menu" width="30" height="30"/>
-        <image name="Musikers" width="99" height="99"/>
-        <image name="Painting" width="30" height="30"/>
+        <image name="Dj" width="45" height="45"/>
+        <image name="Menu" width="60" height="60"/>
+        <image name="Musikers" width="199" height="199"/>
+        <image name="Painting" width="60" height="60"/>
         <image name="Piano" width="30" height="30"/>
     </resources>
 </document>

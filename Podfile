@@ -23,5 +23,5 @@ pod 'Kingfisher', '~> 5.0'
 pod 'ARSLineProgress', '~> 3.1'
 pod 'MKDropdownMenu'
 pod 'ImageSlideshow', '~> 1.6'
-pod 'JTAppleCalendar', '~> 7.0'
+pod 'KDCalendar', '~> 1.6.5'
 end

@@ -9,14 +9,14 @@
 import UIKit
 import Kingfisher
 import ImageSlideshow
-import JTAppleCalendar
+import KDCalendar
 
 class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIView!
     @IBOutlet weak var artistPhotoImageView: UIImageView!
     var selectedArtist: Artist!
-    @IBOutlet weak var calendar: JTAppleCalendarView!
+    @IBOutlet weak var calendar: CalendarView!
     
     @IBOutlet weak var infoArtistLabel: UILabel!
     @IBOutlet weak var slideShow: ImageSlideshow!
@@ -24,6 +24,8 @@ class ArtistDetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCalendar()
+        
         tableView.rowHeight = UITableView.automaticDimension
         setupWithArtist(selectedArtist)
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
@@ -36,16 +38,18 @@ class ArtistDetailsViewController: UITableViewController {
         let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
         slideShow.setImageInputs(sources)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ArtistDetailsViewController.didTap))
-        slideShow.addGestureRecognizer(gestureRecognizer)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let today = Date()
+        self.calendar.setDisplayDate(today, animated: false)
     }
     
     func setupCalendar() {
-        calendar.minimumLineSpacing = 0
-        calendar.minimumInteritemSpacing = 0
-        calendar.allowsMultipleSelection = true
-        calendar.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0 )
-        calendar.cellSize = CalendarCell.cellSize
+        calendar.marksWeekends = true
+        calendar.dataSource = self
     }
     
     func setupWithArtist(_ artist: Artist) {
@@ -54,37 +58,19 @@ class ArtistDetailsViewController: UITableViewController {
         infoArtistLabel.text = artist.description
     }
     
-    @objc func didTap() {
-        slideShow.presentFullScreenController(from: self)
-    }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
 
-extension ArtistDetailsViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+extension ArtistDetailsViewController: CalendarViewDataSource {
+    func startDate() -> Date {
+        return Date()
     }
     
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let startDate = Date()
-        let yearToAdd = 2
-        guard let endDate = Calendar.current.date(byAdding: .year, value: yearToAdd, to: startDate) else { fatalError("Calendar out of bounds") }
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate,
-                                                 generateOutDates: .tillEndOfRow,
-                                                 firstDayOfWeek: DaysOfWeek(rawValue: Calendar.current.firstWeekday) ?? .sunday)
-        return parameters
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        guard let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else { fatalError("Calendar cell not dequed") }
-        cell.dateLabel.text = cellState.text
-        return cell
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        
+    func endDate() -> Date {
+        return Calendar.current.date(byAdding: .year, value: 2, to: Date())!
     }
 }

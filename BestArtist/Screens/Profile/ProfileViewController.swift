@@ -22,12 +22,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
     @IBOutlet weak var backgroundPhotoProfile: UIView!
-    @IBOutlet weak var galerySlider: ImageSlideshow!
     
     var imagePicker = UIImagePickerController()
     var artist: Artist!
-    var isGalleryOpenedForProfilePhoto = false
-    var allPhotos = [ImageSource]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +35,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         backgroundPhotoProfile.layer.cornerRadius = 120
     }
     
-    @IBAction func addNewPhoto(_ sender: Any) {
-        isGalleryOpenedForProfilePhoto = false
-        addImageFromGalery()
-    }
     
     func loadProfilePhoto() {
         DispatchQueue.global().async {
@@ -57,8 +51,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         }
     }
     
-    @IBAction func chooseButtonDidSelected(_ sender: Any) {
-        isGalleryOpenedForProfilePhoto = true
+    @IBAction func changeProfilePhoto(_ sender: Any) {
         addImageFromGalery()
     }
     
@@ -86,17 +79,11 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         guard let selectedImage = info[.originalImage] as? UIImage else {
             return
         }
-        if isGalleryOpenedForProfilePhoto == true {
-            profilePhotoImage.image = selectedImage
-        } else {
-            let imageSource = ImageSource(image: selectedImage)
-            allPhotos.append(imageSource)
-            galerySlider.setImageInputs(allPhotos)
-        }
+        profilePhotoImage.image = selectedImage
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! InformationUserViewController
+        let nextViewController = segue.destination as! GaleryViewCon
         artist.photo = profilePhotoImage.image
         artist.facebookId = FBSDKProfile.current()?.userID ?? ""
         nextViewController.artist = artist
