@@ -1,5 +1,5 @@
 //
-//  GetVideoViewController.swift
+//  SetUserVideoViewController.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 16.12.18.
@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import youtube_ios_player_helper
 
-class GetVideoViewController: BaseViewController {
+class SetUserVideoViewController: BaseViewController {
 
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var videoView: YTPlayerView!
@@ -84,7 +84,7 @@ class GetVideoViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! CitySelectionViewController
+        let nextViewController = segue.destination as! SetUserCityViewController
         artist.youtubeLink = textfield.text ?? ""
         nextViewController.artist = artist
     }

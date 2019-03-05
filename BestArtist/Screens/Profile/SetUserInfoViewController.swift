@@ -1,5 +1,5 @@
 //
-//  InformationUserViewController.swift
+//  SetUserInfoViewController.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 09.12.18.
@@ -9,7 +9,7 @@
 import UIKit
 import MKDropdownMenu
 
-class InformationUserViewController: BaseViewController {
+class SetUserInfoViewController: BaseViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var informationAboutYourselfView: UITextView!
@@ -44,7 +44,7 @@ class InformationUserViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! GetVideoViewController
+        let nextViewController = segue.destination as! SetUserVideoViewController
         artist.name = nameTextField.text ?? ""
         artist.talent = selectedRole ?? ""
         artist.description = informationAboutYourselfView.text
@@ -52,7 +52,7 @@ class InformationUserViewController: BaseViewController {
     }
 }
 
-extension InformationUserViewController {
+extension SetUserInfoViewController {
     func setup() {
         setupNotifications()
         setupTextFields()
@@ -87,7 +87,7 @@ extension InformationUserViewController {
     }
 }
 
-extension InformationUserViewController: MKDropdownMenuDelegate, MKDropdownMenuDataSource {
+extension SetUserInfoViewController: MKDropdownMenuDelegate, MKDropdownMenuDataSource {
     
     func numberOfComponents(in dropdownMenu: MKDropdownMenu) -> Int {
         return 1
@@ -114,7 +114,7 @@ extension InformationUserViewController: MKDropdownMenuDelegate, MKDropdownMenuD
     }
 }
 
-extension InformationUserViewController: UITextFieldDelegate {
+extension SetUserInfoViewController: UITextFieldDelegate {
     
     @objc func textFieldDidChange(sender textField: UITextField) {
         self.updateNameCharacterCount()
@@ -127,7 +127,7 @@ extension InformationUserViewController: UITextFieldDelegate {
     }
 }
 
-extension InformationUserViewController: UITextViewDelegate {
+extension SetUserInfoViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         self.updateInfoCharacterCount()

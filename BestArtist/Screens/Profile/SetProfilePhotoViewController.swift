@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  SetProfilePhotoViewController.swift
 //  FindBestArtist
 //
 //  Created by Andrii Kravchenko on 04.11.18.
@@ -18,7 +18,7 @@ enum GallerySource {
     case photos
 }
 
-class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
+class SetProfilePhotoViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var imageToTop: NSLayoutConstraint!
     @IBOutlet weak var backgroundPhotoProfile: UIView!
@@ -80,7 +80,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! GaleryViewCon
+        let nextViewController = segue.destination as! SetUserPhotosViewController
         artist.photo = profilePhotoImage.image
         artist.facebookId = FBSDKProfile.current()?.userID ?? ""
         nextViewController.artist = artist

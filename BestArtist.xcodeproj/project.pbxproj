@@ -11,7 +11,7 @@
 		3E017C12220307F600CF2E96 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C11220307F600CF2E96 /* GradientView.swift */; };
 		3E017C1522030A8A00CF2E96 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C1422030A8A00CF2E96 /* NetworkManager.swift */; };
 		3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991D21C687B400BC33AB /* BaseViewController.swift */; };
-		3E32992021C68A5800BC33AB /* GetVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991F21C68A5800BC33AB /* GetVideoViewController.swift */; };
+		3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */; };
 		3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDB621A353AA007781E5 /* AppDelegate.swift */; };
 		3E36FDBE21A353AB007781E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDBD21A353AB007781E5 /* Assets.xcassets */; };
 		3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDC921A35462007781E5 /* ProfileCell.swift */; };
@@ -19,9 +19,9 @@
 		3E36FDFB21A35463007781E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDCB21A35462007781E5 /* LaunchScreen.storyboard */; };
 		3E36FDFC21A35463007781E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDCD21A35462007781E5 /* Main.storyboard */; };
 		3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD121A35462007781E5 /* HelpUIButtonClass.swift */; };
-		3E36FDFE21A35463007781E5 /* NavigationHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD221A35462007781E5 /* NavigationHolder.swift */; };
+		3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD221A35462007781E5 /* GlobalManager.swift */; };
 		3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */; };
-		3E36FE0021A35463007781E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD621A35462007781E5 /* ProfileViewController.swift */; };
+		3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD621A35462007781E5 /* SetProfilePhotoViewController.swift */; };
 		3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD821A35462007781E5 /* LoginViewController.swift */; };
 		3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD921A35462007781E5 /* MenuViewController.swift */; };
 		3E36FE0321A35463007781E5 /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDDB21A35463007781E5 /* SF-Pro-Display-Thin.otf */; };
@@ -58,12 +58,12 @@
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
-		3E84D3EA222AB0AC009DC2EF /* GaleryViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* GaleryViewCon.swift */; };
-		3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */; };
+		3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */; };
+		3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */; };
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
-		3EBEC72821EBAE5200274C76 /* FinalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */; };
+		3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
-		3EC0D00921BD3FB4004627EA /* InformationUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */; };
+		3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */; };
 		3F49E216FAF3A73B392157ED /* Pods_BestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +73,7 @@
 		3E017C11220307F600CF2E96 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3E017C1422030A8A00CF2E96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3E32991D21C687B400BC33AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		3E32991F21C68A5800BC33AB /* GetVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoViewController.swift; sourceTree = "<group>"; };
+		3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserVideoViewController.swift; sourceTree = "<group>"; };
 		3E36FDB321A353AA007781E5 /* BestArtist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestArtist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E36FDB621A353AA007781E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E36FDBD21A353AB007781E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,9 +83,9 @@
 		3E36FDCC21A35462007781E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E36FDCE21A35462007781E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E36FDD121A35462007781E5 /* HelpUIButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpUIButtonClass.swift; sourceTree = "<group>"; };
-		3E36FDD221A35462007781E5 /* NavigationHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHolder.swift; sourceTree = "<group>"; };
+		3E36FDD221A35462007781E5 /* GlobalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalManager.swift; sourceTree = "<group>"; };
 		3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesListViewController.swift; sourceTree = "<group>"; };
-		3E36FDD621A35462007781E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3E36FDD621A35462007781E5 /* SetProfilePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		3E36FDD821A35462007781E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E36FDD921A35462007781E5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3E36FDDB21A35463007781E5 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
@@ -122,12 +122,12 @@
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
-		3E84D3E9222AB0AC009DC2EF /* GaleryViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryViewCon.swift; sourceTree = "<group>"; };
-		3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
+		3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPhotosViewController.swift; sourceTree = "<group>"; };
+		3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserCityViewController.swift; sourceTree = "<group>"; };
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
-		3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProfileViewController.swift; sourceTree = "<group>"; };
+		3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPriceViewController.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationUserViewController.swift; sourceTree = "<group>"; };
+		3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
 		57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DA0471989A81C79E6C2592 /* Pods-BestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-BestArtist/Pods-BestArtist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,7 +160,7 @@
 				3E017C1322030A7A00CF2E96 /* Network */,
 				3EBEC72521EBA9C600274C76 /* Geocoder.swift */,
 				3E32991D21C687B400BC33AB /* BaseViewController.swift */,
-				3E36FDD221A35462007781E5 /* NavigationHolder.swift */,
+				3E36FDD221A35462007781E5 /* GlobalManager.swift */,
 				3E605989222ED0D100156CB4 /* UIView+Extensions.swift */,
 			);
 			path = Common;
@@ -252,12 +252,12 @@
 		3E36FDD521A35462007781E5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3E36FDD621A35462007781E5 /* ProfileViewController.swift */,
-				3E84D3E9222AB0AC009DC2EF /* GaleryViewCon.swift */,
-				3EC0D00821BD3FB4004627EA /* InformationUserViewController.swift */,
-				3E32991F21C68A5800BC33AB /* GetVideoViewController.swift */,
-				3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */,
-				3EBEC72721EBAE5200274C76 /* FinalProfileViewController.swift */,
+				3E36FDD621A35462007781E5 /* SetProfilePhotoViewController.swift */,
+				3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */,
+				3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */,
+				3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */,
+				3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */,
+				3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -516,24 +516,24 @@
 				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,
 				3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */,
-				3EC0D00921BD3FB4004627EA /* InformationUserViewController.swift in Sources */,
+				3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */,
 				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,
-				3E32992021C68A5800BC33AB /* GetVideoViewController.swift in Sources */,
+				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,
 				3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */,
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E017C12220307F600CF2E96 /* GradientView.swift in Sources */,
-				3EBEC72821EBAE5200274C76 /* FinalProfileViewController.swift in Sources */,
+				3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */,
 				327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */,
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* NetworkManager.swift in Sources */,
-				3E84D3EA222AB0AC009DC2EF /* GaleryViewCon.swift in Sources */,
-				3E36FE0021A35463007781E5 /* ProfileViewController.swift in Sources */,
+				3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */,
+				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
 				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
-				3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */,
-				3E36FDFE21A35463007781E5 /* NavigationHolder.swift in Sources */,
+				3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */,
+				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,10 +24,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Set Profile Photo View Controller-->
         <scene sceneID="bIn-b6-AGq">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="lST-ue-NwV" customClass="ProfileViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="lST-ue-NwV" customClass="SetProfilePhotoViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcJ-2t-dIi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="3553" y="-445"/>
         </scene>
-        <!--Galery View Con-->
+        <!--Set User Photos View Controller-->
         <scene sceneID="3Ke-bf-o70">
             <objects>
-                <viewController id="l8S-LF-YKW" customClass="GaleryViewCon" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l8S-LF-YKW" customClass="SetUserPhotosViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1un-Ru-efH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,7 @@
         <!--Data Source-->
         <scene sceneID="41N-5E-Kah">
             <objects>
-                <viewController id="Szf-76-ehU" customClass="InformationUserViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Szf-76-ehU" customClass="SetUserInfoViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhs-Q0-LMT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,10 +444,10 @@
             </objects>
             <point key="canvasLocation" x="5146.3999999999996" y="-444.82758620689657"/>
         </scene>
-        <!--Get Video View Controller-->
+        <!--Set User Video View Controller-->
         <scene sceneID="Frd-9F-rBW">
             <objects>
-                <viewController id="0dv-Zb-Uy1" customClass="GetVideoViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0dv-Zb-Uy1" customClass="SetUserVideoViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9sm-PY-qfS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,10 +555,10 @@
             </objects>
             <point key="canvasLocation" x="5852" y="-448.42578710644682"/>
         </scene>
-        <!--City Selection View Controller-->
+        <!--Set User City View Controller-->
         <scene sceneID="hRD-Hx-z3E">
             <objects>
-                <viewController id="8d4-Q9-fGx" customClass="CitySelectionViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8d4-Q9-fGx" customClass="SetUserCityViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFf-vv-N26">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -602,10 +602,10 @@
             </objects>
             <point key="canvasLocation" x="6600.8000000000002" y="-445.72713643178412"/>
         </scene>
-        <!--Final Profile View Controller-->
+        <!--Set User Price View Controller-->
         <scene sceneID="gZQ-5x-wqZ">
             <objects>
-                <viewController storyboardIdentifier="FinalProfileViewController" id="uzD-3d-0q3" customClass="FinalProfileViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetUserPriceViewController" id="uzD-3d-0q3" customClass="SetUserPriceViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kSN-5F-ndF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

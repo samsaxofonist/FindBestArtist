@@ -1,5 +1,5 @@
 //
-//  FinalProfileViewController.swift
+//  SetUserPriceViewController.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 13.01.19.
@@ -12,7 +12,7 @@ import RxCocoa
 import CoreLocation
 import ARSLineProgress
 
-class FinalProfileViewController: BaseViewController {
+class SetUserPriceViewController: BaseViewController {
     var disposeBag = DisposeBag()
     
     @IBOutlet weak var cityNameLabel: UILabel!

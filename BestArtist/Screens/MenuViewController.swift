@@ -29,7 +29,7 @@ class MenuViewController: UITableViewController {
         
         if indexPath.row == 0 {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! SetProfilePhotoViewController
             
             if let myUser = GlobalManager.myUser {
                 profileController.artist = myUser

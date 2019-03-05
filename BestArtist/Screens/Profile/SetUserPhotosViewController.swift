@@ -1,5 +1,5 @@
 //
-//  GaleryViewCon.swift
+//  SetUserPhotosViewController.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 02.03.19.
@@ -9,11 +9,11 @@
 import UIKit
 import ImageSlideshow
 
-class GaleryViewCon: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var slideShow: ImageSlideshow!
     
-    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GaleryViewCon.didTap))
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetUserPhotosViewController.didTap))
     var artist: Artist!
     var imagePicker = UIImagePickerController()
     var allPhotos = [UIImage]()
@@ -48,7 +48,7 @@ class GaleryViewCon: BaseViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! InformationUserViewController
+        let nextViewController = segue.destination as! SetUserInfoViewController
         nextViewController.artist = artist
         artist.photoGalery = allPhotos
     }

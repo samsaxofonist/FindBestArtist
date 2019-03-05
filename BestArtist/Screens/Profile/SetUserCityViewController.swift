@@ -1,5 +1,5 @@
 //
-//  CitySelectionViewController.swift
+//  SetUserCityViewController.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 13.01.19.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class CitySelectionViewController: BaseViewController {
+class SetUserCityViewController: BaseViewController {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()    
     var artist: Artist!
@@ -22,7 +22,7 @@ class CitySelectionViewController: BaseViewController {
     }
 }
 
-extension CitySelectionViewController: UISearchBarDelegate {
+extension SetUserCityViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -30,7 +30,7 @@ extension CitySelectionViewController: UISearchBarDelegate {
     }
 }
 
-extension CitySelectionViewController: MKLocalSearchCompleterDelegate {
+extension SetUserCityViewController: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
@@ -42,7 +42,7 @@ extension CitySelectionViewController: MKLocalSearchCompleterDelegate {
     }
 }
 
-extension CitySelectionViewController: UITableViewDataSource, UITableViewDelegate {
+extension SetUserCityViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
@@ -62,7 +62,7 @@ extension CitySelectionViewController: UITableViewDataSource, UITableViewDelegat
         let completion = searchResults[indexPath.row]
         
         Geocoder.getCityName(locationObject: completion) { city in
-            let finalViewController = self.storyboard!.instantiateViewController(withIdentifier: "FinalProfileViewController") as! FinalProfileViewController
+            let finalViewController = self.storyboard!.instantiateViewController(withIdentifier: "SetUserPriceViewController") as! SetUserPriceViewController
             self.artist.city = city
             finalViewController.artist = self.artist
             self.navigationController?.pushViewController(finalViewController, animated: true)

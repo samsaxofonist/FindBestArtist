@@ -1,5 +1,5 @@
 //
-//  MenuHolder.swift
+//  GlobalManager.swift
 //  FindBestArtist
 //
 //  Created by Andrii Kravchenko on 04.11.18.
