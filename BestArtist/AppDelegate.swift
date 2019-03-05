@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.red,
+            NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
         return true
     }
 
@@ -27,12 +33,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return handled
     }
     
-    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedString.Key.font: UIFont(name: "SF Pro Display-Bold", size: 30)!
-        ]
-        
-        return true
-    }
 }
 

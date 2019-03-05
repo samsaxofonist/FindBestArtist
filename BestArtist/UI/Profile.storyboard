@@ -400,6 +400,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="a1H-nV-tA4" firstAttribute="leading" secondItem="IUG-aF-aZ0" secondAttribute="leading" constant="35" id="23A-Do-qkF"/>
                             <constraint firstItem="IUG-aF-aZ0" firstAttribute="trailing" secondItem="Ywt-dt-67j" secondAttribute="trailing" constant="35" id="4w8-vc-Jzv"/>
@@ -425,6 +426,9 @@
                             <constraint firstItem="h2g-gA-pzH" firstAttribute="top" secondItem="UCr-U3-alK" secondAttribute="bottom" constant="4" id="xSO-T5-9Ek"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IUG-aF-aZ0"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hOZ-pc-O2g" appends="YES" id="Iio-fH-iCA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="informationAboutYourselfView" destination="h2g-gA-pzH" id="BUh-cM-Mj9"/>
@@ -436,9 +440,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jI-fp-LFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="EW2-ac-D9s">
+                <tapGestureRecognizer id="hOZ-pc-O2g">
                     <connections>
-                        <action selector="hideKeyboardForClicked:" destination="Szf-76-ehU" id="Mim-An-j6E"/>
+                        <action selector="hideKeyboardForClicked:" destination="Szf-76-ehU" id="gal-YD-Tuo"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -611,13 +615,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much would you like to earn for one event (wedding)?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyp-gT-TRR">
-                                <rect key="frame" x="35" y="110" width="305" height="48"/>
+                                <rect key="frame" x="35" y="40" width="305" height="47"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="€" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="lp6-du-yFv">
-                                <rect key="frame" x="137.5" y="178" width="100" height="30"/>
+                                <rect key="frame" x="137.5" y="107" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="FdW-KL-8w5"/>
@@ -628,7 +632,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye8-qK-oib">
-                                <rect key="frame" x="181" y="384" width="13.5" height="24"/>
+                                <rect key="frame" x="182" y="311" width="11.5" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="€">
                                         <attributes>
@@ -641,13 +645,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For example, your event will       take place in ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEd-Ic-UR6">
-                                <rect key="frame" x="35" y="228" width="305" height="48"/>
+                                <rect key="frame" x="35" y="157" width="305" height="47"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="532-cQ-CaY">
-                                <rect key="frame" x="137.5" y="296" width="100" height="0.0"/>
+                                <rect key="frame" x="137.5" y="224" width="100" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="7EB-oG-K30"/>
                                 </constraints>
@@ -656,20 +660,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inclusiv transport costs and  hotel you will get paid ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-Jo-Vrd">
-                                <rect key="frame" x="35" y="316" width="305" height="48"/>
+                                <rect key="frame" x="35" y="244" width="305" height="47"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SU-zy-2B7" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="240" y="507" width="100" height="60"/>
+                                <rect key="frame" x="240" y="361" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="VL4-vl-bTY"/>
                                     <constraint firstAttribute="height" constant="60" id="bhy-cD-kif"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -684,13 +688,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="saveAllButton:" destination="uzD-3d-0q3" eventType="touchUpInside" id="DN7-e6-bMN"/>
+                                    <segue destination="J07-mj-a8u" kind="show" id="qnS-Ol-iuH"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mMV-fL-3IW" firstAttribute="bottom" secondItem="9SU-zy-2B7" secondAttribute="bottom" constant="100" id="1ag-pa-vYW"/>
                             <constraint firstItem="ye8-qK-oib" firstAttribute="top" secondItem="XBh-Jo-Vrd" secondAttribute="bottom" constant="20" id="1ky-0m-VvE"/>
                             <constraint firstItem="532-cQ-CaY" firstAttribute="top" secondItem="sEd-Ic-UR6" secondAttribute="bottom" constant="20" id="8Nz-fp-eNN"/>
                             <constraint firstItem="XBh-Jo-Vrd" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="CAC-9z-bd1"/>
@@ -698,7 +701,8 @@
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="trailing" secondItem="Qyp-gT-TRR" secondAttribute="trailing" constant="35" id="Jqd-8S-UFM"/>
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="trailing" secondItem="XBh-Jo-Vrd" secondAttribute="trailing" constant="35" id="S1w-Vi-Kjh"/>
                             <constraint firstItem="ye8-qK-oib" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="TOs-HB-Fdv"/>
-                            <constraint firstItem="Qyp-gT-TRR" firstAttribute="top" secondItem="mMV-fL-3IW" secondAttribute="top" constant="90" id="UnI-ZO-8nM"/>
+                            <constraint firstItem="Qyp-gT-TRR" firstAttribute="top" secondItem="mMV-fL-3IW" secondAttribute="top" constant="20" id="UnI-ZO-8nM"/>
+                            <constraint firstItem="9SU-zy-2B7" firstAttribute="top" secondItem="XBh-Jo-Vrd" secondAttribute="bottom" constant="70" id="Vf6-c2-3hY"/>
                             <constraint firstItem="sEd-Ic-UR6" firstAttribute="trailing" secondItem="Qyp-gT-TRR" secondAttribute="trailing" id="YSx-7m-q5k"/>
                             <constraint firstItem="sEd-Ic-UR6" firstAttribute="centerX" secondItem="Qyp-gT-TRR" secondAttribute="centerX" id="YW0-Tj-kAy"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="dG4-Ot-4TN"/>
@@ -721,6 +725,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbY-cb-EUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7384.8000000000002" y="-449.32533733133437"/>
+        </scene>
+        <!--Set User DatesVC-->
+        <scene sceneID="gPu-Nd-JzG">
+            <objects>
+                <viewController id="J07-mj-a8u" customClass="SetUserDatesVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="noA-lQ-j9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWo-cU-b81" customClass="CalendarView" customModule="KDCalendar">
+                                <rect key="frame" x="0.0" y="161" width="375" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="syT-c7-3iB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQe-G4-w0k" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
+                                <rect key="frame" x="248" y="500" width="100" height="60"/>
+                                <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8Z1-oO-rUh"/>
+                                    <constraint firstAttribute="height" constant="60" id="rhh-Ce-r7y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveAllButton:" destination="J07-mj-a8u" eventType="touchUpInside" id="0Yd-z8-OkZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GWo-cU-b81" firstAttribute="trailing" secondItem="SmS-oo-Itv" secondAttribute="trailing" id="MKl-1v-O8E"/>
+                            <constraint firstItem="cQe-G4-w0k" firstAttribute="top" secondItem="GWo-cU-b81" secondAttribute="bottom" constant="39" id="gfh-QG-Rhi"/>
+                            <constraint firstItem="SmS-oo-Itv" firstAttribute="trailing" secondItem="cQe-G4-w0k" secondAttribute="trailing" constant="27" id="hLN-DD-6D8"/>
+                            <constraint firstItem="GWo-cU-b81" firstAttribute="leading" secondItem="SmS-oo-Itv" secondAttribute="leading" id="lXu-aN-PhB"/>
+                            <constraint firstItem="GWo-cU-b81" firstAttribute="top" secondItem="SmS-oo-Itv" secondAttribute="top" constant="141" id="mZg-BQ-dER"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SmS-oo-Itv"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendar" destination="GWo-cU-b81" id="3Ne-df-ydd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nT8-hX-avn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8096.8000000000002" y="-451.12443778110946"/>
         </scene>
     </scenes>
 </document>

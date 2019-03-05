@@ -57,15 +57,13 @@ class SetUserPriceViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    @IBAction func saveAllButton(_ sender: Any) {
-        ARSLineProgress.show()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! SetUserDatesVC
         artist.price = Int(priceTextField.text ?? "") ?? 0
-        FirebaseManager.saveArtist(artist, finish: {
-            ARSLineProgress.hide()
-            NotificationCenter.default.post(name: .refreshNamesList, object: nil)
-            self.navigationController?.popToRootViewController(animated: true)
-        })
+        nextViewController.artist = artist
     }
+    
+    
 }
 
 extension CLLocationCoordinate2D {

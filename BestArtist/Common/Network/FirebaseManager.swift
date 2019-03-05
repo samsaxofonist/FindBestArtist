@@ -24,6 +24,7 @@ struct ArtistKeys {
     static let cityLongitude = "cityLon"
     static let facebookID = "fbId"
     static let photoGaleryLinks = "photoGaleryLinks"
+    static let busyDates = "busyDates"
 }
 
 class FirebaseManager {
@@ -48,6 +49,7 @@ class FirebaseManager {
                               ArtistKeys.cityLatitude: artist.city.location.latitude,
                               ArtistKeys.cityLongitude: artist.city.location.longitude,
                               ArtistKeys.facebookID: artist.facebookId,
+                              ArtistKeys.busyDates: artist.busyDates,
                               ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
                 finish()
             })
@@ -61,6 +63,11 @@ class FirebaseManager {
     private static func uploadGalleryPhotos(_ photos: [UIImage], forFacebookId fbID: String, completion: @escaping (([URL]) -> Void)) {
         var allPhotosURL = [URL]()
         var countProcessedPhotos = 0
+        
+        guard photos.count > 0 else {
+            completion([])
+            return
+        }
         
         for (index, onePhoto) in photos.enumerated() {
             uploadAnyPhoto(onePhoto, name: "\(fbID)-\(index).png", completion: { photoURL in
@@ -111,7 +118,8 @@ class FirebaseManager {
                 artist.youtubeLink = (value[ArtistKeys.youtubeLink] as? String) ?? ""
                 artist.price = (value[ArtistKeys.price] as? Int) ?? 0
                 artist.facebookId = (value[ArtistKeys.facebookID] as? String) ?? ""
-                
+                artist.busyDates = (value[ArtistKeys.busyDates] as? [Double]) ?? []                
+
                 let cityName = (value[ArtistKeys.cityName] as? String) ?? ""
                 let lat = (value[ArtistKeys.cityLatitude] as? Double) ?? 0
                 let lon = (value[ArtistKeys.cityLongitude] as? Double) ?? 0

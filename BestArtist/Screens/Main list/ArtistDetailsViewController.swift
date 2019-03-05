@@ -36,7 +36,11 @@ class ArtistDetailsViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-        self.calendar.setDisplayDate(today, animated: false)
+        calendar.setDisplayDate(today, animated: false)
+        
+        for timeInterval in selectedArtist.busyDates {
+            calendar.selectDate(Date(timeIntervalSince1970: timeInterval))
+        }
     }
     
     func setupViewComponents() {

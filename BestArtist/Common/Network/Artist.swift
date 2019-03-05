@@ -24,4 +24,5 @@ class Artist  {
     
     var photoGalery = [UIImage]()
     var photoGaleryLinks: [String] = []
+    var busyDates: [TimeInterval] = []
 }

@@ -35,12 +35,11 @@ class SetUserInfoViewController: BaseViewController {
         view.endEditing(true)
     }
     
-    @objc func keyBoardWillShow(notification: NSNotification) {
-        nameTitleLabelTopConstraint.constant = -200
-    }
-    
     @objc func keyBoardWillHide(notification: NSNotification) {
         nameTitleLabelTopConstraint.constant = 21
+        UIView.animate(withDuration: 0.35) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,7 +59,6 @@ extension SetUserInfoViewController {
     }
     
     func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -144,6 +142,14 @@ extension SetUserInfoViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
         }
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        nameTitleLabelTopConstraint.constant = -100
+        UIView.animate(withDuration: 0.35) {
+            self.view.layoutIfNeeded()
+        }
+        return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
