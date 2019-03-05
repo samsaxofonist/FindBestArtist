@@ -58,6 +58,7 @@
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
+		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
 		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
 		3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */; };
 		3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */; };
@@ -123,6 +124,7 @@
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
 		3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPhotosViewController.swift; sourceTree = "<group>"; };
 		3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserCityViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				3E32991D21C687B400BC33AB /* BaseViewController.swift */,
 				3E36FDD221A35462007781E5 /* GlobalManager.swift */,
 				3E605989222ED0D100156CB4 /* UIView+Extensions.swift */,
+				3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
 				3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */,
+				3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */,
 				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
 				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,

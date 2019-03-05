@@ -80,7 +80,7 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
         guard let selectedImage = info[.originalImage] as? UIImage else {
             return
         }
-        profilePhotoImage.image = selectedImage
+        profilePhotoImage.image = selectedImage.compressTo(3)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
