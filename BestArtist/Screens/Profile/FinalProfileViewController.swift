@@ -27,6 +27,10 @@ class FinalProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          
+        setupDistance()
+    }
+    
+    func setupDistance() {
         var distance: Double
         
         if artist.city! == berlin {
@@ -38,6 +42,10 @@ class FinalProfileViewController: BaseViewController {
         }
         distance = distance/1000
         
+        setupPrice(withDistance: distance)
+    }
+    
+    func setupPrice(withDistance distance: Double) {
         priceTextField.rx.text.orEmpty
             .map {
                 if let price = Double($0) {
@@ -56,8 +64,6 @@ class FinalProfileViewController: BaseViewController {
         artist.price = Int(priceTextField.text ?? "") ?? 0
         NetworkManager.saveArtist(artist, finish: {
             ARSLineProgress.hide()
-          
-            
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         })

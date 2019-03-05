@@ -26,6 +26,7 @@ class GaleryViewCon: BaseViewController, UIImagePickerControllerDelegate, UINavi
     
     @IBAction func saveGalery(_ sender: Any) {
     }
+    
     @IBAction func openGalery(_ sender: Any) {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -41,7 +42,6 @@ class GaleryViewCon: BaseViewController, UIImagePickerControllerDelegate, UINavi
         let imageSources = allPhotos.map { ImageSource(image: $0) }
         slideShow.setImageInputs(imageSources)
     }
-
     
     @objc func didTap() {
         slideShow.presentFullScreenController(from: self)

@@ -56,6 +56,7 @@
 		3E36FE2021A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
+		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
 		3E84D3EA222AB0AC009DC2EF /* GaleryViewCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* GaleryViewCon.swift */; };
 		3EBEC72421EBA37800274C76 /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */; };
@@ -119,6 +120,7 @@
 		3E36FDF821A35463007781E5 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
 		3E84D3E9222AB0AC009DC2EF /* GaleryViewCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryViewCon.swift; sourceTree = "<group>"; };
 		3EBEC72321EBA37800274C76 /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				3EBEC72521EBA9C600274C76 /* Geocoder.swift */,
 				3E32991D21C687B400BC33AB /* BaseViewController.swift */,
 				3E36FDD221A35462007781E5 /* NavigationHolder.swift */,
+				3E605989222ED0D100156CB4 /* UIView+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,
 				3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */,
 				3EC0D00921BD3FB4004627EA /* InformationUserViewController.swift in Sources */,

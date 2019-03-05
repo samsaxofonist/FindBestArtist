@@ -25,8 +25,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     var imagePicker = UIImagePickerController()
     var artist: Artist!
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
@@ -34,7 +33,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         profilePhotoImage.layer.cornerRadius = 118
         backgroundPhotoProfile.layer.cornerRadius = 120
     }
-    
     
     func loadProfilePhoto() {
         DispatchQueue.global().async {
@@ -44,7 +42,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
 
                 DispatchQueue.main.async {
                     self.profilePhotoImage.image = image
-                    
                     ARSLineProgress.hide()
                 }
             }

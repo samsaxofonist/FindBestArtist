@@ -24,21 +24,13 @@ class ArtistDetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCalendar()
         
-        tableView.rowHeight = UITableView.automaticDimension
+        setupViewComponents()
         setupWithArtist(selectedArtist)
-        if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
-            artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
-            artistPhotoImageView.layer.cornerRadius = 100
-            backgroundImageView.layer.cornerRadius = 102
-            infoArtistLabel.text = selectedArtist.description
-        }
         
+        // Поместить в setupWithArtist, когда будем отображать реальные изображения из галереи
         let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
         slideShow.setImageInputs(sources)
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,18 +39,27 @@ class ArtistDetailsViewController: UITableViewController {
         self.calendar.setDisplayDate(today, animated: false)
     }
     
-    func setupCalendar() {
+    func setupViewComponents() {
+        artistPhotoImageView.layer.cornerRadius = 100
+        backgroundImageView.layer.cornerRadius = 102
+        tableView.rowHeight = UITableView.automaticDimension
         calendar.marksWeekends = true
         calendar.dataSource = self
+    }
+    
+    func setupPhoto() {
+        if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
+            artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
+            infoArtistLabel.text = selectedArtist.description
+        }
     }
     
     func setupWithArtist(_ artist: Artist) {
         nameLabel.text = artist.name
         //priceLabel.text = String(artist.price)
         infoArtistLabel.text = artist.description
+        setupPhoto()
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

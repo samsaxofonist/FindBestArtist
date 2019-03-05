@@ -22,8 +22,6 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        needTabBar = true
-        
         setup()
         reloadDataList()
         
@@ -49,14 +47,13 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func setup() {
+        needTabBar = true
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         GlobalManager.navigation = self.navigationController!
     }
-    
-    
     
     @objc func menuButtonClicked() {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)

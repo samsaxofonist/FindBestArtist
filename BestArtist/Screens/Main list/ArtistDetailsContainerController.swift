@@ -15,5 +15,4 @@ class ArtistDetailsContainerController: BaseViewController {
         let detailsViewController = segue.destination as? ArtistDetailsViewController
         detailsViewController?.selectedArtist = selectedArtist
     }
-
 }
