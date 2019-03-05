@@ -28,13 +28,19 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
+        setupViewComponents()
         loadProfilePhoto()
+    }
+    
+    func setupViewComponents() {
         profilePhotoImage.layer.cornerRadius = 118
         backgroundPhotoProfile.layer.cornerRadius = 120
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
     }
     
     func loadProfilePhoto() {
+        ARSLineProgress.ars_showOnView(backgroundPhotoProfile)
         DispatchQueue.global().async {
             FBSDKProfile.loadCurrentProfile { (profile, error) in
                 guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else { return }
@@ -53,8 +59,6 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
     }
     
     func addImageFromGalery() {
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     

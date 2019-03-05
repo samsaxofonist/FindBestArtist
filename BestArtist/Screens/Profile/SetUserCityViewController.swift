@@ -10,11 +10,11 @@ import UIKit
 import MapKit
 
 class SetUserCityViewController: BaseViewController {
+    @IBOutlet weak var searchResultsTableView: UITableView!
+    
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()    
     var artist: Artist!
-    
-    @IBOutlet weak var searchResultsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,7 @@ class SetUserCityViewController: BaseViewController {
 
 extension SetUserCityViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {        
         searchCompleter.queryFragment = searchText
     }
 }

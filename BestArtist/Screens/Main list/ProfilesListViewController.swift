@@ -13,7 +13,7 @@ import FirebaseDatabase
 import FBSDKCoreKit
 import ARSLineProgress
 
-class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var profilesTableView: UITableView!
     
     let maxAnimationDelay: Double = 0.1
@@ -58,11 +58,17 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
     @objc func menuButtonClicked() {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
+    
+    func myUserIfExists(id: String) -> Artist? {
+        return artists.filter({ $0.facebookId == id }).first
+    }
+}
 
+extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artists.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         let artist = artists[indexPath.row]
@@ -100,24 +106,5 @@ class ProfilesListViewController: BaseViewController, UITableViewDelegate, UITab
         } else {
             return false
         }
-    }
-    
-    func myUserIfExists(id: String) -> Artist? {
-        return artists.filter({ $0.facebookId == id }).first
-    }
-}
-
-extension UIFont {
-    func withTraits(traits:UIFontDescriptor.SymbolicTraits) -> UIFont {
-        let descriptor = fontDescriptor.withSymbolicTraits(traits)
-        return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
-    }
-    
-    func bold() -> UIFont {
-        return withTraits(traits: .traitBold)
-    }
-    
-    func italic() -> UIFont {
-        return withTraits(traits: .traitItalic)
     }
 }

@@ -13,15 +13,13 @@ import CoreLocation
 import ARSLineProgress
 
 class SetUserPriceViewController: BaseViewController {
-    var disposeBag = DisposeBag()
-    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var finalPriceLabel: UILabel!
     
+    var disposeBag = DisposeBag()
     let berlin = City(name: "Berlin", location: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
-    let hamburg = City(name: "Hamburg", location: CLLocationCoordinate2D(latitude: 53.551086, longitude: 9.993682))
-    
+    let hamburg = City(name: "Hamburg", location: CLLocationCoordinate2D(latitude: 53.551086, longitude: 9.993682))    
     var artist: Artist!
     
     override func viewDidLoad() {

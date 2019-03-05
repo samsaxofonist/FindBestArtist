@@ -10,7 +10,6 @@ import UIKit
 import ImageSlideshow
 
 class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     @IBOutlet weak var slideShow: ImageSlideshow!
     
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetUserPhotosViewController.didTap))
@@ -25,6 +24,7 @@ class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDe
     }
     
     @IBAction func saveGalery(_ sender: Any) {
+        
     }
     
     @IBAction func openGalery(_ sender: Any) {

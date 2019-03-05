@@ -15,11 +15,11 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIView!
     @IBOutlet weak var artistPhotoImageView: UIImageView!
-    var selectedArtist: Artist!
     @IBOutlet weak var calendar: CalendarView!
-    
     @IBOutlet weak var infoArtistLabel: UILabel!
     @IBOutlet weak var slideShow: ImageSlideshow!
+    
+    var selectedArtist: Artist!
     let images = [UIImage(named: "p1"), UIImage(named: "p2"), UIImage(named: "p3"), UIImage(named: "p4"), UIImage(named: "p5")]
 
     override func viewDidLoad() {
