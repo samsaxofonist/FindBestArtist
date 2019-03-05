@@ -11,14 +11,12 @@ import Firebase
 import FBSDKLoginKit
 import ARSLineProgress
 
-
 class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         GlobalManager.rootNavigation = self.navigationController
         
@@ -37,21 +35,40 @@ class LoginViewController: BaseViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         setEverythingVisible(isVisible: false)
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-            ARSLineProgress.show()
-            guard error == nil, let token = FBSDKAccessToken.current() else {
+        
+        login(completion: { isOK in
+            if isOK {
+                self.openMainScreen()
+            } else {
                 self.setEverythingVisible(isVisible: true)
+            }
+        })
+    }
+    
+    func login(completion: @escaping ((Bool) -> ())) {
+        loginToFacebook(completion: { isFacebookOK in
+            guard isFacebookOK, let token = FBSDKAccessToken.current() else {
+                completion(false)
                 return
             }
             
-            let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-            Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
-                guard error == nil else {
-                    self.setEverythingVisible(isVisible: true)
-                    return
-                }
-                self.openMainScreen()
+            ARSLineProgress.show()
+            self.loginToFirebase(token: token.tokenString, completion: { isFirebaseOK in
+                completion(isFirebaseOK)
             })
+        })
+    }
+    
+    func loginToFirebase(token: String, completion: @escaping ((Bool) -> ())) {
+        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
+            completion(error == nil)
+        })
+    }
+    
+    func loginToFacebook(completion: @escaping ((Bool) -> ())) {
+        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            completion(error == nil)
         }
     }
     
