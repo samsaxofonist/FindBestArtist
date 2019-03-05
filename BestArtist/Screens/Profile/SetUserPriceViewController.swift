@@ -60,7 +60,7 @@ class SetUserPriceViewController: BaseViewController {
     @IBAction func saveAllButton(_ sender: Any) {
         ARSLineProgress.show()
         artist.price = Int(priceTextField.text ?? "") ?? 0
-        NetworkManager.saveArtist(artist, finish: {
+        FirebaseManager.saveArtist(artist, finish: {
             ARSLineProgress.hide()
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)
             self.navigationController?.popToRootViewController(animated: true)

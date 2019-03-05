@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  FirebaseManager.swift
 //  BestArtist
 //
 //  Created by Andrii Kravchenko on 13.01.19.
@@ -26,7 +26,7 @@ struct ArtistKeys {
     static let photoGaleryLinks = "photoGaleryLinks"
 }
 
-class NetworkManager {
+class FirebaseManager {
     static func saveArtist(_ artist: Artist, finish: @escaping (()->()) ) {
         self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             self.uploadGalleryPhotos(artist.photoGalery, forFacebookId: artist.facebookId, completion: { photoURLs in

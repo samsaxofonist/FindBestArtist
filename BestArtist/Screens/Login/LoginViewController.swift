@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FBSDKLoginKit
 import ARSLineProgress
 
 class LoginViewController: BaseViewController {
@@ -20,7 +18,7 @@ class LoginViewController: BaseViewController {
         
         GlobalManager.rootNavigation = self.navigationController
         
-        if FBSDKAccessToken.current() != nil {
+        if LoginManager.isLoggedIn {
             ARSLineProgress.hide()
             openMainScreen()
         }
@@ -36,40 +34,15 @@ class LoginViewController: BaseViewController {
     @IBAction func loginClicked(_ sender: Any) {
         setEverythingVisible(isVisible: false)
         
-        login(completion: { isOK in
+        LoginManager.login(fromViewController: self, progressStartBlock: {
+            ARSLineProgress.show()            
+        }, completion: { isOK in
             if isOK {
                 self.openMainScreen()
             } else {
                 self.setEverythingVisible(isVisible: true)
             }
         })
-    }
-    
-    func login(completion: @escaping ((Bool) -> ())) {
-        loginToFacebook(completion: { isFacebookOK in
-            guard isFacebookOK, let token = FBSDKAccessToken.current() else {
-                completion(false)
-                return
-            }
-            
-            ARSLineProgress.show()
-            self.loginToFirebase(token: token.tokenString, completion: { isFirebaseOK in
-                completion(isFirebaseOK)
-            })
-        })
-    }
-    
-    func loginToFirebase(token: String, completion: @escaping ((Bool) -> ())) {
-        let credential = FacebookAuthProvider.credential(withAccessToken: token)
-        Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
-            completion(error == nil)
-        })
-    }
-    
-    func loginToFacebook(completion: @escaping ((Bool) -> ())) {
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-            completion(error == nil)
-        }
     }
     
     func setEverythingVisible(isVisible: Bool) {

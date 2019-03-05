@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */; };
 		3E017C12220307F600CF2E96 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C11220307F600CF2E96 /* GradientView.swift */; };
-		3E017C1522030A8A00CF2E96 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C1422030A8A00CF2E96 /* NetworkManager.swift */; };
+		3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */; };
 		3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991D21C687B400BC33AB /* BaseViewController.swift */; };
 		3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */; };
 		3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDB621A353AA007781E5 /* AppDelegate.swift */; };
@@ -57,6 +57,7 @@
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
+		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
 		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
 		3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */; };
 		3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */; };
@@ -71,7 +72,7 @@
 		327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsViewController.swift; sourceTree = "<group>"; };
 		381E424005E70D704B3C4588 /* Pods-BestArtist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestArtist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BestArtist/Pods-BestArtist.debug.xcconfig"; sourceTree = "<group>"; };
 		3E017C11220307F600CF2E96 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		3E017C1422030A8A00CF2E96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		3E32991D21C687B400BC33AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserVideoViewController.swift; sourceTree = "<group>"; };
 		3E36FDB321A353AA007781E5 /* BestArtist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestArtist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +122,7 @@
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
 		3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPhotosViewController.swift; sourceTree = "<group>"; };
 		3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserCityViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				3E3ECA8421EFC60D007B1FC3 /* Artist.swift */,
-				3E017C1422030A8A00CF2E96 /* NetworkManager.swift */,
+				3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */,
+				3E60598B222EDA4400156CB4 /* LoginManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -520,13 +523,14 @@
 				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,
 				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,
 				3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */,
+				3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */,
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E017C12220307F600CF2E96 /* GradientView.swift in Sources */,
 				3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */,
 				327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */,
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
-				3E017C1522030A8A00CF2E96 /* NetworkManager.swift in Sources */,
+				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
 				3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */,
 				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
