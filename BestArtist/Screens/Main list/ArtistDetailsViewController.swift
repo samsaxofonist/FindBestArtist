@@ -18,6 +18,7 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var calendar: CalendarView!
     @IBOutlet weak var infoArtistLabel: UILabel!
     @IBOutlet weak var slideShow: ImageSlideshow!
+    @IBOutlet weak var cityLabel: UILabel!
     
     var selectedArtist: Artist!
     let images = [UIImage(named: "p1"), UIImage(named: "p2"), UIImage(named: "p3"), UIImage(named: "p4"), UIImage(named: "p5")]
@@ -36,6 +37,7 @@ class ArtistDetailsViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
+        setupCalender()
         calendar.setDisplayDate(today, animated: false)
         
         for timeInterval in selectedArtist.busyDates {
@@ -51,10 +53,22 @@ class ArtistDetailsViewController: UITableViewController {
         calendar.dataSource = self
     }
     
+    func setupCalender() {
+        CalendarView.Style.cellShape                = .bevel(7.0)
+        CalendarView.Style.cellColorDefault         = UIColor.clear
+        CalendarView.Style.cellColorToday           = UIColor(red:93, green:253, blue:253, alpha:1.00)
+        CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+        CalendarView.Style.cellEventColor           = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+        CalendarView.Style.headerTextColor          = UIColor(red:93, green:253, blue:253, alpha:1.00)
+        CalendarView.Style.cellTextColorDefault     = UIColor.white
+        CalendarView.Style.cellTextColorToday       = UIColor(red:0.31, green:0.44, blue:0.47, alpha:1.00)
+    }
+    
     func setupPhoto() {
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             infoArtistLabel.text = selectedArtist.description
+            cityLabel.text = String(selectedArtist.city.name)
         }
     }
     
