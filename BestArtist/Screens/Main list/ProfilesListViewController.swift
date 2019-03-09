@@ -73,6 +73,14 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         let artist = artists[indexPath.row]
         cell.setupWithArtist(artist)
+        cell.onClickBlock = {
+            let index = GlobalManager.selectedArtists.firstIndex(of: artist)            
+            if index != nil {
+                GlobalManager.selectedArtists.remove(at: index!)
+            } else {
+                GlobalManager.selectedArtists.append(artist)
+            }
+        }
         return cell
     }
     

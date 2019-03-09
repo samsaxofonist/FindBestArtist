@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="-44" width="375" height="681"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-Nw-CXV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                        <rect key="frame" x="127.5" y="309" width="120" height="60"/>
+                                        <rect key="frame" x="127.5" y="308" width="120" height="60"/>
                                         <color key="backgroundColor" red="0.32888546586036682" green="0.80144029855728149" blue="0.91668939590454102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="3xe-wK-sJL"/>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we don't publish anything without your permission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUT-2F-cVy">
-                                        <rect key="frame" x="20" y="384" width="335" height="30"/>
+                                        <rect key="frame" x="20" y="383" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AnI-z1-18C"/>
                                         </constraints>
@@ -74,7 +74,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9C-DE-xMU">
-                                        <rect key="frame" x="40" y="203" width="295" height="41"/>
+                                        <rect key="frame" x="40" y="203" width="295" height="40"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45.5" id="9fT-6g-wB1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -327,6 +327,11 @@
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qzd-VD-HuG">
+                            <connections>
+                                <segue destination="M5N-OH-d3Z" kind="presentation" id="qfv-uv-Cdi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="profilesTableView" destination="fQ7-mF-QRz" id="ciQ-ol-oFX"/>
@@ -334,7 +339,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zm-kw-raz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="-1428"/>
+            <point key="canvasLocation" x="1078" y="-1364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vVb-2I-1jk">
+            <objects>
+                <navigationController id="M5N-OH-d3Z" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n3p-Rw-Jo9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AkE-UR-SG1" kind="relationship" relationship="rootViewController" id="oRz-Zf-3WT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvt-Ul-4kz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="-2108"/>
+        </scene>
+        <!--CartVC-->
+        <scene sceneID="p9x-tc-bEY">
+            <objects>
+                <viewController id="AkE-UR-SG1" customClass="CartVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dpu-YF-1Y8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-d8-D65">
+                                <rect key="frame" x="0.0" y="64" width="375" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AkE-UR-SG1" id="bMN-D9-D6g"/>
+                                    <outlet property="delegate" destination="AkE-UR-SG1" id="bjp-k4-K1Z"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY8-tU-wGg">
+                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="DKc-0d-zuW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0cM-d8-D65" firstAttribute="top" secondItem="UJS-R7-oFs" secondAttribute="top" id="4a6-iD-e3w"/>
+                            <constraint firstItem="jY8-tU-wGg" firstAttribute="bottom" secondItem="dpu-YF-1Y8" secondAttribute="bottom" id="6um-4N-JaI"/>
+                            <constraint firstItem="0cM-d8-D65" firstAttribute="leading" secondItem="UJS-R7-oFs" secondAttribute="leading" id="IRL-Gf-UNc"/>
+                            <constraint firstItem="UJS-R7-oFs" firstAttribute="trailing" secondItem="jY8-tU-wGg" secondAttribute="trailing" id="JwW-6U-8Ql"/>
+                            <constraint firstItem="UJS-R7-oFs" firstAttribute="trailing" secondItem="0cM-d8-D65" secondAttribute="trailing" id="gRk-CL-DGz"/>
+                            <constraint firstItem="jY8-tU-wGg" firstAttribute="top" secondItem="0cM-d8-D65" secondAttribute="bottom" id="kAZ-GB-jLp"/>
+                            <constraint firstItem="jY8-tU-wGg" firstAttribute="leading" secondItem="UJS-R7-oFs" secondAttribute="leading" id="lJe-tI-V31"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UJS-R7-oFs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aHW-ZJ-WiA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZMQ-DW-OKH">
+                            <connections>
+                                <action selector="close:" destination="AkE-UR-SG1" id="5IS-lJ-3wZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="0cM-d8-D65" id="570-w2-e5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WnF-Mh-Ebl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1578" y="-2108"/>
         </scene>
         <!--Artist Details Container Controller-->
         <scene sceneID="25j-gf-7ua">
@@ -399,7 +471,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNk-NN-1ug">
-                                                    <rect key="frame" x="234" y="100" width="109" height="32.5"/>
+                                                    <rect key="frame" x="234" y="100.5" width="109" height="31.5"/>
                                                     <fontDescription key="fontDescription" name="SFProText-Heavy" family="SF Pro Text" pointSize="27"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -516,7 +588,7 @@
         <scene sceneID="kVw-ff-7fv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="DJ" image="Dj" springLoaded="YES" id="wQu-nD-Nob">
+                    <tabBarItem key="tabBarItem" title="DJ" image="Megaphone" springLoaded="YES" id="wQu-nD-Nob">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -537,7 +609,7 @@
         <scene sceneID="7ko-mS-MT3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CPG-lq-8Tx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Piano" image="Piano" id="dYy-lK-pxz"/>
+                    <tabBarItem key="tabBarItem" title="Piano" image="Microphone" id="dYy-lK-pxz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="seb-7Z-9Qu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -556,7 +628,7 @@
         <scene sceneID="ajG-9S-ZkS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sjd-O5-QbS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Painters" image="Painting" id="pFZ-ge-1vA"/>
+                    <tabBarItem key="tabBarItem" title="Painters" image="Camera" id="pFZ-ge-1vA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dun-rU-K2v">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -573,10 +645,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Dj" width="45" height="45"/>
+        <image name="Camera" width="72" height="72"/>
+        <image name="Megaphone" width="72" height="72"/>
         <image name="Menu" width="60" height="60"/>
+        <image name="Microphone" width="72" height="72"/>
         <image name="Musikers" width="199" height="199"/>
-        <image name="Painting" width="60" height="60"/>
-        <image name="Piano" width="30" height="30"/>
     </resources>
 </document>

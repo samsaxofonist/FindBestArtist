@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Artist  {
+class Artist: Equatable {
     var databaseId: String?
     var facebookId: String = ""
     var name: String = ""
@@ -25,4 +25,8 @@ class Artist  {
     var photoGalery = [UIImage]()
     var photoGaleryLinks: [String] = []
     var busyDates: [TimeInterval] = []
+    
+    static func == (lhs: Artist, rhs: Artist) -> Bool {
+        return lhs.facebookId == rhs.facebookId
+    }
 }
