@@ -322,16 +322,19 @@
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dj" id="Pfc-Ay-Vom">
-                        <barButtonItem key="leftBarButtonItem" image="Menu" id="7Bu-6b-mO4">
+                        <barButtonItem key="leftBarButtonItem" image="Settings" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qzd-VD-HuG">
-                            <connections>
-                                <segue destination="M5N-OH-d3Z" kind="presentation" id="qfv-uv-Cdi"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="Heart" id="Qzd-VD-HuG">
+                                <connections>
+                                    <segue destination="M5N-OH-d3Z" kind="presentation" id="qfv-uv-Cdi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="Search" id="v6B-fu-iJt"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="profilesTableView" destination="fQ7-mF-QRz" id="ciQ-ol-oFX"/>
@@ -476,15 +479,24 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY9-je-pfY">
+                                                    <rect key="frame" x="234" y="142" width="109" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                    <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CzS-gw-ZZ3" secondAttribute="bottom" constant="16" id="1Mu-vV-jiv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EY9-je-pfY" secondAttribute="trailing" constant="16" id="FbD-tm-YuK"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="top" secondItem="Dk6-6D-5je" secondAttribute="top" constant="16" id="IWr-6R-Lbe"/>
+                                                <constraint firstItem="EY9-je-pfY" firstAttribute="leading" secondItem="MQ6-n9-png" secondAttribute="trailing" constant="16" id="LI4-SG-urz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qNk-NN-1ug" secondAttribute="trailing" constant="16" id="N36-yO-jxb"/>
                                                 <constraint firstItem="qNk-NN-1ug" firstAttribute="leading" secondItem="MQ6-n9-png" secondAttribute="trailing" constant="16" id="Zx7-ic-ZMR"/>
                                                 <constraint firstItem="MQ6-n9-png" firstAttribute="centerX" secondItem="CzS-gw-ZZ3" secondAttribute="centerX" id="fge-Kx-Jrh"/>
                                                 <constraint firstItem="qNk-NN-1ug" firstAttribute="centerY" secondItem="CzS-gw-ZZ3" secondAttribute="centerY" id="gLl-y2-Nvf"/>
                                                 <constraint firstItem="CzS-gw-ZZ3" firstAttribute="leading" secondItem="Dk6-6D-5je" secondAttribute="leading" constant="16" id="hCg-J6-0ZP"/>
+                                                <constraint firstItem="EY9-je-pfY" firstAttribute="top" secondItem="qNk-NN-1ug" secondAttribute="bottom" constant="10" id="nem-6J-UDH"/>
                                                 <constraint firstItem="MQ6-n9-png" firstAttribute="centerY" secondItem="CzS-gw-ZZ3" secondAttribute="centerY" id="oCE-6N-gWt"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -575,6 +587,7 @@
                         <outlet property="artistPhotoImageView" destination="CzS-gw-ZZ3" id="ShT-HG-E8W"/>
                         <outlet property="backgroundImageView" destination="MQ6-n9-png" id="yXU-rG-nJ5"/>
                         <outlet property="calendar" destination="xxu-nh-3X0" id="CKE-tz-SrY"/>
+                        <outlet property="cityLabel" destination="EY9-je-pfY" id="a1j-dx-UQK"/>
                         <outlet property="infoArtistLabel" destination="y3H-gF-Dtz" id="Eyc-M3-Wbg"/>
                         <outlet property="nameLabel" destination="qNk-NN-1ug" id="YHA-pi-u3l"/>
                         <outlet property="slideShow" destination="yDA-vI-2ry" id="Xqi-ui-daM"/>
@@ -584,11 +597,11 @@
             </objects>
             <point key="canvasLocation" x="2477.5999999999999" y="-1443.3283358320841"/>
         </scene>
-        <!--DJ-->
+        <!--Tamada-->
         <scene sceneID="kVw-ff-7fv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="DJ" image="Megaphone" springLoaded="YES" id="wQu-nD-Nob">
+                    <tabBarItem key="tabBarItem" title="Tamada" image="Megaphone" springLoaded="YES" id="wQu-nD-Nob">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -605,11 +618,11 @@
             </objects>
             <point key="canvasLocation" x="225" y="-1428"/>
         </scene>
-        <!--Piano-->
+        <!--Musician-->
         <scene sceneID="7ko-mS-MT3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CPG-lq-8Tx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Piano" image="Microphone" id="dYy-lK-pxz"/>
+                    <tabBarItem key="tabBarItem" title="Musician" image="Microphone" id="dYy-lK-pxz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="seb-7Z-9Qu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -624,11 +637,11 @@
             </objects>
             <point key="canvasLocation" x="386" y="-691"/>
         </scene>
-        <!--Painters-->
+        <!--Photograf-->
         <scene sceneID="ajG-9S-ZkS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sjd-O5-QbS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Painters" image="Camera" id="pFZ-ge-1vA"/>
+                    <tabBarItem key="tabBarItem" title="Photograf" image="Camera" id="pFZ-ge-1vA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dun-rU-K2v">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -646,9 +659,11 @@
     </scenes>
     <resources>
         <image name="Camera" width="72" height="72"/>
+        <image name="Heart" width="73" height="66"/>
         <image name="Megaphone" width="72" height="72"/>
-        <image name="Menu" width="60" height="60"/>
         <image name="Microphone" width="72" height="72"/>
         <image name="Musikers" width="199" height="199"/>
+        <image name="Search" width="73" height="73"/>
+        <image name="Settings" width="62" height="62"/>
     </resources>
 </document>

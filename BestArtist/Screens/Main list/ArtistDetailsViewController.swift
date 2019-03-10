@@ -68,7 +68,7 @@ class ArtistDetailsViewController: UITableViewController {
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             infoArtistLabel.text = selectedArtist.description
-            cityLabel.text = String(selectedArtist.city.name)
+            //cityLabel.text? = selectedArtist.city.name
         }
     }
     
