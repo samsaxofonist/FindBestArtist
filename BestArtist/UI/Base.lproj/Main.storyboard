@@ -295,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="1305" y="18"/>
         </scene>
-        <!--Dj-->
+        <!--Tamada-->
         <scene sceneID="drD-qV-JQz">
             <objects>
                 <viewController id="Eg1-Zk-soz" customClass="ProfilesListViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +321,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dj" id="Pfc-Ay-Vom">
+                    <navigationItem key="navigationItem" title="Tamada" id="Pfc-Ay-Vom">
                         <barButtonItem key="leftBarButtonItem" image="Settings" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
