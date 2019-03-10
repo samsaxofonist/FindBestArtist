@@ -47,7 +47,7 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
                 guard let data = try? Data(contentsOf: url), let image = UIImage(data: data) else { return }
 
                 DispatchQueue.main.async {
-                    self.profilePhotoImage.image = image.compressTo(1)
+                    self.profilePhotoImage.image = image.resized(toWidth: 600)
                     ARSLineProgress.hide()
                 }
             }
@@ -80,7 +80,7 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
         guard let selectedImage = info[.originalImage] as? UIImage else {
             return
         }
-        profilePhotoImage.image = selectedImage.compressTo(2)
+        profilePhotoImage.image = selectedImage.resized(toWidth: 600)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

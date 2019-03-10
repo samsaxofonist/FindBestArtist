@@ -35,7 +35,7 @@ class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDe
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         imagePicker.dismiss(animated: true, completion: nil)
-        guard let selectedImage = info[.originalImage] as? UIImage, let compressed = selectedImage.compressTo(2) else {
+        guard let selectedImage = info[.originalImage] as? UIImage, let compressed = selectedImage.resized(toWidth: 600) else {
             return
         }
         allPhotos.append(compressed)
