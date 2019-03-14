@@ -27,7 +27,7 @@ class MenuViewController: UITableViewController {
         let neededNavigation = GlobalManager.navigation
         let rootNavigation = GlobalManager.rootNavigation
         
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! SetProfilePhotoViewController
             
@@ -40,7 +40,7 @@ class MenuViewController: UITableViewController {
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
         }
-        if indexPath.row == 1 {
+        if indexPath.row == 2 {
             FBSDKLoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             

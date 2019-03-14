@@ -240,6 +240,24 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mbk-0y-95l">
+                                        <rect key="frame" x="0.0" y="91" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mbk-0y-95l" id="lsQ-l1-0Pn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKE-UR-gKG">
+                                                    <rect key="frame" x="16" y="11" width="61" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -658,12 +676,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="72" height="72"/>
-        <image name="Heart" width="73" height="66"/>
-        <image name="Megaphone" width="72" height="72"/>
-        <image name="Microphone" width="72" height="72"/>
+        <image name="Camera" width="24" height="24"/>
+        <image name="Heart" width="24" height="22"/>
+        <image name="Megaphone" width="24" height="24"/>
+        <image name="Microphone" width="24" height="24"/>
         <image name="Musikers" width="199" height="199"/>
-        <image name="Search" width="73" height="73"/>
-        <image name="Settings" width="62" height="62"/>
+        <image name="Search" width="24" height="24"/>
+        <image name="Settings" width="20" height="20"/>
     </resources>
 </document>
