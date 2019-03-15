@@ -21,7 +21,6 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var cityLabel: UILabel!
     
     var selectedArtist: Artist!
-    let images = [UIImage(named: "p1"), UIImage(named: "p2"), UIImage(named: "p3"), UIImage(named: "p4"), UIImage(named: "p5")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +29,8 @@ class ArtistDetailsViewController: UITableViewController {
         setupWithArtist(selectedArtist)
         
         // Поместить в setupWithArtist, когда будем отображать реальные изображения из галереи
-        let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
-        slideShow.setImageInputs(sources)
+       // let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
+       // slideShow.setImageInputs(sources)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,14 +53,16 @@ class ArtistDetailsViewController: UITableViewController {
     }
     
     func setupCalender() {
-        CalendarView.Style.cellShape                = .bevel(7.0)
-        CalendarView.Style.cellColorDefault         = UIColor.clear
-        CalendarView.Style.cellColorToday           = UIColor(red:93, green:253, blue:253, alpha:1.00)
-        CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
-        CalendarView.Style.cellEventColor           = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
-        CalendarView.Style.headerTextColor          = UIColor(red:93, green:253, blue:253, alpha:1.00)
-        CalendarView.Style.cellTextColorDefault     = UIColor.white
-        CalendarView.Style.cellTextColorToday       = UIColor(red:0.31, green:0.44, blue:0.47, alpha:1.00)
+        CalendarView.Style.cellShape                = .bevel(4.0)
+        CalendarView.Style.cellEventColor = UIColor.brown
+        CalendarView.Style.cellTextColorWeekend = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+    //    CalendarView.Style.cellColorDefault         = UIColor.clear
+    //    CalendarView.Style.cellColorToday           = UIColor(red:93, green:253, blue:253, alpha:1.00)
+    //    CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+    //    CalendarView.Style.cellEventColor           = UIColor.black
+        CalendarView.Style.headerTextColor          = UIColor.blue
+    // CalendarView.Style.cellTextColorDefault     = UIColor.white
+    //  CalendarView.Style.cellTextColorToday       = UIColor(red:0.31, green:0.44, blue:0.47, alpha:1.00)
     }
     
     func setupPhoto() {
