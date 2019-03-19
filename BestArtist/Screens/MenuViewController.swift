@@ -12,10 +12,20 @@ import FBSDKLoginKit
 
 class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var photoView: UIView!
     
+    let artist = Artist()
     override func viewDidLoad() {
         super.viewDidLoad()
         SideMenuManager.defaultManager.menuFadeStatusBar = false
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        photoView.layer.cornerRadius = 44
+        backgroundView.layer.cornerRadius = 45
+        profileCellTitle.text = artist.name
     }
     
     override func viewWillAppear(_ animated: Bool) {

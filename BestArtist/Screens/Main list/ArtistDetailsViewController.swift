@@ -58,9 +58,9 @@ class ArtistDetailsViewController: UITableViewController {
         CalendarView.Style.cellTextColorWeekend = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
     //    CalendarView.Style.cellColorDefault         = UIColor.clear
     //    CalendarView.Style.cellColorToday           = UIColor(red:93, green:253, blue:253, alpha:1.00)
-    //    CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+        CalendarView.Style.cellSelectedBorderColor  = UIColor(red:89/255, green:254/255, blue:254/255, alpha:1.00)
     //    CalendarView.Style.cellEventColor           = UIColor.black
-        CalendarView.Style.headerTextColor          = UIColor.blue
+        CalendarView.Style.headerTextColor          = UIColor.white
     // CalendarView.Style.cellTextColorDefault     = UIColor.white
     //  CalendarView.Style.cellTextColorToday       = UIColor(red:0.31, green:0.44, blue:0.47, alpha:1.00)
     }
@@ -69,7 +69,7 @@ class ArtistDetailsViewController: UITableViewController {
         if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             infoArtistLabel.text = selectedArtist.description
-            //cityLabel.text? = selectedArtist.city.name
+            cityLabel.text? = selectedArtist.city.name
         }
     }
     
