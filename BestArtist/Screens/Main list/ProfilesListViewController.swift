@@ -22,6 +22,7 @@ class ProfilesListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         setup()
         reloadDataList()
         
@@ -40,9 +41,11 @@ class ProfilesListViewController: BaseViewController {
                 let idUser = FBSDKProfile.current()?.userID ?? ""
                 let myUser = self.myUserIfExists(id: idUser)
                 GlobalManager.myUser = myUser
+                
             } else {
                 //TODO: Show error to user
             }
+            UIApplication.shared.endIgnoringInteractionEvents()
         })
     }
     
@@ -53,6 +56,10 @@ class ProfilesListViewController: BaseViewController {
         profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         GlobalManager.navigation = self.navigationController!
+    }
+    
+    func makeSortArtists() {
+        
     }
     
     @objc func menuButtonClicked() {

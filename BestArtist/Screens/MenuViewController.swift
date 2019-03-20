@@ -9,23 +9,27 @@
 import UIKit
 import SideMenu
 import FBSDKLoginKit
+import Kingfisher
 
 class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var photoView: UIView!
+    @IBOutlet weak var photoView: UIImageView!
     
-    let artist = Artist()
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SideMenuManager.defaultManager.menuFadeStatusBar = false
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         photoView.layer.cornerRadius = 44
         backgroundView.layer.cornerRadius = 45
-        profileCellTitle.text = artist.name
+        SideMenuManager.defaultManager.menuFadeStatusBar = false
+        if let artist = GlobalManager.myUser {
+            nameLabel.text = artist.name
+            if let photoLinkString = artist.photoLink, let photoURL = URL(string: photoLinkString) {
+                photoView.kf.setImage(with: ImageResource(downloadURL: photoURL))
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

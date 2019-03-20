@@ -26,6 +26,7 @@
 		3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD921A35462007781E5 /* MenuViewController.swift */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
+		3E419202224184C7000BA5D9 /* SortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E419201224184C7000BA5D9 /* SortVC.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
 		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
@@ -64,6 +65,7 @@
 		3E36FDD921A35462007781E5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3E419201224184C7000BA5D9 /* SortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortVC.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */,
 				327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */,
 				3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */,
+				3E419201224184C7000BA5D9 /* SortVC.swift */,
 			);
 			path = "Main list";
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
 				3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
+				3E419202224184C7000BA5D9 /* SortVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
