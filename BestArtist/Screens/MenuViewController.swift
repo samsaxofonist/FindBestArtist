@@ -21,8 +21,8 @@ class MenuViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoView.layer.cornerRadius = 44
-        backgroundView.layer.cornerRadius = 45
+        photoView.layer.cornerRadius = 28
+        backgroundView.layer.cornerRadius = 30
         SideMenuManager.defaultManager.menuFadeStatusBar = false
         if let artist = GlobalManager.myUser {
             nameLabel.text = artist.name
