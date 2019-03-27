@@ -17,7 +17,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
     @IBOutlet weak var backgroundPhotoView: UIView!
     
-    var onClickBlock: (() -> ())!
+    var onClickBlock: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +26,7 @@ class ProfileCell: UITableViewCell {
     }
     
     @IBAction func selectionAction(_ sender: Any) {
-        onClickBlock()
+        onClickBlock?()
     }
     
     func setupWithArtist(_ artist: Artist) {

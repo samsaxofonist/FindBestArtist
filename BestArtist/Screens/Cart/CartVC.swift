@@ -22,6 +22,14 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
     }
     
+    @IBAction func delButtonClicked(_ sender: Any) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+        } else {
+           tableView.setEditing(true, animated: true)
+        }
+    }
+    
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -52,5 +60,12 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         let artist = GlobalManager.selectedArtists[indexPath.row]
         detailsVC.selectedArtist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            GlobalManager.selectedArtists.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
