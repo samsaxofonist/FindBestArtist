@@ -119,7 +119,7 @@ class FirebaseManager {
                 artist.price = (value[ArtistKeys.price] as? Int) ?? 0
                 artist.facebookId = (value[ArtistKeys.facebookID] as? String) ?? ""
                 artist.busyDates = (value[ArtistKeys.busyDates] as? [Double]) ?? []                
-
+                artist.photoGaleryLinks = value[ArtistKeys.photoGaleryLinks] as? [String] ?? []
                 let cityName = (value[ArtistKeys.cityName] as? String) ?? ""
                 let lat = (value[ArtistKeys.cityLatitude] as? Double) ?? 0
                 let lon = (value[ArtistKeys.cityLongitude] as? Double) ?? 0

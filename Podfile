@@ -24,4 +24,5 @@ pod 'ARSLineProgress', '~> 3.1'
 pod 'MKDropdownMenu'
 pod 'ImageSlideshow', '~> 1.6'
 pod 'KDCalendar', '~> 1.6.5'
+pod 'Cards'
 end

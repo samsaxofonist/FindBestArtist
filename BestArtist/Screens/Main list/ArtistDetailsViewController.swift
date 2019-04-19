@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import ImageSlideshow
 import KDCalendar
+import Cards
 
 class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
@@ -17,7 +18,6 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var artistPhotoImageView: UIImageView!
     @IBOutlet weak var calendar: CalendarView!
     @IBOutlet weak var infoArtistLabel: UILabel!
-    @IBOutlet weak var slideShow: ImageSlideshow!
     @IBOutlet weak var cityLabel: UILabel!
     
     var selectedArtist: Artist!
@@ -27,10 +27,6 @@ class ArtistDetailsViewController: UITableViewController {
         
         setupViewComponents()
         setupWithArtist(selectedArtist)
-        
-        // Поместить в setupWithArtist, когда будем отображать реальные изображения из галереи
-       // let sources = [ImageSource(image: images[0]!), ImageSource(image: images[1]!), ImageSource(image: images[2]!), ImageSource(image: images[3]!), ImageSource(image: images[4]!)]
-       // slideShow.setImageInputs(sources)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,3 +90,40 @@ extension ArtistDetailsViewController: CalendarViewDataSource {
         return Calendar.current.date(byAdding: .year, value: 2, to: Date())!
     }
 }
+
+extension ArtistDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, CardDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedArtist.photoGaleryLinks.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
+        cell.card.delegate = self
+        
+        let urlString = selectedArtist.photoGaleryLinks[indexPath.row]
+        let url = URL(string: urlString)
+        
+        KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in
+            switch result {
+            case .success(let value):
+                cell.card.backgroundImage = value.image
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+        return cell
+    }
+    
+    func cardDidTapInside(card: Card) {
+        let controller = storyboard!.instantiateViewController(withIdentifier: "fullscreenImageVC") as! FullScreenImageVC
+        controller.image = card.backgroundImage!
+        present(controller, animated: true, completion: nil)
+    }
+}
+
+class MyCell: UICollectionViewCell {
+    @IBOutlet weak var card: Card!
+    
+}
+
