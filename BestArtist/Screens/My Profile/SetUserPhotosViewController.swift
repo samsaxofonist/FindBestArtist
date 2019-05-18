@@ -50,6 +50,6 @@ class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! SetUserInfoViewController
         nextViewController.artist = artist
-        artist.photoGalery = allPhotos
+        artist.galleryPhotos = allPhotos
     }
 }
