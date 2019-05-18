@@ -375,6 +375,11 @@
                                     <segue destination="bnV-Ei-FM7" kind="presentation" id="VCE-YQ-E4n"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Item" image="Heart" id="702-KM-No3">
+                                <connections>
+                                    <segue destination="fCY-mc-z0T" kind="presentation" id="q0R-dS-Glt"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -835,6 +840,56 @@
             </objects>
             <point key="canvasLocation" x="2477.5999999999999" y="-1443.3283358320841"/>
         </scene>
+        <!--MapVC-->
+        <scene sceneID="rx9-y7-JTL">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" id="WHy-TT-n0u" customClass="MapVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a4Y-03-war">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-MM-FJP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="WWQ-To-ohj">
+                                <rect key="frame" x="62.666666666666657" y="281" width="249.99999999999997" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="T2f-hw-5UF"/>
+                                    <constraint firstAttribute="height" constant="250" id="gWa-Lq-gRu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LNN-MM-FJP" firstAttribute="leading" secondItem="W4L-XQ-PuY" secondAttribute="leading" id="Bdq-Hx-ReO"/>
+                            <constraint firstItem="LNN-MM-FJP" firstAttribute="top" secondItem="a4Y-03-war" secondAttribute="top" id="DYf-YZ-Qvf"/>
+                            <constraint firstItem="WWQ-To-ohj" firstAttribute="centerX" secondItem="LNN-MM-FJP" secondAttribute="centerX" id="JCx-La-KyD"/>
+                            <constraint firstAttribute="bottom" secondItem="LNN-MM-FJP" secondAttribute="bottom" id="LeZ-dl-mNQ"/>
+                            <constraint firstItem="W4L-XQ-PuY" firstAttribute="trailing" secondItem="LNN-MM-FJP" secondAttribute="trailing" id="oKd-fS-Z2A"/>
+                            <constraint firstItem="WWQ-To-ohj" firstAttribute="centerY" secondItem="LNN-MM-FJP" secondAttribute="centerY" id="pb6-4F-iPQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W4L-XQ-PuY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f4b-gc-KjV">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="5Yh-9K-YBB">
+                            <connections>
+                                <action selector="cancel:" destination="WHy-TT-n0u" id="GL3-Vl-4YX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Apply" id="u3K-go-fOF">
+                            <connections>
+                                <action selector="apply:" destination="WHy-TT-n0u" id="gR1-Eq-9bR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="LNN-MM-FJP" id="eka-5d-1Xo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3e0-vG-4tM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4420" y="-1392.1182266009853"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kVw-ff-7fv">
             <objects>
@@ -945,14 +1000,34 @@
             </objects>
             <point key="canvasLocation" x="-5784" y="-260"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9uU-88-Nnd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCY-mc-z0T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vL6-qr-MaA">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WHy-TT-n0u" kind="relationship" relationship="rootViewController" id="Htp-Ux-p5w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mu4-bQ-WiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3477.5999999999999" y="-1392.1182266009853"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Camera" width="24" height="24"/>
+        <image name="Heart" width="24.333333969116211" height="22"/>
         <image name="Megaphone" width="24" height="24"/>
         <image name="Menu" width="20" height="20"/>
         <image name="Microphone" width="24" height="24"/>
         <image name="Musikers" width="199" height="199"/>
         <image name="Settings" width="20.666666030883789" height="20.666666030883789"/>
+        <image name="circle" width="159.5" height="159.5"/>
         <image name="mvBackground" width="16" height="16"/>
         <image name="savelast" width="20" height="20"/>
     </resources>
