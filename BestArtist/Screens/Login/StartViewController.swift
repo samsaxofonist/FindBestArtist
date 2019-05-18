@@ -22,19 +22,9 @@ class StartViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     private func openLoginScreen() {
-        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-        self.navigationController?.setViewControllers([mainTabBar], animated: false)
+        let login = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+        self.navigationController?.setViewControllers([login], animated: false)
     }
     
     private func openMainScreen() {

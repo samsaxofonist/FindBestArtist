@@ -117,11 +117,10 @@
 			children = (
 				3E75CAB0228FEB2A004F8127 /* Models */,
 				3E017C1322030A7A00CF2E96 /* Network */,
+				3E75CAB5228FEEF9004F8127 /* Extensions */,
 				3EBEC72521EBA9C600274C76 /* Geocoder.swift */,
 				3E32991D21C687B400BC33AB /* BaseViewController.swift */,
 				3E36FDD221A35462007781E5 /* GlobalManager.swift */,
-				3E605989222ED0D100156CB4 /* UIView+Extensions.swift */,
-				3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -183,10 +182,9 @@
 		3E36FDCF21A35462007781E5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3EAD7D922233F6430031485F /* Cart */,
-				3E36FDD321A35462007781E5 /* Main list */,
-				3E36FDD521A35462007781E5 /* Profile */,
 				3E36FDD721A35462007781E5 /* Login */,
+				3E36FDD321A35462007781E5 /* Profiles List */,
+				3E36FDD521A35462007781E5 /* My Profile */,
 				3E36FDD921A35462007781E5 /* MenuViewController.swift */,
 			);
 			path = Screens;
@@ -200,19 +198,20 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		3E36FDD321A35462007781E5 /* Main list */ = {
+		3E36FDD321A35462007781E5 /* Profiles List */ = {
 			isa = PBXGroup;
 			children = (
+				3EAD7D922233F6430031485F /* Cart */,
 				3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */,
 				327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */,
 				3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */,
 				3E419201224184C7000BA5D9 /* SortVC.swift */,
 				3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */,
 			);
-			path = "Main list";
+			path = "Profiles List";
 			sourceTree = "<group>";
 		};
-		3E36FDD521A35462007781E5 /* Profile */ = {
+		3E36FDD521A35462007781E5 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
 				3E36FDD621A35462007781E5 /* SetProfilePhotoViewController.swift */,
@@ -223,7 +222,7 @@
 				3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */,
 				3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */,
 			);
-			path = Profile;
+			path = "My Profile";
 			sourceTree = "<group>";
 		};
 		3E36FDD721A35462007781E5 /* Login */ = {
@@ -242,6 +241,15 @@
 				3E3ECA8421EFC60D007B1FC3 /* Artist.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3E75CAB5228FEEF9004F8127 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E605989222ED0D100156CB4 /* UIView+Extensions.swift */,
+				3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3EAD7D922233F6430031485F /* Cart */ = {

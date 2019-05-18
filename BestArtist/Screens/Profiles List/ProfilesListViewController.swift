@@ -32,7 +32,7 @@ class ProfilesListViewController: BaseViewController {
     @objc func reloadDataList() {
         ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
-        FirebaseManager.loadArtists(completion: { artists, error in
+        NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
             ARSLineProgressConfiguration.backgroundViewStyle = .simple
             if error == nil {
