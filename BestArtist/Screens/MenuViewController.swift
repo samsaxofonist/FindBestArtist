@@ -15,9 +15,7 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitle: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var photoView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

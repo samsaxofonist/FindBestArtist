@@ -12,7 +12,7 @@ import FBSDKLoginKit
 
 class LoginManager {
     static var isLoggedIn: Bool {
-        return FBSDKAccessToken.current() != nil
+        return FBSDKAccessToken.current() != nil && Auth.auth().currentUser != nil
     }
     
     static func login(fromViewController viewController: UIViewController, progressStartBlock: @escaping (()->()), completion: @escaping ((Bool) -> ())) {

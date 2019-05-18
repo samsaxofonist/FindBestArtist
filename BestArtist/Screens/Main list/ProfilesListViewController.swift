@@ -38,7 +38,7 @@ class ProfilesListViewController: BaseViewController {
             if error == nil {
                 self.artists = artists
                 self.profilesTableView.reloadData()
-                let idUser = FBSDKProfile.current()?.userID ?? ""
+                let idUser = FBSDKAccessToken.current()?.userID ?? ""
                 let myUser = self.myUserIfExists(id: idUser)
                 GlobalManager.myUser = myUser
                 
