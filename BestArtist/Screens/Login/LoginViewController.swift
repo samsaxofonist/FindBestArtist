@@ -13,17 +13,6 @@ class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        GlobalManager.rootNavigation = self.navigationController
-        
-        if LoginManager.isLoggedIn {
-            ARSLineProgress.hide()
-            openMainScreen()
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

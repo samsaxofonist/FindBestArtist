@@ -22,9 +22,9 @@ class Artist: Equatable {
     var photo: UIImage!
     var photoLink: String!
     
-    var photoGalery = [UIImage]()
-    var photoGaleryLinks: [String] = []
-    var busyDates: [TimeInterval] = []
+    var galleryPhotos = [UIImage]()
+    var galleryPhotosLinks = [String]()
+    var busyDates = [TimeInterval]()
     
     static func == (lhs: Artist, rhs: Artist) -> Bool {
         return lhs.facebookId == rhs.facebookId

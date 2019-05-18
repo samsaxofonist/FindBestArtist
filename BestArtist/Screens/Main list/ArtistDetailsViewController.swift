@@ -93,14 +93,14 @@ extension ArtistDetailsViewController: CalendarViewDataSource {
 
 extension ArtistDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, CardDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedArtist.photoGaleryLinks.count
+        return selectedArtist.galleryPhotosLinks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
         cell.card.delegate = self
         
-        let urlString = selectedArtist.photoGaleryLinks[indexPath.row]
+        let urlString = selectedArtist.galleryPhotosLinks[indexPath.row]
         let url = URL(string: urlString)
         
         KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in

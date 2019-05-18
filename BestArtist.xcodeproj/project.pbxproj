@@ -31,6 +31,9 @@
 		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
 		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
 		3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */; };
+		3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAAE228FEA67004F8127 /* NetworkManager.swift */; };
+		3E75CAB2228FEB35004F8127 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAB1228FEB35004F8127 /* City.swift */; };
+		3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAB3228FEBEA004F8127 /* StartViewController.swift */; };
 		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
 		3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */; };
 		3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */; };
@@ -71,6 +74,9 @@
 		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserDatesVC.swift; sourceTree = "<group>"; };
+		3E75CAAE228FEA67004F8127 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3E75CAB1228FEB35004F8127 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		3E75CAB3228FEBEA004F8127 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
 		3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPhotosViewController.swift; sourceTree = "<group>"; };
 		3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageVC.swift; sourceTree = "<group>"; };
@@ -99,7 +105,7 @@
 		3E017C1322030A7A00CF2E96 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				3E3ECA8421EFC60D007B1FC3 /* Artist.swift */,
+				3E75CAAE228FEA67004F8127 /* NetworkManager.swift */,
 				3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */,
 				3E60598B222EDA4400156CB4 /* LoginManager.swift */,
 			);
@@ -109,6 +115,7 @@
 		3E017C1622030B3E00CF2E96 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3E75CAB0228FEB2A004F8127 /* Models */,
 				3E017C1322030A7A00CF2E96 /* Network */,
 				3EBEC72521EBA9C600274C76 /* Geocoder.swift */,
 				3E32991D21C687B400BC33AB /* BaseViewController.swift */,
@@ -222,9 +229,19 @@
 		3E36FDD721A35462007781E5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3E75CAB3228FEBEA004F8127 /* StartViewController.swift */,
 				3E36FDD821A35462007781E5 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		3E75CAB0228FEB2A004F8127 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E75CAB1228FEB35004F8127 /* City.swift */,
+				3E3ECA8421EFC60D007B1FC3 /* Artist.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3EAD7D922233F6430031485F /* Cart */ = {
@@ -420,6 +437,7 @@
 				3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */,
 				3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */,
 				3EAD7D942233F69E0031485F /* CartVC.swift in Sources */,
+				3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */,
 				3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */,
 				3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */,
 				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,
@@ -439,6 +457,8 @@
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
 				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
+				3E75CAB2228FEB35004F8127 /* City.swift in Sources */,
+				3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */,
 				3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
 				3E419202224184C7000BA5D9 /* SortVC.swift in Sources */,

@@ -40,8 +40,7 @@ class ProfilesListViewController: BaseViewController {
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKAccessToken.current()?.userID ?? ""
                 let myUser = self.myUserIfExists(id: idUser)
-                GlobalManager.myUser = myUser
-                
+                GlobalManager.myUser = myUser                
             } else {
                 //TODO: Show error to user
             }

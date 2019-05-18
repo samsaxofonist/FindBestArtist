@@ -29,14 +29,14 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" wantsFullScreenLayout="YES" id="xgh-Tf-dZa" customClass="LoginViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cre-zT-lls">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-td-cWd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-En-gCI">
-                                        <rect key="frame" x="0.0" y="-44" width="375" height="768"/>
+                                        <rect key="frame" x="0.0" y="-44" width="375" height="812"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0t-Nw-CXV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                         <rect key="frame" x="127.66666666666669" y="308" width="120" height="60"/>
@@ -134,7 +134,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0EX-Su-dAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1758" y="-1048"/>
+            <point key="canvasLocation" x="-1332" y="-1102"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="N0d-SC-TR8">
+            <objects>
+                <viewController id="apG-sI-BiW" customClass="StartViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kMk-D5-iUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="DhH-dm-Zwn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZDB-LQ-LjX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HxE-hs-thJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2042" y="-1102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fj0-by-4Q3">
@@ -147,12 +163,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="xgh-Tf-dZa" kind="relationship" relationship="rootViewController" id="K0p-R4-fja"/>
+                        <segue destination="apG-sI-BiW" kind="relationship" relationship="rootViewController" id="tkF-k6-cdB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBy-Mc-bIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2582" y="-1048"/>
+            <point key="canvasLocation" x="-2750" y="-1101"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GlC-pJ-ph8">
