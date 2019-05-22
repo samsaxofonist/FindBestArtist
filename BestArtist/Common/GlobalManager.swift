@@ -8,9 +8,24 @@
 
 import UIKit
 
+enum SortingType {
+    case lowToHigh
+    case highToLow
+    
+    var title: String {
+        switch self {
+        case .lowToHigh:
+            return "From cheap to expensive"
+        case .highToLow:
+            return "From expensive to cheap"
+        }
+    }
+}
+
 class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
     static var myUser: Artist?
     static var selectedArtists = [Artist]()
+    static var sorting: SortingType = .lowToHigh
 }

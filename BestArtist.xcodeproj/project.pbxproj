@@ -39,6 +39,7 @@
 		3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */; };
 		3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */; };
 		3EAD7D942233F69E0031485F /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD7D932233F69E0031485F /* CartVC.swift */; };
+		3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB266072295C41A00DCC5AB /* FilterVC.swift */; };
 		3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */; };
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */; };
@@ -83,6 +84,7 @@
 		3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPhotosViewController.swift; sourceTree = "<group>"; };
 		3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageVC.swift; sourceTree = "<group>"; };
 		3EAD7D932233F69E0031485F /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		3EB266072295C41A00DCC5AB /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserCityViewController.swift; sourceTree = "<group>"; };
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPriceViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				3E75CCDB22902C7E004F8127 /* MapVC.swift */,
+				3EB266072295C41A00DCC5AB /* FilterVC.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MKDropdownMenu/MKDropdownMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -411,6 +415,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKDropdownMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -459,6 +464,7 @@
 				3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */,
 				3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */,
 				3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */,
+				3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */,
 				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,
 				3E75CCDC22902C7E004F8127 /* MapVC.swift in Sources */,
 				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,

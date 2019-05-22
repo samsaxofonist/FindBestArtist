@@ -36,7 +36,13 @@ class ProfilesListViewController: BaseViewController {
             ARSLineProgress.hide()
             ARSLineProgressConfiguration.backgroundViewStyle = .simple
             if error == nil {
-                self.artists = artists
+                self.artists = artists.sorted(by: {
+                    if GlobalManager.sorting == .lowToHigh {
+                        return $0.price < $1.price
+                    } else {
+                        return $0.price > $1.price
+                    }
+                })
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKAccessToken.current()?.userID ?? ""
                 let myUser = self.myUserIfExists(id: idUser)
@@ -57,8 +63,34 @@ class ProfilesListViewController: BaseViewController {
         GlobalManager.navigation = self.navigationController!
     }
     
-    func makeSortArtists() {
-        
+    @IBAction func sortButtonClicked(_ sender: Any) {
+        let sortVC = storyboard?.instantiateViewController(withIdentifier: "sortVC") as! SortVC
+        sortVC.sortingChangedBlock = {
+            self.artists = self.artists
+                .filter { $0.name == "Ivan" || $0.name == "Valentin" }
+                .sorted(by: {
+                    if GlobalManager.sorting == .lowToHigh {
+                        return $0.price < $1.price
+                    } else {
+                        return $0.price > $1.price
+                    }
+                })
+            
+            self.artists = self.artists.sorted(by: {
+                if GlobalManager.sorting == .lowToHigh {
+                    return $0.price < $1.price
+                } else {
+                    return $0.price > $1.price
+                }
+            })
+            self.profilesTableView.reloadData()
+        }
+        present(sortVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func filterButtonClicked(_ sender: Any) {
+         let filterVC = storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        present(filterVC, animated: true, completion: nil)
     }
     
     @objc func menuButtonClicked() {

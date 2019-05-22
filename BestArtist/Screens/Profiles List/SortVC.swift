@@ -10,17 +10,35 @@ import UIKit
 
 class SortVC: UIViewController {
     @IBOutlet weak var sortListView: UIView!
-    @IBOutlet weak var upButton: HelpUIButtonClass!
-    @IBOutlet weak var downButton: HelpUIButtonClass!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sortSwitch: UISwitch!
+    
+    var sortingChangedBlock: (() -> ())!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sortListView.layer.cornerRadius = 10
-
+        
+        titleLabel.text = GlobalManager.sorting.title
+        if GlobalManager.sorting == .lowToHigh {
+            sortSwitch.isOn = true
+        } else {
+            sortSwitch.isOn = false
+        }
     }
     
     @IBAction func backgroundClicked(_ sender: Any) {
+        sortingChangedBlock()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func sortingChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            GlobalManager.sorting = .lowToHigh
+        } else {
+            GlobalManager.sorting = .highToLow
+        }
+        titleLabel.text = GlobalManager.sorting.title
     }
     
     func blurEffect() {

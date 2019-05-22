@@ -14,9 +14,11 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     
+    let zoneCircleRadius: Double = 125
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
@@ -31,6 +33,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func apply(_ sender: Any) {
+        calculateRadius()
         dismiss(animated: true, completion: nil)
     }
     
@@ -40,11 +43,17 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: latestLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         map.setRegion(region, animated: true)
     }
+    
+    func calculateRadius() {
+        let rect = map.visibleMapRect
+        let rightMapPoint = MKMapPoint(x: rect.minX, y: rect.midY)
+        let leftMapPoint = MKMapPoint(x: rect.maxX, y: rect.midY)
+        let screenMapWidthInMeters = rightMapPoint.distance(to: leftMapPoint)
+        
+        let metersPerPixel = screenMapWidthInMeters / Double(UIScreen.main.bounds.width)
+        
+        let centerPointCoordinates = map.centerCoordinate
+        let centerPointRadiusInMeters = zoneCircleRadius * metersPerPixel
+    }
+    
 }
-
-/*
- MKMapRect currentRect = mapView.visibleMapRect;
- MKMapPoint farEastPoint = MKMapPointMake(MKMapRectGetMinX(currentRect), MKMapRectGetMidY(currentRect));
- MKMapPoint farWestPoint = MKMapPointMake(MKMapRectGetMaxX(currentRect), MKMapRectGetMidY(currentRect));
- double currentDis = MKMetersBetweenMapPoints(farEastPoint, farWestPoint);
- */
