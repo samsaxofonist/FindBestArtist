@@ -10,15 +10,15 @@ import Foundation
 import CoreLocation
 
 class City: Equatable {
-    static func == (lhs: City, rhs: City) -> Bool {
-        return lhs.name == rhs.name
-    }
-    
     let name: String
     let location: CLLocationCoordinate2D
     
     init(name: String, location: CLLocationCoordinate2D) {
         self.name = name
         self.location = location
+    }
+    
+    static func == (lhs: City, rhs: City) -> Bool {
+        return lhs.name == rhs.name
     }
 }

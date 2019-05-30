@@ -22,10 +22,16 @@ enum SortingType {
     }
 }
 
+enum FilterType {
+    case price(from: Int, up: Int)
+    case distance(up: Int)
+}
+
 class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
     static var myUser: Artist?
     static var selectedArtists = [Artist]()
     static var sorting: SortingType = .lowToHigh
+    static var filter: FilterType? = nil
 }

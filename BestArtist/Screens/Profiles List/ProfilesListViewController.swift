@@ -15,10 +15,13 @@ import ARSLineProgress
 
 class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var profilesTableView: UITableView!
+    @IBOutlet var listSettingsView: UIView!
     
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     var artists = [Artist]()
+    var filteredArtists = [Artist]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,7 @@ class ProfilesListViewController: BaseViewController {
                         return $0.price > $1.price
                     }
                 })
+                self.filteredArtists = self.artists
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKAccessToken.current()?.userID ?? ""
                 let myUser = self.myUserIfExists(id: idUser)
@@ -66,13 +70,7 @@ class ProfilesListViewController: BaseViewController {
     @IBAction func sortButtonClicked(_ sender: Any) {
         let sortVC = storyboard?.instantiateViewController(withIdentifier: "sortVC") as! SortVC
         sortVC.sortingChangedBlock = {
-            self.artists = self.artists.sorted(by: {
-                if GlobalManager.sorting == .lowToHigh {
-                    return $0.price < $1.price
-                } else {
-                    return $0.price > $1.price
-                }
-            })
+            self.sortArtists()
             self.profilesTableView.reloadData()
         }
         present(sortVC, animated: true, completion: nil)
@@ -80,7 +78,37 @@ class ProfilesListViewController: BaseViewController {
     
     @IBAction func filterButtonClicked(_ sender: Any) {
          let filterVC = storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        filterVC.filterChangedBlock = {
+            self.filterArtists()
+            self.sortArtists()
+            self.profilesTableView.reloadData()
+        }
         present(filterVC, animated: true, completion: nil)
+    }
+    
+    func sortArtists() {
+        self.filteredArtists = self.filteredArtists.sorted(by: {
+            if GlobalManager.sorting == .lowToHigh {
+                return $0.price < $1.price
+            } else {
+                return $0.price > $1.price
+            }
+        })
+    }
+    
+    func filterArtists() {
+        if GlobalManager.filter == nil {
+            self.filteredArtists = self.artists
+        } else {
+            self.filteredArtists = self.artists.filter {
+                if case let FilterType.price(from, up) = GlobalManager.filter! {
+                    return $0.price >= from && $0.price <= up
+                } else {
+                    // Добавить логику, когда у артиста будет задано расстояние на котором он работает
+                    return true
+                }
+            }
+        }
     }
     
     @objc func menuButtonClicked() {
@@ -94,12 +122,12 @@ class ProfilesListViewController: BaseViewController {
 
 extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artists.count
+        return self.filteredArtists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-        let artist = artists[indexPath.row]
+        let artist = self.filteredArtists[indexPath.row]
         cell.setupWithArtist(artist)
         cell.onClickBlock = {
             let index = GlobalManager.selectedArtists.firstIndex(of: artist)            
@@ -114,7 +142,7 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsContainer") as! ArtistDetailsContainerController
-        let artist = artists[indexPath.row]
+        let artist = self.filteredArtists[indexPath.row]
         detailsVC.selectedArtist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -134,6 +162,14 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
             cell.alpha = 1
         }, completion: nil)
         indexShown.append(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return listSettingsView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func wasCellAlreadyPresent(index: IndexPath) -> Bool {

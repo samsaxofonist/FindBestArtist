@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
-class FilterVC: UIViewController {
-
+class FilterVC: UIViewController, RangeSeekSliderDelegate {
+    
+    @IBOutlet weak var priceSlider: RangeSeekSlider!
+    
+    var filterChangedBlock: (() -> ())!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        priceSlider.delegate = self
+        
+        if let filter = GlobalManager.filter {
+            if case let FilterType.price(from, up) = filter {
+                priceSlider.selectedMinValue = CGFloat(from)
+                priceSlider.selectedMaxValue = CGFloat(up)
+            }
+        }
+    }
+    
+    @IBAction func backgroundClicked(_ sender: Any) {
+        filterChangedBlock()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        let lowValue = Int(slider.selectedMinValue)
+        let highValue = Int(slider.selectedMaxValue)
+        
+        GlobalManager.filter = .price(from: lowValue, up: highValue)
     }
 
 }

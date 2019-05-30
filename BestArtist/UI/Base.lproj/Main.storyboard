@@ -364,34 +364,69 @@
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem image="savelast" id="Qzd-VD-HuG">
-                                <connections>
-                                    <segue destination="M5N-OH-d3Z" kind="presentation" id="qfv-uv-Cdi"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" id="BgS-11-qpr">
-                                <connections>
-                                    <action selector="filterButtonClicked:" destination="Eg1-Zk-soz" id="BYk-mg-W5F"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="Settings" id="v6B-fu-iJt">
-                                <connections>
-                                    <action selector="sortButtonClicked:" destination="Eg1-Zk-soz" id="8pP-BZ-Pgz"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="Heart" id="702-KM-No3">
-                                <connections>
-                                    <segue destination="fCY-mc-z0T" kind="presentation" id="q0R-dS-Glt"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Bq3-3M-BHX">
+                            <connections>
+                                <segue destination="AkE-UR-SG1" kind="presentation" id="J7L-yx-7pB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="listSettingsView" destination="V00-Pw-lfr" id="NN6-ak-Yo1"/>
                         <outlet property="profilesTableView" destination="fQ7-mF-QRz" id="ciQ-ol-oFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zm-kw-raz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="V00-Pw-lfr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q1v-vy-XtP">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q50-1m-fUA">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmC-gA-Kng">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Sort">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sortButtonClicked:" destination="Eg1-Zk-soz" eventType="touchUpInside" id="MkY-2F-V2o"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaC-ms-oz9">
+                                    <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-fl-sDw">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Filter">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="filterButtonClicked:" destination="Eg1-Zk-soz" eventType="touchUpInside" id="TiO-FN-CV6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0078431372550000003" green="0.53333333329999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="q1v-vy-XtP" firstAttribute="leading" secondItem="8Im-ON-YIM" secondAttribute="leading" id="HhE-eG-4rW"/>
+                        <constraint firstItem="q1v-vy-XtP" firstAttribute="top" secondItem="V00-Pw-lfr" secondAttribute="top" id="VsK-E0-qlv"/>
+                        <constraint firstAttribute="bottom" secondItem="q1v-vy-XtP" secondAttribute="bottom" id="f0w-Lb-1bB"/>
+                        <constraint firstItem="8Im-ON-YIM" firstAttribute="trailing" secondItem="q1v-vy-XtP" secondAttribute="trailing" id="yO5-jT-rYX"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="8Im-ON-YIM"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1044" y="-768"/>
         </scene>
@@ -420,7 +455,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-d8-D65">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AkE-UR-SG1" id="bMN-D9-D6g"/>
@@ -1028,13 +1063,13 @@
                                                 <real key="value" value="400"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                <real key="value" value="3000"/>
+                                                <real key="value" value="40000"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedMinValue">
                                                 <real key="value" value="400"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedMaxValue">
-                                                <real key="value" value="3000"/>
+                                                <real key="value" value="40000"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="minDistance">
                                                 <real key="value" value="5"/>
@@ -1096,26 +1131,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mGF-c2-GzI"/>
                     </view>
+                    <connections>
+                        <outlet property="priceSlider" destination="8x1-El-Cha" id="ABp-3R-QgK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvS-EH-l4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="s1y-xP-1p5"/>
+                <tapGestureRecognizer id="s1y-xP-1p5">
+                    <connections>
+                        <action selector="backgroundClicked:" destination="uuK-ud-Ip2" id="RTy-Ph-QpL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3240.8000000000002" y="-2118.4729064039411"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera" width="24" height="24"/>
-        <image name="Heart" width="24.333333969116211" height="22"/>
         <image name="Megaphone" width="24" height="24"/>
         <image name="Menu" width="20" height="20"/>
         <image name="Microphone" width="24" height="24"/>
         <image name="Musikers" width="199" height="199"/>
-        <image name="Settings" width="20.666666030883789" height="20.666666030883789"/>
         <image name="circle" width="159.5" height="159.5"/>
         <image name="mvBackground" width="16" height="16"/>
-        <image name="savelast" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="J7L-yx-7pB"/>
         <segue reference="COP-2K-cCv"/>
     </inferredMetricsTieBreakers>
 </document>
