@@ -66,16 +66,6 @@ class ProfilesListViewController: BaseViewController {
     @IBAction func sortButtonClicked(_ sender: Any) {
         let sortVC = storyboard?.instantiateViewController(withIdentifier: "sortVC") as! SortVC
         sortVC.sortingChangedBlock = {
-            self.artists = self.artists
-                .filter { $0.name == "Ivan" || $0.name == "Valentin" }
-                .sorted(by: {
-                    if GlobalManager.sorting == .lowToHigh {
-                        return $0.price < $1.price
-                    } else {
-                        return $0.price > $1.price
-                    }
-                })
-            
             self.artists = self.artists.sorted(by: {
                 if GlobalManager.sorting == .lowToHigh {
                     return $0.price < $1.price
