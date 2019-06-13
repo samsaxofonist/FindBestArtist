@@ -18,9 +18,13 @@ class Geocoder {
             geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
                 guard let placeMark = placemarks?.first else { return }
                 
+                // Получили имя города
                 if let cityName = placeMark.subAdministrativeArea {
-                    let city = City(name: cityName, location: coordinate)
-                    completion(city)
+                    getLocation(forCityName: cityName, completion: { location in
+                        guard let cityLocation = location else { return }
+                        let city = City(name: cityName, location: cityLocation.coordinate)
+                        completion(city)
+                    })
                 }
             })
         }
@@ -34,6 +38,29 @@ class Geocoder {
             guard let mapItem = response?.mapItems[0] else { return }
             let coordinate = mapItem.placemark.coordinate
             completion(coordinate)
+        }
+    }
+    
+    static func getLocation(forCityName name: String, completion: @escaping(CLLocation?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(name) { placemarks, error in
+            
+            guard error == nil else {
+                completion(nil)
+                return
+            }
+            
+            guard let placemark = placemarks?.first else {
+                completion(nil)
+                return
+            }
+            
+            guard let location = placemark.location else {
+                completion(nil)
+                return
+            }
+            
+            completion(location)
         }
     }
 }

@@ -77,7 +77,9 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
-         let filterVC = storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        let filterVC = storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        filterVC.artists = filteredArtists
+        
         filterVC.filterChangedBlock = {
             self.filterArtists()
             self.sortArtists()
@@ -97,11 +99,11 @@ class ProfilesListViewController: BaseViewController {
     }
     
     func filterArtists() {
-        if GlobalManager.filter == nil {
+        if GlobalManager.filterPrice == nil {
             self.filteredArtists = self.artists
         } else {
             self.filteredArtists = self.artists.filter {
-                if case let FilterType.price(from, up) = GlobalManager.filter! {
+                if case let FilterType.price(from, up) = GlobalManager.filterPrice! {
                     return $0.price >= from && $0.price <= up
                 } else {
                     // Добавить логику, когда у артиста будет задано расстояние на котором он работает

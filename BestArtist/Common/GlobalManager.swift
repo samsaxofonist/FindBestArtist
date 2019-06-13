@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 enum SortingType {
     case lowToHigh
@@ -24,7 +25,7 @@ enum SortingType {
 
 enum FilterType {
     case price(from: Int, up: Int)
-    case distance(up: Int)
+    case distance(center: CLLocationCoordinate2D, radius: Double)
 }
 
 class GlobalManager {
@@ -33,5 +34,6 @@ class GlobalManager {
     static var myUser: Artist?
     static var selectedArtists = [Artist]()
     static var sorting: SortingType = .lowToHigh
-    static var filter: FilterType? = nil
+    static var filterPrice: FilterType? = nil
+    static var filterDistance: FilterType? = nil
 }

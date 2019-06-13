@@ -889,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3e0-vG-4tM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4420" y="-1392.1182266009853"/>
+            <point key="canvasLocation" x="4398" y="-1392"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kVw-ff-7fv">
@@ -1108,6 +1108,14 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-hJ-IBA">
+                                        <rect key="frame" x="16" y="148" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="fCY-mc-z0T" kind="presentation" id="1vm-ck-8fD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

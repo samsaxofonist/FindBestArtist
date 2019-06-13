@@ -15,10 +15,17 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     let zoneCircleRadius: Double = 125
+    var userLocationIsTaken = false
+    var allArtists: [Artist]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLocationManager()
+        addSomeMarks()
+    }
+    
+    func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
@@ -37,11 +44,29 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    func addSomeMarks() {
+        // Взять массив координат каждого артиста
+        let usersLocations: [CLLocationCoordinate2D] = allArtists.map { $0.city.location }
+        // Взять только уникальные координаты, которые не повторяются
+        let uniqueLocations = Set<CLLocationCoordinate2D>(usersLocations)
+        
+        for location in uniqueLocations {
+            let numberOfUsers = allArtists.filter { $0.city.location == location }.count
+            
+            let annotaion = MKPointAnnotation()
+            annotaion.title = "\(numberOfUsers) artists"
+            annotaion.coordinate = location
+            map.addAnnotation(annotaion)
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard userLocationIsTaken == false else { return }
         guard let latestLocation = locations.first else { return }
         let regionRadius: CLLocationDistance = 100000
         let region = MKCoordinateRegion(center: latestLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         map.setRegion(region, animated: true)
+        userLocationIsTaken = true
     }
     
     func calculateRadius() {
@@ -53,7 +78,18 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         let metersPerPixel = screenMapWidthInMeters / Double(UIScreen.main.bounds.width)
         
         let centerPointCoordinates = map.centerCoordinate
-        let centerPointRadiusInMeters = zoneCircleRadius * metersPerPixel
+        let centerPointRadiusInMeters = zoneCircleRadius * metersPerPixel        
+        GlobalManager.filterDistance = FilterType.distance(center: centerPointCoordinates, radius: centerPointRadiusInMeters)
     }
     
+}
+
+extension CLLocationCoordinate2D: Hashable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+    
+    public var hashValue: Int {
+        return (latitude.hashValue&*397) &+ longitude.hashValue
+    }
 }
