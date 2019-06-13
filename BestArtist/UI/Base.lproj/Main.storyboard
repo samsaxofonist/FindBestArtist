@@ -935,7 +935,7 @@
         <scene sceneID="ajG-9S-ZkS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sjd-O5-QbS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Camera" id="pFZ-ge-1vA"/>
+                    <tabBarItem key="tabBarItem" title="" image="advertising" selectedImage="advertising" id="pFZ-ge-1vA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dun-rU-K2v">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1146,16 +1146,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="24" height="24"/>
         <image name="Megaphone" width="24" height="24"/>
         <image name="Menu" width="20" height="20"/>
         <image name="Microphone" width="24" height="24"/>
         <image name="Musikers" width="199" height="199"/>
+        <image name="advertising" width="30" height="30"/>
         <image name="circle" width="159.5" height="159.5"/>
         <image name="mvBackground" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J7L-yx-7pB"/>
-        <segue reference="COP-2K-cCv"/>
+        <segue reference="nCm-vz-DGR"/>
     </inferredMetricsTieBreakers>
 </document>
