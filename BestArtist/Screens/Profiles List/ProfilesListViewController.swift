@@ -22,10 +22,10 @@ class ProfilesListViewController: BaseViewController {
     var artists = [Artist]()
     var filteredArtists = [Artist]()
     
-    let viewModel = ProfilesListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         setup()
         reloadDataList()
         
@@ -33,15 +33,29 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @objc func reloadDataList() {
-        UIApplication.shared.beginIgnoringInteractionEvents()
         ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
-        viewModel.loadArtists {
+        NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
             ARSLineProgressConfiguration.backgroundViewStyle = .simple
-            self.profilesTableView.reloadData()
+            if error == nil {
+                self.artists = artists.sorted(by: {
+                    if GlobalManager.sorting == .lowToHigh {
+                        return $0.price < $1.price
+                    } else {
+                        return $0.price > $1.price
+                    }
+                })
+                self.filteredArtists = self.artists
+                self.profilesTableView.reloadData()
+                let idUser = FBSDKAccessToken.current()?.userID ?? ""
+                let myUser = self.myUserIfExists(id: idUser)
+                GlobalManager.myUser = myUser                
+            } else {
+                //TODO: Show error to user
+            }
             UIApplication.shared.endIgnoringInteractionEvents()
-        }
+        })
     }
     
     func setup() {
@@ -108,7 +122,7 @@ class ProfilesListViewController: BaseViewController {
 
 extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.artists
+        return self.filteredArtists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,8 +141,6 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsContainer") as! ArtistDetailsContainerController
         let artist = self.filteredArtists[indexPath.row]
         detailsVC.selectedArtist = artist
