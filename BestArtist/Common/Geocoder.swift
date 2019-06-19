@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 class Geocoder {
-    static func getCityName(locationObject: MKLocalSearchCompletion, completion: @escaping ((City) -> Void)) {
+    static func getCityAndCountry(locationObject: MKLocalSearchCompletion, completion: @escaping ((City, String?) -> Void)) {
         getCoordinates(locationObject: locationObject) { coordinate in
             let geoCoder = CLGeocoder()
             let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
@@ -23,7 +23,7 @@ class Geocoder {
                     getLocation(forCityName: cityName, completion: { location in
                         guard let cityLocation = location else { return }
                         let city = City(name: cityName, location: cityLocation.coordinate)
-                        completion(city)
+                        completion(city, placeMark.country)
                     })
                 }
             })

@@ -60,9 +60,10 @@ extension SetUserCityViewController: UITableViewDataSource, UITableViewDelegate 
         
         let completion = searchResults[indexPath.row]
         
-        Geocoder.getCityName(locationObject: completion) { city in
+        Geocoder.getCityAndCountry(locationObject: completion) { city, country in
             let finalViewController = self.storyboard!.instantiateViewController(withIdentifier: "SetUserPriceViewController") as! SetUserPriceViewController
             self.artist.city = city
+            self.artist.country = country
             finalViewController.artist = self.artist
             self.navigationController?.pushViewController(finalViewController, animated: true)
         }

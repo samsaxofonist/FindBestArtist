@@ -17,6 +17,7 @@ class Artist: Equatable {
     var description: String = ""
     var youtubeLink: String = ""
     var city: City!
+    var country: String?
     var price: Int = 0
     
     var photo: UIImage!
