@@ -178,6 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="KZZ-OU-9ZI" kind="relationship" relationship="viewControllers" id="jZ8-xe-7T3"/>
@@ -895,7 +896,7 @@
         <scene sceneID="kVw-ff-7fv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Megaphone" springLoaded="YES" id="wQu-nD-Nob">
+                    <tabBarItem key="tabBarItem" title="" image="record-player" springLoaded="YES" id="wQu-nD-Nob">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -916,7 +917,7 @@
         <scene sceneID="7ko-mS-MT3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CPG-lq-8Tx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Microphone" id="dYy-lK-pxz"/>
+                    <tabBarItem key="tabBarItem" title="" image="saxophone" id="dYy-lK-pxz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="seb-7Z-9Qu">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1154,16 +1155,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Megaphone" width="24" height="24"/>
         <image name="Menu" width="20" height="20"/>
-        <image name="Microphone" width="24" height="24"/>
         <image name="Musikers" width="199" height="199"/>
         <image name="advertising" width="30" height="30"/>
         <image name="circle" width="159.5" height="159.5"/>
         <image name="mvBackground" width="16" height="16"/>
+        <image name="record-player" width="30" height="30"/>
+        <image name="saxophone" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J7L-yx-7pB"/>
-        <segue reference="nCm-vz-DGR"/>
+        <segue reference="cty-km-qL2"/>
     </inferredMetricsTieBreakers>
 </document>
