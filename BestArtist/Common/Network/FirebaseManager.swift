@@ -22,6 +22,7 @@ struct ArtistKeys {
     static let cityName = "cityName"
     static let cityLatitude = "cityLat"
     static let cityLongitude = "cityLon"
+    static let countryName = "countryName"
     static let facebookID = "fbId"
     static let photoGaleryLinks = "photoGaleryLinks"
     static let busyDates = "busyDates"
@@ -50,6 +51,7 @@ class FirebaseManager {
                               ArtistKeys.cityLongitude: artist.city.location.longitude,
                               ArtistKeys.facebookID: artist.facebookId,
                               ArtistKeys.busyDates: artist.busyDates,
+                              ArtistKeys.countryName: artist.country ?? "",
                               ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
                 finish()
             })
@@ -124,6 +126,7 @@ class FirebaseManager {
                 let lat = (value[ArtistKeys.cityLatitude] as? Double) ?? 0
                 let lon = (value[ArtistKeys.cityLongitude] as? Double) ?? 0
                 artist.city = City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+                artist.country = value[ArtistKeys.countryName] as? String
                 artists.append(artist)
             }
             

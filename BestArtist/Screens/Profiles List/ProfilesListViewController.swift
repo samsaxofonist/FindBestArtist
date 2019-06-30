@@ -77,7 +77,9 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
-        let filterVC = storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        let filterNavVC = storyboard?.instantiateViewController(withIdentifier: "FilterContainerVC") as! UINavigationController
+        let filterVC = filterNavVC.viewControllers.first as! FilterVC
+        
         filterVC.artists = filteredArtists
         
         filterVC.filterChangedBlock = {
@@ -85,7 +87,7 @@ class ProfilesListViewController: BaseViewController {
             self.sortArtists()
             self.profilesTableView.reloadData()
         }
-        present(filterVC, animated: true, completion: nil)
+        present(filterNavVC, animated: true, completion: nil)
     }
     
     func sortArtists() {
