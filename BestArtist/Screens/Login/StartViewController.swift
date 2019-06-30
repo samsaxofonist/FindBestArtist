@@ -15,10 +15,12 @@ class StartViewController: UIViewController {
 
         GlobalManager.rootNavigation = self.navigationController
         
-        if LoginManager.isLoggedIn {
-            openMainScreen()
-        } else {
-            openLoginScreen()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if LoginManager.isLoggedIn {
+                self.openMainScreen()
+            } else {
+                self.openLoginScreen()
+            }
         }
     }
     

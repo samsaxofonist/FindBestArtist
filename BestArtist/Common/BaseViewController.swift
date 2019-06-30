@@ -32,3 +32,29 @@ class BaseViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
 }
+
+class BaseTableViewController: UITableViewController {
+    
+    var needTabBar: Bool = false
+    var needGradient: Bool = true
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if needGradient == true {
+            self.view.drawGradient()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if needTabBar == false {
+            self.tabBarController?.tabBar.isHidden = true
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+}
+

@@ -41,13 +41,21 @@ class MenuViewController: UITableViewController {
         
         if indexPath.row == 1 {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! SetProfilePhotoViewController
+//            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "Profile") as! SetProfilePhotoViewController
+//
+//            if let myUser = GlobalManager.myUser {
+//                profileController.artist = myUser
+//            } else {
+//                profileController.artist = Artist()
+//            }
             
-            if let myUser = GlobalManager.myUser {
-                profileController.artist = myUser
-            } else {
-                profileController.artist = Artist()
-            }
+            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile")
+            
+//            if let myUser = GlobalManager.myUser {
+//                profileController.artist = myUser
+//            } else {
+//                profileController.artist = Artist()
+//            }
             
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)

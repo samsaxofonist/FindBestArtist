@@ -1054,11 +1054,11 @@
             <objects>
                 <viewController storyboardIdentifier="FilterVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uuK-ud-Ip2" customClass="FilterVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2dl-Jn-INQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x1-El-Cha" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                <rect key="frame" x="16" y="125" width="343" height="50"/>
+                                <rect key="frame" x="16" y="37" width="343" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pg6-Zx-JJH"/>
@@ -1087,7 +1087,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-MS-g2u" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                <rect key="frame" x="62" y="220" width="297" height="50"/>
+                                <rect key="frame" x="62" y="132" width="297" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hhy-5g-MR8"/>
@@ -1116,33 +1116,33 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-hJ-IBA">
-                                <rect key="frame" x="16" y="228" width="30" height="30"/>
+                                <rect key="frame" x="16" y="140" width="30" height="30"/>
                                 <state key="normal" title="Map"/>
                                 <connections>
                                     <segue destination="fCY-mc-z0T" kind="presentation" id="1vm-ck-8fD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulD-Kq-vkR">
-                                <rect key="frame" x="16" y="104" width="343" height="21"/>
+                                <rect key="frame" x="16" y="16" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-qG-040">
-                                <rect key="frame" x="16" y="199" width="343" height="21"/>
+                                <rect key="frame" x="16" y="111" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ev-Zm-Drl">
-                                <rect key="frame" x="16" y="286" width="55" height="30"/>
+                                <rect key="frame" x="16" y="198" width="55" height="30"/>
                                 <state key="normal" title="Country"/>
                                 <connections>
                                     <action selector="countryButtonClicked:" destination="uuK-ud-Ip2" eventType="touchUpInside" id="ylh-MU-00T"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkh-O7-Q2J">
-                                <rect key="frame" x="0.0" y="562" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="474" width="375" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="uSL-Fv-fhv"/>
                                 </constraints>
