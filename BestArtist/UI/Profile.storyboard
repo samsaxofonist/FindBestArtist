@@ -737,10 +737,10 @@
             </objects>
             <point key="canvasLocation" x="10552.799999999999" y="-514.09295352323841"/>
         </scene>
-        <!--My Profile View Controller-->
+        <!--MyProfile-->
         <scene sceneID="HVs-q8-Wal">
             <objects>
-                <tableViewController storyboardIdentifier="NewProfile" id="v0W-bV-a4w" customClass="MyProfileViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewProfile" id="v0W-bV-a4w" userLabel="MyProfile" customClass="MyProfileViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Czc-gL-38H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -789,8 +789,8 @@
                                                         <constraint firstAttribute="height" constant="30" id="a4S-dS-RMg"/>
                                                     </constraints>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="Szf-76-ehU" id="T20-Nf-ZRw"/>
-                                                        <outlet property="delegate" destination="Szf-76-ehU" id="4eW-Ak-iiD"/>
+                                                        <outlet property="dataSource" destination="v0W-bV-a4w" id="Gbc-7P-YY7"/>
+                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="qDL-bE-U8a"/>
                                                     </connections>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-n2-0Sc">

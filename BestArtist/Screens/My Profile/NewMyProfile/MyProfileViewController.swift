@@ -28,11 +28,20 @@ class MyProfileViewController: UITableViewController {
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
+    let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
+    var selectedRole: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupPhotoStuff()
         setCurrentPhoto()
+        setupArtistTypeMenu()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        artistTypeMenu.selectRow(0, inComponent: 0)
     }
 }
+
