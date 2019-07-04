@@ -572,7 +572,7 @@
         <!--Choose city-->
         <scene sceneID="hRD-Hx-z3E">
             <objects>
-                <viewController id="8d4-Q9-fGx" customClass="SetUserCityViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8d4-Q9-fGx" customClass="SelectCityViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFf-vv-N26">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -609,7 +609,11 @@
                         <viewLayoutGuide key="safeArea" id="vYl-WL-Zmm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Choose city" id="SZN-GT-b0e">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Lhh-SG-hho"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Lhh-SG-hho">
+                            <connections>
+                                <action selector="cancelClicked:" destination="8d4-Q9-fGx" id="0O7-fq-az4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchResultsTableView" destination="GBl-pp-Agk" id="jMU-zr-s7h"/>
@@ -800,7 +804,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="v5r-Eu-H9G" kind="presentation" id="XJr-Ge-RgL"/>
+                                                        <segue destination="v5r-Eu-H9G" kind="presentation" identifier="selectCitySegue" id="XJr-Ge-RgL"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1O-xb-CLy">

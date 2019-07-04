@@ -43,5 +43,15 @@ class MyProfileViewController: UITableViewController {
         super.viewDidAppear(animated)
         artistTypeMenu.selectRow(0, inComponent: 0)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectCitySegue" {
+            let cityVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectCityViewController
+            
+            cityVC.finishBlock = { city, country in
+                self.cityButton.setTitle(city.name, for: .normal)
+            }
+        }
+    }
 }
 

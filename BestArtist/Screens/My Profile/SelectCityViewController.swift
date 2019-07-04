@@ -9,27 +9,32 @@
 import UIKit
 import MapKit
 
-class SetUserCityViewController: BaseViewController {
+class SelectCityViewController: BaseViewController {
     @IBOutlet weak var searchResultsTableView: UITableView!
     
     var searchCompleter = MKLocalSearchCompleter()
-    var searchResults = [MKLocalSearchCompletion]()    
-    var artist: Artist!
+    var searchResults = [MKLocalSearchCompletion]()
+    
+    var finishBlock: ((City, String?) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCompleter.delegate = self
     }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-extension SetUserCityViewController: UISearchBarDelegate {
+extension SelectCityViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {        
         searchCompleter.queryFragment = searchText
     }
 }
 
-extension SetUserCityViewController: MKLocalSearchCompleterDelegate {
+extension SelectCityViewController: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
@@ -41,7 +46,7 @@ extension SetUserCityViewController: MKLocalSearchCompleterDelegate {
     }
 }
 
-extension SetUserCityViewController: UITableViewDataSource, UITableViewDelegate {
+extension SelectCityViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
@@ -61,11 +66,8 @@ extension SetUserCityViewController: UITableViewDataSource, UITableViewDelegate 
         let completion = searchResults[indexPath.row]
         
         Geocoder.getCityAndCountry(locationObject: completion) { city, country in
-            let finalViewController = self.storyboard!.instantiateViewController(withIdentifier: "SetUserPriceViewController") as! SetUserPriceViewController
-            self.artist.city = city
-            self.artist.country = country
-            finalViewController.artist = self.artist
-            self.navigationController?.pushViewController(finalViewController, animated: true)
+            self.finishBlock(city, country)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

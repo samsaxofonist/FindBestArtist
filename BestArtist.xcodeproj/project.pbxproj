@@ -42,7 +42,7 @@
 		3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */; };
 		3EAD7D942233F69E0031485F /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD7D932233F69E0031485F /* CartVC.swift */; };
 		3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB266072295C41A00DCC5AB /* FilterVC.swift */; };
-		3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */; };
+		3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */; };
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
@@ -93,7 +93,7 @@
 		3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageVC.swift; sourceTree = "<group>"; };
 		3EAD7D932233F69E0031485F /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		3EB266072295C41A00DCC5AB /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
-		3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserCityViewController.swift; sourceTree = "<group>"; };
+		3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPriceViewController.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */,
 				3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */,
 				3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */,
-				3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */,
+				3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */,
 				3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */,
 				3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */,
 			);
@@ -466,7 +466,7 @@
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
 				3E75CAB2228FEB35004F8127 /* City.swift in Sources */,
 				3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */,
-				3EBEC72421EBA37800274C76 /* SetUserCityViewController.swift in Sources */,
+				3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
 				3E419202224184C7000BA5D9 /* SortVC.swift in Sources */,
 			);

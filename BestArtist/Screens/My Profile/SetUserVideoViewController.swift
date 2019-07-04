@@ -83,8 +83,8 @@ class SetUserVideoViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! SetUserCityViewController
+        let nextViewController = segue.destination as! SelectCityViewController
         artist.youtubeLink = textfield.text ?? ""
-        nextViewController.artist = artist
+        //nextViewController.artist = artist
     }
 }
