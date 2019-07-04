@@ -737,10 +737,10 @@
             </objects>
             <point key="canvasLocation" x="10552.799999999999" y="-514.09295352323841"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Profile View Controller-->
         <scene sceneID="HVs-q8-Wal">
             <objects>
-                <tableViewController storyboardIdentifier="NewProfile" id="v0W-bV-a4w" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewProfile" id="v0W-bV-a4w" customClass="MyProfileViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Czc-gL-38H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -770,21 +770,18 @@
                                                         <constraint firstAttribute="width" constant="200" id="rzC-za-XWX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name Name Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xo7-UQ-AsB">
-                                                    <rect key="frame" x="32" y="230" width="311" height="23"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
-                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruc-Ka-3UD">
                                                     <rect key="frame" x="251" y="18" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Edit">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="editButtonClicked:" destination="v0W-bV-a4w" eventType="touchUpInside" id="yb3-99-ld5"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNF-ZP-R6U" customClass="MKDropdownMenu">
-                                                    <rect key="frame" x="32" y="277" width="311" height="30"/>
+                                                    <rect key="frame" x="32" y="284" width="311" height="30"/>
                                                     <color key="backgroundColor" red="0.6705882353" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="a4S-dS-RMg"/>
@@ -795,7 +792,7 @@
                                                     </connections>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-n2-0Sc">
-                                                    <rect key="frame" x="164.5" y="331" width="46" height="34"/>
+                                                    <rect key="frame" x="164.5" y="338" width="46" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Berlin">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -805,7 +802,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1O-xb-CLy">
-                                                    <rect key="frame" x="162.5" y="389" width="50" height="35"/>
+                                                    <rect key="frame" x="162.5" y="396" width="50" height="35"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <state key="normal" title="500€">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -814,20 +811,25 @@
                                                         <segue destination="8o1-RU-0M1" kind="presentation" id="o2c-Eu-n1g"/>
                                                     </connections>
                                                 </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John Smith" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-1Y-9j5">
+                                                    <rect key="frame" x="119.5" y="230" width="136" height="33"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="0IQ-aa-03D"/>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="top" secondItem="4sw-n2-0Sc" secondAttribute="bottom" constant="24" id="3Kg-6O-ts6"/>
                                                 <constraint firstItem="VHN-6M-FkL" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="topMargin" constant="1" id="Enx-TX-art"/>
-                                                <constraint firstItem="xo7-UQ-AsB" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leadingMargin" constant="16" id="FkD-d2-ArB"/>
+                                                <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="16" id="K4H-Ua-2h4"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="Mmx-V6-0gd"/>
                                                 <constraint firstItem="VHN-6M-FkL" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="SH9-wb-TGn"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xo7-UQ-AsB" secondAttribute="trailing" constant="16" id="bYt-7x-Fjg"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="10" id="gH6-u0-ewO"/>
+                                                <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="IIV-1Y-9j5" secondAttribute="bottom" constant="21" id="gxI-XJ-DjS"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="top" secondItem="QNF-ZP-R6U" secondAttribute="bottom" constant="24" id="h3S-Yw-6U8"/>
-                                                <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="xo7-UQ-AsB" secondAttribute="bottom" constant="24" id="iid-Xz-T4l"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="jHf-yr-71J"/>
-                                                <constraint firstItem="xo7-UQ-AsB" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="16" id="wch-P7-XKM"/>
+                                                <constraint firstItem="IIV-1Y-9j5" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="lud-Q8-XGe"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QNF-ZP-R6U" secondAttribute="trailing" constant="16" id="yEA-rp-IHO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leadingMargin" constant="16" id="zZs-gS-eEk"/>
                                             </constraints>
@@ -1055,6 +1057,19 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
+                    <connections>
+                        <outlet property="artistTypeMenu" destination="QNF-ZP-R6U" id="oXj-hb-ze1"/>
+                        <outlet property="calendarView" destination="35N-yY-tQJ" id="fbQ-DJ-1jI"/>
+                        <outlet property="cityButton" destination="4sw-n2-0Sc" id="KSt-Ta-vCy"/>
+                        <outlet property="descriptionTextView" destination="81x-0P-Yxm" id="xLA-t3-lNb"/>
+                        <outlet property="feedbacksCollectionVIew" destination="OuW-iI-BGp" id="I4H-4H-TM0"/>
+                        <outlet property="nameTextField" destination="IIV-1Y-9j5" id="32I-jI-ogn"/>
+                        <outlet property="photoBackgroundVIew" destination="lED-lc-99y" id="o82-VP-d7l"/>
+                        <outlet property="photoImageView" destination="VHN-6M-FkL" id="R8U-S9-lQU"/>
+                        <outlet property="photosSlideShow" destination="jrv-Za-6Un" id="wpB-Ue-m49"/>
+                        <outlet property="priceButton" destination="O1O-xb-CLy" id="Ddt-DO-FsX"/>
+                        <outlet property="videosCollectionView" destination="mmv-Cj-xqU" id="A6M-tP-gsW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-q8-IRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
