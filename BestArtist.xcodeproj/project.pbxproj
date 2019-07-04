@@ -49,6 +49,7 @@
 		3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */; };
 		3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */; };
 		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */; };
+		3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */; };
 		3F49E216FAF3A73B392157ED /* Pods_BestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
 		3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+UserPhoto.swift"; sourceTree = "<group>"; };
+		3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Name.swift"; sourceTree = "<group>"; };
 		57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DA0471989A81C79E6C2592 /* Pods-BestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-BestArtist/Pods-BestArtist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,9 +289,10 @@
 		3EFAD9F922CE731300DF5093 /* NewMyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */,
 				3E85491022C9157400869A9B /* MyProfileViewController.swift */,
 				3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */,
-				3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */,
+				3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */,
 			);
 			path = NewMyProfile;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				3EAD7D942233F69E0031485F /* CartVC.swift in Sources */,
 				3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */,
 				3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */,
+				3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */,
 				3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */,
 				3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */,
 				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,

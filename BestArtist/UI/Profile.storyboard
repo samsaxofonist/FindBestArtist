@@ -745,6 +745,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.32404650419999997" green="0.6457431978" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection id="wve-Cg-67M">
                                 <cells>
@@ -774,11 +775,9 @@
                                                         <outletCollection property="gestureRecognizers" destination="2Xe-T7-iyF" appends="YES" id="8Yn-an-TSm"/>
                                                     </connections>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruc-Ka-3UD">
-                                                    <rect key="frame" x="241.5" y="27" width="30" height="30"/>
-                                                    <state key="normal" title="Edit">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruc-Ka-3UD">
+                                                    <rect key="frame" x="239.5" y="27" width="32" height="34"/>
+                                                    <state key="normal" title="Edit"/>
                                                     <connections>
                                                         <action selector="editButtonClicked:" destination="v0W-bV-a4w" eventType="touchUpInside" id="yb3-99-ld5"/>
                                                     </connections>
@@ -814,11 +813,14 @@
                                                         <segue destination="8o1-RU-0M1" kind="presentation" id="o2c-Eu-n1g"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John Smith" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-1Y-9j5">
-                                                    <rect key="frame" x="119.5" y="230" width="136" height="33"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-1Y-9j5">
+                                                    <rect key="frame" x="65.5" y="230" width="244.5" height="33"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="wb3-AZ-9xE"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1058,6 +1060,7 @@
                         <connections>
                             <outlet property="dataSource" destination="v0W-bV-a4w" id="OyW-HT-k7m"/>
                             <outlet property="delegate" destination="v0W-bV-a4w" id="PKa-eu-iaM"/>
+                            <outletCollection property="gestureRecognizers" destination="Q54-dG-gu0" appends="YES" id="MPC-95-2WX"/>
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1077,9 +1080,14 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-q8-IRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2Xe-T7-iyF">
+                <tapGestureRecognizer id="2Xe-T7-iyF" userLabel="photoTapGesture">
                     <connections>
                         <action selector="photoClicked:" destination="v0W-bV-a4w" id="Nby-5t-szR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Q54-dG-gu0" userLabel="backgroundTapGesture">
+                    <connections>
+                        <action selector="backgroundClicked:" destination="v0W-bV-a4w" id="bqQ-dU-Ckh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
