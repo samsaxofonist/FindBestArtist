@@ -755,7 +755,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="428.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lED-lc-99y">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lED-lc-99y">
                                                     <rect key="frame" x="85.5" y="10" width="204" height="204"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -763,16 +763,19 @@
                                                         <constraint firstAttribute="width" constant="204" id="JGX-2h-6FB"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-6M-FkL">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-6M-FkL">
                                                     <rect key="frame" x="87.5" y="12" width="200" height="200"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="Cyv-QH-lar"/>
                                                         <constraint firstAttribute="width" constant="200" id="rzC-za-XWX"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="2Xe-T7-iyF" appends="YES" id="8Yn-an-TSm"/>
+                                                    </connections>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruc-Ka-3UD">
-                                                    <rect key="frame" x="251" y="18" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruc-Ka-3UD">
+                                                    <rect key="frame" x="241.5" y="27" width="30" height="30"/>
                                                     <state key="normal" title="Edit">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -821,15 +824,17 @@
                                             <constraints>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="0IQ-aa-03D"/>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="top" secondItem="4sw-n2-0Sc" secondAttribute="bottom" constant="24" id="3Kg-6O-ts6"/>
-                                                <constraint firstItem="VHN-6M-FkL" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="topMargin" constant="1" id="Enx-TX-art"/>
+                                                <constraint firstItem="VHN-6M-FkL" firstAttribute="centerY" secondItem="lED-lc-99y" secondAttribute="centerY" id="71x-fO-5AY"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="16" id="K4H-Ua-2h4"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="Mmx-V6-0gd"/>
-                                                <constraint firstItem="VHN-6M-FkL" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="SH9-wb-TGn"/>
+                                                <constraint firstItem="ruc-Ka-3UD" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="topMargin" constant="16" id="SPU-Z5-Ln8"/>
+                                                <constraint firstItem="VHN-6M-FkL" firstAttribute="centerX" secondItem="lED-lc-99y" secondAttribute="centerX" id="YpQ-8l-C9k"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="10" id="gH6-u0-ewO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="IIV-1Y-9j5" secondAttribute="bottom" constant="21" id="gxI-XJ-DjS"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="top" secondItem="QNF-ZP-R6U" secondAttribute="bottom" constant="24" id="h3S-Yw-6U8"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="jHf-yr-71J"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="lud-Q8-XGe"/>
+                                                <constraint firstItem="ruc-Ka-3UD" firstAttribute="trailing" secondItem="VHN-6M-FkL" secondAttribute="trailing" constant="-16" id="s2I-NY-QjO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QNF-ZP-R6U" secondAttribute="trailing" constant="16" id="yEA-rp-IHO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leadingMargin" constant="16" id="zZs-gS-eEk"/>
                                             </constraints>
@@ -1072,6 +1077,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-q8-IRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2Xe-T7-iyF">
+                    <connections>
+                        <action selector="photoClicked:" destination="v0W-bV-a4w" id="Nby-5t-szR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="9004" y="-1245.8770614692655"/>
         </scene>

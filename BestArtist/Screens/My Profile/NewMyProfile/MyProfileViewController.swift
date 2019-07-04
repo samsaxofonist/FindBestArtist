@@ -10,34 +10,29 @@ import UIKit
 import MKDropdownMenu
 import ImageSlideshow
 import KDCalendar
+import CropViewController
+import ARSLineProgress
 
 class MyProfileViewController: UITableViewController {
-
     @IBOutlet weak var photoBackgroundVIew: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var artistTypeMenu: MKDropdownMenu!
-    
     @IBOutlet weak var cityButton: UIButton!
     @IBOutlet weak var priceButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
-    
     @IBOutlet weak var photosSlideShow: ImageSlideshow!
-    
     @IBOutlet weak var videosCollectionView: UICollectionView!
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
-    
     @IBOutlet weak var calendarView: CalendarView!
+    
+    let imagePicker = UIImagePickerController()
+    let viewModel = MyProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupPhotoStuff()
+        setCurrentPhoto()
     }
-
-    
-    @IBAction func editButtonClicked(_ sender: Any) {
-    }
-    
 }
-

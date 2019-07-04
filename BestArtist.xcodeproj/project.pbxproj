@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,8 @@
 		3EBEC72821EBAE5200274C76 /* SetUserPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
 		3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */; };
+		3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */; };
+		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */; };
 		3F49E216FAF3A73B392157ED /* Pods_BestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,8 @@
 		3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserPriceViewController.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
+		3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+UserPhoto.swift"; sourceTree = "<group>"; };
 		57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DA0471989A81C79E6C2592 /* Pods-BestArtist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestArtist.release.xcconfig"; path = "Pods/Target Support Files/Pods-BestArtist/Pods-BestArtist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +228,7 @@
 		3E36FDD521A35462007781E5 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3EFAD9F922CE731300DF5093 /* NewMyProfile */,
 				3E36FDD621A35462007781E5 /* SetProfilePhotoViewController.swift */,
 				3E84D3E9222AB0AC009DC2EF /* SetUserPhotosViewController.swift */,
 				3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */,
@@ -231,7 +236,6 @@
 				3EBEC72321EBA37800274C76 /* SetUserCityViewController.swift */,
 				3EBEC72721EBAE5200274C76 /* SetUserPriceViewController.swift */,
 				3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */,
-				3E85491022C9157400869A9B /* MyProfileViewController.swift */,
 			);
 			path = "My Profile";
 			sourceTree = "<group>";
@@ -278,6 +282,16 @@
 				3EAD7D932233F69E0031485F /* CartVC.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		3EFAD9F922CE731300DF5093 /* NewMyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3E85491022C9157400869A9B /* MyProfileViewController.swift */,
+				3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */,
+				3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */,
+			);
+			path = NewMyProfile;
 			sourceTree = "<group>";
 		};
 		C411F8B88093C505D75740D2 /* Frameworks */ = {
@@ -434,7 +448,9 @@
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
+				3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */,
 				3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */,
+				3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift in Sources */,
 				3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */,
 				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
