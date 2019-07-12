@@ -26,6 +26,8 @@ class MyProfileViewController: UITableViewController {
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
     
+    var artist: Artist!
+    
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
@@ -37,6 +39,7 @@ class MyProfileViewController: UITableViewController {
         setupPhotoStuff()
         setCurrentPhoto()
         setupArtistTypeMenu()
+        showPrice(artist.price)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,11 +50,16 @@ class MyProfileViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectCitySegue" {
             let cityVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectCityViewController
-            
-            cityVC.finishBlock = { city, country in
-                self.cityButton.setTitle(city.name, for: .normal)
-            }
+            setupCityController(cityVC)
+        } else if segue.identifier == "selectPriceSegue" {
+            let priceVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectPriceViewController
+            setupPriceController(priceVC)
+        }
+    }
+    
+    func setupCityController(_ controller: SelectCityViewController) {
+        controller.finishBlock = { city, country in
+            self.cityButton.setTitle(city.name, for: .normal)
         }
     }
 }
-

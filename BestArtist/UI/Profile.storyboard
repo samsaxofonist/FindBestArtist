@@ -623,10 +623,10 @@
             </objects>
             <point key="canvasLocation" x="10552.799999999999" y="-1201.3493253373315"/>
         </scene>
-        <!--Set User Price View Controller-->
+        <!--Select Price View Controller-->
         <scene sceneID="gZQ-5x-wqZ">
             <objects>
-                <viewController storyboardIdentifier="SetUserPriceViewController" id="uzD-3d-0q3" customClass="SetUserPriceViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetUserPriceViewController" id="uzD-3d-0q3" customClass="SelectPriceViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kSN-5F-ndF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,29 +682,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SU-zy-2B7" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="240" y="405" width="100" height="60"/>
-                                <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="VL4-vl-bTY"/>
-                                    <constraint firstAttribute="height" constant="60" id="bhy-cD-kif"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -716,12 +693,10 @@
                             <constraint firstItem="mMV-fL-3IW" firstAttribute="trailing" secondItem="XBh-Jo-Vrd" secondAttribute="trailing" constant="35" id="S1w-Vi-Kjh"/>
                             <constraint firstItem="ye8-qK-oib" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="TOs-HB-Fdv"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="top" secondItem="mMV-fL-3IW" secondAttribute="top" constant="20" id="UnI-ZO-8nM"/>
-                            <constraint firstItem="9SU-zy-2B7" firstAttribute="top" secondItem="XBh-Jo-Vrd" secondAttribute="bottom" constant="70" id="Vf6-c2-3hY"/>
                             <constraint firstItem="sEd-Ic-UR6" firstAttribute="trailing" secondItem="Qyp-gT-TRR" secondAttribute="trailing" id="YSx-7m-q5k"/>
                             <constraint firstItem="sEd-Ic-UR6" firstAttribute="centerX" secondItem="Qyp-gT-TRR" secondAttribute="centerX" id="YW0-Tj-kAy"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="dG4-Ot-4TN"/>
                             <constraint firstItem="lp6-du-yFv" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="eea-d3-E7Q"/>
-                            <constraint firstItem="mMV-fL-3IW" firstAttribute="trailing" secondItem="9SU-zy-2B7" secondAttribute="trailing" constant="35" id="lcy-1I-Hpq"/>
                             <constraint firstItem="Qyp-gT-TRR" firstAttribute="leading" secondItem="mMV-fL-3IW" secondAttribute="leading" constant="35" id="rSJ-Sv-Cnn"/>
                             <constraint firstItem="lp6-du-yFv" firstAttribute="top" secondItem="Qyp-gT-TRR" secondAttribute="bottom" constant="20" id="ryv-2z-d7I"/>
                             <constraint firstItem="532-cQ-CaY" firstAttribute="centerX" secondItem="mMV-fL-3IW" secondAttribute="centerX" id="sbW-yS-QMU"/>
@@ -730,7 +705,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mMV-fL-3IW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EPU-hg-5Uw"/>
+                    <navigationItem key="navigationItem" id="EPU-hg-5Uw">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bHB-hC-NT7">
+                            <connections>
+                                <action selector="cancelClicked:" destination="uzD-3d-0q3" id="7uZ-dQ-K4I"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Apply" id="QQh-eV-zyI">
+                            <connections>
+                                <action selector="applyClicked:" destination="uzD-3d-0q3" id="CGB-wk-Stz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityNameLabel" destination="532-cQ-CaY" id="PFn-Ju-JjO"/>
                         <outlet property="finalPriceLabel" destination="ye8-qK-oib" id="8sW-LF-VrB"/>
@@ -768,7 +754,7 @@
                                                         <constraint firstAttribute="width" constant="204" id="JGX-2h-6FB"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-6M-FkL">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-6M-FkL">
                                                     <rect key="frame" x="87.5" y="12" width="200" height="200"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -814,7 +800,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="8o1-RU-0M1" kind="presentation" id="o2c-Eu-n1g"/>
+                                                        <segue destination="8o1-RU-0M1" kind="presentation" identifier="selectPriceSegue" id="o2c-Eu-n1g"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-1Y-9j5">
@@ -1212,7 +1198,4 @@
             <point key="canvasLocation" x="8873" y="158"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="fakePhoto" width="210" height="140"/>
-    </resources>
 </document>

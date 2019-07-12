@@ -12,30 +12,34 @@ import RxCocoa
 import CoreLocation
 import ARSLineProgress
 
-class SetUserPriceViewController: BaseViewController {
+class SelectPriceViewController: BaseViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var finalPriceLabel: UILabel!
     
+    var currentPrice: Int!
+    var fromCity: City!
+    var finishBlock: ((Int) -> Void)!
+    
     var disposeBag = DisposeBag()
     let berlin = City(name: "Berlin", location: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
     let hamburg = City(name: "Hamburg", location: CLLocationCoordinate2D(latitude: 53.551086, longitude: 9.993682))    
-    var artist: Artist!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
+        priceTextField.text = String(currentPrice)
         setupDistance()
     }
     
     func setupDistance() {
         var distance: Double
         
-        if artist.city! == berlin {
-            distance = hamburg.location.distance(from: artist.city!.location)
+        if fromCity == berlin {
+            distance = hamburg.location.distance(from: fromCity.location)
             cityNameLabel.text = "Hamburg"
         } else {
-            distance = berlin.location.distance(from: artist.city!.location)
+            distance = berlin.location.distance(from: fromCity.location)
             cityNameLabel.text = "Berlin"
         }
         distance = distance/1000
@@ -57,13 +61,17 @@ class SetUserPriceViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! SetUserDatesVC
-        artist.price = Int(priceTextField.text ?? "") ?? 0
-        nextViewController.artist = artist
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
-    
+    @IBAction func applyClicked(_ sender: Any) {
+        if let price = Int(priceTextField.text ?? "") {
+            finishBlock(price)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension CLLocationCoordinate2D {

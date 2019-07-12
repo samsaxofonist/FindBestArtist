@@ -49,13 +49,13 @@ class MenuViewController: UITableViewController {
 //                profileController.artist = Artist()
 //            }
             
-            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile")
+            let profileController = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
             
-//            if let myUser = GlobalManager.myUser {
-//                profileController.artist = myUser
-//            } else {
-//                profileController.artist = Artist()
-//            }
+            if let myUser = GlobalManager.myUser {
+                profileController.artist = myUser
+            } else {
+                profileController.artist = Artist()
+            }
             
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
