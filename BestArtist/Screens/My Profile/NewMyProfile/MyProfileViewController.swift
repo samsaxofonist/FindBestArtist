@@ -26,6 +26,8 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
     
+    let defaultDescriptionText = "Artist of the original genre ..."
+    
     var artist: Artist!
     
     let imagePicker = UIImagePickerController()
@@ -40,6 +42,13 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         setCurrentPhoto()
         setupArtistTypeMenu()
         showPrice(artist.price)
+        setupDescription()
+    }
+    
+    func setupDescription() {
+        if artist.description.isEmpty == false {
+            descriptionTextView.text = artist.description
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,5 +90,17 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == defaultDescriptionText {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == nil || textView.text.isEmpty {
+            textView.text = defaultDescriptionText
+        }
     }
 }
