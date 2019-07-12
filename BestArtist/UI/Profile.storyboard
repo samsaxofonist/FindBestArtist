@@ -820,6 +820,7 @@
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="16" id="K4H-Ua-2h4"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="Mmx-V6-0gd"/>
                                                 <constraint firstItem="ruc-Ka-3UD" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="topMargin" constant="16" id="SPU-Z5-Ln8"/>
+                                                <constraint firstAttribute="bottom" secondItem="O1O-xb-CLy" secondAttribute="bottom" constant="-2.5" id="Xvk-1X-bXB"/>
                                                 <constraint firstItem="VHN-6M-FkL" firstAttribute="centerX" secondItem="lED-lc-99y" secondAttribute="centerX" id="YpQ-8l-C9k"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="10" id="gH6-u0-ewO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="IIV-1Y-9j5" secondAttribute="bottom" constant="21" id="gxI-XJ-DjS"/>
@@ -840,7 +841,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81x-0P-Yxm">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81x-0P-Yxm">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="228.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -867,6 +868,9 @@
                                                             <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="kI6-AB-iKI"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>

@@ -13,7 +13,7 @@ import KDCalendar
 import CropViewController
 import ARSLineProgress
 
-class MyProfileViewController: UITableViewController {
+class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var photoBackgroundVIew: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -61,5 +61,25 @@ class MyProfileViewController: UITableViewController {
         controller.finishBlock = { city, country in
             self.cityButton.setTitle(city.name, for: .normal)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard indexPath.row == 1 else { return UITableView.automaticDimension }
+        
+        let text = descriptionTextView.text ?? ""
+        let font = descriptionTextView.font!
+        let width = UIScreen.main.bounds.width - 32
+        
+        let rect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let neededArea = text.boundingRect(with: rect,
+                                       options: .usesLineFragmentOrigin,
+                                       attributes: [.font: font], context: nil)
+        
+        return neededArea.height + 18
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
