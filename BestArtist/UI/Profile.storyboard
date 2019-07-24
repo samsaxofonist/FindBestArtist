@@ -878,19 +878,23 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="503" id="eGR-Wf-Jav" userLabel="photosAndVideos">
-                                        <rect key="frame" x="0.0" y="493" width="375" height="503"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="517" id="eGR-Wf-Jav" userLabel="photosAndVideos">
+                                        <rect key="frame" x="0.0" y="493" width="375" height="517"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGR-Wf-Jav" id="9QX-ab-php">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="502.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="516.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrv-Za-6Un" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                                     <rect key="frame" x="16" y="55.5" width="343" height="200"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="rlg-jD-U7T"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="kFe-Hj-SBS" appends="YES" id="hp6-VQ-x4f"/>
+                                                    </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vZ-pU-jOz">
                                                     <rect key="frame" x="24" y="27" width="327" height="20.5"/>
@@ -935,7 +939,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K11-PK-9iB">
-                                                    <rect key="frame" x="32" y="279.5" width="52.5" height="20.5"/>
+                                                    <rect key="frame" x="22" y="279.5" width="52.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -943,11 +947,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7vZ-pU-jOz" firstAttribute="top" secondItem="9QX-ab-php" secondAttribute="topMargin" constant="16" id="7pB-Zg-lJB"/>
+                                                <constraint firstAttribute="bottom" secondItem="mmv-Cj-xqU" secondAttribute="bottom" constant="8.5" id="HMy-ho-PyB"/>
                                                 <constraint firstItem="mmv-Cj-xqU" firstAttribute="leading" secondItem="9QX-ab-php" secondAttribute="leadingMargin" constant="16" id="UCy-zP-LgP"/>
                                                 <constraint firstItem="mmv-Cj-xqU" firstAttribute="top" secondItem="K11-PK-9iB" secondAttribute="bottom" constant="8" id="WEG-Em-Fhm"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7vZ-pU-jOz" secondAttribute="trailing" constant="8" id="aE1-H2-gaJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="mmv-Cj-xqU" secondAttribute="trailing" constant="16" id="g4R-bT-BWg"/>
-                                                <constraint firstItem="K11-PK-9iB" firstAttribute="leading" secondItem="9QX-ab-php" secondAttribute="leadingMargin" constant="16" id="grF-bU-wZw"/>
+                                                <constraint firstItem="K11-PK-9iB" firstAttribute="leading" secondItem="9QX-ab-php" secondAttribute="leadingMargin" constant="6" id="grF-bU-wZw"/>
                                                 <constraint firstItem="jrv-Za-6Un" firstAttribute="top" secondItem="7vZ-pU-jOz" secondAttribute="bottom" constant="8" id="gvB-D5-FG1"/>
                                                 <constraint firstAttribute="trailing" secondItem="jrv-Za-6Un" secondAttribute="trailing" constant="16" id="mjN-Xq-uIU"/>
                                                 <constraint firstItem="K11-PK-9iB" firstAttribute="top" secondItem="jrv-Za-6Un" secondAttribute="bottom" constant="24" id="pjE-Ko-4ME"/>
@@ -957,15 +962,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="251" id="2G2-KB-cjh" userLabel="feedbackVideos">
-                                        <rect key="frame" x="0.0" y="996" width="375" height="251"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="267" id="2G2-KB-cjh" userLabel="feedbackVideos">
+                                        <rect key="frame" x="0.0" y="1010" width="375" height="267"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2G2-KB-cjh" id="a85-jb-x85">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedbacks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEG-rr-eh3">
-                                                    <rect key="frame" x="32" y="27" width="83.5" height="20.5"/>
+                                                    <rect key="frame" x="22" y="27" width="83.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1006,34 +1011,38 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hEG-rr-eh3" firstAttribute="top" secondItem="a85-jb-x85" secondAttribute="topMargin" constant="16" id="1HO-xC-Hmf"/>
-                                                <constraint firstItem="hEG-rr-eh3" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leadingMargin" constant="16" id="DMW-Kp-hYc"/>
+                                                <constraint firstItem="hEG-rr-eh3" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leadingMargin" constant="6" id="DMW-Kp-hYc"/>
                                                 <constraint firstItem="OuW-iI-BGp" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leadingMargin" constant="16" id="SFs-Ui-dQx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OuW-iI-BGp" secondAttribute="bottom" constant="0.5" id="SvN-Ro-75h"/>
                                                 <constraint firstItem="OuW-iI-BGp" firstAttribute="top" secondItem="hEG-rr-eh3" secondAttribute="bottom" constant="8" id="VB3-e7-cxy"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="OuW-iI-BGp" secondAttribute="trailing" constant="16" id="ffQ-oX-X3o"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="236" id="0Gc-pR-7ZJ" userLabel="calendar">
-                                        <rect key="frame" x="0.0" y="1247" width="375" height="236"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="350" id="0Gc-pR-7ZJ" userLabel="calendar">
+                                        <rect key="frame" x="0.0" y="1277" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Gc-pR-7ZJ" id="Y9v-9Y-KKF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="235.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-Xq-vQ8">
-                                                    <rect key="frame" x="32" y="11" width="311" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-Xq-vQ8">
+                                                    <rect key="frame" x="22" y="11" width="321" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35N-yY-tQJ" customClass="CalendarView" customModule="KDCalendar">
-                                                    <rect key="frame" x="0.0" y="40" width="375" height="187.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="0.0" y="41.5" width="375" height="300"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="300" id="mE2-EA-z8u"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hsS-Xq-vQ8" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leadingMargin" constant="16" id="0A0-A9-xcY"/>
+                                                <constraint firstItem="hsS-Xq-vQ8" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leadingMargin" constant="6" id="0A0-A9-xcY"/>
                                                 <constraint firstItem="35N-yY-tQJ" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leading" id="NTk-qb-S2P"/>
                                                 <constraint firstItem="hsS-Xq-vQ8" firstAttribute="top" secondItem="Y9v-9Y-KKF" secondAttribute="topMargin" id="WtE-Jd-kdj"/>
                                                 <constraint firstAttribute="bottom" secondItem="35N-yY-tQJ" secondAttribute="bottom" constant="8" id="dH1-ZJ-p2z"/>
@@ -1057,17 +1066,21 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="artistTypeMenu" destination="QNF-ZP-R6U" id="oXj-hb-ze1"/>
+                        <outlet property="calendarTitleLabel" destination="hsS-Xq-vQ8" id="CVd-BY-U2W"/>
                         <outlet property="calendarView" destination="35N-yY-tQJ" id="fbQ-DJ-1jI"/>
                         <outlet property="cityButton" destination="4sw-n2-0Sc" id="KSt-Ta-vCy"/>
                         <outlet property="descriptionTextView" destination="81x-0P-Yxm" id="xLA-t3-lNb"/>
                         <outlet property="editButton" destination="ruc-Ka-3UD" id="gwE-Fj-7lB"/>
                         <outlet property="feedbacksCollectionVIew" destination="OuW-iI-BGp" id="I4H-4H-TM0"/>
+                        <outlet property="feedbacksTitleLabel" destination="hEG-rr-eh3" id="gMx-S2-fLO"/>
                         <outlet property="nameTextField" destination="IIV-1Y-9j5" id="32I-jI-ogn"/>
                         <outlet property="photoBackgroundVIew" destination="lED-lc-99y" id="o82-VP-d7l"/>
                         <outlet property="photoImageView" destination="VHN-6M-FkL" id="R8U-S9-lQU"/>
-                        <outlet property="photosSlideShow" destination="jrv-Za-6Un" id="wpB-Ue-m49"/>
+                        <outlet property="photosSlideShow" destination="jrv-Za-6Un" id="Z3Z-NI-z0U"/>
+                        <outlet property="photosTitleLabel" destination="7vZ-pU-jOz" id="OLH-EP-ycr"/>
                         <outlet property="priceButton" destination="O1O-xb-CLy" id="Ddt-DO-FsX"/>
                         <outlet property="videosCollectionView" destination="mmv-Cj-xqU" id="A6M-tP-gsW"/>
+                        <outlet property="videosTitleLabel" destination="K11-PK-9iB" id="z4t-a3-UsO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-q8-IRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1079,6 +1092,11 @@
                 <tapGestureRecognizer id="Q54-dG-gu0" userLabel="backgroundTapGesture">
                     <connections>
                         <action selector="backgroundClicked:" destination="v0W-bV-a4w" id="bqQ-dU-Ckh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kFe-Hj-SBS">
+                    <connections>
+                        <action selector="tapOnPhotoGallery:" destination="v0W-bV-a4w" id="0PZ-iY-CEC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

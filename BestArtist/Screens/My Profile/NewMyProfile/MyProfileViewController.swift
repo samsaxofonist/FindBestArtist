@@ -26,6 +26,10 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var photosTitleLabel: UILabel!
+    @IBOutlet weak var videosTitleLabel: UILabel!
+    @IBOutlet weak var feedbacksTitleLabel: UILabel!
+    @IBOutlet weak var calendarTitleLabel: UILabel!
     
     let defaultDescriptionText = "Artist of the original genre ..."
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
@@ -37,11 +41,15 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
     var selectedRole: String?
+    var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
+    
+    var imagePickerForUserPhoto = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
+        setupCalendar()
         setupPhotoStuff()
         setCurrentPhoto()
         setupArtistTypeMenu()
@@ -61,7 +69,10 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        selectCalendarDates()
         artistTypeMenu.selectRow(0, inComponent: 0)
+        let imageSources = allPhotos.map { ImageSource(image: $0) }
+        photosSlideShow.setImageInputs(imageSources)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,6 +92,15 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         priceButton.setTitleColor(theme.textColor, for: .normal)
         nameTextField.textColor = theme.textColor
         descriptionTextView.textColor = theme.darkColor
+        artistTypeMenu.dropdownBackgroundColor = theme.backgroundColor
+        artistTypeMenu.tintColor = theme.darkColor
+        photosTitleLabel.textColor = theme.textColor
+        videosTitleLabel.textColor = theme.textColor
+        feedbacksTitleLabel.textColor = theme.textColor
+        calendarTitleLabel.textColor = theme.textColor
+        navigationController?.navigationBar.barTintColor = theme.backgroundColor
+        navigationController?.navigationBar.tintColor = theme.textColor
+        CalendarDecorator.decorateCalendar()
     }
     
     func setupCityController(_ controller: SelectCityViewController) {
@@ -92,6 +112,21 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard indexPath.row == 1 else { return UITableView.automaticDimension }
         return descriptionCellHeight()
+    }
+    
+    @IBAction func tapOnPhotoGallery(_ sender: Any) {
+        if photosSlideShow.currentPage == allPhotos.count - 1 {
+            imagePickerForUserPhoto = false
+            openGalery()
+        } else {
+            photosSlideShow.presentFullScreenController(from: self)
+        }
+    }
+    
+    func openGalery() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 

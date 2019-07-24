@@ -9,6 +9,7 @@
 import UIKit
 import CropViewController
 import ARSLineProgress
+import ImageSlideshow
 
 extension MyProfileViewController {
     
@@ -29,6 +30,7 @@ extension MyProfileViewController {
     }
     
     @IBAction func photoClicked(_ sender: Any) {
+        imagePickerForUserPhoto = true
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -53,9 +55,17 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         imagePicker.dismiss(animated: true, completion: nil)
-        guard let selectedImage = info[.originalImage] as? UIImage else {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage, let compressed = selectedImage.resized(toWidth: 600) else {
             return
         }
-        photoImageView.image = selectedImage.resized(toWidth: 600)
+        
+        if imagePickerForUserPhoto {
+            photoImageView.image = selectedImage.resized(toWidth: 600)
+        } else {
+            allPhotos.append(compressed)
+            let imageSources = allPhotos.map { ImageSource(image: $0) }
+            photosSlideShow.setImageInputs(imageSources)
+        }
     }
 }

@@ -13,6 +13,8 @@
 		3E204CEB22E8C8690053283D /* MyProfileViewController+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */; };
 		3E204CED22E8CC8B0053283D /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEC22E8CC8B0053283D /* Themes.swift */; };
 		3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEE22E8CD0A0053283D /* UIColor+Extensions.swift */; };
+		3E204CF122E8DD460053283D /* CalendarDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CF022E8DD460053283D /* CalendarDecorator.swift */; };
+		3E204CF322E8E1070053283D /* MyProfileViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */; };
 		3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406622D905B500D73406 /* SelectPriceViewController.swift */; };
 		3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */; };
 		3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991D21C687B400BC33AB /* BaseViewController.swift */; };
@@ -66,6 +68,8 @@
 		3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Description.swift"; sourceTree = "<group>"; };
 		3E204CEC22E8CC8B0053283D /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		3E204CEE22E8CD0A0053283D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		3E204CF022E8DD460053283D /* CalendarDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDecorator.swift; sourceTree = "<group>"; };
+		3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Calendar.swift"; sourceTree = "<group>"; };
 		3E2B406622D905B500D73406 /* SelectPriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPriceViewController.swift; sourceTree = "<group>"; };
 		3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Price.swift"; sourceTree = "<group>"; };
 		3E32991D21C687B400BC33AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */,
 				3E419201224184C7000BA5D9 /* SortVC.swift */,
 				3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */,
+				3E204CF022E8DD460053283D /* CalendarDecorator.swift */,
 			);
 			path = "Profiles List";
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				3EFADA0022CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift */,
 				3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */,
 				3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */,
+				3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */,
 			);
 			path = NewMyProfile;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */,
+				3E204CF122E8DD460053283D /* CalendarDecorator.swift in Sources */,
 				3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */,
 				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,
@@ -453,6 +460,7 @@
 				3EAD7D942233F69E0031485F /* CartVC.swift in Sources */,
 				3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */,
 				3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */,
+				3E204CF322E8E1070053283D /* MyProfileViewController+Calendar.swift in Sources */,
 				3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */,
 				3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */,
 				3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */,
