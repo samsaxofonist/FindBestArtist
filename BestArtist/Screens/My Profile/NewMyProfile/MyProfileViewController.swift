@@ -27,12 +27,14 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var calendarView: CalendarView!
     
     let defaultDescriptionText = "Artist of the original genre ..."
+    let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
+    let citySegueName = "selectCitySegue"
+    let priceSegueName = "selectPriceSegue"
     
     var artist: Artist!
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
-    let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
     var selectedRole: String?
     
     override func viewDidLoad() {
@@ -45,22 +47,16 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         setupDescription()
     }
     
-    func setupDescription() {
-        if artist.description.isEmpty == false {
-            descriptionTextView.text = artist.description
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         artistTypeMenu.selectRow(0, inComponent: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "selectCitySegue" {
+        if segue.identifier == citySegueName {
             let cityVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectCityViewController
             setupCityController(cityVC)
-        } else if segue.identifier == "selectPriceSegue" {
+        } else if segue.identifier == priceSegueName {
             let priceVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectPriceViewController
             setupPriceController(priceVC)
         }
@@ -74,33 +70,16 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard indexPath.row == 1 else { return UITableView.automaticDimension }
-        
-        let text = descriptionTextView.text ?? ""
-        let font = descriptionTextView.font!
-        let width = UIScreen.main.bounds.width - 32
-        
-        let rect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let neededArea = text.boundingRect(with: rect,
-                                       options: .usesLineFragmentOrigin,
-                                       attributes: [.font: font], context: nil)
-        
-        return neededArea.height + 18
+        return descriptionCellHeight()
+    }
+}
+
+extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == defaultDescriptionText {
-            textView.text = nil
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == nil || textView.text.isEmpty {
-            textView.text = defaultDescriptionText
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
 }
