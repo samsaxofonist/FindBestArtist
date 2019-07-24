@@ -25,6 +25,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var videosCollectionView: UICollectionView!
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
+    @IBOutlet weak var editButton: UIButton!
     
     let defaultDescriptionText = "Artist of the original genre ..."
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
@@ -40,11 +41,22 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        applyTheme(theme: ThemeManager.theme)
         setupPhotoStuff()
         setCurrentPhoto()
         setupArtistTypeMenu()
         showPrice(artist.price)
         setupDescription()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,6 +72,15 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
             let priceVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectPriceViewController
             setupPriceController(priceVC)
         }
+    }
+    
+    func applyTheme(theme: Theme) {
+        tableView.backgroundColor = theme.backgroundColor
+        editButton.setTitleColor(theme.textColor, for: .normal)
+        cityButton.setTitleColor(theme.textColor, for: .normal)
+        priceButton.setTitleColor(theme.textColor, for: .normal)
+        nameTextField.textColor = theme.textColor
+        descriptionTextView.textColor = theme.darkColor
     }
     
     func setupCityController(_ controller: SelectCityViewController) {
