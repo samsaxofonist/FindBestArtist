@@ -34,6 +34,8 @@
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
 		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
 		3E419202224184C7000BA5D9 /* SortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E419201224184C7000BA5D9 /* SortVC.swift */; };
+		3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */; };
+		3E4AFED7230F18E3005B4E40 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED6230F18E3005B4E40 /* VideoCell.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
 		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
@@ -91,6 +93,8 @@
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3E419201224184C7000BA5D9 /* SortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortVC.swift; sourceTree = "<group>"; };
+		3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoCell.swift; sourceTree = "<group>"; };
+		3E4AFED6230F18E3005B4E40 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -267,6 +271,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3E4AFED3230F08CE005B4E40 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */,
+				3E4AFED6230F18E3005B4E40 /* VideoCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		3E75CAB0228FEB2A004F8127 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +319,7 @@
 		3EFAD9F922CE731300DF5093 /* NewMyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				3E4AFED3230F08CE005B4E40 /* Cells */,
 				3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */,
 				3E85491022C9157400869A9B /* MyProfileViewController.swift */,
 				3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */,
@@ -470,11 +484,13 @@
 				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,
 				3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */,
 				3E204CED22E8CC8B0053283D /* Themes.swift in Sources */,
+				3E4AFED7230F18E3005B4E40 /* VideoCell.swift in Sources */,
 				3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */,
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */,
 				3E017C12220307F600CF2E96 /* GradientView.swift in Sources */,
 				327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */,
+				3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */,
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
@@ -640,13 +656,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q7CLDF32BG;
+				DEVELOPMENT_TEAM = 499RHTV973;
 				INFOPLIST_FILE = BestArtist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.FindBestArtist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kievkao.FindBestArtist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -659,13 +675,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q7CLDF32BG;
+				DEVELOPMENT_TEAM = 499RHTV973;
 				INFOPLIST_FILE = BestArtist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.FindBestArtist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kievkao.FindBestArtist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

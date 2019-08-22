@@ -55,6 +55,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>For filter purposes</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SFUIDisplay-Black</string>
@@ -129,7 +131,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>For filter purposes</string>
 </dict>
 </plist>

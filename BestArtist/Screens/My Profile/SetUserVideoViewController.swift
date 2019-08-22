@@ -16,6 +16,8 @@ class SetUserVideoViewController: BaseViewController {
     
     var artist: Artist!
     
+    var finishBlock: ((String?) -> Void)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView.layer.cornerRadius = 10
@@ -87,4 +89,18 @@ class SetUserVideoViewController: BaseViewController {
         artist.youtubeLink = textfield.text ?? ""
         //nextViewController.artist = artist
     }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func applyClicked(_ sender: Any) {
+        let textFromUser = textfield.text ?? ""
+        let components = textFromUser.components(separatedBy: "=")
+        if isYoutubeURL(string: textFromUser), let idText = components.last {
+            finishBlock?(idText)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

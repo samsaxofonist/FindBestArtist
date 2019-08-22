@@ -18,6 +18,7 @@ extension MyProfileViewController {
         photoBackgroundVIew.layer.cornerRadius = 102
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        photosSlideShow.circular = false
     }
     
     func setCurrentPhoto() {
@@ -63,7 +64,7 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         if imagePickerForUserPhoto {
             photoImageView.image = selectedImage.resized(toWidth: 600)
         } else {
-            allPhotos.append(compressed)
+            allPhotos.insert(compressed, at: 0)
             let imageSources = allPhotos.map { ImageSource(image: $0) }
             photosSlideShow.setImageInputs(imageSources)
         }

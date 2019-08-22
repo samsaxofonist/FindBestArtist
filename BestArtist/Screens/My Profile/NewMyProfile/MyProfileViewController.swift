@@ -42,6 +42,8 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     let viewModel = MyProfileViewModel()
     var selectedRole: String?
     var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
+    var allVideos: [String] = []
+    var allFeedbacks: [String] = []
     
     var imagePickerForUserPhoto = true
     
@@ -123,6 +125,20 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func tapOnAddVideo(_ sender: Any) {
+        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
+        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+        
+        addVideoVC.finishBlock = { videoString in
+            if let videoId = videoString {
+                self.allVideos.append(videoId)
+                self.videosCollectionView.reloadData()
+            }
+        }
+        present(addVideoNav, animated: true, completion: nil)
+    }
+    
+    
     func openGalery() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -132,10 +148,17 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
 
 extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return allVideos.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        if indexPath.row == allVideos.count {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
+        } else {
+            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            let videoId = allVideos[indexPath.row]
+            videoCell.playerView.load(withVideoId: videoId)
+            return videoCell
+        }
     }
 }
