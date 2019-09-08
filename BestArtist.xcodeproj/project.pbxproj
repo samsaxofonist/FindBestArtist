@@ -56,7 +56,7 @@
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
 		3EC0D00921BD3FB4004627EA /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */; };
 		3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */; };
-		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */; };
+		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */; };
 		3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */; };
 		3EFADA0122CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFADA0022CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift */; };
 		3F49E216FAF3A73B392157ED /* Pods_BestArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */; };
@@ -115,7 +115,7 @@
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3EC0D00821BD3FB4004627EA /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
 		3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
-		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+UserPhoto.swift"; sourceTree = "<group>"; };
+		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Photo.swift"; sourceTree = "<group>"; };
 		3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Name.swift"; sourceTree = "<group>"; };
 		3EFADA0022CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+ArtistType.swift"; sourceTree = "<group>"; };
 		57BF5AAA5B95CAB573354B0D /* Pods_BestArtist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestArtist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +322,7 @@
 				3E4AFED3230F08CE005B4E40 /* Cells */,
 				3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */,
 				3E85491022C9157400869A9B /* MyProfileViewController.swift */,
-				3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift */,
+				3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */,
 				3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */,
 				3EFADA0022CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift */,
 				3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */,
@@ -496,7 +496,7 @@
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
 				3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */,
 				3E84D3EA222AB0AC009DC2EF /* SetUserPhotosViewController.swift in Sources */,
-				3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+UserPhoto.swift in Sources */,
+				3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */,
 				3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */,
 				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,

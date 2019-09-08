@@ -21,8 +21,12 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyTheme(theme: ThemeManager.theme)
         setupLocationManager()
         addSomeMarks()
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     func setupLocationManager() {

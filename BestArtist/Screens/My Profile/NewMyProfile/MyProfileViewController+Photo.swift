@@ -19,6 +19,10 @@ extension MyProfileViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         photosSlideShow.circular = false
+        GlobalManager.photoFullScreenCloseHandler = {
+            let imageSources = self.allPhotos.map { ImageSource(image: $0) }
+            self.photosSlideShow.setImageInputs(imageSources)
+        }
     }
     
     func setCurrentPhoto() {
@@ -40,6 +44,17 @@ extension MyProfileViewController {
             let cropViewController = CropViewController(image: image)
             cropViewController.delegate = self
             present(cropViewController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func tapOnPhotoGallery(_ sender: Any) {
+        if photosSlideShow.currentPage == allPhotos.count - 1 {
+            imagePickerForUserPhoto = false
+            openGalery()
+        } else {
+            let imageSources = allPhotos.dropLast().map { ImageSource(image: $0) }
+            photosSlideShow.setImageInputs(imageSources)
+            photosSlideShow.presentFullScreenController(from: self)
         }
     }
 }
@@ -68,5 +83,12 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
             let imageSources = allPhotos.map { ImageSource(image: $0) }
             photosSlideShow.setImageInputs(imageSources)
         }
+    }
+}
+
+extension FullScreenSlideshowViewController {
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        GlobalManager.photoFullScreenCloseHandler?()
     }
 }

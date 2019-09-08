@@ -116,14 +116,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         return descriptionCellHeight()
     }
     
-    @IBAction func tapOnPhotoGallery(_ sender: Any) {
-        if photosSlideShow.currentPage == allPhotos.count - 1 {
-            imagePickerForUserPhoto = false
-            openGalery()
-        } else {
-            photosSlideShow.presentFullScreenController(from: self)
-        }
-    }
+    
     
     @IBAction func tapOnAddVideo(_ sender: Any) {
         let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController

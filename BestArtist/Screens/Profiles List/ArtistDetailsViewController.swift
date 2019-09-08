@@ -25,8 +25,12 @@ class ArtistDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyTheme(theme: ThemeManager.theme)
         setupViewComponents()
         setupWithArtist(selectedArtist)
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     override func viewDidAppear(_ animated: Bool) {

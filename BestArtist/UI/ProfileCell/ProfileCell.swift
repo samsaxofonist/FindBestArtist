@@ -21,8 +21,13 @@ class ProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        applyTheme(theme: ThemeManager.theme)
         photoImage.layer.cornerRadius = 60
         backgroundPhotoView.layer.cornerRadius = 61        
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     @IBAction func selectionAction(_ sender: Any) {

@@ -17,6 +17,8 @@ class SortVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        applyTheme(theme: ThemeManager.theme)
         sortListView.layer.cornerRadius = 10
         
         titleLabel.text = GlobalManager.sorting.title
@@ -25,6 +27,9 @@ class SortVC: UIViewController {
         } else {
             sortSwitch.isOn = false
         }
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     @IBAction func backgroundClicked(_ sender: Any) {

@@ -13,6 +13,11 @@ class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        applyTheme(theme: ThemeManager.theme)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,5 +50,8 @@ class LoginViewController: BaseViewController {
         let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
         self.navigationController?.setViewControllers([mainTabBar], animated: true)
         ARSLineProgress.hide()
+    }
+    
+    func applyTheme(theme: Theme) {
     }
 }

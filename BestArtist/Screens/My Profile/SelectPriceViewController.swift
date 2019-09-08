@@ -28,8 +28,12 @@ class SelectPriceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyTheme(theme: ThemeManager.theme)
         priceTextField.text = String(currentPrice)
         setupDistance()
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     func setupDistance() {

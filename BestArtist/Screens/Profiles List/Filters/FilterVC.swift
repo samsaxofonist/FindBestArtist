@@ -21,6 +21,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyTheme(theme: ThemeManager.theme)
         priceSlider.delegate = self
         setInitialFilterValues()
         readCountriesFromFile()
@@ -29,6 +30,9 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         selectMyCountry()
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     func readCountriesFromFile() {

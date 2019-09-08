@@ -19,7 +19,12 @@ class SelectCityViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        applyTheme(theme: ThemeManager.theme)
         searchCompleter.delegate = self
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     @IBAction func cancelClicked(_ sender: Any) {

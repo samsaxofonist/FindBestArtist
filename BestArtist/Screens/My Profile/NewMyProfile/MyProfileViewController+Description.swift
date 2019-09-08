@@ -17,8 +17,12 @@ extension MyProfileViewController {
     }
     
     func textViewDidChange(_ textView: UITextView) {
+        UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
+        textView.scrollRangeToVisible(NSMakeRange(textView.text.count-1, 0))
         tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+        tableView.scrollToRow(at: IndexPath(item: 1, section: 0), at: .bottom, animated: false)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

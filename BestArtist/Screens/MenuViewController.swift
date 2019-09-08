@@ -19,6 +19,8 @@ class MenuViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        applyTheme(theme: ThemeManager.theme)
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
         SideMenuManager.defaultManager.menuFadeStatusBar = false
@@ -28,6 +30,9 @@ class MenuViewController: UITableViewController {
                 photoView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             }
         }
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -25,11 +25,16 @@ class ProfilesListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        applyTheme(theme: ThemeManager.theme)
         UIApplication.shared.beginIgnoringInteractionEvents()
         setup()
         reloadDataList()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
+    }
+    
+    func applyTheme(theme: Theme) {
     }
     
     @objc func reloadDataList() {
