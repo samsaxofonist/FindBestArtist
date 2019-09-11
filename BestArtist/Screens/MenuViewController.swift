@@ -33,6 +33,8 @@ class MenuViewController: UITableViewController {
     }
     
     func applyTheme(theme: Theme) {
+        self.view.backgroundColor = theme.backgroundColor
+        self.nameLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -12,7 +12,7 @@ extension UIView {
     func drawGradient() {
         let gradient = CAGradientLayer()
         gradient.frame = self.frame
-        gradient.colors = [UIColor(red: 0/255, green: 179/255, blue: 241/255, alpha: 1.0).cgColor, UIColor(red: 12/255, green: 54/255, blue: 153/255, alpha: 1.0).cgColor]
+        gradient.colors = [ThemeManager.theme.gradientStartColor.cgColor, ThemeManager.theme.gradientEndColor.cgColor]
         
         let gradientView = UIView(frame: self.frame)
         self.insertSubview(gradientView, at: 0)

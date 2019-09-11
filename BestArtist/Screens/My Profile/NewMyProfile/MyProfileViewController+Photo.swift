@@ -18,11 +18,25 @@ extension MyProfileViewController {
         photoBackgroundVIew.layer.cornerRadius = 102
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        
         photosSlideShow.circular = false
+        
         GlobalManager.photoFullScreenCloseHandler = {
             let imageSources = self.allPhotos.map { ImageSource(image: $0) }
             self.photosSlideShow.setImageInputs(imageSources)
         }
+    }
+    
+    func showPhotoContextMenu() {
+        let menu = UIMenuController.shared
+        let deleteItem = UIMenuItem(title: "Delete", action: #selector(MyProfileViewController.deletePhoto))
+        menu.menuItems = [deleteItem]
+        menu.setTargetRect(CGRect.zero, in: self.view)
+        menu.setMenuVisible(true, animated: true)
+    }
+    
+    @objc func deletePhoto() {
+        
     }
     
     func setCurrentPhoto() {
@@ -79,7 +93,7 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         if imagePickerForUserPhoto {
             photoImageView.image = selectedImage.resized(toWidth: 600)
         } else {
-            allPhotos.insert(compressed, at: 0)
+            allPhotos.insert(compressed, at: allPhotos.count - 1)
             let imageSources = allPhotos.map { ImageSource(image: $0) }
             photosSlideShow.setImageInputs(imageSources)
         }

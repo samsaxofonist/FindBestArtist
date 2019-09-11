@@ -14,6 +14,8 @@ import CropViewController
 import ARSLineProgress
 
 class MyProfileViewController: UITableViewController, UITextViewDelegate {
+    typealias VideoId = String
+    
     @IBOutlet weak var photoBackgroundVIew: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -42,8 +44,8 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     let viewModel = MyProfileViewModel()
     var selectedRole: String?
     var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
-    var allVideos: [String] = []
-    var allFeedbacks: [String] = []
+    var allVideos: [VideoId] = []
+    var allFeedbacks: [VideoId] = []
     
     var imagePickerForUserPhoto = true
     
@@ -116,8 +118,6 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         return descriptionCellHeight()
     }
     
-    
-    
     @IBAction func tapOnAddVideo(_ sender: Any) {
         let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
         let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
@@ -131,27 +131,63 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         present(addVideoNav, animated: true, completion: nil)
     }
     
+    @IBAction func tapOnAddFeedback(_ sender: Any) {
+        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
+        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+        
+        addVideoVC.finishBlock = { videoString in
+            if let videoId = videoString {
+                self.allFeedbacks.append(videoId)
+                self.feedbacksCollectionVIew.reloadData()
+            }
+        }
+        present(addVideoNav, animated: true, completion: nil)
+    }
+    
+    @IBAction func longTapOnPhotos(_ sender: Any) {
+        showPhotoContextMenu()
+    }
     
     func openGalery() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allVideos.count + 1
+        let data = getDataArray(for: collectionView)
+        return data.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == allVideos.count {
+        
+        let data = getDataArray(for: collectionView)
+        
+        if indexPath.row == data.count {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
         } else {
             let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-            let videoId = allVideos[indexPath.row]
+            
+            
+            let videoId = data[indexPath.row]
+            
             videoCell.playerView.load(withVideoId: videoId)
             return videoCell
+        }
+    }
+    
+    func getDataArray(for collectionView: UICollectionView) -> [VideoId] {
+        if collectionView == videosCollectionView {
+            return allVideos
+        } else {
+            return allFeedbacks
         }
     }
 }

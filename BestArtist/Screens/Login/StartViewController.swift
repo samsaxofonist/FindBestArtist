@@ -15,17 +15,13 @@ class StartViewController: UIViewController {
 
         applyTheme(theme: ThemeManager.theme)
         GlobalManager.rootNavigation = self.navigationController
-        let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
-        profile.artist = Artist()
-        self.navigationController?.setViewControllers([profile], animated: false)
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            if LoginManager.isLoggedIn {
-//                self.openMainScreen()
-//            } else {
-//                self.openLoginScreen()
-//            }
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if LoginManager.isLoggedIn {
+                self.openMainScreen()
+            } else {
+                self.openLoginScreen()
+            }
+        }
     }
     
     private func openLoginScreen() {
