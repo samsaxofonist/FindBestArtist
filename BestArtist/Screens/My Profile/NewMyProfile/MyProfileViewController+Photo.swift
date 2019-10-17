@@ -93,10 +93,14 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         if imagePickerForUserPhoto {
             photoImageView.image = selectedImage.resized(toWidth: 600)
         } else {
-            allPhotos.insert(compressed, at: allPhotos.count - 1)
-            let imageSources = allPhotos.map { ImageSource(image: $0) }
-            photosSlideShow.setImageInputs(imageSources)
+            insertNewPhoto(compressed)
         }
+    }
+
+    func insertNewPhoto(_ photo: UIImage) {
+        allPhotos.insert(photo, at: allPhotos.count - 1)
+        let imageSources = allPhotos.map { ImageSource(image: $0) }
+        photosSlideShow.setImageInputs(imageSources)
     }
 }
 

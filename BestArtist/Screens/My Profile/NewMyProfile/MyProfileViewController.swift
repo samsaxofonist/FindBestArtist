@@ -46,6 +46,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
     var allVideos: [VideoId] = []
     var allFeedbacks: [VideoId] = []
+    var selectedDates = [TimeInterval]()
     
     var imagePickerForUserPhoto = true
     
@@ -58,7 +59,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         setCurrentPhoto()
         setupArtistTypeMenu()
         showPrice(artist.price)
-        setupDescription()
+        showInitialArtistInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +89,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
             setupPriceController(priceVC)
         }
     }
-    
+
     func applyTheme(theme: Theme) {
         tableView.backgroundColor = theme.backgroundColor
         editButton.setTitleColor(theme.textColor, for: .normal)
@@ -124,11 +125,15 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         
         addVideoVC.finishBlock = { videoString in
             if let videoId = videoString {
-                self.allVideos.append(videoId)
-                self.videosCollectionView.reloadData()
+                self.insertNewVideo(videoId: videoId)
             }
         }
         present(addVideoNav, animated: true, completion: nil)
+    }
+
+    func insertNewVideo(videoId: String) {
+        self.allVideos.append(videoId)
+        self.videosCollectionView.reloadData()
     }
     
     @IBAction func tapOnAddFeedback(_ sender: Any) {

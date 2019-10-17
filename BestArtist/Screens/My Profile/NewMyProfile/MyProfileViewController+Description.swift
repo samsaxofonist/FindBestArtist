@@ -7,12 +7,44 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension MyProfileViewController {
     
-    func setupDescription() {
+    func showInitialArtistInfo() {
         if artist.description.isEmpty == false {
             descriptionTextView.text = artist.description
+        }
+        nameTextField.text = artist.name
+
+        cityButton.setTitle(artist.city.name, for: .normal)
+        priceButton.setTitle(String(artist.price), for: .normal)
+        if let index = talents.index(of: artist.talent) {
+            selectedRole = talents[index]
+        }
+        loadAllPhotos()
+        loadAllVideos()
+    }
+
+    func loadAllVideos() {
+        let components = artist.youtubeLink.components(separatedBy: "=")
+        if let videoId = components.last, videoId.isEmpty == false {
+            insertNewVideo(videoId: videoId)
+        }
+    }
+
+    func loadAllPhotos() {
+        artist.galleryPhotosLinks.forEach {
+            let url = URL(string: $0)
+
+            KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    self.insertNewPhoto(value.image)
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
         }
     }
     
