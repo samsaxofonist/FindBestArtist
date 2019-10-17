@@ -16,7 +16,10 @@ import ARSLineProgress
 class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var profilesTableView: UITableView!
     @IBOutlet var listSettingsView: UIView!
-    
+    @IBOutlet var topPanelView: UIView!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     var artists = [Artist]()
@@ -35,6 +38,10 @@ class ProfilesListViewController: BaseViewController {
     }
     
     func applyTheme(theme: Theme) {
+        self.view.backgroundColor = theme.backgroundColor
+        topPanelView.backgroundColor = theme.backgroundColor
+        sortButton.setTitleColor(theme.textColor, for: .normal)
+        filterButton.setTitleColor(theme.textColor, for: .normal)
     }
     
     @objc func reloadDataList() {

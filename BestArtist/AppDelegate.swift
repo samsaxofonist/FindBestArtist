@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        FBSDKSettings.setAutoLogAppEventsEnabled(NSNumber(booleanLiteral: false))
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.foregroundColor: ThemeManager.theme.textColor,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)
         ]
         

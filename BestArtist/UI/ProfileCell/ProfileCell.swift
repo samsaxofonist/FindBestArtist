@@ -16,7 +16,9 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
     @IBOutlet weak var backgroundPhotoView: UIView!
-    
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+
     var onClickBlock: (() -> ())?
     
     override func awakeFromNib() {
@@ -28,6 +30,11 @@ class ProfileCell: UITableViewCell {
     }
     
     func applyTheme(theme: Theme) {
+        nameLabel.textColor = theme.darkColor
+        priceLabel.textColor = theme.textColor
+        informationLabel.textColor = theme.textColor
+        fromLabel.textColor = theme.textColor
+        currencyLabel.textColor = theme.textColor
     }
     
     @IBAction func selectionAction(_ sender: Any) {

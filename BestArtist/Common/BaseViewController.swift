@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     var needTabBar: Bool = false
-    var needGradient: Bool = true
+    var needGradient: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

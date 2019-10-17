@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,15 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="360" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
-                <rect key="frame" x="0.0" y="0.0" width="360" height="151.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="152"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="123-Vg-VEA" customClass="GradientView" customModule="BestArtist" customModuleProvider="target">
-                        <rect key="frame" x="16" y="11" width="328" height="130"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-vp-gOl" customClass="DesignableView" customModule="Spring">
-                        <rect key="frame" x="16" y="11" width="328" height="130"/>
+                        <rect key="frame" x="15" y="11" width="330" height="130"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7f-Ks-o2x">
                                 <rect key="frame" x="4" y="4" width="122" height="122"/>
@@ -62,14 +56,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Möchten Sie einen Funken Originalität Ihrer Veranstaltung hinzufügen?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-WR-VXw">
-                                <rect key="frame" x="144" y="46.5" width="149" height="23.5"/>
+                                <rect key="frame" x="144" y="46.5" width="151" height="23.5"/>
                                 <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCG-0V-r5j" customClass="M13Checkbox" customModule="M13Checkbox">
-                                <rect key="frame" x="276" y="78" width="40" height="40"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="278" y="78" width="40" height="40"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="6Re-ie-BgY"/>
                                     <constraint firstAttribute="height" constant="40" id="PsK-bQ-MEa"/>
@@ -79,7 +73,7 @@
                                         <color key="value" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="secondaryCheckmarkTintColor">
-                                        <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="checkmarkLineWidth">
                                         <real key="value" value="2"/>
@@ -161,17 +155,9 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="zPv-vp-gOl" secondAttribute="trailing" id="2DS-mz-Kkb"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="bottom" secondItem="FX2-eT-CqW" secondAttribute="bottomMargin" id="EY9-Gt-Djl"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="trailing" secondItem="FX2-eT-CqW" secondAttribute="trailing" constant="-16" id="EgV-fN-qkD"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" id="HrR-yJ-GwB"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leadingMargin" id="Hwq-FR-31X"/>
                     <constraint firstAttribute="bottomMargin" secondItem="zPv-vp-gOl" secondAttribute="bottom" id="Qxw-Ml-kU9"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="trailing" secondItem="zPv-vp-gOl" secondAttribute="trailing" id="R2i-rV-RZ8"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="leading" secondItem="FX2-eT-CqW" secondAttribute="leadingMargin" id="Zut-bi-a5r"/>
                     <constraint firstItem="zPv-vp-gOl" firstAttribute="top" secondItem="FX2-eT-CqW" secondAttribute="topMargin" id="aLg-Tw-L0N"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" id="bYw-og-Eiu"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="bottom" secondItem="zPv-vp-gOl" secondAttribute="bottom" id="kI2-mz-etP"/>
-                    <constraint firstItem="123-Vg-VEA" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" id="tIb-w7-IoY"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,6 +177,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundPhotoView" destination="h7f-Ks-o2x" id="vF8-gz-FLs"/>
+                <outlet property="currencyLabel" destination="Fuy-z5-Gj1" id="ppr-Ug-NiT"/>
+                <outlet property="fromLabel" destination="Sn5-lk-8D8" id="hjJ-TN-0ka"/>
                 <outlet property="informationLabel" destination="xEd-WR-VXw" id="ig3-hq-0v8"/>
                 <outlet property="mainBackgroundProfileCell" destination="zPv-vp-gOl" id="tz8-BY-RiN"/>
                 <outlet property="nameLabel" destination="Xkb-uD-3dM" id="Oa9-ms-iTU"/>

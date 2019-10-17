@@ -16,7 +16,9 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet weak var profileCellTitleLabel: UILabel!
+    @IBOutlet weak var logoutCellTitleLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +37,8 @@ class MenuViewController: UITableViewController {
     func applyTheme(theme: Theme) {
         self.view.backgroundColor = theme.backgroundColor
         self.nameLabel.textColor = theme.textColor
+        self.profileCellTitleLabel.textColor = theme.textColor
+        self.logoutCellTitleLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

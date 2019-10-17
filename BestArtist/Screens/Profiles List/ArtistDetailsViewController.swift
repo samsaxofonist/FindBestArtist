@@ -31,6 +31,10 @@ class ArtistDetailsViewController: UITableViewController {
     }
     
     func applyTheme(theme: Theme) {
+        self.view.backgroundColor = theme.backgroundColor
+        nameLabel.textColor = theme.darkColor
+        infoArtistLabel.textColor = theme.textColor
+        cityLabel.textColor = theme.textColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
