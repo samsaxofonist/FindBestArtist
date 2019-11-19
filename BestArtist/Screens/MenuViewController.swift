@@ -45,7 +45,7 @@ class MenuViewController: UITableViewController {
         super.viewWillAppear(animated)
         profileCellTitle.text = GlobalManager.myUser != nil ? "Edit Profile" : "Create Profile"
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let neededNavigation = GlobalManager.navigation
         let rootNavigation = GlobalManager.rootNavigation

@@ -44,7 +44,7 @@ class FirebaseManager {
                               ArtistKeys.talent: artist.talent,
                               ArtistKeys.description: artist.description,
                               ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
-                              ArtistKeys.youtubeLink: artist.youtubeLink,
+                              ArtistKeys.youtubeLink: artist.youtubeLinks,
                               ArtistKeys.price: artist.price,
                               ArtistKeys.cityName: artist.city.name,
                               ArtistKeys.cityLatitude: artist.city.location.latitude,
@@ -117,7 +117,7 @@ class FirebaseManager {
                 artist.talent = (value[ArtistKeys.talent] as? String) ?? ""
                 artist.description = (value[ArtistKeys.description] as? String) ?? ""
                 artist.photoLink = value[ArtistKeys.photoLink] as? String
-                artist.youtubeLink = (value[ArtistKeys.youtubeLink] as? String) ?? ""
+                artist.youtubeLinks = (value[ArtistKeys.youtubeLink] as? [String]) ?? []
                 artist.price = (value[ArtistKeys.price] as? Int) ?? 0
                 artist.facebookId = (value[ArtistKeys.facebookID] as? String) ?? ""
                 artist.busyDates = (value[ArtistKeys.busyDates] as? [Double]) ?? []                

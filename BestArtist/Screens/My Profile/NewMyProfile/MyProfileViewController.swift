@@ -47,6 +47,9 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     var allVideos: [VideoId] = []
     var allFeedbacks: [VideoId] = []
     var selectedDates = [TimeInterval]()
+    var selectedCity: City?
+    var selectedCountry: String?
+    var selectedPrice: Int = 0
     
     var imagePickerForUserPhoto = true
     
@@ -74,10 +77,46 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let applyBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(MyProfileViewController.saveButtonClicked))
+        self.navigationItem.rightBarButtonItem = applyBarButton
         selectCalendarDates()
         artistTypeMenu.selectRow(0, inComponent: 0)
         let imageSources = allPhotos.map { ImageSource(image: $0) }
         photosSlideShow.setImageInputs(imageSources)
+    }
+
+    @objc func saveButtonClicked() {
+        guard let role = self.selectedRole,
+            let name = self.nameTextField.text,
+            let description = self.descriptionTextView.text,
+            !self.allVideos.isEmpty,
+            let city = self.selectedCity,
+            let country = self.selectedCountry,
+            self.selectedPrice > 0,
+            let photo = self.photoImageView.image,
+            !self.allPhotos.isEmpty else {
+                let errorAlert = UIAlertController(title: "Error", message: "Fill all fields!", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
+            return
+        }
+        artist.talent = role
+        artist.name = name
+        artist.description = description
+        artist.youtubeLinks = self.allVideos
+        artist.city = city
+        artist.country = country
+        artist.price = self.selectedPrice
+        artist.photo = photo
+        artist.galleryPhotos = self.allPhotos.dropLast()
+        artist.busyDates = self.selectedDates
+
+        ARSLineProgress.show()
+        NetworkManager.saveArtist(artist, finish: {
+            ARSLineProgress.hide()
+            NotificationCenter.default.post(name: .refreshNamesList, object: nil)
+            self.navigationController?.popToRootViewController(animated: true)
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,6 +149,8 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     
     func setupCityController(_ controller: SelectCityViewController) {
         controller.finishBlock = { city, country in
+            self.selectedCity = city
+            self.selectedCountry = country
             self.cityButton.setTitle(city.name, for: .normal)
         }
     }

@@ -27,9 +27,11 @@ extension MyProfileViewController {
     }
 
     func loadAllVideos() {
-        let components = artist.youtubeLink.components(separatedBy: "=")
-        if let videoId = components.last, videoId.isEmpty == false {
-            insertNewVideo(videoId: videoId)
+        artist.youtubeLinks.forEach { link in
+            guard let videoId = link.components(separatedBy: "=").last ?? link.components(separatedBy: "/").last, !videoId.isEmpty else {
+                return
+            }
+            self.insertNewVideo(videoId: videoId)
         }
     }
 

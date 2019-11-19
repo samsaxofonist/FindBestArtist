@@ -10,6 +10,7 @@ import Foundation
 
 extension MyProfileViewController {
     func showPrice(_ price: Int) {
+        self.selectedPrice = price
         let priceToDisplay = String(price) + "€"
         self.priceButton.setTitle(priceToDisplay, for: .normal)
     }
