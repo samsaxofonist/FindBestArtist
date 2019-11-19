@@ -24,11 +24,18 @@ extension MyProfileViewController {
             selectedRole = talents[index]
         }
         loadAllPhotos()
-        loadAllVideos()
+
+        loadVideoLinks(from: artist.youtubeLinks, doForEachLink: { id in
+            self.insertNewVideo(videoId: id)
+        })
+
+        loadVideoLinks(from: artist.feedbackLinks, doForEachLink: { id in
+            self.insertNewFeedback(videoId: id)
+        })
     }
 
-    func loadAllVideos() {
-        artist.youtubeLinks.forEach { link in
+    func loadVideoLinks(from array: [String], doForEachLink: ((String) -> Void)) {
+        array.forEach { link in
             let videoId: String?
 
             if link.contains("="), let lastAfterEqual = link.components(separatedBy: "=").last {
@@ -40,7 +47,7 @@ extension MyProfileViewController {
             }
 
             if let id = videoId {
-                self.insertNewVideo(videoId: id)
+                doForEachLink(id)
             }
         }
     }

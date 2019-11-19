@@ -177,6 +177,11 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         self.allVideos.append(videoId)
         self.videosCollectionView.reloadData()
     }
+
+    func insertNewFeedback(videoId: String) {
+        self.allFeedbacks.append(videoId)
+        self.feedbacksCollectionVIew.reloadData()
+    }
     
     @IBAction func tapOnAddFeedback(_ sender: Any) {
         let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
