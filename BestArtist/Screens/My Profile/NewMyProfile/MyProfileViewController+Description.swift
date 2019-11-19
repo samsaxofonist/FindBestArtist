@@ -16,7 +16,8 @@ extension MyProfileViewController {
             descriptionTextView.text = artist.description
         }
         nameTextField.text = artist.name
-
+        self.selectedCity = artist.city
+        self.selectedCountry = artist.country
         cityButton.setTitle(artist.city.name, for: .normal)
         priceButton.setTitle(String(artist.price), for: .normal)
         if let index = talents.index(of: artist.talent) {
@@ -28,10 +29,19 @@ extension MyProfileViewController {
 
     func loadAllVideos() {
         artist.youtubeLinks.forEach { link in
-            guard let videoId = link.components(separatedBy: "=").last ?? link.components(separatedBy: "/").last, !videoId.isEmpty else {
-                return
+            let videoId: String?
+
+            if link.contains("="), let lastAfterEqual = link.components(separatedBy: "=").last {
+                videoId = lastAfterEqual
+            } else if let lastAfterSlash = link.components(separatedBy: "/").last {
+                videoId = lastAfterSlash
+            } else {
+                videoId = nil
             }
-            self.insertNewVideo(videoId: videoId)
+
+            if let id = videoId {
+                self.insertNewVideo(videoId: id)
+            }
         }
     }
 

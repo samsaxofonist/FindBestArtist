@@ -110,6 +110,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         artist.photo = photo
         artist.galleryPhotos = self.allPhotos.dropLast()
         artist.busyDates = self.selectedDates
+        artist.feedbackLinks = self.allFeedbacks
 
         ARSLineProgress.show()
         NetworkManager.saveArtist(artist, finish: {

@@ -40,9 +40,18 @@ class SetUserVideoViewController: BaseViewController {
     }
     
     func processYoutube(string: String) {
-        let components = string.components(separatedBy: "=")
-        if let idText = components.last {
-            self.videoView.load(withVideoId: idText)
+        let videoId: String?
+
+        if string.contains("="), let lastAfterEqual = string.components(separatedBy: "=").last {
+            videoId = lastAfterEqual
+        } else if let lastAfterSlash = string.components(separatedBy: "/").last {
+            videoId = lastAfterSlash
+        } else {
+            videoId = nil
+        }
+
+        if let id = videoId {
+            self.videoView.load(withVideoId: id)
         }
     }
     

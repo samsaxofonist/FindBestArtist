@@ -18,6 +18,7 @@ struct ArtistKeys {
     static let description = "description"
     static let photoLink = "photoLink"
     static let youtubeLink = "youtubeLink"
+    static let feedbackLink = "feedbackLink"
     static let price = "price"
     static let cityName = "cityName"
     static let cityLatitude = "cityLat"
@@ -45,6 +46,7 @@ class FirebaseManager {
                               ArtistKeys.description: artist.description,
                               ArtistKeys.photoLink: photoURL != nil ? photoURL!.absoluteString : "",
                               ArtistKeys.youtubeLink: artist.youtubeLinks,
+                              ArtistKeys.feedbackLink: artist.feedbackLinks,
                               ArtistKeys.price: artist.price,
                               ArtistKeys.cityName: artist.city.name,
                               ArtistKeys.cityLatitude: artist.city.location.latitude,
@@ -118,6 +120,7 @@ class FirebaseManager {
                 artist.description = (value[ArtistKeys.description] as? String) ?? ""
                 artist.photoLink = value[ArtistKeys.photoLink] as? String
                 artist.youtubeLinks = (value[ArtistKeys.youtubeLink] as? [String]) ?? []
+                artist.feedbackLinks = (value[ArtistKeys.feedbackLink] as? [String]) ?? []
                 artist.price = (value[ArtistKeys.price] as? Int) ?? 0
                 artist.facebookId = (value[ArtistKeys.facebookID] as? String) ?? ""
                 artist.busyDates = (value[ArtistKeys.busyDates] as? [Double]) ?? []                

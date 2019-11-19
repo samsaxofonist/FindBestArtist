@@ -16,6 +16,7 @@ class Artist: Equatable {
     var talent: String = ""
     var description: String = ""
     var youtubeLinks: [String] = []
+    var feedbackLinks: [String] = []
     var city: City!
     var country: String?
     var price: Int = 0
