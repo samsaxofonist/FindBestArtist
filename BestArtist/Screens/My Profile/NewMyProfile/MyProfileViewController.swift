@@ -156,12 +156,4 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
             self.cityButton.setTitle(city.name, for: .normal)
         }
     }
-    
-    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return true
-    }
 }

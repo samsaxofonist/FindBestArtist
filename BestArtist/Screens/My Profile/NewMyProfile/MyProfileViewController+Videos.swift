@@ -85,7 +85,6 @@ extension MyProfileViewController {
         }
         present(addVideoNav, animated: true, completion: nil)
     }
-
 }
 
 extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
