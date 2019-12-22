@@ -77,12 +77,14 @@ extension MyProfileViewController {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        backgroundTapGesture.isEnabled = false
         if textView.text == defaultDescriptionText {
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        backgroundTapGesture.isEnabled = true
         if textView.text == nil || textView.text.isEmpty {
             textView.text = defaultDescriptionText
         }
@@ -99,5 +101,10 @@ extension MyProfileViewController {
                                            attributes: [.font: font], context: nil)
         
         return neededArea.height + 18
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard indexPath.row == 1 else { return UITableView.automaticDimension }
+        return descriptionCellHeight()
     }
 }

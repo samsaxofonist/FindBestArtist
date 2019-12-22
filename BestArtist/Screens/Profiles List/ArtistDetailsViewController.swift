@@ -18,8 +18,9 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var artistPhotoImageView: UIImageView!
     @IBOutlet weak var calendar: CalendarView!
     @IBOutlet weak var infoArtistLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    
+    @IBOutlet weak var cityLabel: UILabel!    
+    @IBOutlet weak var galleryCell: UITableViewCell!
+
     var selectedArtist: Artist!
 
     override func viewDidLoad() {
@@ -76,7 +77,11 @@ class ArtistDetailsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        if indexPath.row == 2 && self.selectedArtist.galleryPhotosLinks.isEmpty {
+            return 0
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }
 
