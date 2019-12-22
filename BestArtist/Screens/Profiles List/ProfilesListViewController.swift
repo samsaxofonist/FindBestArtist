@@ -22,8 +22,8 @@ class ProfilesListViewController: BaseViewController {
 
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
-    var artists = [Artist]()
-    var filteredArtists = [Artist]()
+    var artists = [User]()
+    var filteredArtists = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,7 +134,7 @@ class ProfilesListViewController: BaseViewController {
         present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
     
-    func myUserIfExists(id: String) -> Artist? {
+    func myUserIfExists(id: String) -> User? {
         return artists.filter({ $0.facebookId == id }).first
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class ArtistDetailsContainerController: BaseViewController {
-    var selectedArtist: Artist!
+    var selectedArtist: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()

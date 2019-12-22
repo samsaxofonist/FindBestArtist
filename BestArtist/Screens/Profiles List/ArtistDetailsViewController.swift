@@ -21,7 +21,7 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var cityLabel: UILabel!    
     @IBOutlet weak var galleryCell: UITableViewCell!
 
-    var selectedArtist: Artist!
+    var selectedArtist: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class ArtistDetailsViewController: UITableViewController {
         }
     }
     
-    func setupWithArtist(_ artist: Artist) {
+    func setupWithArtist(_ artist: User) {
         nameLabel.text = artist.name
         //priceLabel.text = String(artist.price)
         infoArtistLabel.text = artist.description

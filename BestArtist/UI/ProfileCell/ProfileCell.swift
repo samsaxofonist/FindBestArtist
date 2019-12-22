@@ -41,7 +41,7 @@ class ProfileCell: UITableViewCell {
         onClickBlock?()
     }
     
-    func setupWithArtist(_ artist: Artist) {
+    func setupWithArtist(_ artist: User) {
         nameLabel.text = artist.name
         priceLabel.text = String(artist.price)
         informationLabel.text = artist.talent

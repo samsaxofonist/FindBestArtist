@@ -39,7 +39,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
     
-    var artist: Artist!
+    var artist: User!
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()

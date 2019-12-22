@@ -16,9 +16,16 @@ extension MyProfileViewController {
             descriptionTextView.text = artist.description
         }
         nameTextField.text = artist.name
-        self.selectedCity = artist.city
+        if artist.city != nil {
+            self.selectedCity = artist.city
+            cityButton.setTitle(artist.city.name, for: .normal)
+        } else {
+            self.selectedCity = nil
+            cityButton.setTitle("Select city", for: .normal)
+        }
+
         self.selectedCountry = artist.country
-        cityButton.setTitle(artist.city.name, for: .normal)
+
         priceButton.setTitle(String(artist.price), for: .normal)
         if let index = talents.index(of: artist.talent) {
             selectedRole = talents[index]

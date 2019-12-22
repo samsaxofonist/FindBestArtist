@@ -30,7 +30,7 @@ struct ArtistKeys {
 }
 
 class FirebaseManager {
-    static func saveArtist(_ artist: Artist, finish: @escaping (()->()) ) {
+    static func saveArtist(_ artist: User, finish: @escaping (()->()) ) {
         self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: { photoURLs in
                 let ref: DatabaseReference
@@ -105,15 +105,15 @@ class FirebaseManager {
         }
     }
     
-    static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {
+    static func loadArtists(completion: @escaping (([User], Error?) -> Void)) {
         let ref = Database.database().reference().child("users")
         
         ref.observeSingleEvent(of: .value, with: { data in
             guard let jsonData = data.value as? [String: [String: Any]] else { return }
-            var artists = [Artist]()
+            var artists = [User]()
             
             for (userId, value) in jsonData {
-                let artist = Artist()
+                let artist = User()
                 artist.databaseId = userId
                 artist.name = (value[ArtistKeys.name] as? String) ?? ""
                 artist.talent = (value[ArtistKeys.talent] as? String) ?? ""

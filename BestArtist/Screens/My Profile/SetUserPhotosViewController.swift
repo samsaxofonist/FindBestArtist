@@ -13,7 +13,7 @@ class SetUserPhotosViewController: BaseViewController, UIImagePickerControllerDe
     @IBOutlet weak var slideShow: ImageSlideshow!
     
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetUserPhotosViewController.didTap))
-    var artist: Artist!
+    var artist: User!
     var imagePicker = UIImagePickerController()
     var allPhotos = [UIImage]()
     

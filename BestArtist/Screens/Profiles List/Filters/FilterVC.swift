@@ -15,7 +15,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     @IBOutlet weak var countriesPicker: UIPickerView!
     
     var filterChangedBlock: (() -> ())!
-    var artists: [Artist]!
+    var artists: [User]!
     var countries = [String]()
     
     override func viewDidLoad() {

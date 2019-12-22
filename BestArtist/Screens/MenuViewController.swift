@@ -57,7 +57,7 @@ class MenuViewController: UITableViewController {
             if let myUser = GlobalManager.myUser {
                 profileController.artist = myUser
             } else {
-                profileController.artist = Artist()
+                profileController.artist = User()
             }
             
             neededNavigation?.pushViewController(profileController, animated: true)

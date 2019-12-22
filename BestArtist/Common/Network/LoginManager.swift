@@ -21,7 +21,7 @@ class LoginManager {
                 completion(false)
                 return
             }
-            progressStartBlock()            
+            progressStartBlock()
             self.loginToFirebase(token: token.tokenString, completion: { isFirebaseOK in
                 completion(isFirebaseOK)
             })

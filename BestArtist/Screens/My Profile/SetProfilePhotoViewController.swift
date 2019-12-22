@@ -24,7 +24,7 @@ class SetProfilePhotoViewController: BaseViewController, UIImagePickerController
     @IBOutlet weak var backgroundPhotoProfile: UIView!
     
     var imagePicker = UIImagePickerController()
-    var artist: Artist!
+    var artist: User!
         
     override func viewDidLoad() {
         super.viewDidLoad()

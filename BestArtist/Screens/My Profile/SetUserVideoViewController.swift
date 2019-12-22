@@ -14,7 +14,7 @@ class SetUserVideoViewController: BaseViewController {
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var videoView: YTPlayerView!
     
-    var artist: Artist!
+    var artist: User!
     
     var finishBlock: ((String?) -> Void)!
     

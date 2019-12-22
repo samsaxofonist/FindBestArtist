@@ -165,19 +165,55 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zik-yP-0Uc">
+                                <rect key="frame" x="50" y="648" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="hXO-iM-za6"/>
+                                    <constraint firstAttribute="height" constant="50" id="hh9-YX-BrY"/>
+                                </constraints>
+                                <state key="normal" title="Be Kunstler">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="beKunstlerClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="JtO-Fy-1aX"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-Dy-zRW">
+                                <rect key="frame" x="225" y="648" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="384-9m-VuT"/>
+                                    <constraint firstAttribute="height" constant="50" id="DNV-aC-pXz"/>
+                                </constraints>
+                                <state key="normal" title="Buchen Artist">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buchenArtistClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="rKr-SN-otX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.95686274509803915" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="trailing" secondItem="hfy-Dy-zRW" secondAttribute="trailing" constant="50" id="8Io-lF-swC"/>
+                            <constraint firstItem="zik-yP-0Uc" firstAttribute="leading" secondItem="DhH-dm-Zwn" secondAttribute="leading" constant="50" id="Nme-bh-lwF"/>
                             <constraint firstItem="0wU-bt-gv5" firstAttribute="centerY" secondItem="DhH-dm-Zwn" secondAttribute="centerY" id="eio-Mf-mfJ"/>
                             <constraint firstItem="0wU-bt-gv5" firstAttribute="centerX" secondItem="DhH-dm-Zwn" secondAttribute="centerX" id="mNw-zL-4Ll"/>
+                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="zik-yP-0Uc" secondAttribute="bottom" constant="80" id="rgG-rt-P82"/>
+                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="hfy-Dy-zRW" secondAttribute="bottom" constant="80" id="sWa-g6-UQ8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhH-dm-Zwn"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZDB-LQ-LjX"/>
+                    <connections>
+                        <outlet property="beKunstlerButton" destination="zik-yP-0Uc" id="PpQ-xQ-EeV"/>
+                        <outlet property="buchenArtistButton" destination="hfy-Dy-zRW" id="JMg-35-eiP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxE-hs-thJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2119" y="-1117"/>
+            <point key="canvasLocation" x="-2297" y="-1117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fj0-by-4Q3">
@@ -194,7 +230,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBy-Mc-bIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2831" y="-1116"/>
+            <point key="canvasLocation" x="-3009" y="-1116"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GlC-pJ-ph8">

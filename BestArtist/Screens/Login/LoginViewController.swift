@@ -12,6 +12,7 @@ import ARSLineProgress
 class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
+    var userType: UserType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,22 @@ class LoginViewController: BaseViewController {
             ARSLineProgress.show()            
         }, completion: { isOK in
             if isOK {
-                self.openMainScreen()
+                self.processSuccessLogin()
             } else {
                 self.setEverythingVisible(isVisible: true)
             }
         })
+    }
+
+    func processSuccessLogin() {
+        switch self.userType {
+        case .artist:
+            self.openCreateProfile()
+        case .customer:
+            self.openMainScreen()
+        case .none:
+            break
+        }
     }
     
     func setEverythingVisible(isVisible: Bool) {
@@ -44,6 +56,14 @@ class LoginViewController: BaseViewController {
             ARSLineProgress.hide()
             self.viewToHideAndShow.forEach { $0.isHidden = !isVisible }
         }
+    }
+
+    func openCreateProfile() {
+        let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
+        profileVC.artist = User()
+        self.navigationController?.setViewControllers([profileVC], animated: true)
+        ARSLineProgress.hide()
     }
     
     func openMainScreen() {

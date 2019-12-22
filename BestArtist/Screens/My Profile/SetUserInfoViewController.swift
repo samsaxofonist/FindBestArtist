@@ -19,7 +19,7 @@ class SetUserInfoViewController: BaseViewController {
     
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
     var selectedRole: String?
-    var artist: Artist!
+    var artist: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()

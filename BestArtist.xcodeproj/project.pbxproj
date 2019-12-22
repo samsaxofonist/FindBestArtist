@@ -32,7 +32,7 @@
 		3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD821A35462007781E5 /* LoginViewController.swift */; };
 		3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD921A35462007781E5 /* MenuViewController.swift */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
-		3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* Artist.swift */; };
+		3E3ECA8521EFC60D007B1FC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* User.swift */; };
 		3E419202224184C7000BA5D9 /* SortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E419201224184C7000BA5D9 /* SortVC.swift */; };
 		3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */; };
 		3E4AFED7230F18E3005B4E40 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED6230F18E3005B4E40 /* VideoCell.swift */; };
@@ -92,7 +92,7 @@
 		3E36FDD821A35462007781E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E36FDD921A35462007781E5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3E3ECA8421EFC60D007B1FC3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3E3ECA8421EFC60D007B1FC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3E419201224184C7000BA5D9 /* SortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortVC.swift; sourceTree = "<group>"; };
 		3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoCell.swift; sourceTree = "<group>"; };
 		3E4AFED6230F18E3005B4E40 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				3E75CAB1228FEB35004F8127 /* City.swift */,
-				3E3ECA8421EFC60D007B1FC3 /* Artist.swift */,
+				3E3ECA8421EFC60D007B1FC3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 				3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */,
 				3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */,
 				3E36FE0021A35463007781E5 /* SetProfilePhotoViewController.swift in Sources */,
-				3E3ECA8521EFC60D007B1FC3 /* Artist.swift in Sources */,
+				3E3ECA8521EFC60D007B1FC3 /* User.swift in Sources */,
 				3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */,
 				3EFADA0122CE7A5200DF5093 /* MyProfileViewController+ArtistType.swift in Sources */,
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,

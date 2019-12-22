@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
-class Artist: Equatable {
+enum UserType: Int {
+    case artist = 1
+    case customer = 2
+}
+
+class User: Equatable {
+    var type: UserType!
     var databaseId: String?
     var facebookId: String = ""
+
+
     var name: String = ""
     var talent: String = ""
     var description: String = ""
@@ -21,14 +29,14 @@ class Artist: Equatable {
     var country: String?
     var price: Int = 0
     
-    var photo: UIImage!
-    var photoLink: String!
+    var photo: UIImage?
+    var photoLink: String?
     
     var galleryPhotos = [UIImage]()
     var galleryPhotosLinks = [String]()
     var busyDates = [TimeInterval]()
     
-    static func == (lhs: Artist, rhs: Artist) -> Bool {
+    static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId
     }
 }
