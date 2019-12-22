@@ -89,7 +89,6 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         
         GlobalManager.filterPrice = .price(from: lowValue, up: highValue)
     }
-
 }
 
 extension FilterVC: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -24,8 +24,7 @@ class ProfilesListViewController: BaseViewController {
     var indexShown = [Int]()
     var artists = [Artist]()
     var filteredArtists = [Artist]()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +34,11 @@ class ProfilesListViewController: BaseViewController {
         reloadDataList()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GlobalManager.navigation = self.navigationController!
     }
     
     func applyTheme(theme: Theme) {
@@ -76,7 +80,6 @@ class ProfilesListViewController: BaseViewController {
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        GlobalManager.navigation = self.navigationController!
     }
     
     @IBAction func sortButtonClicked(_ sender: Any) {
@@ -128,7 +131,7 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @objc func menuButtonClicked() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
     
     func myUserIfExists(id: String) -> Artist? {

@@ -879,6 +879,7 @@
                         <outlet property="backgroundImageView" destination="MQ6-n9-png" id="yXU-rG-nJ5"/>
                         <outlet property="calendar" destination="xxu-nh-3X0" id="CKE-tz-SrY"/>
                         <outlet property="cityLabel" destination="EY9-je-pfY" id="a1j-dx-UQK"/>
+                        <outlet property="galleryCell" destination="TFD-Zc-Ell" id="NUR-lN-tu2"/>
                         <outlet property="infoArtistLabel" destination="y3H-gF-Dtz" id="Eyc-M3-Wbg"/>
                         <outlet property="nameLabel" destination="qNk-NN-1ug" id="YHA-pi-u3l"/>
                     </connections>
