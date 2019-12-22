@@ -13,9 +13,14 @@ extension MyProfileViewController: UITextFieldDelegate {
     @IBAction func backgroundClicked(_ sender: Any) {
         view.endEditing(true)
     }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        backgroundTapGesture.isEnabled = false
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        backgroundTapGesture.isEnabled = true
         return true
     }
     

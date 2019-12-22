@@ -27,18 +27,31 @@ extension MyProfileViewController {
         }
     }
     
-    func showPhotoContextMenu() {
-        let menu = UIMenuController.shared
-        let deleteItem = UIMenuItem(title: "Delete", action: #selector(MyProfileViewController.deletePhoto))
-        menu.menuItems = [deleteItem]
-        menu.setTargetRect(CGRect.zero, in: self.view)
-        menu.setMenuVisible(true, animated: true)
+    func showDeletePhotoAlert() {
+        let sheet = UIAlertController(title: "Warning", message: "Delete this photo?", preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Yes, delete", style: .destructive, handler: { _ in
+            self.deleteCurrentPhoto()
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(sheet, animated: true, completion: nil)
     }
     
-    @objc func deletePhoto() {
-        
+    func deleteCurrentPhoto() {
+        self.allPhotos.remove(at: self.photosSlideShow.currentPage)
+        let imageSources = allPhotos.map { ImageSource(image: $0) }
+        photosSlideShow.setImageInputs(imageSources)
     }
-    
+
+    @IBAction func longTapOnPhotos(_ sender: Any) {
+        showDeletePhotoAlert()
+    }
+
+    func openGalery() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+
     func setCurrentPhoto() {
         ARSLineProgress.ars_showOnView(photoImageView)
         viewModel.getProfilePhoto { photo in

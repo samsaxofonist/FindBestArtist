@@ -32,6 +32,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var videosTitleLabel: UILabel!
     @IBOutlet weak var feedbacksTitleLabel: UILabel!
     @IBOutlet weak var calendarTitleLabel: UILabel!
+    @IBOutlet var backgroundTapGesture: UITapGestureRecognizer!
     
     let defaultDescriptionText = "Artist of the original genre ..."
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
@@ -156,90 +157,11 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.row == 1 else { return UITableView.automaticDimension }
-        return descriptionCellHeight()
-    }
-    
-    @IBAction func tapOnAddVideo(_ sender: Any) {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
-        
-        addVideoVC.finishBlock = { videoString in
-            if let videoId = videoString {
-                self.insertNewVideo(videoId: videoId)
-            }
-        }
-        present(addVideoNav, animated: true, completion: nil)
-    }
-
-    func insertNewVideo(videoId: String) {
-        self.allVideos.append(videoId)
-        self.videosCollectionView.reloadData()
-    }
-
-    func insertNewFeedback(videoId: String) {
-        self.allFeedbacks.append(videoId)
-        self.feedbacksCollectionVIew.reloadData()
-    }
-    
-    @IBAction func tapOnAddFeedback(_ sender: Any) {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
-        
-        addVideoVC.finishBlock = { videoString in
-            if let videoId = videoString {
-                self.allFeedbacks.append(videoId)
-                self.feedbacksCollectionVIew.reloadData()
-            }
-        }
-        present(addVideoNav, animated: true, completion: nil)
-    }
-    
-    @IBAction func longTapOnPhotos(_ sender: Any) {
-        showPhotoContextMenu()
-    }
-    
-    func openGalery() {
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
     override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-}
 
-extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let data = getDataArray(for: collectionView)
-        return data.count + 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let data = getDataArray(for: collectionView)
-        
-        if indexPath.row == data.count {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
-        } else {
-            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-            
-            
-            let videoId = data[indexPath.row]
-            
-            videoCell.playerView.load(withVideoId: videoId)
-            return videoCell
-        }
-    }
-    
-    func getDataArray(for collectionView: UICollectionView) -> [VideoId] {
-        if collectionView == videosCollectionView {
-            return allVideos
-        } else {
-            return allFeedbacks
-        }
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return true
     }
 }
