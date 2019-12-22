@@ -27,7 +27,7 @@ class SelectPriceViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        priceTextField.becomeFirstResponder()
         applyTheme(theme: ThemeManager.theme)
         priceTextField.text = String(currentPrice)
         setupDistance()
@@ -71,6 +71,7 @@ class SelectPriceViewController: BaseViewController {
     
     @IBAction func applyClicked(_ sender: Any) {
         if let price = Int(priceTextField.text ?? "") {
+            priceTextField.text = String(currentPrice)
             finishBlock(price)
         }
         

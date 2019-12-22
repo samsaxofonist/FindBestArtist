@@ -128,7 +128,7 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @objc func menuButtonClicked() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
     
     func myUserIfExists(id: String) -> Artist? {
