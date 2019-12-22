@@ -10,11 +10,11 @@ import UIKit
 
 extension MyProfileViewController {
     @IBAction func longTapOnVideos(_ sender: Any) {
-        showDeletePhotoAlert()
+        showDeleteVideoAlert()
     }
 
     @IBAction func longTapOnFeedbacks(_ sender: Any) {
-        showDeletePhotoAlert()
+        showDeleteFeedbackAlert()
     }
 
     @IBAction func tapOnAddVideo(_ sender: Any) {
@@ -27,6 +27,40 @@ extension MyProfileViewController {
             }
         }
         present(addVideoNav, animated: true, completion: nil)
+    }
+
+    func deleteCurrentVideo() {
+        let visibleRect = CGRect(origin: videosCollectionView.contentOffset, size: videosCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let visibleIndexPath = videosCollectionView.indexPathForItem(at: visiblePoint) else { return }
+        self.allVideos.remove(at: visibleIndexPath.row)
+        self.videosCollectionView.reloadData()
+    }
+
+    func deleteCurrentFeedback() {
+        let visibleRect = CGRect(origin: feedbacksCollectionVIew.contentOffset, size: feedbacksCollectionVIew.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let visibleIndexPath = feedbacksCollectionVIew.indexPathForItem(at: visiblePoint) else { return }
+        self.allFeedbacks.remove(at: visibleIndexPath.row)
+        self.feedbacksCollectionVIew.reloadData()
+    }
+
+    func showDeleteVideoAlert() {
+        let sheet = UIAlertController(title: "Warning", message: "Delete this video?", preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Yes, delete", style: .destructive, handler: { _ in
+            self.deleteCurrentVideo()
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(sheet, animated: true, completion: nil)
+    }
+
+    func showDeleteFeedbackAlert() {
+        let sheet = UIAlertController(title: "Warning", message: "Delete this feedback?", preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Yes, delete", style: .destructive, handler: { _ in
+            self.deleteCurrentFeedback()
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(sheet, animated: true, completion: nil)
     }
 
     func insertNewVideo(videoId: String) {
