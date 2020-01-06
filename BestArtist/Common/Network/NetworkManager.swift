@@ -10,11 +10,11 @@ import Foundation
 
 final class NetworkManager {
     
-    static func saveArtist(_ artist: User, finish: @escaping (()->())) {
+    static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
         FirebaseManager.saveArtist(artist, finish: finish)
     }
     
-    static func loadArtists(completion: @escaping (([User], Error?) -> Void)) {
+    static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {
         FirebaseManager.loadArtists(completion: completion)
     }
 }

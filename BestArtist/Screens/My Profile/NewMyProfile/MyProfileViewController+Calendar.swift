@@ -17,6 +17,7 @@ extension MyProfileViewController: CalendarViewDataSource, CalendarViewDelegate 
     }
     
     func selectCalendarDates() {
+        guard let artist = self.artist else { return }
         calendarView.setDisplayDate(Date(), animated: false)
         for timeInterval in artist.busyDates {
             calendarView.selectDate(Date(timeIntervalSince1970: timeInterval))

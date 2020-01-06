@@ -15,7 +15,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     @IBOutlet weak var countriesPicker: UIPickerView!
     
     var filterChangedBlock: (() -> ())!
-    var artists: [User]!
+    var artists: [Artist]!
     var countries = [String]()
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     }
     
     func selectMyCountry() {
-        if let myCountry = GlobalManager.myUser?.country, let index = countries.index(of: myCountry) {
+        if let artist = GlobalManager.myUser as? Artist, let index = countries.index(of: artist.country) {
             countriesPicker.selectRow(index, inComponent: 0, animated: true)
         }
     }

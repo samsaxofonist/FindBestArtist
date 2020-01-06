@@ -634,7 +634,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye8-qK-oib">
-                                <rect key="frame" x="180" y="347" width="15.5" height="24"/>
+                                <rect key="frame" x="180" y="370.5" width="15.5" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="€">
                                         <attributes>
@@ -772,12 +772,12 @@
                                                     </connections>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-n2-0Sc">
-                                                    <rect key="frame" x="160.5" y="345" width="54" height="44"/>
+                                                    <rect key="frame" x="138" y="345" width="99" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="KdG-Yt-B30"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <state key="normal" title="Berlin">
+                                                    <state key="normal" title="Select city">
                                                         <color key="titleColor" red="0.8980392157" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>

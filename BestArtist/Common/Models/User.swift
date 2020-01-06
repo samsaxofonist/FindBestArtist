@@ -15,28 +15,53 @@ enum UserType: Int {
 }
 
 class User: Equatable {
-    var type: UserType!
+    var type: UserType
     var databaseId: String?
-    var facebookId: String = ""
+    var facebookId: String
+    var name: String
 
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.facebookId == rhs.facebookId
+    }
 
-    var name: String = ""
-    var talent: String = ""
-    var description: String = ""
-    var youtubeLinks: [String] = []
-    var feedbackLinks: [String] = []
-    var city: City!
-    var country: String?
-    var price: Int = 0
-    
+    init(type: UserType = .customer, facebookId: String, name: String) {
+        self.type = type
+        self.facebookId = facebookId
+        self.name = name
+    }
+}
+
+class Artist: User {
+    var talent: String
+    var description: String
+    var city: City
+    var country: String
+    var price: Int
+
+    var youtubeLinks = [String]()
+    var feedbackLinks = [String]()
     var photo: UIImage?
-    var photoLink: String?
-    
+    var photoLink: String
+
     var galleryPhotos = [UIImage]()
     var galleryPhotosLinks = [String]()
     var busyDates = [TimeInterval]()
-    
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.facebookId == rhs.facebookId
+
+    init(facebookId: String,
+         name: String,
+         talent: String,
+         description: String,
+         city: City,
+         country: String,
+         price: Int,
+         photoLink: String
+    ) {
+        self.talent = talent
+        self.description = description
+        self.city = city
+        self.country = country
+        self.price = price
+        self.photoLink = photoLink
+        super.init(type: .artist, facebookId: facebookId, name: name)
     }
 }

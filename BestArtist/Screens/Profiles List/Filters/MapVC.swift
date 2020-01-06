@@ -16,7 +16,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     
     let zoneCircleRadius: Double = 125
     var userLocationIsTaken = false
-    var allArtists: [User]!
+    var allArtists: [Artist]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

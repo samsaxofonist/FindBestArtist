@@ -39,7 +39,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
     
-    var artist: User!
+    var artist: Artist?
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
@@ -62,7 +62,9 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         setupPhotoStuff()
         setCurrentPhoto()
         setupArtistTypeMenu()
-        showPrice(artist.price)
+        if let artist = self.artist {
+            showPrice(artist.price)
+        }
         showInitialArtistInfo()
     }
     
@@ -101,19 +103,20 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
                 self.present(errorAlert, animated: true, completion: nil)
             return
         }
-        artist.talent = role
-        artist.name = name
-        artist.description = description
-        artist.youtubeLinks = self.allVideos
-        artist.city = city
-        artist.country = country
-        artist.price = self.selectedPrice
-        artist.photo = photo
-        artist.galleryPhotos = self.allPhotos.dropLast()
-        artist.busyDates = self.selectedDates
-        artist.feedbackLinks = self.allFeedbacks
+        artist?.talent = role
+        artist?.name = name
+        artist?.description = description
+        artist?.youtubeLinks = self.allVideos
+        artist?.city = city
+        artist?.country = country
+        artist?.price = self.selectedPrice
+        artist?.photo = photo
+        artist?.galleryPhotos = self.allPhotos.dropLast()
+        artist?.busyDates = self.selectedDates
+        artist?.feedbackLinks = self.allFeedbacks
 
         ARSLineProgress.show()
+        guard let artist = self.artist else { return }
         NetworkManager.saveArtist(artist, finish: {
             ARSLineProgress.hide()
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)

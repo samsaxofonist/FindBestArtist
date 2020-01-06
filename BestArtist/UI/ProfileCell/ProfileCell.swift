@@ -41,12 +41,12 @@ class ProfileCell: UITableViewCell {
         onClickBlock?()
     }
     
-    func setupWithArtist(_ artist: User) {
+    func setupWithArtist(_ artist: Artist) {
         nameLabel.text = artist.name
         priceLabel.text = String(artist.price)
         informationLabel.text = artist.talent
         
-        if let photoLinkString = artist.photoLink, let photoURL = URL(string: photoLinkString) {
+        if let photoURL = URL(string: artist.photoLink) {
             photoImage.kf.setImage(with: ImageResource(downloadURL: photoURL))
         }
     }

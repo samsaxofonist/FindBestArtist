@@ -22,8 +22,8 @@ class ProfilesListViewController: BaseViewController {
 
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
-    var artists = [User]()
-    var filteredArtists = [User]()
+    var artists = [Artist]()
+    var filteredArtists = [Artist]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

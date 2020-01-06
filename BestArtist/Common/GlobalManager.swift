@@ -32,7 +32,7 @@ class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
     static var myUser: User?
-    static var selectedArtists = [User]()
+    static var selectedArtists = [Artist]()
     static var sorting: SortingType = .lowToHigh
     static var filterPrice: FilterType? = nil
     static var filterDistance: FilterType? = nil

@@ -61,7 +61,6 @@ class LoginViewController: BaseViewController {
     func openCreateProfile() {
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
-        profileVC.artist = User()
         self.navigationController?.setViewControllers([profileVC], animated: true)
         ARSLineProgress.hide()
     }

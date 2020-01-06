@@ -21,7 +21,7 @@ class ArtistDetailsViewController: UITableViewController {
     @IBOutlet weak var cityLabel: UILabel!    
     @IBOutlet weak var galleryCell: UITableViewCell!
 
-    var selectedArtist: User!
+    var selectedArtist: Artist!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,16 +62,15 @@ class ArtistDetailsViewController: UITableViewController {
     }
     
     func setupPhoto() {
-        if let photoLinkString = selectedArtist.photoLink, let photoURL = URL(string: photoLinkString) {
+        if let photoURL = URL(string: selectedArtist.photoLink) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             infoArtistLabel.text = selectedArtist.description
             cityLabel.text? = selectedArtist.city.name
         }
     }
     
-    func setupWithArtist(_ artist: User) {
+    func setupWithArtist(_ artist: Artist) {
         nameLabel.text = artist.name
-        //priceLabel.text = String(artist.price)
         infoArtistLabel.text = artist.description
         setupPhoto()
     }

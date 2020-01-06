@@ -26,9 +26,10 @@ class MenuViewController: UITableViewController {
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
         SideMenuManager.defaultManager.menuFadeStatusBar = false
-        if let artist = GlobalManager.myUser {
-            nameLabel.text = artist.name
-            if let photoLinkString = artist.photoLink, let photoURL = URL(string: photoLinkString) {
+        if let user = GlobalManager.myUser {
+            nameLabel.text = user.name
+            if let artist = user as? Artist,
+                let photoURL = URL(string: artist.photoLink) {
                 photoView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             }
         }
@@ -54,10 +55,8 @@ class MenuViewController: UITableViewController {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let profileController = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
             
-            if let myUser = GlobalManager.myUser {
+            if let myUser = GlobalManager.myUser as? Artist {
                 profileController.artist = myUser
-            } else {
-                profileController.artist = User()
             }
             
             neededNavigation?.pushViewController(profileController, animated: true)

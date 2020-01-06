@@ -12,17 +12,14 @@ import Kingfisher
 extension MyProfileViewController {
     
     func showInitialArtistInfo() {
+        guard let artist = self.artist else { return }
+
         if artist.description.isEmpty == false {
             descriptionTextView.text = artist.description
         }
         nameTextField.text = artist.name
-        if artist.city != nil {
-            self.selectedCity = artist.city
-            cityButton.setTitle(artist.city.name, for: .normal)
-        } else {
-            self.selectedCity = nil
-            cityButton.setTitle("Select city", for: .normal)
-        }
+        self.selectedCity = artist.city
+        cityButton.setTitle(artist.city.name, for: .normal)
 
         self.selectedCountry = artist.country
 
@@ -60,6 +57,8 @@ extension MyProfileViewController {
     }
 
     func loadAllPhotos() {
+        guard let artist = self.artist else { return }
+        
         artist.galleryPhotosLinks.forEach {
             let url = URL(string: $0)
 

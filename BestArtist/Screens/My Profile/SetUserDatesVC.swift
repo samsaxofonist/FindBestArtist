@@ -13,7 +13,7 @@ import KDCalendar
 class SetUserDatesVC: BaseViewController {
 
     @IBOutlet weak var calendar: CalendarView!
-    var artist: User!
+    var artist: Artist!
     var selectedDates = [TimeInterval]()
     
     override func viewDidLoad() {
