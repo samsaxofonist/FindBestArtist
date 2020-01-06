@@ -10,6 +10,8 @@ import UIKit
 import CropViewController
 import ARSLineProgress
 import ImageSlideshow
+import Kingfisher
+import Combine
 
 extension MyProfileViewController {
     
@@ -22,9 +24,34 @@ extension MyProfileViewController {
         photosSlideShow.circular = false
         
         GlobalManager.photoFullScreenCloseHandler = {
-            let imageSources = self.allPhotos.map { ImageSource(image: $0) }
-            self.photosSlideShow.setImageInputs(imageSources)
+            self.updatePhotos()
         }
+        self.processUserPhotoLinks()
+    }
+
+    func processUserPhotoLinks() {
+        guard let artist = self.artist else { return }
+
+        artist.galleryPhotosLinks.publisher
+            .compactMap { URL(string: $0) }
+            .sink(receiveCompletion: { _ in
+                self.updatePhotos()
+            }, receiveValue: { url in
+                KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), options: nil, progressBlock: nil) { result in
+                    switch result {
+                    case .success(let value):
+                        self.insertNewPhoto(value.image)
+                    case .failure(let error):
+                        print("Error: \(error)")
+                    }
+                }
+            })
+            .store(in: &subscriptions)
+    }
+
+    func updatePhotos() {
+        let imageSources = self.allPhotos.map { ImageSource(image: $0) }
+        self.photosSlideShow.setImageInputs(imageSources)
     }
     
     func showDeletePhotoAlert() {
@@ -38,8 +65,7 @@ extension MyProfileViewController {
     
     func deleteCurrentPhoto() {
         self.allPhotos.remove(at: self.photosSlideShow.currentPage)
-        let imageSources = allPhotos.map { ImageSource(image: $0) }
-        photosSlideShow.setImageInputs(imageSources)
+        self.updatePhotos()
     }
 
     @IBAction func longTapOnPhotos(_ sender: Any) {
@@ -54,10 +80,11 @@ extension MyProfileViewController {
 
     func setCurrentPhoto() {
         ARSLineProgress.ars_showOnView(photoImageView)
-        viewModel.getProfilePhoto { photo in
+        viewModel.getProfilePhoto { [weak self] photo, url in
             ARSLineProgress.hide()
             guard let userPhoto = photo else { return }
-            self.photoImageView.image = userPhoto
+            self?.photoImageView.image = userPhoto
+            self?.userPhotoURL = url
         }
     }
     

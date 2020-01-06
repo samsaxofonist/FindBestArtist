@@ -9,7 +9,8 @@
 import Foundation
 
 extension MyProfileViewController {
-    func showPrice(_ price: Int) {
+    func showPrice(_ price: Int?) {
+        guard let price = self.artist?.price else { return }
         self.selectedPrice = price
         let priceToDisplay = String(price) + "€"
         self.priceButton.setTitle(priceToDisplay, for: .normal)

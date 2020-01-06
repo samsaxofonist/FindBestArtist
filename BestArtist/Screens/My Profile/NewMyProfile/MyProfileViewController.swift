@@ -12,6 +12,7 @@ import ImageSlideshow
 import KDCalendar
 import CropViewController
 import ARSLineProgress
+import Combine
 
 class MyProfileViewController: UITableViewController, UITextViewDelegate {
     typealias VideoId = String
@@ -33,12 +34,15 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var feedbacksTitleLabel: UILabel!
     @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet var backgroundTapGesture: UITapGestureRecognizer!
+
+    var subscriptions = Set<AnyCancellable>()
     
     let defaultDescriptionText = "Artist of the original genre ..."
     let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
-    
+
+    var facebookId: String!
     var artist: Artist?
     
     let imagePicker = UIImagePickerController()
@@ -51,6 +55,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
     var selectedCity: City?
     var selectedCountry: String?
     var selectedPrice: Int = 0
+    var userPhotoURL: URL?
     
     var imagePickerForUserPhoto = true
     
@@ -58,14 +63,7 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
-        setupCalendar()
-        setupPhotoStuff()
-        setCurrentPhoto()
-        setupArtistTypeMenu()
-        if let artist = self.artist {
-            showPrice(artist.price)
-        }
-        showInitialArtistInfo()
+        setupInitialInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,8 +86,17 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
         photosSlideShow.setImageInputs(imageSources)
     }
 
+    func setupInitialInfo() {
+        setupCalendar()
+        setupPhotoStuff()
+        setCurrentPhoto()
+        setupArtistTypeMenu()
+        showInitialArtistInfo()
+    }
+
     @objc func saveButtonClicked() {
         guard let role = self.selectedRole,
+            let profilePhotoURL = self.userPhotoURL,
             let name = self.nameTextField.text,
             let description = self.descriptionTextView.text,
             !self.allVideos.isEmpty,
@@ -103,17 +110,34 @@ class MyProfileViewController: UITableViewController, UITextViewDelegate {
                 self.present(errorAlert, animated: true, completion: nil)
             return
         }
-        artist?.talent = role
-        artist?.name = name
-        artist?.description = description
-        artist?.youtubeLinks = self.allVideos
-        artist?.city = city
-        artist?.country = country
-        artist?.price = self.selectedPrice
-        artist?.photo = photo
-        artist?.galleryPhotos = self.allPhotos.dropLast()
-        artist?.busyDates = self.selectedDates
-        artist?.feedbackLinks = self.allFeedbacks
+
+        if let existedArtist = self.artist {
+            existedArtist.talent = role
+            existedArtist.name = name
+            existedArtist.description = description
+            existedArtist.youtubeLinks = self.allVideos
+            existedArtist.city = city
+            existedArtist.country = country
+            existedArtist.price = self.selectedPrice
+            existedArtist.photo = photo
+            existedArtist.galleryPhotos = self.allPhotos.dropLast()
+            existedArtist.busyDates = self.selectedDates
+            existedArtist.feedbackLinks = self.allFeedbacks
+        } else {
+            self.artist = Artist(facebookId: facebookId,
+                                 name: name,
+                                 talent: role,
+                                 description: description,
+                                 city: city,
+                                 country: country,
+                                 price: selectedPrice,
+                                 photoLink: profilePhotoURL.absoluteString)
+            self.artist?.feedbackLinks = self.allFeedbacks
+            self.artist?.busyDates = self.selectedDates
+            self.artist?.galleryPhotos = self.allPhotos.dropLast()
+            self.artist?.youtubeLinks = self.allVideos
+            self.artist?.photo = photo
+        }
 
         ARSLineProgress.show()
         guard let artist = self.artist else { return }
