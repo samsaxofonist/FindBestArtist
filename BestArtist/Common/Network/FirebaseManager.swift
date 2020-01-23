@@ -31,17 +31,78 @@ struct ArtistKeys {
 }
 
 class FirebaseManager {
-    static func saveArtist(_ artist: Artist, finish: @escaping (()->()) ) {
+    static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
+        let ref: DatabaseReference
+
+        if let userId = artist.databaseId {
+            ref = Database.database().reference().child("users/\(userId)")
+            updateArtist(ref: ref, artist: artist, userId: userId, finish: finish)
+        } else {
+            ref = Database.database().reference().child("users").childByAutoId()
+            createNewArtist(ref: ref, artist: artist, finish: finish)
+        }
+    }
+
+    static func updateArtist(ref: DatabaseReference, artist: Artist, userId: String, finish: @escaping (()->())) {
+        ref.observeSingleEvent(of: .value) { data in
+            guard let jsonData = data.value as? [String: Any] else { return }
+            guard let existedArtist = parseArtist(from: jsonData, userId: userId) else { return }
+
+            let uploadGroup = DispatchGroup()
+
+            let uploadPhotoCompletion: ((URL?) -> Void) = { photoURL in
+                if let url = photoURL {
+                    ref.updateChildValues([ArtistKeys.photoLink: url.absoluteString])
+                }
+                uploadGroup.leave()
+            }
+
+            let uploadGalleryPhotosCompletion: (([URL]) -> Void) = { urls in
+                ref.updateChildValues([ArtistKeys.photoGaleryLinks: urls.map { $0.absoluteString }])
+                uploadGroup.leave()
+            }
+
+            if existedArtist.photoLink != artist.photoLink {
+                uploadGroup.enter()
+                self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: uploadPhotoCompletion)
+            }
+
+            if existedArtist.galleryPhotosLinks.sorted() != artist.galleryPhotosLinks.sorted() {
+                uploadGroup.enter()
+                self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: uploadGalleryPhotosCompletion)
+            }
+
+            uploadGroup.enter()
+            updateArtistsMainInfo(ref: ref, artist: artist)
+            uploadGroup.leave()
+            
+            uploadGroup.notify(queue: DispatchQueue.main) {
+                finish()
+            }
+        }
+    }
+
+    static func updateArtistsMainInfo(ref: DatabaseReference, artist: Artist) {
+        ref.updateChildValues([
+            ArtistKeys.name: artist.name,
+            ArtistKeys.talent: artist.talent,
+            ArtistKeys.description: artist.description,
+            ArtistKeys.youtubeLink: artist.youtubeLinks,
+            ArtistKeys.feedbackLink: artist.feedbackLinks,
+            ArtistKeys.price: artist.price,
+            ArtistKeys.cityName: artist.city.name,
+            ArtistKeys.cityLatitude: artist.city.location.latitude,
+            ArtistKeys.cityLongitude: artist.city.location.longitude,
+            ArtistKeys.facebookID: artist.facebookId,
+            ArtistKeys.busyDates: artist.busyDates,
+            ArtistKeys.countryName: artist.country,
+            ArtistKeys.type: artist.type.rawValue
+        ])
+    }
+
+    static func createNewArtist(ref: DatabaseReference, artist: Artist, finish: @escaping (()->())) {
         self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: { photoURLs in
-                let ref: DatabaseReference
-                
-                if let userId = artist.databaseId {
-                    ref = Database.database().reference().child("users/\(userId)")
-                } else {
-                    ref = Database.database().reference().child("users").childByAutoId()
-                }
-                
                 ref.setValue([ArtistKeys.name: artist.name,
                               ArtistKeys.talent: artist.talent,
                               ArtistKeys.description: artist.description,
@@ -61,7 +122,7 @@ class FirebaseManager {
             })
         })
     }
-    
+
     static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {
         let ref = Database.database().reference().child("users")
         
@@ -70,41 +131,9 @@ class FirebaseManager {
             var artists = [Artist]()
             
             for (userId, value) in jsonData {
-                guard let typeValue = value[ArtistKeys.type] as? Int, let userType = UserType(rawValue: typeValue), userType == .artist else { continue }
-
-                guard let name = value[ArtistKeys.name] as? String,
-                    let talent = value[ArtistKeys.talent] as? String,
-                    let description = value[ArtistKeys.description] as? String,
-                    let photoLink = value[ArtistKeys.photoLink] as? String,
-                    let price = value[ArtistKeys.price] as? Int,
-                    let facebookId = value[ArtistKeys.facebookID] as? String,
-                    let cityName = value[ArtistKeys.cityName] as? String,
-                    let lat = value[ArtistKeys.cityLatitude] as? Double,
-                    let lon = value[ArtistKeys.cityLongitude] as? Double,
-                    let country = value[ArtistKeys.countryName] as? String else {
-                        continue
+                if let artist = parseArtist(from: value, userId: userId) {
+                    artists.append(artist)
                 }
-
-                let artist = Artist(facebookId: facebookId, name: name, talent: talent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink)
-
-                artist.databaseId = userId
-
-                if let youtubeLinks = value[ArtistKeys.youtubeLink] as? [String] {
-                    artist.youtubeLinks = youtubeLinks
-                }
-
-                if let feedbackLinks = value[ArtistKeys.feedbackLink] as? [String] {
-                    artist.feedbackLinks = feedbackLinks
-                }
-
-                if let galleryPhotosLinks = value[ArtistKeys.photoGaleryLinks] as? [String] {
-                    artist.galleryPhotosLinks = galleryPhotosLinks
-                }
-
-                if let busyDates = value[ArtistKeys.busyDates] as? [Double] {
-                    artist.busyDates = busyDates
-                }
-                artists.append(artist)
             }
             
             completion(artists, nil)
@@ -116,6 +145,46 @@ class FirebaseManager {
 }
 
 private extension FirebaseManager {
+
+    static func parseArtist(from value: [String : Any], userId: String) -> Artist? {
+        guard let typeValue = value[ArtistKeys.type] as? Int, let userType = UserType(rawValue: typeValue), userType == .artist else { return nil }
+
+        guard let name = value[ArtistKeys.name] as? String,
+            let talent = value[ArtistKeys.talent] as? String,
+            let description = value[ArtistKeys.description] as? String,
+            let price = value[ArtistKeys.price] as? Int,
+            let facebookId = value[ArtistKeys.facebookID] as? String,
+            let cityName = value[ArtistKeys.cityName] as? String,
+            let lat = value[ArtistKeys.cityLatitude] as? Double,
+            let lon = value[ArtistKeys.cityLongitude] as? Double,
+            let country = value[ArtistKeys.countryName] as? String else {
+                return nil
+        }
+
+        let photoLink = value[ArtistKeys.photoLink] as? String
+
+        let artist = Artist(facebookId: facebookId, name: name, talent: talent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink ?? "")
+
+        artist.databaseId = userId
+
+        if let youtubeLinks = value[ArtistKeys.youtubeLink] as? [String] {
+            artist.youtubeLinks = youtubeLinks
+        }
+
+        if let feedbackLinks = value[ArtistKeys.feedbackLink] as? [String] {
+            artist.feedbackLinks = feedbackLinks
+        }
+
+        if let galleryPhotosLinks = value[ArtistKeys.photoGaleryLinks] as? [String] {
+            artist.galleryPhotosLinks = galleryPhotosLinks
+        }
+
+        if let busyDates = value[ArtistKeys.busyDates] as? [Double] {
+            artist.busyDates = busyDates
+        }
+        return artist
+    }
+
     private static func uploadProfilePhoto(_ photo: UIImage?, forFacebookId fbID: String, completion: @escaping ((URL?) -> Void)) {
         uploadAnyPhoto(photo, name: "\(fbID).png", completion: completion)
     }

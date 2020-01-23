@@ -25,8 +25,6 @@ class MenuViewController: UITableViewController {
         applyTheme(theme: ThemeManager.theme)
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
-        //SideMenuManager.defaultManager.menuFadeStatusBar = false
-        //SideMenuManager.default.leftMenuNavigationController?.statusBarEndAlpha = 0
         if let user = GlobalManager.myUser {
             nameLabel.text = user.name
             if let artist = user as? Artist,

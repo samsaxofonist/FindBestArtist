@@ -123,6 +123,7 @@ class MyProfileViewController: UITableViewController {
             existedArtist.galleryPhotos = self.allPhotos.dropLast()
             existedArtist.busyDates = self.selectedDates
             existedArtist.feedbackLinks = self.allFeedbacks
+            existedArtist.photoLink = self.userPhotoURL?.absoluteString ?? existedArtist.photoLink
         } else {
             self.artist = Artist(facebookId: facebookId,
                                  name: name,
