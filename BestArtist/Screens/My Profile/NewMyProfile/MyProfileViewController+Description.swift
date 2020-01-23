@@ -9,11 +9,15 @@
 import UIKit
 import Kingfisher
 
-extension MyProfileViewController {
+extension MyProfileViewController: UITextViewDelegate {
     
     func showInitialArtistInfo() {
         guard let artist = self.artist else { return }
-
+        self.selectedPrice = artist.price
+        self.userPhotoURL = URL(string: artist.photoLink)
+        self.facebookId = artist.facebookId
+        self.selectedDates = artist.busyDates
+        
         if artist.description.isEmpty == false {
             descriptionTextView.text = artist.description
         }

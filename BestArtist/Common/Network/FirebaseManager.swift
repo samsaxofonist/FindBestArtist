@@ -55,6 +55,7 @@ class FirebaseManager {
                               ArtistKeys.facebookID: artist.facebookId,
                               ArtistKeys.busyDates: artist.busyDates,
                               ArtistKeys.countryName: artist.country,
+                              ArtistKeys.type: artist.type.rawValue,
                               ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
                 finish()
             })

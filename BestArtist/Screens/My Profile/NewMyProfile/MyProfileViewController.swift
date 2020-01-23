@@ -14,7 +14,7 @@ import CropViewController
 import ARSLineProgress
 import Combine
 
-class MyProfileViewController: UITableViewController, UITextViewDelegate {
+class MyProfileViewController: UITableViewController {
     typealias VideoId = String
     
     @IBOutlet weak var photoBackgroundVIew: UIView!
