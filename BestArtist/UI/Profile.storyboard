@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -771,6 +770,12 @@
                                                         <outlet property="delegate" destination="v0W-bV-a4w" id="qDL-bE-U8a"/>
                                                     </connections>
                                                 </view>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coo-3g-1WJ">
+                                                    <rect key="frame" x="166.5" y="295.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-n2-0Sc">
                                                     <rect key="frame" x="138" y="345" width="99" height="44"/>
                                                     <constraints>
@@ -810,6 +815,7 @@
                                             <constraints>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="0IQ-aa-03D"/>
                                                 <constraint firstItem="VHN-6M-FkL" firstAttribute="centerY" secondItem="lED-lc-99y" secondAttribute="centerY" id="71x-fO-5AY"/>
+                                                <constraint firstItem="coo-3g-1WJ" firstAttribute="centerY" secondItem="QNF-ZP-R6U" secondAttribute="centerY" id="Cma-x7-hSq"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="16" id="K4H-Ua-2h4"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="Mmx-V6-0gd"/>
                                                 <constraint firstItem="ruc-Ka-3UD" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="topMargin" constant="24" id="SPU-Z5-Ln8"/>
@@ -823,6 +829,7 @@
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="top" secondItem="QNF-ZP-R6U" secondAttribute="bottom" constant="24" id="h3S-Yw-6U8"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="jHf-yr-71J"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="lud-Q8-XGe"/>
+                                                <constraint firstItem="coo-3g-1WJ" firstAttribute="centerX" secondItem="QNF-ZP-R6U" secondAttribute="centerX" id="mGW-Qb-0RM"/>
                                                 <constraint firstItem="ruc-Ka-3UD" firstAttribute="trailing" secondItem="VHN-6M-FkL" secondAttribute="trailing" constant="-40" id="s2I-NY-QjO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QNF-ZP-R6U" secondAttribute="trailing" constant="80" id="yEA-rp-IHO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leadingMargin" constant="80" id="zZs-gS-eEk"/>
@@ -944,7 +951,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>

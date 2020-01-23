@@ -13,6 +13,10 @@ extension MyProfileViewController: UITextViewDelegate {
     
     func showInitialArtistInfo() {
         guard let artist = self.artist else { return }
+
+        self.editButton.isHidden = GlobalManager.myUser != artist
+
+
         self.selectedPrice = artist.price
         if let photoLink = artist.photoLink {
             self.userPhotoURL = URL(string: photoLink)

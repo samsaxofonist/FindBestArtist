@@ -13,14 +13,18 @@ import FBSDKLoginKit
 class MyProfileViewModel {
     
     func getProfilePhoto(artist: Artist?, block: @escaping ((UIImage?, URL?) -> Void)) {
+        // Оптимизировать и не грузить каждый раз
         if let link = artist?.photoLink,
             let photoURL = URL(string: link),
             let data = try? Data(contentsOf: photoURL) {
             block(UIImage(data: data), photoURL)
+            return
         }
 
-        DispatchQueue.global().async {
-            NetworkManager.loadFacebookPhoto(block: block)
+        if GlobalManager.myUser?.facebookId == artist?.facebookId {
+            DispatchQueue.global().async {
+                NetworkManager.loadFacebookPhoto(block: block)
+            }
         }
     }
 }

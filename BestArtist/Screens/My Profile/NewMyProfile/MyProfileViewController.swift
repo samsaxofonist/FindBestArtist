@@ -58,6 +58,8 @@ class MyProfileViewController: UITableViewController {
     var userPhotoURL: URL?
     
     var imagePickerForUserPhoto = true
+
+    var applyBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +80,10 @@ class MyProfileViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let applyBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(MyProfileViewController.saveButtonClicked))
-        self.navigationItem.rightBarButtonItem = applyBarButton
+        if GlobalManager.myUser == artist {
+            self.applyBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(MyProfileViewController.saveButtonClicked))
+            self.navigationItem.rightBarButtonItem = applyBarButton
+        }
         selectCalendarDates()
         artistTypeMenu.selectRow(0, inComponent: 0)
         let imageSources = allPhotos.map { ImageSource(image: $0) }
