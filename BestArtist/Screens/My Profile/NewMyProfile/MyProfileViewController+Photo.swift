@@ -80,7 +80,7 @@ extension MyProfileViewController {
 
     func setCurrentPhoto() {
         ARSLineProgress.ars_showOnView(photoImageView)
-        viewModel.getProfilePhoto { [weak self] photo, url in
+        viewModel.getProfilePhoto(artist: artist) { [weak self] photo, url in
             ARSLineProgress.hide()
             guard let userPhoto = photo else { return }
             self?.photoImageView.image = userPhoto

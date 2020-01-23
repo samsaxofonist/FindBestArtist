@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseStorage
 import CoreLocation
+import Kingfisher
 
 struct ArtistKeys {
     static let name = "name"
@@ -62,7 +63,12 @@ class FirebaseManager {
                 uploadGroup.leave()
             }
 
-            if existedArtist.photoLink != artist.photoLink {
+            if let photoURL = URL(string: existedArtist.photoLink),
+                let data = try? Data(contentsOf: photoURL) {
+                existedArtist.photo = UIImage(data: data)
+            }
+
+            if existedArtist.photo?.pngData() != artist.photo?.pngData() {
                 uploadGroup.enter()
                 self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: uploadPhotoCompletion)
             }
@@ -75,7 +81,7 @@ class FirebaseManager {
             uploadGroup.enter()
             updateArtistsMainInfo(ref: ref, artist: artist)
             uploadGroup.leave()
-            
+
             uploadGroup.notify(queue: DispatchQueue.main) {
                 finish()
             }

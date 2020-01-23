@@ -12,7 +12,13 @@ import FBSDKLoginKit
 
 class MyProfileViewModel {
     
-    func getProfilePhoto(block: @escaping ((UIImage?, URL?) -> Void)) {
+    func getProfilePhoto(artist: Artist?, block: @escaping ((UIImage?, URL?) -> Void)) {
+        if let link = artist?.photoLink,
+            let photoURL = URL(string: link),
+            let data = try? Data(contentsOf: photoURL) {
+            block(UIImage(data: data), photoURL)
+        }
+
         DispatchQueue.global().async {
             FBSDKProfile.loadCurrentProfile { (profile, error) in
                 guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else {
