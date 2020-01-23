@@ -6,7 +6,9 @@
 //  Copyright © 2019 kievkao. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 final class NetworkManager {
     
@@ -16,5 +18,22 @@ final class NetworkManager {
     
     static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {
         FirebaseManager.loadArtists(completion: completion)
+    }
+
+    static func loadFacebookPhoto(block: @escaping ((UIImage?, URL?) -> Void)) {
+        FBSDKProfile.loadCurrentProfile { (profile, error) in
+            guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else {
+                block(nil, nil)
+                return
+            }
+            guard let data = try? Data(contentsOf: url), let image = UIImage(data: data) else {
+                block(nil, nil)
+                return
+            }
+
+            DispatchQueue.main.async {
+                block(image, url)
+            }
+        }
     }
 }

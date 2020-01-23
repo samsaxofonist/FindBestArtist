@@ -19,6 +19,8 @@ class User: Equatable {
     var databaseId: String?
     var facebookId: String
     var name: String
+    var photo: UIImage?
+    var photoLink: String?
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId
@@ -40,8 +42,6 @@ class Artist: User {
 
     var youtubeLinks = [String]()
     var feedbackLinks = [String]()
-    var photo: UIImage?
-    var photoLink: String
 
     var galleryPhotos = [UIImage]()
     var galleryPhotosLinks = [String]()
@@ -61,7 +61,7 @@ class Artist: User {
         self.city = city
         self.country = country
         self.price = price
-        self.photoLink = photoLink
         super.init(type: .artist, facebookId: facebookId, name: name)
+        self.photoLink = photoLink
     }
 }

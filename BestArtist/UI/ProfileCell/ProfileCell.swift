@@ -46,7 +46,7 @@ class ProfileCell: UITableViewCell {
         priceLabel.text = String(artist.price)
         informationLabel.text = artist.talent
         
-        if let photoURL = URL(string: artist.photoLink) {
+        if let link = artist.photoLink, let photoURL = URL(string: link) {
             photoImage.kf.setImage(with: ImageResource(downloadURL: photoURL))
         }
     }

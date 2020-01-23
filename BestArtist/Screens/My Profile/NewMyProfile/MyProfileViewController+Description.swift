@@ -14,7 +14,9 @@ extension MyProfileViewController: UITextViewDelegate {
     func showInitialArtistInfo() {
         guard let artist = self.artist else { return }
         self.selectedPrice = artist.price
-        self.userPhotoURL = URL(string: artist.photoLink)
+        if let photoLink = artist.photoLink {
+            self.userPhotoURL = URL(string: photoLink)
+        }
         self.facebookId = artist.facebookId
         self.selectedDates = artist.busyDates
         

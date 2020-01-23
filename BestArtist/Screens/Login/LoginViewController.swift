@@ -41,6 +41,7 @@ class LoginViewController: BaseViewController {
     }
 
     func processSuccessLogin() {
+        
         switch self.userType {
         case .artist:
             self.openCreateProfile()

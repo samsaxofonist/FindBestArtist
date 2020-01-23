@@ -257,7 +257,7 @@
         <scene sceneID="E1Y-ln-jKH">
             <objects>
                 <tableViewController id="h76-GU-FFq" customClass="MenuViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dw1-vq-eSH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dw1-vq-eSH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.32404650421687509" green="0.64574319780345091" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -306,12 +306,14 @@
                                             <constraints>
                                                 <constraint firstItem="QmS-0b-r44" firstAttribute="leading" secondItem="1xg-87-WOy" secondAttribute="leading" id="0mU-4h-KjU"/>
                                                 <constraint firstAttribute="bottom" secondItem="QmS-0b-r44" secondAttribute="bottom" id="2Aw-9n-uKE"/>
+                                                <constraint firstItem="QmS-0b-r44" firstAttribute="top" secondItem="PLC-1L-lwh" secondAttribute="bottom" constant="22" id="IVv-H1-kJa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DqW-yI-y0V" secondAttribute="trailing" constant="8" id="XeU-eW-YYQ"/>
                                                 <constraint firstItem="DqW-yI-y0V" firstAttribute="bottom" secondItem="PLC-1L-lwh" secondAttribute="bottom" id="ahG-rU-uEz"/>
                                                 <constraint firstItem="PLC-1L-lwh" firstAttribute="top" secondItem="1xg-87-WOy" secondAttribute="topMargin" constant="10" id="dVJ-9C-raz"/>
                                                 <constraint firstAttribute="trailing" secondItem="QmS-0b-r44" secondAttribute="trailing" id="iRd-9b-ptx"/>
                                                 <constraint firstItem="PLC-1L-lwh" firstAttribute="leading" secondItem="1xg-87-WOy" secondAttribute="leadingMargin" constant="20" id="jRK-MH-Gvt"/>
                                                 <constraint firstItem="DqW-yI-y0V" firstAttribute="leading" secondItem="PLC-1L-lwh" secondAttribute="trailing" id="qxG-lN-nP4"/>
+                                                <constraint firstItem="PLC-1L-lwh" firstAttribute="top" secondItem="1xg-87-WOy" secondAttribute="topMargin" constant="10" id="zwv-CK-JRw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

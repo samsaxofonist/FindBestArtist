@@ -63,7 +63,8 @@ class FirebaseManager {
                 uploadGroup.leave()
             }
 
-            if let photoURL = URL(string: existedArtist.photoLink),
+            if let link = existedArtist.photoLink,
+                let photoURL = URL(string: link),
                 let data = try? Data(contentsOf: photoURL) {
                 existedArtist.photo = UIImage(data: data)
             }

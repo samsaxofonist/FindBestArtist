@@ -62,7 +62,8 @@ class ArtistDetailsViewController: UITableViewController {
     }
     
     func setupPhoto() {
-        if let photoURL = URL(string: selectedArtist.photoLink) {
+        guard let photoLink = selectedArtist.photoLink else { return }
+        if let photoURL = URL(string: photoLink) {
             artistPhotoImageView.kf.setImage(with: ImageResource(downloadURL: photoURL))
             infoArtistLabel.text = selectedArtist.description
             cityLabel.text? = selectedArtist.city.name

@@ -25,15 +25,36 @@ class MenuViewController: UITableViewController {
         applyTheme(theme: ThemeManager.theme)
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        setupUserInfoInMenu()
+    }
+
+    func setupUserInfoInMenu() {
         if let user = GlobalManager.myUser {
             nameLabel.text = user.name
-            if let artist = user as? Artist,
-                let photoURL = URL(string: artist.photoLink) {
-                photoView.kf.setImage(with: ImageResource(downloadURL: photoURL))
+            loadUserPhoto(user: user)
+        }
+    }
+
+    func loadUserPhoto(user: User) {
+        if let photo = user.photo {
+            photoView.image = photo
+        } else if let link = user.photoLink, let photoURL = URL(string: link) {
+            GlobalManager.myUser?.photoLink = link
+            photoView.kf.setImage(with: ImageResource(downloadURL: photoURL))
+        } else {
+            loadFacebookPhoto { image, url in
+                GlobalManager.myUser?.photoLink = url?.absoluteString
+                GlobalManager.myUser?.photo = image
+                self.photoView.image = image
             }
         }
     }
-    
+
+    func loadFacebookPhoto(block: @escaping ((UIImage?, URL?) -> Void)) {
+        NetworkManager.loadFacebookPhoto(block: block)
+    }
+
     func applyTheme(theme: Theme) {
         self.view.backgroundColor = theme.backgroundColor
         self.nameLabel.textColor = theme.textColor
@@ -67,6 +88,14 @@ class MenuViewController: UITableViewController {
             dismiss(animated: false) {
                 rootNavigation?.setViewControllers([newLoginView], animated: true)
             }
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 && GlobalManager.myUser?.type == .customer {
+            return 0
+        } else {
+            return UITableView.automaticDimension
         }
     }
     

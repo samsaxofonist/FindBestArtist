@@ -65,8 +65,14 @@ class ProfilesListViewController: BaseViewController {
                 self.filteredArtists = self.artists
                 self.profilesTableView.reloadData()
                 let idUser = FBSDKAccessToken.current()?.userID ?? ""
-                let myUser = self.myUserIfExists(id: idUser)
-                GlobalManager.myUser = myUser                
+                if let myUser = self.myUserIfExists(id: idUser) {
+                    GlobalManager.myUser = myUser
+                } else {
+                    FBSDKProfile.loadCurrentProfile { (profile, error) in
+                        guard let profile = profile else { return }
+                        GlobalManager.myUser = User(type: .customer, facebookId: profile.userID, name: profile.name)
+                    }
+                }
             } else {
                 //TODO: Show error to user
             }
