@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */; };
 		3E017C12220307F600CF2E96 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C11220307F600CF2E96 /* GradientView.swift */; };
 		3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */; };
 		3E204CEB22E8C8690053283D /* MyProfileViewController+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */; };
@@ -44,7 +43,6 @@
 		3E75CAB2228FEB35004F8127 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAB1228FEB35004F8127 /* City.swift */; };
 		3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAB3228FEBEA004F8127 /* StartViewController.swift */; };
 		3E75CCDC22902C7E004F8127 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CCDB22902C7E004F8127 /* MapVC.swift */; };
-		3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */; };
 		3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E85491022C9157400869A9B /* MyProfileViewController.swift */; };
 		3E9C21F122BAB2F60080A7CC /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C21F022BAB2F50080A7CC /* CountriesList.json */; };
 		3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */; };
@@ -61,7 +59,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsViewController.swift; sourceTree = "<group>"; };
 		381E424005E70D704B3C4588 /* Pods-BestArtist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestArtist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BestArtist/Pods-BestArtist.debug.xcconfig"; sourceTree = "<group>"; };
 		3E017C11220307F600CF2E96 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3E017C1422030A8A00CF2E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 		3E75CAB1228FEB35004F8127 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		3E75CAB3228FEBEA004F8127 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		3E75CCDB22902C7E004F8127 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsContainerController.swift; sourceTree = "<group>"; };
 		3E85491022C9157400869A9B /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3E9C21F022BAB2F50080A7CC /* CountriesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountriesList.json; sourceTree = "<group>"; };
 		3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageVC.swift; sourceTree = "<group>"; };
@@ -234,8 +230,6 @@
 				3E75CCDA22902C3A004F8127 /* Filters */,
 				3EAD7D922233F6430031485F /* Cart */,
 				3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */,
-				327E7706221347C6000544A3 /* ArtistDetailsViewController.swift */,
-				3E84D3E52224763B009DC2EF /* ArtistDetailsContainerController.swift */,
 				3E419201224184C7000BA5D9 /* SortVC.swift */,
 				3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */,
 				3E204CF022E8DD460053283D /* CalendarDecorator.swift */,
@@ -471,7 +465,6 @@
 				3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */,
 				3E605990222F013F00156CB4 /* SetUserDatesVC.swift in Sources */,
 				3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */,
-				3E84D3E62224763B009DC2EF /* ArtistDetailsContainerController.swift in Sources */,
 				3E204CEB22E8C8690053283D /* MyProfileViewController+Description.swift in Sources */,
 				3E75CCDC22902C7E004F8127 /* MapVC.swift in Sources */,
 				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,
@@ -483,7 +476,6 @@
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */,
 				3E017C12220307F600CF2E96 /* GradientView.swift in Sources */,
-				327E7707221347C6000544A3 /* ArtistDetailsViewController.swift in Sources */,
 				3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */,
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,

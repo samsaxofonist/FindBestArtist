@@ -166,9 +166,11 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsContainer") as! ArtistDetailsContainerController
+        let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+
+        let detailsVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
         let artist = self.filteredArtists[indexPath.row]
-        detailsVC.selectedArtist = artist
+        detailsVC.artist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
