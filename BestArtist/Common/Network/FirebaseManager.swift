@@ -169,8 +169,8 @@ private extension FirebaseManager {
         }
 
         let photoLink = value[ArtistKeys.photoLink] as? String
-
-        let artist = Artist(facebookId: facebookId, name: name, talent: talent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink ?? "")
+        let realTalent = Talent(string: talent)
+        let artist = Artist(facebookId: facebookId, name: name, talent: realTalent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink ?? "")
 
         artist.databaseId = userId
 

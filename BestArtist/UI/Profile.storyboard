@@ -951,7 +951,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
@@ -1140,6 +1140,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="artistTypeLabel" destination="coo-3g-1WJ" id="JcW-LG-9tb"/>
                         <outlet property="artistTypeMenu" destination="QNF-ZP-R6U" id="oXj-hb-ze1"/>
                         <outlet property="backgroundTapGesture" destination="Q54-dG-gu0" id="P8R-80-iuW"/>
                         <outlet property="calendarTitleLabel" destination="hsS-Xq-vQ8" id="CVd-BY-U2W"/>

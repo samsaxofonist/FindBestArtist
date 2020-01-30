@@ -34,11 +34,12 @@ class MyProfileViewController: UITableViewController {
     @IBOutlet weak var feedbacksTitleLabel: UILabel!
     @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet var backgroundTapGesture: UITapGestureRecognizer!
-
+    @IBOutlet weak var artistTypeLabel: UILabel!
+    
     var subscriptions = Set<AnyCancellable>()
     
     let defaultDescriptionText = "Artist of the original genre ..."
-    let talents = ["Singer", "DJ", "Saxophone", "Piano", "Moderation", "Photobox", "Photo", "Video"]
+    let talents: [String] = Talent.allTalents
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
 
@@ -47,7 +48,7 @@ class MyProfileViewController: UITableViewController {
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
-    var selectedRole: String?
+    var selectedRole: Talent?
     var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
     var allVideos: [VideoId] = []
     var allFeedbacks: [VideoId] = []
@@ -91,11 +92,11 @@ class MyProfileViewController: UITableViewController {
     }
 
     func setupInitialInfo() {
+        showInitialArtistInfo()
         setupCalendar()
         setupPhotoStuff()
         setCurrentPhoto()
         setupArtistTypeMenu()
-        showInitialArtistInfo()
     }
 
     @objc func saveButtonClicked() {

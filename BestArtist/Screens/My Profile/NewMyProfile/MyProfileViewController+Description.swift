@@ -14,8 +14,19 @@ extension MyProfileViewController: UITextViewDelegate {
     func showInitialArtistInfo() {
         guard let artist = self.artist else { return }
 
-        self.editButton.isHidden = GlobalManager.myUser != artist
+        let canEdit = GlobalManager.myUser == artist
+        self.editButton.isHidden = !canEdit
+        self.nameTextField.isUserInteractionEnabled = canEdit
+        self.artistTypeLabel.isHidden = canEdit
+        self.artistTypeMenu.isHidden = !canEdit
+        self.cityButton.isUserInteractionEnabled = canEdit
+        self.priceButton.isUserInteractionEnabled = canEdit
+        self.descriptionTextView.isUserInteractionEnabled = canEdit
+        self.calendarView.isUserInteractionEnabled = canEdit
 
+        if !canEdit {
+            self.allPhotos.removeAll()
+        }
 
         self.selectedPrice = artist.price
         if let photoLink = artist.photoLink {
@@ -34,9 +45,9 @@ extension MyProfileViewController: UITextViewDelegate {
         self.selectedCountry = artist.country
 
         priceButton.setTitle(String(artist.price), for: .normal)
-        if let index = talents.index(of: artist.talent) {
-            selectedRole = talents[index]
-        }
+        selectedRole = artist.talent
+        self.artistTypeLabel.text = artist.talent.description
+
         loadAllPhotos()
 
         loadVideoLinks(from: artist.youtubeLinks, doForEachLink: { id in

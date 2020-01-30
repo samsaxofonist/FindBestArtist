@@ -26,11 +26,11 @@ extension MyProfileViewController: MKDropdownMenuDelegate, MKDropdownMenuDataSou
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, titleForComponent component: Int) -> String? {
         dropdownMenu.dropdownBackgroundColor = .white
         dropdownMenu.dropdownCornerRadius = 10
-        return selectedRole
+        return selectedRole?.description
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didSelectRow row: Int, inComponent component: Int) {
-        selectedRole = talents[row]
+        selectedRole = Talent(string: talents[row])
         dropdownMenu.closeAllComponents(animated: true)
         dropdownMenu.reloadAllComponents()
     }

@@ -30,11 +30,94 @@ class User: Equatable {
         self.type = type
         self.facebookId = facebookId
         self.name = name
+
+        let newTalent = Talent.music(.saxophone)
+    }
+}
+
+enum Talent {
+    case music(MusicTalent)
+    case moderator(ModeratorTalent)
+    case photo(PhotoTalent)
+    case other(String)
+
+    enum MusicTalent: String {
+        case piano = "Piano"
+        case saxophone = "Saxophone"
+        case dj = "DJ"
+    }
+
+    enum PhotoTalent: String {
+        case photo = "Photograph"
+        case video = "Videograph"
+        case photobox = "Photobox"
+    }
+
+    enum ModeratorTalent: String {
+        case moderator = "Moderator"
+    }
+
+    static var allTalents: [String] {
+        return [
+            Talent.ModeratorTalent.moderator.rawValue,
+            Talent.MusicTalent.dj.rawValue,
+            Talent.PhotoTalent.photo.rawValue,
+            Talent.PhotoTalent.video.rawValue,
+            Talent.PhotoTalent.photobox.rawValue,
+            Talent.MusicTalent.piano.rawValue,
+            Talent.MusicTalent.saxophone.rawValue,
+            "Other"
+        ]
+    }
+
+    var description: String {
+        switch self {
+        case .moderator(let type):
+            return type.rawValue
+
+        case .photo(let type):
+            return type.rawValue
+
+        case .music(let type):
+            return type.rawValue
+
+        case .other(let value):
+            return value
+        }
+    }
+
+    init(string: String) {
+        switch string {
+        case Talent.ModeratorTalent.moderator.rawValue:
+            self = .moderator(.moderator)
+
+        case Talent.MusicTalent.dj.rawValue:
+            self = .music(.dj)
+
+        case Talent.MusicTalent.piano.rawValue:
+            self = .music(.piano)
+
+        case Talent.MusicTalent.saxophone.rawValue:
+            self = .music(.saxophone)
+
+        case Talent.PhotoTalent.photobox.rawValue:
+            self = .photo(.photobox)
+
+        case Talent.PhotoTalent.photo.rawValue:
+            self = .photo(.photo)
+
+        case Talent.PhotoTalent.video.rawValue:
+            self = .photo(.video)
+
+        default:
+            self = .other(string)
+
+        }
     }
 }
 
 class Artist: User {
-    var talent: String
+    var talent: Talent
     var description: String
     var city: City
     var country: String
@@ -49,7 +132,7 @@ class Artist: User {
 
     init(facebookId: String,
          name: String,
-         talent: String,
+         talent: Talent,
          description: String,
          city: City,
          country: String,
