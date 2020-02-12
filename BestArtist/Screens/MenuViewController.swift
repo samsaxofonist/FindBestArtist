@@ -21,12 +21,16 @@ class MenuViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.setup()
+        self.setupUserInfoInMenu()
+    }
+
+    func setup() {
         applyTheme(theme: ThemeManager.theme)
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
         self.tableView.tableFooterView = UIView(frame: .zero)
-        setupUserInfoInMenu()
     }
 
     func setupUserInfoInMenu() {
@@ -46,7 +50,10 @@ class MenuViewController: UITableViewController {
             loadFacebookPhoto { image, url in
                 GlobalManager.myUser?.photoLink = url?.absoluteString
                 GlobalManager.myUser?.photo = image
-                self.photoView.image = image
+
+                DispatchQueue.main.async {
+                    self.photoView.image = image
+                }
             }
         }
     }
@@ -71,14 +78,16 @@ class MenuViewController: UITableViewController {
         let neededNavigation = GlobalManager.navigation
         let rootNavigation = GlobalManager.rootNavigation
         
-        if indexPath.row == 1 {
+        if indexPath.row == 1, let myUser = GlobalManager.myUser {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let profileController = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
             
-            if let myUser = GlobalManager.myUser as? Artist {
-                profileController.artist = myUser
+            if let artist = myUser as? Artist {
+                profileController.artist = artist
+            } else {
+                profileController.artist = Artist.instantiate(fromUser: myUser)
             }
-            
+
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
         } else if indexPath.row == 2 {

@@ -28,12 +28,8 @@ class ProfilesListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        applyTheme(theme: ThemeManager.theme)
-        UIApplication.shared.beginIgnoringInteractionEvents()
         setup()
         reloadDataList()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,15 +60,6 @@ class ProfilesListViewController: BaseViewController {
                 })
                 self.filteredArtists = self.artists
                 self.profilesTableView.reloadData()
-                let idUser = FBSDKAccessToken.current()?.userID ?? ""
-                if let myUser = self.myUserIfExists(id: idUser) {
-                    GlobalManager.myUser = myUser
-                } else {
-                    FBSDKProfile.loadCurrentProfile { (profile, error) in
-                        guard let profile = profile else { return }
-                        GlobalManager.myUser = User(type: .customer, facebookId: profile.userID, name: profile.name)
-                    }
-                }
             } else {
                 //TODO: Show error to user
             }
@@ -81,6 +68,10 @@ class ProfilesListViewController: BaseViewController {
     }
     
     func setup() {
+        applyTheme(theme: ThemeManager.theme)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
+
         needTabBar = true
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396

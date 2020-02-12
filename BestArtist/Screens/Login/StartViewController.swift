@@ -7,19 +7,28 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     @IBOutlet weak var beKunstlerButton: UIButton!
     @IBOutlet weak var buchenArtistButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setup()
+        self.checkLogin()
+    }
 
+    func setup() {
         applyTheme(theme: ThemeManager.theme)
         GlobalManager.rootNavigation = self.navigationController
+    }
 
-        if LoginManager.isLoggedIn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    func checkLogin() {
+        if LoginManager.hasUser {
+            LoginManager.loginWithSavedUser { (fbProfile, user) in
+                GlobalManager.fbProfile = fbProfile
+                GlobalManager.myUser = user
                 self.openMainScreen()
             }
         } else {
@@ -40,6 +49,7 @@ class StartViewController: UIViewController {
     }
     
     func applyTheme(theme: Theme) {
+        // TODO
     }
 
     @IBAction func beKunstlerClicked(_ sender: Any) {

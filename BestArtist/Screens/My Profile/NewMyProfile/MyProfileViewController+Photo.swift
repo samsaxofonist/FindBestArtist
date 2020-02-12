@@ -30,8 +30,6 @@ extension MyProfileViewController {
     }
 
     func processUserPhotoLinks() {
-        guard let artist = self.artist else { return }
-
         artist.galleryPhotosLinks.publisher
             .compactMap { URL(string: $0) }
             .sink(receiveCompletion: { _ in

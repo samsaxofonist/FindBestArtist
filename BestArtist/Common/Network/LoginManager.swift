@@ -10,28 +10,46 @@ import Foundation
 import Firebase
 import FBSDKLoginKit
 
-class LoginManager {
-    static var isLoggedIn: Bool {
+final class LoginManager {
+    static var hasUser: Bool {
         return FBSDKAccessToken.current() != nil && Auth.auth().currentUser != nil
     }
     
-    static func login(fromViewController viewController: UIViewController, progressStartBlock: @escaping (()->()), completion: @escaping ((Bool) -> ())) {
+    static func login(fromViewController viewController: UIViewController, progressStartBlock: @escaping (()->()), completion: @escaping ((FBSDKProfile?, User?) -> ())) {
         loginToFacebook(fromViewController: viewController, completion: { isFacebookOK in
             guard isFacebookOK, let token = FBSDKAccessToken.current() else {
-                completion(false)
+                completion(nil, nil)
                 return
             }
             progressStartBlock()
-            self.loginToFirebase(token: token.tokenString, completion: { isFirebaseOK in
-                completion(isFirebaseOK)
+            self.loginToFirebase(token: token.tokenString, completion: { profile, existedUser  in
+                completion(profile, existedUser)
             })
         })
     }
+
+    static func loginWithSavedUser(completion: @escaping ((FBSDKProfile?, User?) -> ())) {
+        guard let fbToken = FBSDKAccessToken.current() else {
+            return completion(nil, nil)
+        }
+        loginToFirebase(token: fbToken.tokenString, completion: completion)
+    }
     
-    static private func loginToFirebase(token: String, completion: @escaping ((Bool) -> ())) {
+    static private func loginToFirebase(token: String, completion: @escaping ((FBSDKProfile?, User?) -> ())) {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
         Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
-            completion(error == nil)
+            FBSDKProfile.loadCurrentProfile { (profile, error) in
+                guard let profile = profile else {
+                    return completion(nil, nil)
+                }
+                FirebaseManager.loadArtist(byFacebookId: profile.userID) { artist in
+                    if artist != nil {
+                        completion(profile, artist)
+                    } else {
+                        completion(profile, User(facebookId: profile.userID, name: profile.name))
+                    }
+                }
+            }
         })
     }
     
