@@ -30,9 +30,7 @@ final class MyProfileViewModel {
                 }
             }
         } else if GlobalManager.myUser?.facebookId == artist?.facebookId {
-            DispatchQueue.global().async {
-                NetworkManager.loadFacebookPhoto(block: block)
-            }
+            NetworkManager.loadFacebookPhoto(block: block)
         } else {
             block(nil, nil)
         }

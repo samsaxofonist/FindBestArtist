@@ -31,7 +31,9 @@ final class NetworkManager {
                     block(nil, nil)
                     return
                 }
-                block(image, url)
+                DispatchQueue.main.async {
+                    block(image, url)
+                }
             } else {
                 FBSDKProfile.loadCurrentProfile { (profile, error) in
                     guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else {
@@ -42,7 +44,9 @@ final class NetworkManager {
                         block(nil, nil)
                         return
                     }
-                    block(image, url)
+                    DispatchQueue.main.async {
+                        block(image, url)
+                    }
                 }
             }
         }

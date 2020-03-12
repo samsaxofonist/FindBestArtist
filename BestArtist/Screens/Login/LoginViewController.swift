@@ -43,18 +43,15 @@ final class LoginViewController: BaseViewController {
     func processSuccessLogin(fbProfile: FBSDKProfile, existedArtist: User?) {
         ARSLineProgress.hide()
         GlobalManager.fbProfile = fbProfile
-        if let artist = existedArtist {
-            GlobalManager.myUser = artist
+        switch self.userType {
+        case .artist:
+            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name))
+            self.openCreateProfile(fbProfile: fbProfile)
+        case .customer:
+            GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name)
             self.openMainScreen()
-        } else {
-            switch self.userType {
-            case .artist:
-                self.openCreateProfile(fbProfile: fbProfile)
-            case .customer:
-                self.openMainScreen()
-            case .none:
-                break
-            }
+        case .none:
+            break
         }
     }
     
@@ -70,11 +67,11 @@ final class LoginViewController: BaseViewController {
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
         profileVC.artist = Artist.instantiate(fromUser: user)
-        self.navigationController?.setViewControllers([profileVC], animated: true)
+        self.navigationController?.setViewControllers([profileVC], animated: false)
     }
     
     func openMainScreen() {
-        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
+        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")
         self.navigationController?.setViewControllers([mainTabBar], animated: true)
     }
     

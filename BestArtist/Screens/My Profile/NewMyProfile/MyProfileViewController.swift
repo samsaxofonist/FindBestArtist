@@ -85,7 +85,6 @@ final class MyProfileViewController: UITableViewController {
             self.navigationItem.rightBarButtonItem = applyBarButton
         }
         selectCalendarDates()
-        artistTypeMenu.selectRow(0, inComponent: 0)
         let imageSources = allPhotos.map { ImageSource(image: $0) }
         photosSlideShow.setImageInputs(imageSources)
     }
