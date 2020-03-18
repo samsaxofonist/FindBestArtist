@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FBSDKLoginKit
 
 enum SortingType {
     case lowToHigh
@@ -31,7 +32,10 @@ enum FilterType {
 class GlobalManager {
     static var navigation: UINavigationController?
     static var rootNavigation: UINavigationController?
+
     static var myUser: User?
+    static var fbProfile: FBSDKProfile?
+
     static var selectedArtists = [Artist]()
     static var sorting: SortingType = .lowToHigh
     static var filterPrice: FilterType? = nil

@@ -30,8 +30,6 @@ class User: Equatable {
         self.type = type
         self.facebookId = facebookId
         self.name = name
-
-        let newTalent = Talent.music(.saxophone)
     }
 }
 
@@ -111,7 +109,6 @@ enum Talent {
 
         default:
             self = .other(string)
-
         }
     }
 }
@@ -146,5 +143,18 @@ class Artist: User {
         self.price = price
         super.init(type: .artist, facebookId: facebookId, name: name)
         self.photoLink = photoLink
+    }
+
+    static func instantiate(fromUser user: User) -> Artist {
+        return Artist(
+            facebookId: user.facebookId,
+            name: user.name,
+            talent: .music(.dj),
+            description: "Enter your description here",
+            city: City.berlin,
+            country: "Germany",
+            price: 100,
+            photoLink: user.photoLink ?? ""
+        )
     }
 }

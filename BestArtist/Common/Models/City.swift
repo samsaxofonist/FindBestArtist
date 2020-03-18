@@ -21,4 +21,6 @@ class City: Equatable {
     static func == (lhs: City, rhs: City) -> Bool {
         return lhs.name == rhs.name
     }
+
+    static var berlin: City = City(name: "Berlin", location: CLLocationCoordinate2D(latitude: 52.3112, longitude: 13.2417))
 }

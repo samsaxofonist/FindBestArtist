@@ -147,7 +147,26 @@ class FirebaseManager {
         }) { error in
             completion([], error)
         }
-        
+    }
+
+    static func loadArtist(byFacebookId facebookId: String, completion: @escaping ((Artist?) -> Void)) {
+        let ref = Database.database().reference().child("users")
+
+        ref.queryOrdered(byChild: "fbId")
+            .queryEqual(toValue: facebookId)
+            .observeSingleEvent(of: .value, with: { data in
+                guard let jsonData = data.value as? [String: [String: Any]] else {
+                    return completion(nil)
+                }
+                var artists = [Artist]()
+
+                for (userId, value) in jsonData {
+                    if let artist = parseArtist(from: value, userId: userId) {
+                        artists.append(artist)
+                    }
+                }
+                completion(artists.first)
+        })
     }
 }
 

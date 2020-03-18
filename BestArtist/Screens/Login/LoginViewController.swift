@@ -8,8 +8,9 @@
 
 import UIKit
 import ARSLineProgress
+import FBSDKLoginKit
 
-class LoginViewController: BaseViewController {
+final class LoginViewController: BaseViewController {
 
     @IBOutlet var viewToHideAndShow: [UIView]!
     var userType: UserType!
@@ -22,7 +23,6 @@ class LoginViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -31,21 +31,24 @@ class LoginViewController: BaseViewController {
         
         LoginManager.login(fromViewController: self, progressStartBlock: {
             ARSLineProgress.show()            
-        }, completion: { isOK in
-            if isOK {
-                self.processSuccessLogin()
+        }, completion: { fbProfile, existedArtist in
+            if let profile = fbProfile {
+                self.processSuccessLogin(fbProfile: profile, existedArtist: existedArtist)
             } else {
                 self.setEverythingVisible(isVisible: true)
             }
         })
     }
 
-    func processSuccessLogin() {
-        
+    func processSuccessLogin(fbProfile: FBSDKProfile, existedArtist: User?) {
+        ARSLineProgress.hide()
+        GlobalManager.fbProfile = fbProfile
         switch self.userType {
         case .artist:
-            self.openCreateProfile()
+            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name))
+            self.openCreateProfile(fbProfile: fbProfile)
         case .customer:
+            GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name)
             self.openMainScreen()
         case .none:
             break
@@ -59,19 +62,20 @@ class LoginViewController: BaseViewController {
         }
     }
 
-    func openCreateProfile() {
+    func openCreateProfile(fbProfile: FBSDKProfile) {
+        guard let user = GlobalManager.myUser else { return }
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
-        self.navigationController?.setViewControllers([profileVC], animated: true)
-        ARSLineProgress.hide()
+        profileVC.artist = Artist.instantiate(fromUser: user)
+        self.navigationController?.setViewControllers([profileVC], animated: false)
     }
     
     func openMainScreen() {
-        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")        
+        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")
         self.navigationController?.setViewControllers([mainTabBar], animated: true)
-        ARSLineProgress.hide()
     }
     
     func applyTheme(theme: Theme) {
+        // TODO
     }
 }

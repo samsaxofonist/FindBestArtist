@@ -14,7 +14,7 @@ import CropViewController
 import ARSLineProgress
 import Combine
 
-class MyProfileViewController: UITableViewController {
+final class MyProfileViewController: UITableViewController {
     typealias VideoId = String
     
     @IBOutlet weak var photoBackgroundVIew: UIView!
@@ -43,8 +43,7 @@ class MyProfileViewController: UITableViewController {
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
 
-    var facebookId: String!
-    var artist: Artist?
+    var artist: Artist!
     
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
@@ -86,7 +85,6 @@ class MyProfileViewController: UITableViewController {
             self.navigationItem.rightBarButtonItem = applyBarButton
         }
         selectCalendarDates()
-        artistTypeMenu.selectRow(0, inComponent: 0)
         let imageSources = allPhotos.map { ImageSource(image: $0) }
         photosSlideShow.setImageInputs(imageSources)
     }
@@ -101,7 +99,6 @@ class MyProfileViewController: UITableViewController {
 
     @objc func saveButtonClicked() {
         guard let role = self.selectedRole,
-            let profilePhotoURL = self.userPhotoURL,
             let name = self.nameTextField.text,
             let description = self.descriptionTextView.text,
             !self.allVideos.isEmpty,
@@ -116,34 +113,18 @@ class MyProfileViewController: UITableViewController {
             return
         }
 
-        if let existedArtist = self.artist {
-            existedArtist.talent = role
-            existedArtist.name = name
-            existedArtist.description = description
-            existedArtist.youtubeLinks = self.allVideos
-            existedArtist.city = city
-            existedArtist.country = country
-            existedArtist.price = self.selectedPrice
-            existedArtist.photo = photo
-            existedArtist.galleryPhotos = self.allPhotos.dropLast()
-            existedArtist.busyDates = self.selectedDates
-            existedArtist.feedbackLinks = self.allFeedbacks
-            existedArtist.photoLink = self.userPhotoURL?.absoluteString ?? existedArtist.photoLink
-        } else {
-            self.artist = Artist(facebookId: facebookId,
-                                 name: name,
-                                 talent: role,
-                                 description: description,
-                                 city: city,
-                                 country: country,
-                                 price: selectedPrice,
-                                 photoLink: profilePhotoURL.absoluteString)
-            self.artist?.feedbackLinks = self.allFeedbacks
-            self.artist?.busyDates = self.selectedDates
-            self.artist?.galleryPhotos = self.allPhotos.dropLast()
-            self.artist?.youtubeLinks = self.allVideos
-            self.artist?.photo = photo
-        }
+        self.artist.talent = role
+        self.artist.name = name
+        self.artist.description = description
+        self.artist.youtubeLinks = self.allVideos
+        self.artist.city = city
+        self.artist.country = country
+        self.artist.price = self.selectedPrice
+        self.artist.photo = photo
+        self.artist.galleryPhotos = self.allPhotos.dropLast()
+        self.artist.busyDates = self.selectedDates
+        self.artist.feedbackLinks = self.allFeedbacks
+        self.artist.photoLink = self.userPhotoURL?.absoluteString ?? artist.photoLink
 
         ARSLineProgress.show()
         guard let artist = self.artist else { return }

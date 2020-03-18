@@ -12,8 +12,6 @@ import Kingfisher
 extension MyProfileViewController: UITextViewDelegate {
     
     func showInitialArtistInfo() {
-        guard let artist = self.artist else { return }
-
         let canEdit = GlobalManager.myUser == artist
         self.editButton.isHidden = !canEdit
         self.nameTextField.isUserInteractionEnabled = canEdit
@@ -32,7 +30,6 @@ extension MyProfileViewController: UITextViewDelegate {
         if let photoLink = artist.photoLink {
             self.userPhotoURL = URL(string: photoLink)
         }
-        self.facebookId = artist.facebookId
         self.selectedDates = artist.busyDates
         
         if artist.description.isEmpty == false {

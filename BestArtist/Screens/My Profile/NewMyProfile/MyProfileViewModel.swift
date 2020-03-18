@@ -10,21 +10,29 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class MyProfileViewModel {
+final class MyProfileViewModel {
     
     func getProfilePhoto(artist: Artist?, block: @escaping ((UIImage?, URL?) -> Void)) {
-        // Оптимизировать и не грузить каждый раз
-        if let link = artist?.photoLink,
-            let photoURL = URL(string: link),
-            let data = try? Data(contentsOf: photoURL) {
-            block(UIImage(data: data), photoURL)
+        if let existedPhoto = artist?.photo, let link = artist?.photoLink, let photoURL = URL(string: link) {
+            block(existedPhoto, photoURL)
             return
         }
 
-        if GlobalManager.myUser?.facebookId == artist?.facebookId {
+        if let link = artist?.photoLink, let photoURL = URL(string: link) {
             DispatchQueue.global().async {
-                NetworkManager.loadFacebookPhoto(block: block)
+                let data = try? Data(contentsOf: photoURL)
+                DispatchQueue.main.async {
+                    if let imageData = data {
+                        block(UIImage(data: imageData), photoURL)
+                    } else {
+                        block(nil, photoURL)
+                    }
+                }
             }
+        } else if GlobalManager.myUser?.facebookId == artist?.facebookId {
+            NetworkManager.loadFacebookPhoto(block: block)
+        } else {
+            block(nil, nil)
         }
     }
 }
