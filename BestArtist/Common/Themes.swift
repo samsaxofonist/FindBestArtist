@@ -17,7 +17,7 @@ protocol Theme {
 }
 
 class ThemeOlive: Theme {
-    var backgroundColor: UIColor = UIColor(rgb: 0x3D465A)
+    var backgroundColor: UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
     var textColor: UIColor = UIColor(rgb: 0x8996A7)
     var darkColor: UIColor = UIColor(rgb: 0x404040)
     var gradientStartColor: UIColor = UIColor(red: 0/255, green: 179/255, blue: 241/255, alpha: 1.0)
