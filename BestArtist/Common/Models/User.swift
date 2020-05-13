@@ -33,16 +33,15 @@ class User: Equatable {
     }
 }
 
-enum Talent {
+enum Talent: Equatable {
     case music(MusicTalent)
-    case moderator(ModeratorTalent)
+    case moderator
     case photo(PhotoTalent)
-    case other(String)
+    case dj
 
     enum MusicTalent: String {
         case piano = "Piano"
         case saxophone = "Saxophone"
-        case dj = "DJ"
     }
 
     enum PhotoTalent: String {
@@ -51,27 +50,41 @@ enum Talent {
         case photobox = "Photobox"
     }
 
-    enum ModeratorTalent: String {
-        case moderator = "Moderator"
+    func isGlobalTalentEqual(to: Talent) -> Bool {
+        switch (self, to) {
+        case (.music, .music):
+            return true
+
+        case (.moderator, .moderator):
+            return true
+
+        case (.photo, .photo):
+            return true
+
+        case (.dj, .dj):
+            return true
+
+        default:
+            return false
+        }
     }
 
     static var allTalents: [String] {
         return [
-            Talent.ModeratorTalent.moderator.rawValue,
-            Talent.MusicTalent.dj.rawValue,
+            Talent.moderator.description,
+            Talent.dj.description,
             Talent.PhotoTalent.photo.rawValue,
             Talent.PhotoTalent.video.rawValue,
             Talent.PhotoTalent.photobox.rawValue,
             Talent.MusicTalent.piano.rawValue,
-            Talent.MusicTalent.saxophone.rawValue,
-            "Other"
+            Talent.MusicTalent.saxophone.rawValue
         ]
     }
 
     var description: String {
         switch self {
-        case .moderator(let type):
-            return type.rawValue
+        case .moderator:
+            return "Moderator"
 
         case .photo(let type):
             return type.rawValue
@@ -79,18 +92,18 @@ enum Talent {
         case .music(let type):
             return type.rawValue
 
-        case .other(let value):
-            return value
+        case .dj:
+            return "DJ"
         }
     }
 
     init(string: String) {
         switch string {
-        case Talent.ModeratorTalent.moderator.rawValue:
-            self = .moderator(.moderator)
+        case Talent.moderator.description:
+            self = .moderator
 
-        case Talent.MusicTalent.dj.rawValue:
-            self = .music(.dj)
+        case Talent.dj.description:
+            self = .dj
 
         case Talent.MusicTalent.piano.rawValue:
             self = .music(.piano)
@@ -108,7 +121,7 @@ enum Talent {
             self = .photo(.video)
 
         default:
-            self = .other(string)
+            self = .dj
         }
     }
 }
@@ -149,7 +162,7 @@ class Artist: User {
         return Artist(
             facebookId: user.facebookId,
             name: user.name,
-            talent: .music(.dj),
+            talent: .dj,
             description: "Enter your description here",
             city: City.berlin,
             country: "Germany",

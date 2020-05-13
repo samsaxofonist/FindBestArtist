@@ -244,6 +244,7 @@
                         <segue destination="KZZ-OU-9ZI" kind="relationship" relationship="viewControllers" id="jZ8-xe-7T3"/>
                         <segue destination="CPG-lq-8Tx" kind="relationship" relationship="viewControllers" id="fGZ-Qx-Pwl"/>
                         <segue destination="Sjd-O5-QbS" kind="relationship" relationship="viewControllers" id="h5k-8x-SXt"/>
+                        <segue destination="zrD-uZ-m2s" kind="relationship" relationship="viewControllers" id="eZt-Dh-WzA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doO-Jy-LO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,7 +505,7 @@
                     <viewLayoutGuide key="safeArea" id="8Im-ON-YIM"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1044" y="-768"/>
+            <point key="canvasLocation" x="1391" y="-669"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vVb-2I-1jk">
@@ -527,11 +528,11 @@
             <objects>
                 <viewController id="AkE-UR-SG1" customClass="CartVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpu-YF-1Y8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-d8-D65">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AkE-UR-SG1" id="bMN-D9-D6g"/>
@@ -539,11 +540,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY8-tU-wGg">
-                                <rect key="frame" x="47.666666666666657" y="708" width="280" height="120"/>
+                                <rect key="frame" x="47.666666666666657" y="654" width="280" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41o-ql-GdP">
-                                <rect key="frame" x="62.666666666666657" y="718" width="249.99999999999997" height="50"/>
+                                <rect key="frame" x="62.666666666666657" y="664" width="249.99999999999997" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.347802479" blue="0.45522236780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="I1X-JV-rAx"/>
@@ -740,7 +741,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kVw-ff-7fv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="djNavigation" automaticallyAdjustsScrollViewInsets="NO" id="KZZ-OU-9ZI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="record-player" springLoaded="YES" id="wQu-nD-Nob">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -756,12 +757,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fG-Oe-Us5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="-1428"/>
+            <point key="canvasLocation" x="274" y="-1485"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ko-mS-MT3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CPG-lq-8Tx" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="musicNavigation" automaticallyAdjustsScrollViewInsets="NO" id="CPG-lq-8Tx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="saxophone" id="dYy-lK-pxz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="seb-7Z-9Qu">
@@ -780,7 +781,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ajG-9S-ZkS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sjd-O5-QbS" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="moderatorNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Sjd-O5-QbS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="advertising" selectedImage="advertising" id="pFZ-ge-1vA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dun-rU-K2v">
@@ -794,7 +795,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJi-sQ-vDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="-106"/>
+            <point key="canvasLocation" x="188" y="-18"/>
         </scene>
         <!--Full Screen ImageVC-->
         <scene sceneID="RxH-jP-88N">
@@ -1031,10 +1032,29 @@
             </objects>
             <point key="canvasLocation" x="3240.8000000000002" y="-2118.4729064039411"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7v0-ku-4qC">
+            <objects>
+                <navigationController restorationIdentifier="photoNavigation" automaticallyAdjustsScrollViewInsets="NO" id="zrD-uZ-m2s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="advertising" selectedImage="advertising" id="Xtt-X6-W3s"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1kr-2A-t52">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Eg1-Zk-soz" kind="relationship" relationship="rootViewController" id="Eco-2s-GHo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWX-AA-rl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="188" y="712"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oRz-Zf-3WT"/>
-        <segue reference="cty-km-qL2"/>
+        <segue reference="J7L-yx-7pB"/>
+        <segue reference="Eco-2s-GHo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Clear logo" width="1250" height="1250"/>
