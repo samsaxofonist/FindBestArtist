@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l2P-T2-HLb">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -155,7 +155,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="beKunstlerClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="JtO-Fy-1aX"/>
+                                    <action selector="beCustomerClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="N8G-kU-6Yq"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-Dy-zRW" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
@@ -175,7 +175,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="buchenArtistClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="rKr-SN-otX"/>
+                                    <action selector="beKunstlerClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="f8U-JC-qOz"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clear logo" translatesAutoresizingMaskIntoConstraints="NO" id="hee-KK-rjS">
@@ -527,11 +527,11 @@
             <objects>
                 <viewController id="AkE-UR-SG1" customClass="CartVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpu-YF-1Y8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-d8-D65">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AkE-UR-SG1" id="bMN-D9-D6g"/>
@@ -539,11 +539,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY8-tU-wGg">
-                                <rect key="frame" x="47.666666666666657" y="654" width="280" height="120"/>
+                                <rect key="frame" x="47.666666666666657" y="708" width="280" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41o-ql-GdP">
-                                <rect key="frame" x="62.666666666666657" y="664" width="249.99999999999997" height="50"/>
+                                <rect key="frame" x="62.666666666666657" y="718" width="249.99999999999997" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.347802479" blue="0.45522236780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="I1X-JV-rAx"/>
@@ -1033,7 +1033,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J7L-yx-7pB"/>
+        <segue reference="oRz-Zf-3WT"/>
         <segue reference="cty-km-qL2"/>
     </inferredMetricsTieBreakers>
     <resources>

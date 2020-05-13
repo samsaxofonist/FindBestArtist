@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -39,8 +39,8 @@
                                     <constraint firstAttribute="width" constant="118" id="RU5-Vo-NX9"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="142" y="21.5" width="92.5" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
+                                <rect key="frame" x="142" y="21.5" width="132" height="26.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26.5" id="jdR-i2-DID"/>
                                 </constraints>
@@ -126,6 +126,7 @@
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" constant="6" id="o7k-yo-U30"/>
                             <constraint firstAttribute="trailing" secondItem="MCG-0V-r5j" secondAttribute="trailing" constant="12" id="qbJ-ul-5IX"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" constant="5" id="taJ-t5-l9f"/>
+                            <constraint firstItem="MCG-0V-r5j" firstAttribute="leading" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="4" id="ziH-pX-t7i"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>

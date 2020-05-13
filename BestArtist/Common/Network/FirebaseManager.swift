@@ -92,7 +92,7 @@ class FirebaseManager {
     static func updateArtistsMainInfo(ref: DatabaseReference, artist: Artist) {
         ref.updateChildValues([
             ArtistKeys.name: artist.name,
-            ArtistKeys.talent: artist.talent,
+            ArtistKeys.talent: artist.talent.description,
             ArtistKeys.description: artist.description,
             ArtistKeys.youtubeLink: artist.youtubeLinks,
             ArtistKeys.feedbackLink: artist.feedbackLinks,
@@ -111,7 +111,7 @@ class FirebaseManager {
         self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: { photoURL in
             self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: { photoURLs in
                 ref.setValue([ArtistKeys.name: artist.name,
-                              ArtistKeys.talent: artist.talent,
+                              ArtistKeys.talent: artist.talent.description,
                               ArtistKeys.description: artist.description,
                               ArtistKeys.photoLink: photoURL != nil ? photoURL?.absoluteString : "",
                               ArtistKeys.youtubeLink: artist.youtubeLinks,

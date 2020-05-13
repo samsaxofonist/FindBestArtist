@@ -56,7 +56,7 @@ final class StartViewController: UIViewController {
         self.openLoginScreen(userType: .artist)
     }
 
-    @IBAction func buchenArtistClicked(_ sender: Any) {
+    @IBAction func beCustomerClicked(_ sender: Any) {
         self.openLoginScreen(userType: .customer)
     }
 }

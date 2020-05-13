@@ -58,8 +58,9 @@ final class MyProfileViewController: UITableViewController {
     var userPhotoURL: URL?
     
     var imagePickerForUserPhoto = true
-
     var applyBarButton: UIBarButtonItem!
+
+    var isNewProfile = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +71,15 @@ final class MyProfileViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
         tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if isNewProfile {
+            navigationController?.isNavigationBarHidden = true
+        }
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -131,8 +136,19 @@ final class MyProfileViewController: UITableViewController {
         NetworkManager.saveArtist(artist, finish: {
             ARSLineProgress.hide()
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+
+            if self.isNewProfile {
+                self.createAndOpenMainScreen()
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         })
+    }
+
+    func createAndOpenMainScreen() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBar = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        self.navigationController?.setViewControllers([mainTabBar], animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

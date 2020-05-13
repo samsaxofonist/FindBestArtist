@@ -29,7 +29,7 @@ class User: Equatable {
     init(type: UserType = .customer, facebookId: String, name: String) {
         self.type = type
         self.facebookId = facebookId
-        self.name = name
+        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 

@@ -67,6 +67,7 @@ final class LoginViewController: BaseViewController {
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
         profileVC.artist = Artist.instantiate(fromUser: user)
+        profileVC.isNewProfile = true
         self.navigationController?.setViewControllers([profileVC], animated: false)
     }
     
