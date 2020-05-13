@@ -25,11 +25,26 @@ class ProfilesListViewController: BaseViewController {
     var artists = [Artist]()
     var filteredArtists = [Artist]()
 
+    var talentForThisScreen: Talent!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setupTalent()
         setup()
         reloadDataList()
+    }
+
+    func setupTalent() {
+        if self.navigationController?.restorationIdentifier == "djNavigation" {
+            self.talentForThisScreen = .dj
+        } else if self.navigationController?.restorationIdentifier == "musicNavigation" {
+            self.talentForThisScreen = .music(.piano)
+        } else if self.navigationController?.restorationIdentifier == "moderatorNavigation" {
+            self.talentForThisScreen = .moderator
+        } else if self.navigationController?.restorationIdentifier == "photoNavigation" {
+            self.talentForThisScreen = .photo(.photo)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +66,14 @@ class ProfilesListViewController: BaseViewController {
             ARSLineProgress.hide()
             ARSLineProgressConfiguration.backgroundViewStyle = .simple
             if error == nil {
-                self.artists = artists.sorted(by: {
-                    if GlobalManager.sorting == .lowToHigh {
-                        return $0.price < $1.price
-                    } else {
-                        return $0.price > $1.price
-                    }
+                self.artists = artists
+                    .filter { $0.talent.isGlobalTalentEqual(to: self.talentForThisScreen) }
+                    .sorted(by: {
+                        if GlobalManager.sorting == .lowToHigh {
+                            return $0.price < $1.price
+                        } else {
+                            return $0.price > $1.price
+                        }
                 })
                 self.filteredArtists = self.artists
                 self.profilesTableView.reloadData()

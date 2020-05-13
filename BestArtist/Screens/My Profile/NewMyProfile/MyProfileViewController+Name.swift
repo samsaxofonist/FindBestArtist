@@ -25,7 +25,7 @@ extension MyProfileViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.contains(" ") {
+        if string.contains(" ") || string.count >= 12 {
             view.endEditing(true)
             return false
         } else {
