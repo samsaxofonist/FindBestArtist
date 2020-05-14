@@ -39,13 +39,8 @@
                                     <constraint firstAttribute="width" constant="118" id="RU5-Vo-NX9"/>
                                 </constraints>
                             </imageView>
-<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
                                 <rect key="frame" x="142" y="16" width="92.5" height="32"/>
-=======
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="142" y="21.5" width="132" height="26.5"/>
->>>>>>> e6107fd507c721bf33008f86c54046646e64c6c4
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="jdR-i2-DID"/>
                                 </constraints>
