@@ -178,7 +178,7 @@
                                     <action selector="beKunstlerClicked:" destination="apG-sI-BiW" eventType="touchUpInside" id="f8U-JC-qOz"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clear logo" translatesAutoresizingMaskIntoConstraints="NO" id="hee-KK-rjS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="hee-KK-rjS">
                                 <rect key="frame" x="87.666666666666686" y="168" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="SGN-gn-kEa"/>
@@ -970,6 +970,7 @@
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hx1-hJ-IBA" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="1P8-We-bh0"/>
                             <constraint firstItem="ulD-Kq-vkR" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="32H-vQ-JNG"/>
@@ -1036,7 +1037,7 @@
         <scene sceneID="7v0-ku-4qC">
             <objects>
                 <navigationController restorationIdentifier="photoNavigation" automaticallyAdjustsScrollViewInsets="NO" id="zrD-uZ-m2s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="advertising" selectedImage="advertising" id="Xtt-X6-W3s"/>
+                    <tabBarItem key="tabBarItem" title="" image="video-camera-1" selectedImage="video-camera-1" id="Xtt-X6-W3s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1kr-2A-t52">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1057,11 +1058,12 @@
         <segue reference="Eco-2s-GHo"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Clear logo" width="1250" height="1250"/>
+        <image name="Logo-1" width="2500" height="2500"/>
         <image name="Menu" width="20" height="20"/>
         <image name="advertising" width="30" height="30"/>
         <image name="circle" width="159.5" height="159.5"/>
         <image name="record-player" width="30" height="30"/>
         <image name="saxophone" width="30" height="30"/>
+        <image name="video-camera-1" width="30" height="30"/>
     </resources>
 </document>

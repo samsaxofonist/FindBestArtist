@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="redraw" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="396" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist" customModuleProvider="target">
+        <tableViewCell contentMode="redraw" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="396" id="qPD-3d-WKs" customClass="ProfileCell" customModule="BestArtist">
             <rect key="frame" x="0.0" y="0.0" width="360" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPD-3d-WKs" id="FX2-eT-CqW">
@@ -40,11 +40,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimitriy" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uD-3dM">
-                                <rect key="frame" x="142" y="16" width="92.5" height="32"/>
+                                <rect key="frame" x="142" y="16" width="176" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="jdR-i2-DID"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <color key="textColor" red="0.1490012705" green="0.14903283119999999" blue="0.148994565" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCG-0V-r5j" customClass="M13Checkbox" customModule="M13Checkbox">
-                                <rect key="frame" x="278" y="12" width="40" height="40"/>
+                                <rect key="frame" x="278" y="78" width="40" height="40"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="6Re-ie-BgY"/>
@@ -104,16 +104,17 @@
                         <color key="backgroundColor" red="0.96841651200000001" green="0.96894949669999997" blue="0.97228497270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MCG-0V-r5j" secondAttribute="bottom" constant="12" id="24m-E1-RZG"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="centerY" secondItem="GeW-nG-9Hv" secondAttribute="centerY" id="30X-uf-YSe"/>
                             <constraint firstAttribute="bottom" secondItem="Fuy-z5-Gj1" secondAttribute="bottom" constant="15" id="5bb-gz-ORR"/>
                             <constraint firstAttribute="bottom" secondItem="vvZ-N4-LJw" secondAttribute="bottom" constant="15" id="AhO-F8-IEF"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="6" id="CHW-Ri-nRV"/>
                             <constraint firstItem="Sn5-lk-8D8" firstAttribute="centerY" secondItem="vvZ-N4-LJw" secondAttribute="centerY" id="EU3-V1-sNK"/>
                             <constraint firstItem="Fuy-z5-Gj1" firstAttribute="leading" secondItem="vvZ-N4-LJw" secondAttribute="trailing" constant="2" id="QMg-do-2qz"/>
+                            <constraint firstAttribute="trailing" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="12" id="Rjt-uE-2Z9"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="20" id="SLp-0I-zQS"/>
                             <constraint firstAttribute="trailing" secondItem="xEd-WR-VXw" secondAttribute="trailing" constant="35" id="TRe-rI-9iq"/>
                             <constraint firstAttribute="bottom" secondItem="Sn5-lk-8D8" secondAttribute="bottom" constant="15" id="TbI-9U-njt"/>
-                            <constraint firstItem="MCG-0V-r5j" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="12" id="d4J-vw-GzV"/>
                             <constraint firstItem="h7f-Ks-o2x" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="4" id="dEf-n9-QFT"/>
                             <constraint firstItem="Xkb-uD-3dM" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="18" id="dJ4-T0-nrq"/>
                             <constraint firstAttribute="bottom" secondItem="GeW-nG-9Hv" secondAttribute="bottom" constant="6" id="dg6-Hp-zXs"/>
@@ -126,7 +127,6 @@
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" constant="6" id="o7k-yo-U30"/>
                             <constraint firstAttribute="trailing" secondItem="MCG-0V-r5j" secondAttribute="trailing" constant="12" id="qbJ-ul-5IX"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" constant="5" id="taJ-t5-l9f"/>
-                            <constraint firstItem="MCG-0V-r5j" firstAttribute="leading" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="4" id="ziH-pX-t7i"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>

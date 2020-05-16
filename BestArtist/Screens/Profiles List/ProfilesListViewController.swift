@@ -37,12 +37,16 @@ class ProfilesListViewController: BaseViewController {
 
     func setupTalent() {
         if self.navigationController?.restorationIdentifier == "djNavigation" {
+            self.title = "DJ"
             self.talentForThisScreen = .dj
         } else if self.navigationController?.restorationIdentifier == "musicNavigation" {
+            self.title = "MUSIC"
             self.talentForThisScreen = .music(.piano)
         } else if self.navigationController?.restorationIdentifier == "moderatorNavigation" {
+            self.title = "MODERATION"
             self.talentForThisScreen = .moderator
         } else if self.navigationController?.restorationIdentifier == "photoNavigation" {
+            self.title = "PHOTO & VIDEO"
             self.talentForThisScreen = .photo(.photo)
         }
     }
