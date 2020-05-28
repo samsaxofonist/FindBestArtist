@@ -31,7 +31,6 @@
 		3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDD921A35462007781E5 /* MenuViewController.swift */; };
 		3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */; };
 		3E3ECA8521EFC60D007B1FC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* User.swift */; };
-		3E419202224184C7000BA5D9 /* SortVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E419201224184C7000BA5D9 /* SortVC.swift */; };
 		3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */; };
 		3E4AFED7230F18E3005B4E40 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED6230F18E3005B4E40 /* VideoCell.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
@@ -86,7 +85,6 @@
 		3E36FDD921A35462007781E5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3E36FE2121A355BE007781E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E3ECA8421EFC60D007B1FC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3E419201224184C7000BA5D9 /* SortVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortVC.swift; sourceTree = "<group>"; };
 		3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoCell.swift; sourceTree = "<group>"; };
 		3E4AFED6230F18E3005B4E40 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				3E75CCDA22902C3A004F8127 /* Filters */,
 				3EAD7D922233F6430031485F /* Cart */,
 				3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */,
-				3E419201224184C7000BA5D9 /* SortVC.swift */,
 				3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */,
 				3E204CF022E8DD460053283D /* CalendarDecorator.swift */,
 			);
@@ -493,7 +490,6 @@
 				3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */,
 				3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
-				3E419202224184C7000BA5D9 /* SortVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

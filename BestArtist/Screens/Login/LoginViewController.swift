@@ -46,7 +46,12 @@ final class LoginViewController: BaseViewController {
         switch self.userType {
         case .artist:
             GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name))
-            self.openCreateProfile(fbProfile: fbProfile)
+
+            if existedArtist != nil {
+                self.openMainScreen()
+            } else {
+                self.openCreateProfile(fbProfile: fbProfile)
+            }
         case .customer:
             GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name)
             self.openMainScreen()

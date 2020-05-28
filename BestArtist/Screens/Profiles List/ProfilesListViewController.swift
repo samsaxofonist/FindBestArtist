@@ -37,16 +37,16 @@ class ProfilesListViewController: BaseViewController {
 
     func setupTalent() {
         if self.navigationController?.restorationIdentifier == "djNavigation" {
-            self.title = "DJ"
+            self.navigationItem.title = "DJ"
             self.talentForThisScreen = .dj
         } else if self.navigationController?.restorationIdentifier == "musicNavigation" {
-            self.title = "MUSIC"
+            self.navigationItem.title = "MUSIC"
             self.talentForThisScreen = .music(.piano)
         } else if self.navigationController?.restorationIdentifier == "moderatorNavigation" {
-            self.title = "MODERATION"
+            self.navigationItem.title = "MODERATION"
             self.talentForThisScreen = .moderator
         } else if self.navigationController?.restorationIdentifier == "photoNavigation" {
-            self.title = "PHOTO & VIDEO"
+            self.navigationItem.title = "PHOTO & VIDEO"
             self.talentForThisScreen = .photo(.photo)
         }
     }
@@ -100,13 +100,19 @@ class ProfilesListViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    @IBAction func sortButtonClicked(_ sender: Any) {
-        let sortVC = storyboard?.instantiateViewController(withIdentifier: "sortVC") as! SortVC
-        sortVC.sortingChangedBlock = {
-            self.sortArtists()
-            self.profilesTableView.reloadData()
+    @IBAction func sortButtonClicked(_ sender: UIButton) {
+        let buttonTitle: String
+
+        if GlobalManager.sorting == .highToLow {
+            GlobalManager.sorting = .lowToHigh
+            buttonTitle = "Low price to high"
+        } else {
+            GlobalManager.sorting = .highToLow
+            buttonTitle = "High price to low"
         }
-        present(sortVC, animated: true, completion: nil)
+        sender.setTitle(buttonTitle, for: .normal)
+        self.sortArtists()
+        self.profilesTableView.reloadData()
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
