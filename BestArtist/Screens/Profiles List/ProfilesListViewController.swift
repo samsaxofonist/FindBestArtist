@@ -79,6 +79,8 @@ class ProfilesListViewController: BaseViewController {
                             return $0.price > $1.price
                         }
                 })
+                self.filterButton.isEnabled = self.artists.count > 1
+
                 self.filteredArtists = self.artists
                 self.profilesTableView.reloadData()
             } else {
@@ -126,7 +128,7 @@ class ProfilesListViewController: BaseViewController {
             self.sortArtists()
             self.profilesTableView.reloadData()
         }
-        present(filterNavVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(filterVC, animated: true)
     }
     
     func sortArtists() {

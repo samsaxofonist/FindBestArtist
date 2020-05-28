@@ -8,16 +8,18 @@
 
 import UIKit
 import RangeSeekSlider
+import MapKit
 
 class FilterVC: UIViewController, RangeSeekSliderDelegate {
     
     @IBOutlet weak var priceSlider: RangeSeekSlider!
     @IBOutlet weak var countriesPicker: UIPickerView!
-    
+    @IBOutlet weak var mapView: MKMapView!
+
     var filterChangedBlock: (() -> ())!
     var artists: [Artist]!
     var countries = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +57,15 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     }
     
     func setInitialFilterValues() {
+        let allPrices = artists.map { $0.price }
+        let minPrice = allPrices.min()!
+        let maxPrice = allPrices.max()!
+
+        priceSlider.minValue = CGFloat(minPrice)
+        priceSlider.maxValue = CGFloat(maxPrice)
+        priceSlider.selectedMinValue = CGFloat(minPrice)
+        priceSlider.selectedMaxValue = CGFloat(maxPrice)
+
         if let filter = GlobalManager.filterPrice {
             if case let FilterType.price(from, up) = filter {
                 priceSlider.selectedMinValue = CGFloat(from)
@@ -76,11 +87,11 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     
     @IBAction func applyButtonClicked(_ sender: Any) {
         filterChangedBlock()
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {

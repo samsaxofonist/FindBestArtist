@@ -601,14 +601,14 @@
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="WHy-TT-n0u" customClass="MapVC" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a4Y-03-war">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-MM-FJP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </mapView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="WWQ-To-ohj">
-                                <rect key="frame" x="62.666666666666657" y="254" width="249.99999999999997" height="250"/>
+                                <rect key="frame" x="62.666666666666657" y="281" width="249.99999999999997" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="T2f-hw-5UF"/>
                                     <constraint firstAttribute="height" constant="250" id="gWa-Lq-gRu"/>
@@ -762,7 +762,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCY-mc-z0T" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vL6-qr-MaA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -784,36 +784,51 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x1-El-Cha" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
                                 <rect key="frame" x="16" y="37" width="343" height="50"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.77647058820000003" green="0.7843137255" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pg6-Zx-JJH"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                        <real key="value" value="400"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="40000"/>
+                                        <real key="value" value="100000"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="selectedMinValue">
-                                        <real key="value" value="400"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="selectedMaxValue">
-                                        <real key="value" value="40000"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minDistance">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="step">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
+                                        <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="handleBorderColor">
+                                        <color key="value" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-MS-g2u" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                <rect key="frame" x="62" y="132" width="297" height="50"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="132" width="343" height="50"/>
+                                <color key="tintColor" red="0.77647058820000003" green="0.7843137255" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hhy-5g-MR8"/>
                                 </constraints>
@@ -838,15 +853,20 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
+                                        <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-hJ-IBA">
-                                <rect key="frame" x="16" y="140" width="30" height="30"/>
-                                <state key="normal" title="Map"/>
-                                <connections>
-                                    <segue destination="fCY-mc-z0T" kind="presentation" id="1vm-ck-8fD"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulD-Kq-vkR">
                                 <rect key="frame" x="16" y="16" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -861,7 +881,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ev-Zm-Drl">
                                 <rect key="frame" x="16" y="198" width="55" height="30"/>
-                                <state key="normal" title="Country"/>
+                                <state key="normal" title="Country">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="countryButtonClicked:" destination="uuK-ud-Ip2" eventType="touchUpInside" id="ylh-MU-00T"/>
                                 </connections>
@@ -876,21 +898,26 @@
                                     <outlet property="delegate" destination="uuK-ud-Ip2" id="uFV-zz-Ntx"/>
                                 </connections>
                             </pickerView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HEH-RV-Mcl">
+                                <rect key="frame" x="16" y="244" width="343" height="214"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Hx1-hJ-IBA" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="1P8-We-bh0"/>
                             <constraint firstItem="ulD-Kq-vkR" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="32H-vQ-JNG"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="8x1-El-Cha" secondAttribute="trailing" constant="16" id="40x-DU-zB1"/>
+                            <constraint firstItem="HEH-RV-Mcl" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="54i-hr-uH8"/>
                             <constraint firstItem="8x1-El-Cha" firstAttribute="top" secondItem="ulD-Kq-vkR" secondAttribute="bottom" id="6bE-oR-HHN"/>
                             <constraint firstItem="Pkh-O7-Q2J" firstAttribute="trailing" secondItem="mGF-c2-GzI" secondAttribute="trailing" id="DeU-8c-da7"/>
                             <constraint firstItem="0IT-qG-040" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="HuO-CG-Bol"/>
+                            <constraint firstItem="uOD-MS-g2u" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="N1v-Kc-VhJ"/>
+                            <constraint firstItem="Pkh-O7-Q2J" firstAttribute="top" secondItem="HEH-RV-Mcl" secondAttribute="bottom" constant="16" id="Oau-Re-uyS"/>
                             <constraint firstItem="8x1-El-Cha" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="SAd-W9-ZUY"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="uOD-MS-g2u" secondAttribute="trailing" constant="16" id="WRD-Ra-1t1"/>
                             <constraint firstItem="Pkh-O7-Q2J" firstAttribute="bottom" secondItem="mGF-c2-GzI" secondAttribute="bottom" id="XvR-1z-uhF"/>
+                            <constraint firstItem="HEH-RV-Mcl" firstAttribute="top" secondItem="7Ev-Zm-Drl" secondAttribute="bottom" constant="16" id="c6E-fI-2B0"/>
                             <constraint firstItem="7Ev-Zm-Drl" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="ey4-Lu-xEL"/>
-                            <constraint firstItem="uOD-MS-g2u" firstAttribute="leading" secondItem="Hx1-hJ-IBA" secondAttribute="trailing" constant="16" id="fFB-5e-LvP"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="0IT-qG-040" secondAttribute="trailing" constant="16" id="ilA-uQ-Y9C"/>
                             <constraint firstItem="7Ev-Zm-Drl" firstAttribute="top" secondItem="uOD-MS-g2u" secondAttribute="bottom" constant="16" id="jSS-en-ChY"/>
                             <constraint firstItem="ulD-Kq-vkR" firstAttribute="top" secondItem="mGF-c2-GzI" secondAttribute="top" constant="16" id="kcc-Uv-GsH"/>
@@ -898,7 +925,7 @@
                             <constraint firstItem="uOD-MS-g2u" firstAttribute="top" secondItem="0IT-qG-040" secondAttribute="bottom" id="oZy-B4-PaD"/>
                             <constraint firstItem="0IT-qG-040" firstAttribute="top" secondItem="8x1-El-Cha" secondAttribute="bottom" constant="24" id="qTh-9A-j2a"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="ulD-Kq-vkR" secondAttribute="trailing" constant="16" id="rgo-mj-BTc"/>
-                            <constraint firstItem="Hx1-hJ-IBA" firstAttribute="centerY" secondItem="uOD-MS-g2u" secondAttribute="centerY" constant="-2" id="uxn-X6-Opn"/>
+                            <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="HEH-RV-Mcl" secondAttribute="trailing" constant="16" id="wa3-ae-QQD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mGF-c2-GzI"/>
                     </view>
@@ -916,12 +943,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countriesPicker" destination="Pkh-O7-Q2J" id="XGS-dy-90y"/>
+                        <outlet property="mapView" destination="HEH-RV-Mcl" id="M99-PL-aCL"/>
                         <outlet property="priceSlider" destination="8x1-El-Cha" id="ABp-3R-QgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvS-EH-l4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4034" y="-2118"/>
+            <point key="canvasLocation" x="4032.8000000000002" y="-2118.4729064039411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0mY-7e-T53">
