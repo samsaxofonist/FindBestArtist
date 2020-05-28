@@ -873,7 +873,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-qG-040">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIstance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-qG-040">
                                 <rect key="frame" x="16" y="111" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -901,6 +901,13 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HEH-RV-Mcl">
                                 <rect key="frame" x="16" y="244" width="343" height="214"/>
                             </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="myn-Pt-ZRf">
+                                <rect key="frame" x="87.666666666666686" y="251" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="qRq-qZ-kmA"/>
+                                    <constraint firstAttribute="width" constant="200" id="rjo-Oy-gIP"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -913,9 +920,11 @@
                             <constraint firstItem="0IT-qG-040" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="HuO-CG-Bol"/>
                             <constraint firstItem="uOD-MS-g2u" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="N1v-Kc-VhJ"/>
                             <constraint firstItem="Pkh-O7-Q2J" firstAttribute="top" secondItem="HEH-RV-Mcl" secondAttribute="bottom" constant="16" id="Oau-Re-uyS"/>
+                            <constraint firstItem="myn-Pt-ZRf" firstAttribute="centerX" secondItem="HEH-RV-Mcl" secondAttribute="centerX" id="PYs-Z4-54h"/>
                             <constraint firstItem="8x1-El-Cha" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="SAd-W9-ZUY"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="uOD-MS-g2u" secondAttribute="trailing" constant="16" id="WRD-Ra-1t1"/>
                             <constraint firstItem="Pkh-O7-Q2J" firstAttribute="bottom" secondItem="mGF-c2-GzI" secondAttribute="bottom" id="XvR-1z-uhF"/>
+                            <constraint firstItem="myn-Pt-ZRf" firstAttribute="centerY" secondItem="HEH-RV-Mcl" secondAttribute="centerY" id="bR5-GG-vxa"/>
                             <constraint firstItem="HEH-RV-Mcl" firstAttribute="top" secondItem="7Ev-Zm-Drl" secondAttribute="bottom" constant="16" id="c6E-fI-2B0"/>
                             <constraint firstItem="7Ev-Zm-Drl" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" constant="16" id="ey4-Lu-xEL"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="0IT-qG-040" secondAttribute="trailing" constant="16" id="ilA-uQ-Y9C"/>
@@ -943,6 +952,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countriesPicker" destination="Pkh-O7-Q2J" id="XGS-dy-90y"/>
+                        <outlet property="distanceSlider" destination="uOD-MS-g2u" id="BWq-sI-IrC"/>
                         <outlet property="mapView" destination="HEH-RV-Mcl" id="M99-PL-aCL"/>
                         <outlet property="priceSlider" destination="8x1-El-Cha" id="ABp-3R-QgK"/>
                     </connections>

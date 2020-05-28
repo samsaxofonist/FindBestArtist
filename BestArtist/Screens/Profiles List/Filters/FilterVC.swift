@@ -10,9 +10,10 @@ import UIKit
 import RangeSeekSlider
 import MapKit
 
-class FilterVC: UIViewController, RangeSeekSliderDelegate {
+class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var priceSlider: RangeSeekSlider!
+    @IBOutlet weak var distanceSlider: RangeSeekSlider!
     @IBOutlet weak var countriesPicker: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
 
@@ -20,13 +21,21 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     var artists: [Artist]!
     var countries = [String]()
 
+    let zoneCircleRadius: Double = 125
+    var userLocationIsTaken = false
+
+    let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         applyTheme(theme: ThemeManager.theme)
         priceSlider.delegate = self
+        distanceSlider.delegate = self
         setInitialFilterValues()
+        setupLocationManager()
         readCountriesFromFile()
+        addArtistsOnMap()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +44,41 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     }
     
     func applyTheme(theme: Theme) {
+    }
+
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard userLocationIsTaken == false else { return }
+        guard let latestLocation = locations.first else { return }
+        let regionRadius: CLLocationDistance = 100000
+        let region = MKCoordinateRegion(center: latestLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(region, animated: true)
+        userLocationIsTaken = true
+    }
+
+    func addArtistsOnMap() {
+        // Взять массив координат каждого артиста
+        let usersLocations: [CLLocationCoordinate2D] = artists.map { $0.city.location }
+        // Взять только уникальные координаты, которые не повторяются
+        let uniqueLocations = Set<CLLocationCoordinate2D>(usersLocations)
+
+        for location in uniqueLocations {
+            let numberOfUsers = artists.filter { $0.city.location == location }.count
+
+            let annotaion = MKPointAnnotation()
+            annotaion.title = "\(numberOfUsers) artists"
+            annotaion.coordinate = location
+            mapView.addAnnotation(annotaion)
+        }
     }
     
     func readCountriesFromFile() {
@@ -95,10 +139,14 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     }
     
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
-        let lowValue = Int(slider.selectedMinValue)
-        let highValue = Int(slider.selectedMaxValue)
-        
-        GlobalManager.filterPrice = .price(from: lowValue, up: highValue)
+        if slider == self.priceSlider {
+            let lowValue = Int(slider.selectedMinValue)
+            let highValue = Int(slider.selectedMaxValue)
+
+            GlobalManager.filterPrice = .price(from: lowValue, up: highValue)
+        } else {
+            
+        }
     }
 }
 
