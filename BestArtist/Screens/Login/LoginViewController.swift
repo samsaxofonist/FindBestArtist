@@ -43,6 +43,9 @@ final class LoginViewController: BaseViewController {
     func processSuccessLogin(fbProfile: FBSDKProfile, existedArtist: User?) {
         ARSLineProgress.hide()
         GlobalManager.fbProfile = fbProfile
+    }
+
+    func finishLogin(fbProfile: FBSDKProfile, existedArtist: User?, city: City) {
         switch self.userType {
         case .artist:
             GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name))

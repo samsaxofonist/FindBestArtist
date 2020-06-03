@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -604,7 +604,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mue-rS-JMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10552.799999999999" y="-1201.3493253373315"/>
+            <point key="canvasLocation" x="10570" y="-1201"/>
         </scene>
         <!--Price-->
         <scene sceneID="gZQ-5x-wqZ">
@@ -1267,7 +1267,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ryF-Qb-DMX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v5r-Eu-H9G" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="citySelectionNavigation" automaticallyAdjustsScrollViewInsets="NO" id="v5r-Eu-H9G" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DRL-Sr-e55">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
