@@ -890,6 +890,7 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkh-O7-Q2J">
                                 <rect key="frame" x="0.0" y="474" width="375" height="216"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="uSL-Fv-fhv"/>
                                 </constraints>
