@@ -46,7 +46,7 @@ final class LoginManager {
                     if artist != nil {
                         completion(profile, artist)
                     } else {
-                        completion(profile, User(facebookId: profile.userID, name: profile.name))
+                        completion(profile, nil)
                     }
                 }
             }

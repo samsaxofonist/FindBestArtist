@@ -21,15 +21,17 @@ class User: Equatable {
     var name: String
     var photo: UIImage?
     var photoLink: String?
+    var city: City
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId
     }
 
-    init(type: UserType = .customer, facebookId: String, name: String) {
+    init(type: UserType = .customer, facebookId: String, name: String, city: City) {
         self.type = type
         self.facebookId = facebookId
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.city = city
     }
 }
 
@@ -129,7 +131,6 @@ enum Talent: Equatable {
 class Artist: User {
     var talent: Talent
     var description: String
-    var city: City
     var country: String
     var price: Int
 
@@ -150,11 +151,10 @@ class Artist: User {
          photoLink: String
     ) {
         self.talent = talent
-        self.description = description
-        self.city = city
+        self.description = description        
         self.country = country
         self.price = price
-        super.init(type: .artist, facebookId: facebookId, name: name)
+        super.init(type: .artist, facebookId: facebookId, name: name, city: city)
         self.photoLink = photoLink
     }
 

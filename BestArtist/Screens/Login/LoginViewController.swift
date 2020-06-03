@@ -43,12 +43,31 @@ final class LoginViewController: BaseViewController {
     func processSuccessLogin(fbProfile: FBSDKProfile, existedArtist: User?) {
         ARSLineProgress.hide()
         GlobalManager.fbProfile = fbProfile
+
+        if existedArtist != nil {
+            finishLogin(fbProfile: fbProfile, existedArtist: existedArtist, city: existedArtist!.city)
+        } else {
+            openCitySelection(fbProfile: fbProfile)
+        }
+    }
+
+    func openCitySelection(fbProfile: FBSDKProfile) {
+        let cityControllerNav = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "citySelectionNavigation") as! UINavigationController
+        let cityController = cityControllerNav.viewControllers.first as! SelectCityViewController
+        setupCityController(cityController, fbProfile: fbProfile)
+        self.present(cityControllerNav, animated: true, completion: nil)
+    }
+
+    func setupCityController(_ controller: SelectCityViewController, fbProfile: FBSDKProfile) {
+        controller.finishBlock = { city, country in
+            self.finishLogin(fbProfile: fbProfile, existedArtist: nil, city: city)
+        }
     }
 
     func finishLogin(fbProfile: FBSDKProfile, existedArtist: User?, city: City) {
         switch self.userType {
         case .artist:
-            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name))
+            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name, city: city))
 
             if existedArtist != nil {
                 self.openMainScreen()
@@ -56,7 +75,7 @@ final class LoginViewController: BaseViewController {
                 self.openCreateProfile(fbProfile: fbProfile)
             }
         case .customer:
-            GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name)
+            GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name, city: city)            
             self.openMainScreen()
         case .none:
             break
