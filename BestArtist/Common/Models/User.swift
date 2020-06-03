@@ -158,6 +158,11 @@ class Artist: User {
         self.photoLink = photoLink
     }
 
+    func adjustPriceForCustomerCity(customerCity: City) {
+        let distance = customerCity.location.distance(from: city.location)
+        self.price = Int(PriceCalculator.adjustedPriceFrom(initialPrice: Double(self.price), distanceBetweenCities: distance))
+    }
+
     static func instantiate(fromUser user: User) -> Artist {
         return Artist(
             facebookId: user.facebookId,

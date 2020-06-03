@@ -46,8 +46,7 @@ class SelectPriceViewController: BaseViewController {
             distance = berlin.location.distance(from: fromCity.location)
             cityNameLabel.text = "Berlin"
         }
-        distance = distance/1000
-        
+
         setupPrice(withDistance: distance)
     }
     
@@ -55,7 +54,7 @@ class SelectPriceViewController: BaseViewController {
         priceTextField.rx.text.orEmpty
             .map {
                 if let price = Double($0) {
-                    let result: Double = ceil(price + (distance/2))
+                    let result: Double = PriceCalculator.adjustedPriceFrom(initialPrice: price, distanceBetweenCities: distance)
                     return String(result)
                 } else {
                     return ""

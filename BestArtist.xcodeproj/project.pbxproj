@@ -33,6 +33,7 @@
 		3E3ECA8521EFC60D007B1FC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3ECA8421EFC60D007B1FC3 /* User.swift */; };
 		3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */; };
 		3E4AFED7230F18E3005B4E40 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AFED6230F18E3005B4E40 /* VideoCell.swift */; };
+		3E59389424880E1B00898484 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59389324880E1B00898484 /* PriceCalculator.swift */; };
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* LoginManager.swift */; };
 		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
@@ -87,6 +88,7 @@
 		3E3ECA8421EFC60D007B1FC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3E4AFED4230F08E5005B4E40 /* AddVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoCell.swift; sourceTree = "<group>"; };
 		3E4AFED6230F18E3005B4E40 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		3E59389324880E1B00898484 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598B222EDA4400156CB4 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */,
 				3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */,
 				3E2B406622D905B500D73406 /* SelectPriceViewController.swift */,
+				3E59389324880E1B00898484 /* PriceCalculator.swift */,
 				3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */,
 			);
 			path = "My Profile";
@@ -465,6 +468,7 @@
 				3EB266082295C41A00DCC5AB /* FilterVC.swift in Sources */,
 				3E204CEB22E8C8690053283D /* MyProfileViewController+Description.swift in Sources */,
 				3E75CCDC22902C7E004F8127 /* MapVC.swift in Sources */,
+				3E59389424880E1B00898484 /* PriceCalculator.swift in Sources */,
 				3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */,
 				3E36FDFD21A35463007781E5 /* HelpUIButtonClass.swift in Sources */,
 				3E204CED22E8CC8B0053283D /* Themes.swift in Sources */,
