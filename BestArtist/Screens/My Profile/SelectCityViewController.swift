@@ -15,7 +15,7 @@ class SelectCityViewController: BaseViewController {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     
-    var finishBlock: ((City, String?) -> Void)!
+    var finishBlock: ((City, String) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()

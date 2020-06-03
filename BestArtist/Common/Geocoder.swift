@@ -11,19 +11,19 @@ import MapKit
 import CoreLocation
 
 class Geocoder {
-    static func getCityAndCountry(locationObject: MKLocalSearchCompletion, completion: @escaping ((City, String?) -> Void)) {
+    static func getCityAndCountry(locationObject: MKLocalSearchCompletion, completion: @escaping ((City, String) -> Void)) {
         getCoordinates(locationObject: locationObject) { coordinate in
             let geoCoder = CLGeocoder()
             let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
             geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
                 guard let placeMark = placemarks?.first else { return }
                 
-                // Получили имя города
-                if let cityName = placeMark.subAdministrativeArea {
+                // Получили имя города и страны
+                if let cityName = placeMark.subAdministrativeArea, let countryName = placeMark.country {
                     getLocation(forCityName: cityName, completion: { location in
                         guard let cityLocation = location else { return }
                         let city = City(name: cityName, location: cityLocation.coordinate)
-                        completion(city, placeMark.country)
+                        completion(city, countryName)
                     })
                 }
             })

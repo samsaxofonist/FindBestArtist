@@ -74,7 +74,7 @@ class ProfilesListViewController: BaseViewController {
                 let artistsForCurrentTab = artists
                     .filter { $0.talent.isGlobalTalentEqual(to: self.talentForThisScreen) }
 
-                artistsForCurrentTab.forEach { $0.adjustPriceForCustomerCity(customerCity: .berlin) }
+                artistsForCurrentTab.forEach { $0.adjustPriceForCustomerCity(customerCity: GlobalManager.myUser!.city) }
 
                 self.artists = artistsForCurrentTab
                     .sorted(by: {

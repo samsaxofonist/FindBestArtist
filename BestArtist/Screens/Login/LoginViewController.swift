@@ -45,7 +45,7 @@ final class LoginViewController: BaseViewController {
         GlobalManager.fbProfile = fbProfile
 
         if existedArtist != nil {
-            finishLogin(fbProfile: fbProfile, existedArtist: existedArtist, city: existedArtist!.city)
+            finishLogin(fbProfile: fbProfile, existedArtist: existedArtist, city: existedArtist!.city, country: existedArtist!.country)
         } else {
             openCitySelection(fbProfile: fbProfile)
         }
@@ -60,14 +60,14 @@ final class LoginViewController: BaseViewController {
 
     func setupCityController(_ controller: SelectCityViewController, fbProfile: FBSDKProfile) {
         controller.finishBlock = { city, country in
-            self.finishLogin(fbProfile: fbProfile, existedArtist: nil, city: city)
+            self.finishLogin(fbProfile: fbProfile, existedArtist: nil, city: city, country: country)
         }
     }
 
-    func finishLogin(fbProfile: FBSDKProfile, existedArtist: User?, city: City) {
+    func finishLogin(fbProfile: FBSDKProfile, existedArtist: User?, city: City, country: String) {
         switch self.userType {
         case .artist:
-            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name, city: city))
+            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name, country: country, city: city))
 
             if existedArtist != nil {
                 self.openMainScreen()
@@ -75,8 +75,13 @@ final class LoginViewController: BaseViewController {
                 self.openCreateProfile(fbProfile: fbProfile)
             }
         case .customer:
-            GlobalManager.myUser = User(facebookId: fbProfile.userID, name: fbProfile.name, city: city)            
-            self.openMainScreen()
+            let customer = User(facebookId: fbProfile.userID, name: fbProfile.name, country: country, city: city)
+            GlobalManager.myUser = customer
+            ARSLineProgress.show()
+            NetworkManager.saveCustomer(customer) {
+                ARSLineProgress.hide()
+                self.openMainScreen()
+            }
         case .none:
             break
         }
