@@ -42,11 +42,18 @@ final class LoginManager {
                 guard let profile = profile else {
                     return completion(nil, nil)
                 }
+
                 FirebaseManager.loadArtist(byFacebookId: profile.userID) { artist in
                     if artist != nil {
                         completion(profile, artist)
                     } else {
-                        completion(profile, User(facebookId: profile.userID, name: profile.name))
+                        FirebaseManager.loadCustomer(byFacebookId: profile.userID) { customer in
+                            if customer != nil {
+                                completion(profile, customer)
+                            } else {
+                                completion(profile, nil)
+                            }
+                        }
                     }
                 }
             }

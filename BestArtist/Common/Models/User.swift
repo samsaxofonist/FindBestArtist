@@ -21,15 +21,20 @@ class User: Equatable {
     var name: String
     var photo: UIImage?
     var photoLink: String?
+    var country: String
+    var city: City
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId
     }
 
-    init(type: UserType = .customer, facebookId: String, name: String) {
+    init(type: UserType = .customer, facebookId: String, name: String, country: String, city: City, photoLink: String? = nil) {
         self.type = type
         self.facebookId = facebookId
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.city = city
+        self.country = country
+        self.photoLink = photoLink
     }
 }
 
@@ -129,8 +134,6 @@ enum Talent: Equatable {
 class Artist: User {
     var talent: Talent
     var description: String
-    var city: City
-    var country: String
     var price: Int
 
     var youtubeLinks = [String]()
@@ -150,12 +153,18 @@ class Artist: User {
          photoLink: String
     ) {
         self.talent = talent
-        self.description = description
-        self.city = city
-        self.country = country
+        self.description = description        
         self.price = price
-        super.init(type: .artist, facebookId: facebookId, name: name)
+        super.init(type: .artist, facebookId: facebookId, name: name, country: country, city: city)
         self.photoLink = photoLink
+    }
+
+    func adjustPriceForCustomerCity(customerCity: City) {
+        guard customerCity != self.city else {
+            return
+        }
+        let distance = customerCity.location.distance(from: city.location)
+        self.price = Int(PriceCalculator.adjustedPriceFrom(initialPrice: Double(self.price), distanceBetweenCities: distance))
     }
 
     static func instantiate(fromUser user: User) -> Artist {

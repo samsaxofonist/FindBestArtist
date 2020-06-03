@@ -44,6 +44,35 @@ class FirebaseManager {
         }
     }
 
+    static func saveCustomer(_ customer: User, finish: @escaping (()->())) {
+        let ref: DatabaseReference
+
+        if let userId = customer.databaseId {
+            ref = Database.database().reference().child("customers/\(userId)")
+            updateCustomer(ref: ref, customer: customer, userId: userId, finish: finish)
+        } else {
+            ref = Database.database().reference().child("customers").childByAutoId()
+            createNewCustomer(ref: ref, customer: customer, finish: finish)
+        }
+    }
+
+    static func createNewCustomer(ref: DatabaseReference, customer: User, finish: @escaping (()->())) {
+        self.uploadProfilePhoto(customer.photo, forFacebookId: customer.facebookId, completion: { photoURL in
+            ref.setValue([ArtistKeys.name: customer.name,
+                          ArtistKeys.photoLink: photoURL != nil ? photoURL?.absoluteString : "",
+                          ArtistKeys.cityName: customer.city.name,
+                          ArtistKeys.cityLatitude: customer.city.location.latitude,
+                          ArtistKeys.cityLongitude: customer.city.location.longitude,
+                          ArtistKeys.facebookID: customer.facebookId,
+                          ArtistKeys.countryName: customer.country,
+                          ArtistKeys.type: customer.type.rawValue])
+            finish()
+        })
+    }
+
+    static func updateCustomer(ref: DatabaseReference, customer: User, userId: String, finish: @escaping (()->())) {
+    }
+
     static func updateArtist(ref: DatabaseReference, artist: Artist, userId: String, finish: @escaping (()->())) {
         ref.observeSingleEvent(of: .value) { data in
             guard let jsonData = data.value as? [String: Any] else { return }
@@ -168,9 +197,56 @@ class FirebaseManager {
                 completion(artists.first)
         })
     }
+
+    static func loadCustomer(byFacebookId facebookId: String, completion: @escaping ((User?) -> Void)) {
+        let ref = Database.database().reference().child("customers")
+
+        ref.queryOrdered(byChild: "fbId")
+            .queryEqual(toValue: facebookId)
+            .observeSingleEvent(of: .value, with: { data in
+                guard let jsonData = data.value as? [String: [String: Any]] else {
+                    return completion(nil)
+                }
+                var customers = [User]()
+
+                for (userId, value) in jsonData {
+                    if let customer = parseUser(from: value, userId: userId) {
+                        customers.append(customer)
+                    }
+                }
+                completion(customers.first)
+        })
+    }
 }
 
 private extension FirebaseManager {
+
+    static func parseUser(from value: [String : Any], userId: String) -> User? {
+        guard let typeValue = value[ArtistKeys.type] as? Int, let userType = UserType(rawValue: typeValue), userType == .customer else { return nil }
+
+        guard let name = value[ArtistKeys.name] as? String,
+            let facebookId = value[ArtistKeys.facebookID] as? String,
+            let cityName = value[ArtistKeys.cityName] as? String,
+            let lat = value[ArtistKeys.cityLatitude] as? Double,
+            let lon = value[ArtistKeys.cityLongitude] as? Double,
+            let country = value[ArtistKeys.countryName] as? String else {
+                return nil
+        }
+
+        let photoLink = value[ArtistKeys.photoLink] as? String
+
+        let customer = User(
+            facebookId: facebookId,
+            name: name,
+            country: country,
+            city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)),
+            photoLink: photoLink ?? ""
+        )
+
+        customer.databaseId = userId
+
+        return customer
+    }
 
     static func parseArtist(from value: [String : Any], userId: String) -> Artist? {
         guard let typeValue = value[ArtistKeys.type] as? Int, let userType = UserType(rawValue: typeValue), userType == .artist else { return nil }

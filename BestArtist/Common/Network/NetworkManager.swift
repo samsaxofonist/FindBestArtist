@@ -11,6 +11,16 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 final class NetworkManager {
+
+    static func saveCustomer(_ customer: User, finish: @escaping (()->())) {
+        loadFacebookPhoto { image, url in
+            customer.photo = image
+            FirebaseManager.saveCustomer(customer, finish: finish)
+        }
+    }
+
+    static func loadCustomers(completion: @escaping (([User], Error?) -> Void)) {
+    }
     
     static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
         FirebaseManager.saveArtist(artist, finish: finish)
