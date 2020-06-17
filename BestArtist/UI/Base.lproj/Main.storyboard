@@ -416,14 +416,14 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-mF-QRz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Eg1-Zk-soz" id="yKA-yn-2BT"/>
                                     <outlet property="delegate" destination="Eg1-Zk-soz" id="A2N-PY-CEw"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QGZ-SU-ltf" firstAttribute="bottom" secondItem="fQ7-mF-QRz" secondAttribute="bottom" id="2dH-wq-OEP"/>
                             <constraint firstItem="fQ7-mF-QRz" firstAttribute="leading" secondItem="QGZ-SU-ltf" secondAttribute="leading" id="6Pp-9x-UFM"/>

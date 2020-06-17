@@ -14,6 +14,7 @@ protocol Theme {
     var darkColor: UIColor { get }
     var gradientStartColor: UIColor { get }
     var gradientEndColor: UIColor { get }
+    var artistCellTextColor: UIColor { get }
 }
 
 class ThemeOlive: Theme {
@@ -22,6 +23,8 @@ class ThemeOlive: Theme {
     var darkColor: UIColor = UIColor(rgb: 0x404040)
     var gradientStartColor: UIColor = UIColor(red: 0/255, green: 179/255, blue: 241/255, alpha: 1.0)
     var gradientEndColor: UIColor = UIColor(red: 12/255, green: 54/255, blue: 153/255, alpha: 1.0)
+
+    var artistCellTextColor: UIColor = UIColor.white
 }
 
 class ThemeManager {

@@ -15,9 +15,6 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
-    @IBOutlet weak var backgroundPhotoView: UIView!
-    @IBOutlet weak var fromLabel: UILabel!
-    @IBOutlet weak var currencyLabel: UILabel!
 
     var onClickBlock: (() -> ())?
     
@@ -25,16 +22,14 @@ class ProfileCell: UITableViewCell {
         super.awakeFromNib()
         
         applyTheme(theme: ThemeManager.theme)
-        photoImage.layer.cornerRadius = 60
-        backgroundPhotoView.layer.cornerRadius = 61        
+        photoImage.layer.cornerRadius = 40
+        priceLabel.layer.cornerRadius = 11
     }
     
     func applyTheme(theme: Theme) {
         nameLabel.textColor = theme.darkColor
-        priceLabel.textColor = theme.textColor
+        priceLabel.textColor = theme.artistCellTextColor
         informationLabel.textColor = theme.textColor
-        fromLabel.textColor = theme.textColor
-        currencyLabel.textColor = theme.textColor
     }
     
     @IBAction func selectionAction(_ sender: Any) {
@@ -43,7 +38,7 @@ class ProfileCell: UITableViewCell {
     
     func setupWithArtist(_ artist: Artist) {
         nameLabel.text = artist.name
-        priceLabel.text = String(artist.price)
+        priceLabel.text = "€ " + String(artist.price)
         informationLabel.text = artist.city.name
         
         if let link = artist.photoLink, let photoURL = URL(string: link) {
