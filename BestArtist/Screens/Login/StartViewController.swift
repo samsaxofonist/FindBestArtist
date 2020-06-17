@@ -44,8 +44,8 @@ final class StartViewController: UIViewController {
     }
     
     private func openMainScreen() {
-        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")
-        self.navigationController?.setViewControllers([mainTabBar], animated: false)
+        let mainContainer = self.storyboard!.instantiateViewController(withIdentifier: "rootContainer")
+        self.navigationController?.setViewControllers([mainContainer], animated: false)
     }
     
     func applyTheme(theme: Theme) {

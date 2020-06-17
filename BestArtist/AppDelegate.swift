@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         let attrs = [
             NSAttributedString.Key.foregroundColor: ThemeManager.theme.textColor,
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)
         ]
         
         UINavigationBar.appearance().titleTextAttributes = attrs

@@ -51,6 +51,7 @@
 		3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */; };
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
+		3EC9895D249A978C005A9662 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9895C249A978C005A9662 /* RootViewController.swift */; };
 		3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */; };
 		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */; };
 		3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */; };
@@ -106,6 +107,7 @@
 		3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3EC9895C249A978C005A9662 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Photo.swift"; sourceTree = "<group>"; };
 		3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Name.swift"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				3E017C1722030B6800CF2E96 /* ProfileCell */,
 				3E36FDD021A35462007781E5 /* Buttons */,
 				3E017C11220307F600CF2E96 /* GradientView.swift */,
+				3EC9895C249A978C005A9662 /* RootViewController.swift */,
 				3E36FDCB21A35462007781E5 /* LaunchScreen.storyboard */,
 				3E36FDCD21A35462007781E5 /* Main.storyboard */,
 				3EC0D00621BD38CF004627EA /* Profile.storyboard */,
@@ -491,6 +494,7 @@
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
 				3E75CAB2228FEB35004F8127 /* City.swift in Sources */,
 				3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */,
+				3EC9895D249A978C005A9662 /* RootViewController.swift in Sources */,
 				3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */,
 				3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,

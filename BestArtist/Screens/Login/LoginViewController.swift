@@ -104,8 +104,8 @@ final class LoginViewController: BaseViewController {
     }
     
     func openMainScreen() {
-        let mainTabBar = self.storyboard!.instantiateViewController(withIdentifier: "MainTabBarController")
-        self.navigationController?.setViewControllers([mainTabBar], animated: true)
+        let mainContainer = self.storyboard!.instantiateViewController(withIdentifier: "rootContainer")
+        self.navigationController?.setViewControllers([mainContainer], animated: true)
     }
     
     func applyTheme(theme: Theme) {
