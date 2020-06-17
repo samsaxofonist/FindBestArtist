@@ -54,6 +54,14 @@ class ProfilesListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         GlobalManager.navigation = self.navigationController!
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListAppears"), object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
     }
     
     func applyTheme(theme: Theme) {

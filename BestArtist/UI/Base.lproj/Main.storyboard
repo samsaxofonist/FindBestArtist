@@ -245,55 +245,60 @@
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-Pt-vCF">
                                 <rect key="frame" x="0.0" y="712" width="375" height="100"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-wh-mia" userLabel="tabBar">
+                                        <rect key="frame" x="16" y="6" width="343" height="60"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-GA-8vc">
+                                                <rect key="frame" x="16" y="0.0" width="311" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0O-9y-aDg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="60"/>
+                                                        <state key="normal" image="record-player"/>
+                                                        <connections>
+                                                            <action selector="djTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="3Pu-hf-aS0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-s5-iQh">
+                                                        <rect key="frame" x="77.666666666666671" y="0.0" width="78.000000000000014" height="60"/>
+                                                        <state key="normal" image="saxophone"/>
+                                                        <connections>
+                                                            <action selector="musiciansTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="u7y-Jh-Wbf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CK-8v-wen">
+                                                        <rect key="frame" x="155.66666666666666" y="0.0" width="77.666666666666657" height="60"/>
+                                                        <state key="normal" image="advertising"/>
+                                                        <connections>
+                                                            <action selector="moderatorsTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="2Sw-JH-OfS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zq7-7E-shO">
+                                                        <rect key="frame" x="233.33333333333329" y="0.0" width="77.666666666666657" height="60"/>
+                                                        <state key="normal" image="video-camera-1"/>
+                                                        <connections>
+                                                            <action selector="videosTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="53q-HV-t2w"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zXO-GA-8vc" secondAttribute="trailing" constant="16" id="2Er-QL-3WJ"/>
+                                            <constraint firstItem="zXO-GA-8vc" firstAttribute="top" secondItem="8sm-wh-mia" secondAttribute="top" id="3Ae-Tj-Py2"/>
+                                            <constraint firstAttribute="height" constant="60" id="AQm-2S-sOr"/>
+                                            <constraint firstItem="zXO-GA-8vc" firstAttribute="leading" secondItem="8sm-wh-mia" secondAttribute="leading" constant="16" id="F9b-Kd-Fof"/>
+                                            <constraint firstAttribute="bottom" secondItem="zXO-GA-8vc" secondAttribute="bottom" id="tWW-oL-s5p"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="PyH-Gl-xnl"/>
-                                </constraints>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-wh-mia" userLabel="tabBar">
-                                <rect key="frame" x="16" y="718" width="343" height="60"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-GA-8vc">
-                                        <rect key="frame" x="16" y="0.0" width="311" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0O-9y-aDg">
-                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="60"/>
-                                                <state key="normal" image="record-player"/>
-                                                <connections>
-                                                    <action selector="djTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="3Pu-hf-aS0"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-s5-iQh">
-                                                <rect key="frame" x="77.666666666666671" y="0.0" width="78.000000000000014" height="60"/>
-                                                <state key="normal" image="saxophone"/>
-                                                <connections>
-                                                    <action selector="musiciansTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="u7y-Jh-Wbf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CK-8v-wen">
-                                                <rect key="frame" x="155.66666666666666" y="0.0" width="77.666666666666657" height="60"/>
-                                                <state key="normal" image="advertising"/>
-                                                <connections>
-                                                    <action selector="moderatorsTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="2Sw-JH-OfS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zq7-7E-shO">
-                                                <rect key="frame" x="233.33333333333329" y="0.0" width="77.666666666666657" height="60"/>
-                                                <state key="normal" image="video-camera-1"/>
-                                                <connections>
-                                                    <action selector="videosTabSelected" destination="Sxr-pm-S0C" eventType="touchUpInside" id="53q-HV-t2w"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zXO-GA-8vc" secondAttribute="trailing" constant="16" id="2Er-QL-3WJ"/>
-                                    <constraint firstItem="zXO-GA-8vc" firstAttribute="top" secondItem="8sm-wh-mia" secondAttribute="top" id="3Ae-Tj-Py2"/>
-                                    <constraint firstAttribute="height" constant="60" id="AQm-2S-sOr"/>
-                                    <constraint firstItem="zXO-GA-8vc" firstAttribute="leading" secondItem="8sm-wh-mia" secondAttribute="leading" constant="16" id="F9b-Kd-Fof"/>
-                                    <constraint firstAttribute="bottom" secondItem="zXO-GA-8vc" secondAttribute="bottom" id="tWW-oL-s5p"/>
+                                    <constraint firstItem="8sm-wh-mia" firstAttribute="leading" secondItem="oRn-Pt-vCF" secondAttribute="leading" constant="16" id="S08-At-0J4"/>
+                                    <constraint firstAttribute="trailing" secondItem="8sm-wh-mia" secondAttribute="trailing" constant="16" id="XxS-jZ-jaV"/>
+                                    <constraint firstItem="8sm-wh-mia" firstAttribute="top" secondItem="oRn-Pt-vCF" secondAttribute="top" constant="6" id="x1p-1R-ni6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -302,11 +307,8 @@
                             <constraint firstItem="WDg-9v-TlG" firstAttribute="top" secondItem="1dT-ZU-pHa" secondAttribute="top" id="2ih-zU-zmM"/>
                             <constraint firstItem="1dT-ZU-pHa" firstAttribute="trailing" secondItem="oRn-Pt-vCF" secondAttribute="trailing" id="9Cp-f9-dlj"/>
                             <constraint firstItem="1dT-ZU-pHa" firstAttribute="trailing" secondItem="WDg-9v-TlG" secondAttribute="trailing" id="9zM-Cw-Ey5"/>
-                            <constraint firstItem="1dT-ZU-pHa" firstAttribute="trailing" secondItem="8sm-wh-mia" secondAttribute="trailing" constant="16" id="C7R-fc-TBf"/>
-                            <constraint firstItem="1dT-ZU-pHa" firstAttribute="bottom" secondItem="8sm-wh-mia" secondAttribute="bottom" id="Iq2-Ex-wEf"/>
                             <constraint firstItem="oRn-Pt-vCF" firstAttribute="leading" secondItem="1dT-ZU-pHa" secondAttribute="leading" id="PUo-mB-PTN"/>
                             <constraint firstItem="1dT-ZU-pHa" firstAttribute="bottom" secondItem="WDg-9v-TlG" secondAttribute="bottom" id="a9c-38-sXz"/>
-                            <constraint firstItem="8sm-wh-mia" firstAttribute="leading" secondItem="1dT-ZU-pHa" secondAttribute="leading" constant="16" id="cW4-bq-HKp"/>
                             <constraint firstAttribute="bottom" secondItem="oRn-Pt-vCF" secondAttribute="bottom" id="h8e-dw-AjN"/>
                             <constraint firstItem="WDg-9v-TlG" firstAttribute="leading" secondItem="1dT-ZU-pHa" secondAttribute="leading" id="tas-kg-Sdo"/>
                         </constraints>
@@ -314,6 +316,7 @@
                     </view>
                     <connections>
                         <outlet property="tabBar" destination="8sm-wh-mia" id="Iym-fj-Xep"/>
+                        <outlet property="tabBarContainer" destination="oRn-Pt-vCF" id="N1K-vh-jT4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyX-Nn-5Ys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

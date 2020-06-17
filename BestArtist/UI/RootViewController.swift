@@ -10,6 +10,7 @@ import UIKit
 
 class RootViewController: UIViewController {
     @IBOutlet weak var tabBar: UIView!
+    @IBOutlet weak var tabBarContainer: UIView!
 
     var embeddedTabBarController: UITabBarController!
 
@@ -17,10 +18,21 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
 
         tabBar.layer.cornerRadius = 16
+
+        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerAppears), name: Notification.Name("ProfilesListAppears"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerDisappears), name: Notification.Name("ProfilesListDisappears"), object: nil)
+    }
+
+    @objc func contentControllerAppears() {
+        tabBarContainer.isHidden = false
+    }
+
+    @objc func contentControllerDisappears() {
+        tabBarContainer.isHidden = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.embeddedTabBarController = segue.destination as! UITabBarController
+        self.embeddedTabBarController = segue.destination as? UITabBarController
         embeddedTabBarController.tabBar.isHidden = true
     }
 
