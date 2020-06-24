@@ -13,6 +13,7 @@ import KDCalendar
 import CropViewController
 import ARSLineProgress
 import Combine
+import BetterSegmentedControl
 
 final class MyProfileViewController: UITableViewController {
     typealias VideoId = String
@@ -28,14 +29,14 @@ final class MyProfileViewController: UITableViewController {
     @IBOutlet weak var videosCollectionView: UICollectionView!
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
-    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var photosTitleLabel: UILabel!
     @IBOutlet weak var videosTitleLabel: UILabel!
     @IBOutlet weak var feedbacksTitleLabel: UILabel!
     @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet var backgroundTapGesture: UITapGestureRecognizer!
     @IBOutlet weak var artistTypeLabel: UILabel!
-    
+    @IBOutlet weak var segmentsControl: BetterSegmentedControl!
+
     var subscriptions = Set<AnyCancellable>()
     
     let defaultDescriptionText = "Artist of the original genre ..."
@@ -66,7 +67,18 @@ final class MyProfileViewController: UITableViewController {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
+        setupSegmentsControl()
         setupInitialInfo()
+    }
+
+    private func setupSegmentsControl() {
+        segmentsControl.segments = LabelSegment.segments(
+            withTitles: ["Info", "Photos", "Videos", "Feedbacks"],
+            normalTextColor: UIColor(rgb: 0xE5E8E9),
+            selectedTextColor: UIColor(rgb: 0x1F1F1F)
+        )
+        segmentsControl.indicatorViewBorderWidth = 2
+        segmentsControl.indicatorViewBorderColor = UIColor(rgb: 0xFB5324)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,7 +175,6 @@ final class MyProfileViewController: UITableViewController {
 
     func applyTheme(theme: Theme) {
         tableView.backgroundColor = theme.backgroundColor
-        editButton.setTitleColor(theme.textColor, for: .normal)
         cityButton.setTitleColor(theme.textColor, for: .normal)
         priceButton.setTitleColor(theme.textColor, for: .normal)
         nameTextField.textColor = theme.textColor

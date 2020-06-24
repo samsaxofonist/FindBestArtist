@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-final class StartViewController: UIViewController {
+final class StartViewController: InitialSetupViewController {
     @IBOutlet weak var beKunstlerButton: UIButton!
     @IBOutlet weak var buchenArtistButton: UIButton!
 
@@ -28,13 +28,21 @@ final class StartViewController: UIViewController {
         if LoginManager.hasUser {
             LoginManager.loginWithSavedUser { (fbProfile, user) in
                 GlobalManager.fbProfile = fbProfile
-                GlobalManager.myUser = user
-                self.openMainScreen()
+                if user == nil && fbProfile != nil {
+                    self.showUserTypeSelection()
+                } else {
+                    GlobalManager.myUser = user
+                    self.openMainScreen()
+                }
             }
         } else {
-            self.beKunstlerButton.isHidden = false
-            self.buchenArtistButton.isHidden = false
+            showUserTypeSelection()
         }
+    }
+
+    func showUserTypeSelection() {
+        self.beKunstlerButton.isHidden = false
+        self.buchenArtistButton.isHidden = false
     }
     
     private func openLoginScreen(userType: UserType) {
@@ -42,12 +50,7 @@ final class StartViewController: UIViewController {
         login.userType = userType
         self.navigationController?.setViewControllers([login], animated: false)
     }
-    
-    private func openMainScreen() {
-        let mainContainer = self.storyboard!.instantiateViewController(withIdentifier: "rootContainer")
-        self.navigationController?.setViewControllers([mainContainer], animated: false)
-    }
-    
+
     func applyTheme(theme: Theme) {
         // TODO
     }

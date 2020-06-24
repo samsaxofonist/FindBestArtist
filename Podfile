@@ -26,4 +26,5 @@ pod 'ImageSlideshow', '~> 1.6'
 pod 'KDCalendar', '~> 1.6.5'
 pod 'Cards'
 pod 'RangeSeekSlider'
+pod 'BetterSegmentedControl', '~> 1.3'
 end

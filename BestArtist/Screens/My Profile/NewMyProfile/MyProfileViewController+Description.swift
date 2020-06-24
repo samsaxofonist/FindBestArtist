@@ -13,7 +13,6 @@ extension MyProfileViewController: UITextViewDelegate {
     
     func showInitialArtistInfo() {
         let canEdit = GlobalManager.myUser == artist
-        self.editButton.isHidden = !canEdit
         self.nameTextField.isUserInteractionEnabled = canEdit
         self.artistTypeLabel.isHidden = canEdit
         self.artistTypeMenu.isHidden = !canEdit

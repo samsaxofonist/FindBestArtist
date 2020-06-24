@@ -16,8 +16,8 @@ import Combine
 extension MyProfileViewController {
     
     func setupPhotoStuff() {
-        photoImageView.layer.cornerRadius = 100
-        photoBackgroundVIew.layer.cornerRadius = 102
+        photoImageView.layer.cornerRadius = 75
+        photoBackgroundVIew.layer.cornerRadius = 77
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         
