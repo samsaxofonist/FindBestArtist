@@ -9,6 +9,12 @@
 import UIKit
 import Kingfisher
 
+enum ProfileScreenState {
+    case info
+    case media
+    case feedback
+}
+
 extension MyProfileViewController: UITextViewDelegate {
     
     func showInitialArtistInfo() {
@@ -127,7 +133,33 @@ extension MyProfileViewController: UITextViewDelegate {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.row == 1 else { return UITableView.automaticDimension }
-        return descriptionCellHeight()
+        return self.heightCell(atIndex: indexPath.row)
+    }
+
+    func heightCell(atIndex: Int) -> CGFloat {
+        guard atIndex > 0 else { return UITableView.automaticDimension }
+
+        switch self.screenState {
+        case .info:
+            if atIndex == 1 {
+                return descriptionCellHeight()
+            } else {
+                return 0
+            }
+
+        case .media:
+            if atIndex == 2 {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+
+        case .feedback:
+            if atIndex == 3 {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+        }
     }
 }

@@ -37,6 +37,8 @@ final class MyProfileViewController: UITableViewController {
     @IBOutlet weak var artistTypeLabel: UILabel!
     @IBOutlet weak var segmentsControl: BetterSegmentedControl!
 
+    var screenState: ProfileScreenState = .info
+
     var subscriptions = Set<AnyCancellable>()
     
     let defaultDescriptionText = "Artist of the original genre ..."
@@ -67,18 +69,33 @@ final class MyProfileViewController: UITableViewController {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
+        tableView.tableFooterView = UIView()
         setupSegmentsControl()
         setupInitialInfo()
     }
 
     private func setupSegmentsControl() {
         segmentsControl.segments = LabelSegment.segments(
-            withTitles: ["Info", "Photos", "Videos", "Feedbacks"],
+            withTitles: ["Info", "Media", "Feedbacks"],
             normalTextColor: UIColor(rgb: 0xE5E8E9),
             selectedTextColor: UIColor(rgb: 0x1F1F1F)
         )
         segmentsControl.indicatorViewBorderWidth = 2
         segmentsControl.indicatorViewBorderColor = UIColor(rgb: 0xFB5324)
+    }
+
+    @IBAction func segmentSelected(_ sender: BetterSegmentedControl) {
+        switch sender.index {
+        case 0:
+            self.screenState = .info
+        case 1:
+            self.screenState = .media
+        case 2:
+            self.screenState = .feedback
+        default:
+            return
+        }
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
