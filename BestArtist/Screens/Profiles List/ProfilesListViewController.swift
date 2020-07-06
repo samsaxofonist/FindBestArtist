@@ -58,12 +58,6 @@ class ProfilesListViewController: BaseViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListAppears"), object: nil)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
-    }
-    
     func applyTheme(theme: Theme) {
         self.view.backgroundColor = theme.backgroundColor
         topPanelView.backgroundColor = theme.backgroundColor
@@ -108,7 +102,6 @@ class ProfilesListViewController: BaseViewController {
         UIApplication.shared.beginIgnoringInteractionEvents()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
 
-        needTabBar = true
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
@@ -142,6 +135,7 @@ class ProfilesListViewController: BaseViewController {
             self.profilesTableView.reloadData()
         }
         self.navigationController?.pushViewController(filterVC, animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
     }
     
     func sortArtists() {
@@ -205,6 +199,7 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         let artist = self.filteredArtists[indexPath.row]
         detailsVC.artist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

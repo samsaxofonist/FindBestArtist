@@ -19,18 +19,7 @@ class BaseViewController: UIViewController {
             self.view.drawGradient()
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if needTabBar == false {
-            self.tabBarController?.tabBar.isHidden = true
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
+
 }
 
 class BaseTableViewController: UITableViewController {
@@ -44,17 +33,7 @@ class BaseTableViewController: UITableViewController {
             self.view.drawGradient()
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if needTabBar == false {
-            self.tabBarController?.tabBar.isHidden = true
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
+
+
 }
 
