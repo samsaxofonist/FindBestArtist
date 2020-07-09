@@ -129,7 +129,7 @@ extension MyProfileViewController: UITextViewDelegate {
                                            options: .usesLineFragmentOrigin,
                                            attributes: [.font: font], context: nil)
         
-        return neededArea.height + 18
+        return neededArea.height + 206
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -173,6 +173,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="hotpng.com" width="30" height="30"/>
+        <image name="hotpng.com" width="60" height="60"/>
     </resources>
 </document>
