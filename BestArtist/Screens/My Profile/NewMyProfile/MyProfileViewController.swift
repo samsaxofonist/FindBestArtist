@@ -25,7 +25,6 @@ final class MyProfileViewController: UITableViewController {
     @IBOutlet weak var cityButton: UIButton!
     @IBOutlet weak var priceButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var photosSlideShow: ImageSlideshow!
     @IBOutlet weak var videosCollectionView: UICollectionView!
     @IBOutlet weak var feedbacksCollectionVIew: UICollectionView!
     @IBOutlet weak var calendarView: CalendarView!
@@ -36,6 +35,7 @@ final class MyProfileViewController: UITableViewController {
     @IBOutlet var backgroundTapGesture: UITapGestureRecognizer!
     @IBOutlet weak var artistTypeLabel: UILabel!
     @IBOutlet weak var segmentsControl: BetterSegmentedControl!
+    @IBOutlet weak var photosCollectionView: UICollectionView!
 
     var screenState: ProfileScreenState = .info
 
@@ -51,7 +51,7 @@ final class MyProfileViewController: UITableViewController {
     let imagePicker = UIImagePickerController()
     let viewModel = MyProfileViewModel()
     var selectedRole: Talent?
-    var allPhotos: [UIImage] = [UIImage(named: "plusIcon")!]
+    var allPhotos = [UIImage]()
     var allVideos: [VideoId] = []
     var allFeedbacks: [VideoId] = []
     var selectedDates = [TimeInterval]()
@@ -119,8 +119,7 @@ final class MyProfileViewController: UITableViewController {
             self.navigationItem.rightBarButtonItem = applyBarButton
         }
         selectCalendarDates()
-        let imageSources = allPhotos.map { ImageSource(image: $0) }
-        photosSlideShow.setImageInputs(imageSources)
+        photosCollectionView.reloadData()
     }
 
     func setupInitialInfo() {
@@ -155,7 +154,7 @@ final class MyProfileViewController: UITableViewController {
         self.artist.country = country
         self.artist.price = self.selectedPrice
         self.artist.photo = photo
-        self.artist.galleryPhotos = self.allPhotos.dropLast()
+        self.artist.galleryPhotos = self.allPhotos
         self.artist.busyDates = self.selectedDates
         self.artist.feedbackLinks = self.allFeedbacks
         self.artist.photoLink = self.userPhotoURL?.absoluteString ?? artist.photoLink

@@ -20,9 +20,7 @@ extension MyProfileViewController {
         photoBackgroundVIew.layer.cornerRadius = 77
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
-        
-        photosSlideShow.circular = false
-        
+
         GlobalManager.photoFullScreenCloseHandler = {
             self.updatePhotos()
         }
@@ -48,8 +46,7 @@ extension MyProfileViewController {
     }
 
     func updatePhotos() {
-        let imageSources = self.allPhotos.map { ImageSource(image: $0) }
-        self.photosSlideShow.setImageInputs(imageSources)
+
     }
     
     func showDeletePhotoAlert() {
@@ -62,7 +59,6 @@ extension MyProfileViewController {
     }
     
     func deleteCurrentPhoto() {
-        self.allPhotos.remove(at: self.photosSlideShow.currentPage)
         self.updatePhotos()
     }
 
@@ -100,14 +96,7 @@ extension MyProfileViewController {
     }
     
     @IBAction func tapOnPhotoGallery(_ sender: Any) {
-        if photosSlideShow.currentPage == allPhotos.count - 1 {
-            imagePickerForUserPhoto = false
-            openGalery()
-        } else {
-            let imageSources = allPhotos.dropLast().map { ImageSource(image: $0) }
-            photosSlideShow.setImageInputs(imageSources)
-            photosSlideShow.presentFullScreenController(from: self)
-        }
+
     }
 }
 
@@ -141,9 +130,7 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         } else {
             allPhotos.append(photo)
         }
-
-        let imageSources = allPhotos.map { ImageSource(image: $0) }
-        photosSlideShow.setImageInputs(imageSources)
+        photosCollectionView.reloadData()
     }
 }
 

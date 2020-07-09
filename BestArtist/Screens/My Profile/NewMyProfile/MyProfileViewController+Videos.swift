@@ -87,7 +87,7 @@ extension MyProfileViewController {
     }
 }
 
-extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let data = getDataArray(for: collectionView)
@@ -95,27 +95,41 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == videosCollectionView || collectionView == feedbacksCollectionVIew {
+            let data = getDataArray(for: collectionView) as! [VideoId]
 
-        let data = getDataArray(for: collectionView)
-
-        if indexPath.row == data.count {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
+            if indexPath.row == data.count {
+                return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
+            } else {
+                let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
+                let videoId = data[indexPath.row]
+                videoCell.playerView.load(withVideoId: videoId)
+                return videoCell
+            }
         } else {
-            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-
-
-            let videoId = data[indexPath.row]
-
-            videoCell.playerView.load(withVideoId: videoId)
-            return videoCell
+            let data = getDataArray(for: collectionView) as! [UIImage]
+            if indexPath.row == data.count {
+                return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
+            } else {
+                let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
+                let image = data[indexPath.row]
+                photoCell.photoImageView.image = image
+                return photoCell
+            }
         }
     }
 
-    func getDataArray(for collectionView: UICollectionView) -> [VideoId] {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 50, height: 200)
+    }
+
+    func getDataArray(for collectionView: UICollectionView) -> [Any] {
         if collectionView == videosCollectionView {
             return allVideos
-        } else {
+        } else if collectionView == feedbacksCollectionVIew {
             return allFeedbacks
+        } else {
+            return allPhotos
         }
     }
 }
