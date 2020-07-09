@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zik-yP-0Uc" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="50" y="468" width="120" height="60"/>
+                                <rect key="frame" x="50" y="518" width="120" height="60"/>
                                 <color key="backgroundColor" red="0.94187849759999998" green="0.45530170199999997" blue="0.18850925560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="hXO-iM-za6"/>
@@ -159,7 +159,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-Dy-zRW" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
-                                <rect key="frame" x="205" y="468" width="120" height="60"/>
+                                <rect key="frame" x="205" y="518" width="120" height="60"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="384-9m-VuT"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="hee-KK-rjS">
-                                <rect key="frame" x="87.666666666666686" y="168" width="200" height="200"/>
+                                <rect key="frame" x="87.666666666666686" y="218" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="SGN-gn-kEa"/>
                                     <constraint firstAttribute="height" constant="200" id="XPF-AB-bD0"/>
@@ -197,8 +197,8 @@
                             <constraint firstItem="zik-yP-0Uc" firstAttribute="leading" secondItem="DhH-dm-Zwn" secondAttribute="leading" constant="50" id="Nme-bh-lwF"/>
                             <constraint firstItem="zik-yP-0Uc" firstAttribute="top" secondItem="hee-KK-rjS" secondAttribute="bottom" constant="100" id="RII-wm-Zgb"/>
                             <constraint firstItem="hee-KK-rjS" firstAttribute="centerX" secondItem="DhH-dm-Zwn" secondAttribute="centerX" id="X3J-eu-ukQ"/>
-                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="zik-yP-0Uc" secondAttribute="bottom" constant="250" id="rgG-rt-P82"/>
-                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="hfy-Dy-zRW" secondAttribute="bottom" constant="250" id="sWa-g6-UQ8"/>
+                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="zik-yP-0Uc" secondAttribute="bottom" constant="200" id="rgG-rt-P82"/>
+                            <constraint firstItem="DhH-dm-Zwn" firstAttribute="bottom" secondItem="hfy-Dy-zRW" secondAttribute="bottom" constant="200" id="sWa-g6-UQ8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhH-dm-Zwn"/>
                     </view>
