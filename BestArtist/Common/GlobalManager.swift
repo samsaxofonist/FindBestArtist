@@ -40,5 +40,4 @@ class GlobalManager {
     static var sorting: SortingType = .lowToHigh
     static var filterPrice: FilterType? = nil
     static var filterDistance: FilterType? = nil
-    static var photoFullScreenCloseHandler: (() -> Void)?
 }

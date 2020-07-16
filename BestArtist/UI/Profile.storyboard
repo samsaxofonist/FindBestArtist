@@ -1079,7 +1079,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OuW-iI-BGp">
-                                                    <rect key="frame" x="16" y="55.5" width="359" height="200"/>
+                                                    <rect key="frame" x="16" y="55.5" width="343" height="200"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="TDY-ft-mWZ"/>
@@ -1116,7 +1116,7 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="VideoCell" id="FPd-CY-IWq" customClass="VideoCell" customModule="BestArtist" customModuleProvider="target">
-                                                            <rect key="frame" x="353" y="0.0" width="343" height="200"/>
+                                                            <rect key="frame" x="343" y="0.0" width="343" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
@@ -1143,6 +1143,7 @@
                                                     </cells>
                                                     <connections>
                                                         <outlet property="dataSource" destination="v0W-bV-a4w" id="tII-zV-zTp"/>
+                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="aVm-F3-gnB"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -1236,11 +1237,7 @@
                         <action selector="backgroundClicked:" destination="v0W-bV-a4w" id="bqQ-dU-Ckh"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="kFe-Hj-SBS">
-                    <connections>
-                        <action selector="tapOnPhotoGallery:" destination="v0W-bV-a4w" id="0PZ-iY-CEC"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kFe-Hj-SBS"/>
                 <tapGestureRecognizer id="4gl-lJ-f4T">
                     <connections>
                         <action selector="tapOnAddVideo:" destination="v0W-bV-a4w" id="0W0-7Y-zSC"/>

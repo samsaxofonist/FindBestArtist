@@ -21,9 +21,6 @@ extension MyProfileViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
 
-        GlobalManager.photoFullScreenCloseHandler = {
-            self.updatePhotos()
-        }
         self.processUserPhotoLinks()
     }
 
@@ -31,7 +28,7 @@ extension MyProfileViewController {
         artist.galleryPhotosLinks.publisher
             .compactMap { URL(string: $0) }
             .sink(receiveCompletion: { _ in
-                self.updatePhotos()
+                
             }, receiveValue: { url in
                 KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), options: nil, progressBlock: nil) { result in
                     switch result {
@@ -45,10 +42,6 @@ extension MyProfileViewController {
             .store(in: &subscriptions)
     }
 
-    func updatePhotos() {
-
-    }
-    
     func showDeletePhotoAlert() {
         let sheet = UIAlertController(title: "Warning", message: "Delete this photo?", preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Yes, delete", style: .destructive, handler: { _ in
@@ -59,7 +52,7 @@ extension MyProfileViewController {
     }
     
     func deleteCurrentPhoto() {
-        self.updatePhotos()
+
     }
 
     @IBAction func longTapOnPhotos(_ sender: Any) {
@@ -93,10 +86,6 @@ extension MyProfileViewController {
             cropViewController.delegate = self
             present(cropViewController, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func tapOnPhotoGallery(_ sender: Any) {
-        
     }
 }
 
@@ -136,7 +125,6 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
 
 extension FullScreenSlideshowViewController {
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        super.dismiss(animated: flag, completion: completion)
-        GlobalManager.photoFullScreenCloseHandler?()
+        super.dismiss(animated: flag, completion: completion)        
     }
 }
