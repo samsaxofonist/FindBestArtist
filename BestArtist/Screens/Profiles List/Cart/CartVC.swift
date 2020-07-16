@@ -12,6 +12,7 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var getButton: UIButton!
     @IBOutlet weak var smallBackgroundView: UIView!
+    @IBOutlet weak var greetingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,8 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         getButton.layer.cornerRadius = 25
         //blurEffect()
         tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
+
+        greetingLabel.text = "Hi, \(GlobalManager.myUser?.name ?? "user")"
     }
     
     @IBAction func delButtonClicked(_ sender: Any) {
@@ -50,6 +53,7 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+        cell.checkBox.isHidden = true
         let artist = GlobalManager.selectedArtists[indexPath.row]
         cell.setupWithArtist(artist)
         return cell

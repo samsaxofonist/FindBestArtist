@@ -628,6 +628,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-d8-D65">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Ky6-tM-gZS">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj1-sd-i0b">
+                                            <rect key="frame" x="16" y="16" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKy-Bp-zLb">
+                                            <rect key="frame" x="16" y="43" width="343" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Fj1-sd-i0b" firstAttribute="top" secondItem="Ky6-tM-gZS" secondAttribute="top" constant="16" id="3lP-yn-FEI"/>
+                                        <constraint firstItem="Fj1-sd-i0b" firstAttribute="leading" secondItem="Ky6-tM-gZS" secondAttribute="leading" constant="16" id="8NF-GR-l4s"/>
+                                        <constraint firstItem="WKy-Bp-zLb" firstAttribute="top" secondItem="Fj1-sd-i0b" secondAttribute="bottom" constant="6" id="DAE-tJ-i1f"/>
+                                        <constraint firstItem="WKy-Bp-zLb" firstAttribute="leading" secondItem="Ky6-tM-gZS" secondAttribute="leading" constant="16" id="RMa-Ym-srz"/>
+                                        <constraint firstAttribute="trailing" secondItem="WKy-Bp-zLb" secondAttribute="trailing" constant="16" id="Ug9-e2-DES"/>
+                                        <constraint firstAttribute="trailing" secondItem="Fj1-sd-i0b" secondAttribute="trailing" constant="16" id="iDJ-dL-AjQ"/>
+                                    </constraints>
+                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="AkE-UR-SG1" id="bMN-D9-D6g"/>
                                     <outlet property="delegate" destination="AkE-UR-SG1" id="bjp-k4-K1Z"/>
@@ -682,6 +709,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="getButton" destination="41o-ql-GdP" id="8zH-rk-xA5"/>
+                        <outlet property="greetingLabel" destination="Fj1-sd-i0b" id="vSN-Qh-iDx"/>
                         <outlet property="smallBackgroundView" destination="jY8-tU-wGg" id="V8a-aA-3fz"/>
                         <outlet property="tableView" destination="0cM-d8-D65" id="570-w2-e5d"/>
                     </connections>

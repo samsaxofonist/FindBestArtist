@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import M13Checkbox
 
 class ProfileCell: UITableViewCell {
     @IBOutlet weak var photoImage: UIImageView!
@@ -16,6 +17,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
 
+    @IBOutlet weak var checkBox: M13Checkbox!
     var onClickBlock: (() -> ())?
     
     override func awakeFromNib() {
