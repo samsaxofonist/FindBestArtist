@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 extension MyProfileViewController {
     @IBAction func longTapOnVideos(_ sender: Any) {
@@ -116,6 +117,18 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                 photoCell.photoImageView.image = image
                 return photoCell
             }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard collectionView == photosCollectionView else { return }
+        if indexPath.row < allPhotos.count {
+            slideShow.circular = false
+            slideShow.setImageInputs(allPhotos.map { ImageSource(image: $0) })
+            slideShow.setCurrentPage(indexPath.row, animated: false)
+            slideShow.presentFullScreenController(from: self)
+        } else {
+            openGalery()
         }
     }
 

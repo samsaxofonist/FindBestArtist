@@ -37,6 +37,8 @@ final class MyProfileViewController: UITableViewController {
     @IBOutlet weak var segmentsControl: BetterSegmentedControl!
     @IBOutlet weak var photosCollectionView: UICollectionView!
 
+    let slideShow = ImageSlideshow()
+
     var screenState: ProfileScreenState = .info
 
     var subscriptions = Set<AnyCancellable>()

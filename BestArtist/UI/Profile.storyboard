@@ -1084,7 +1084,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="TDY-ft-mWZ"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z82-YX-9yW">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Z82-YX-9yW">
                                                         <size key="itemSize" width="343" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1148,10 +1148,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hEG-rr-eh3" firstAttribute="top" secondItem="a85-jb-x85" secondAttribute="topMargin" constant="16" id="1HO-xC-Hmf"/>
-                                                <constraint firstItem="OuW-iI-BGp" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leading" constant="16" id="7cU-RS-dyF"/>
                                                 <constraint firstItem="hEG-rr-eh3" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leadingMargin" constant="6" id="DMW-Kp-hYc"/>
                                                 <constraint firstAttribute="bottom" secondItem="OuW-iI-BGp" secondAttribute="bottom" constant="8" id="FfB-RT-on6"/>
-                                                <constraint firstItem="OuW-iI-BGp" firstAttribute="trailing" secondItem="a85-jb-x85" secondAttribute="trailingMargin" constant="16" id="TR8-LU-hNX"/>
+                                                <constraint firstAttribute="trailing" secondItem="OuW-iI-BGp" secondAttribute="trailing" constant="16" id="KAn-BL-TjA"/>
+                                                <constraint firstItem="OuW-iI-BGp" firstAttribute="leading" secondItem="a85-jb-x85" secondAttribute="leading" constant="16" id="Yv7-cl-Aon"/>
                                                 <constraint firstItem="OuW-iI-BGp" firstAttribute="top" secondItem="hEG-rr-eh3" secondAttribute="bottom" constant="8" id="ZN9-Cb-peF"/>
                                             </constraints>
                                         </tableViewCellContentView>

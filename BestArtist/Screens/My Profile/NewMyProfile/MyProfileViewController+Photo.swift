@@ -96,7 +96,7 @@ extension MyProfileViewController {
     }
     
     @IBAction func tapOnPhotoGallery(_ sender: Any) {
-
+        
     }
 }
 
