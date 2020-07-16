@@ -114,11 +114,7 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
     }
 
     func insertNewPhoto(_ photo: UIImage) {
-        if allPhotos.count > 0 {
-            allPhotos.insert(photo, at: allPhotos.count - 1)
-        } else {
-            allPhotos.append(photo)
-        }
+        allPhotos.append(photo)
         photosCollectionView.reloadData()
     }
 }

@@ -71,19 +71,36 @@ final class MyProfileViewController: UITableViewController {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
+        setupPhotoShadow()
         tableView.tableFooterView = UIView()
         setupSegmentsControl()
         setupInitialInfo()
     }
 
+    func setupPhotoShadow() {
+        photoBackgroundVIew.addShadow(
+            shadowColor: UIColor.lightGray,
+            offSet: .zero,
+            opacity: 0.8,
+            shadowRadius: 2,
+            cornerRadius: 77,
+            corners: .allCorners
+        )
+    }
+
     private func setupSegmentsControl() {
         segmentsControl.segments = LabelSegment.segments(
             withTitles: ["Info", "Media", "Feedbacks"],
-            normalTextColor: UIColor(rgb: 0xE5E8E9),
-            selectedTextColor: UIColor(rgb: 0x1F1F1F)
+            normalTextColor: UIColor(rgb: 0x919191),
+            selectedTextColor: UIColor(rgb: 0x363636)
         )
         segmentsControl.indicatorViewBorderWidth = 2
         segmentsControl.indicatorViewBorderColor = UIColor(rgb: 0xFB5324)
+        segmentsControl.layer.shadowColor = UIColor.lightGray.cgColor
+        segmentsControl.layer.shadowOpacity = 0.1
+        segmentsControl.layer.shadowOffset = CGSize(width: 0, height: 5)
+        segmentsControl.layer.shadowRadius = 2
+        segmentsControl.clipsToBounds = false
     }
 
     @IBAction func segmentSelected(_ sender: BetterSegmentedControl) {

@@ -515,7 +515,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="P9Y-A6-GhT" firstAttribute="leading" secondItem="CV8-5A-mGB" secondAttribute="leading" constant="35" id="9qX-m9-Pkw"/>
                             <constraint firstItem="CV8-5A-mGB" firstAttribute="trailing" secondItem="s6S-nT-Gnj" secondAttribute="trailing" constant="35" id="AIi-Ok-0iG"/>
@@ -731,7 +731,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lED-lc-99y">
+                                                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lED-lc-99y">
                                                     <rect key="frame" x="110.5" y="10" width="154" height="154"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -913,7 +913,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="Px8-fL-l6O"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DHf-jp-Saa">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="DHf-jp-Saa">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -941,10 +941,10 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <gestureRecognizers/>
                                                         </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Qpd-QL-3QM" customClass="PhotoCell" customModule="BestArtist" customModuleProvider="target">
-                                                            <rect key="frame" x="128" y="36" width="128" height="128"/>
+                                                        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Qpd-QL-3QM" customClass="PhotoCell" customModule="BestArtist" customModuleProvider="target">
+                                                            <rect key="frame" x="133" y="36" width="128" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TC8-pX-2Wq">
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TC8-pX-2Wq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
@@ -981,7 +981,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="8Gg-6U-2Ds"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="D1c-1c-JD4">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="D1c-1c-JD4">
                                                         <size key="itemSize" width="343" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1014,13 +1014,13 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="VideoCell" id="xgL-tQ-wl2" customClass="VideoCell" customModule="BestArtist" customModuleProvider="target">
-                                                            <rect key="frame" x="343" y="0.0" width="343" height="200"/>
+                                                            <rect key="frame" x="348" y="0.0" width="343" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
@@ -1084,7 +1084,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="TDY-ft-mWZ"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Z82-YX-9yW">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="Z82-YX-9yW">
                                                         <size key="itemSize" width="343" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1116,13 +1116,13 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="VideoCell" id="FPd-CY-IWq" customClass="VideoCell" customModule="BestArtist" customModuleProvider="target">
-                                                            <rect key="frame" x="343" y="0.0" width="343" height="200"/>
+                                                            <rect key="frame" x="348" y="0.0" width="343" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4b-QO-7fP" customClass="YTPlayerView">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w4b-QO-7fP" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
@@ -1161,21 +1161,21 @@
                                             <outletCollection property="gestureRecognizers" destination="cD0-tS-RPv" appends="YES" id="V29-uv-cMs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="350" id="0Gc-pR-7ZJ" userLabel="calendar">
-                                        <rect key="frame" x="0.0" y="1508" width="375" height="350"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="366" id="0Gc-pR-7ZJ" userLabel="calendar">
+                                        <rect key="frame" x="0.0" y="1508" width="375" height="366"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Gc-pR-7ZJ" id="Y9v-9Y-KKF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="366"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-Xq-vQ8">
-                                                    <rect key="frame" x="14" y="11" width="337" height="23"/>
+                                                    <rect key="frame" x="14" y="27" width="337" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35N-yY-tQJ" customClass="CalendarView" customModule="KDCalendar">
-                                                    <rect key="frame" x="0.0" y="42" width="375" height="300"/>
+                                                    <rect key="frame" x="16" y="58" width="343" height="300"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="mE2-EA-z8u"/>
@@ -1184,12 +1184,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hsS-Xq-vQ8" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leadingMargin" constant="6" id="0A0-A9-xcY"/>
-                                                <constraint firstItem="35N-yY-tQJ" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leading" id="NTk-qb-S2P"/>
-                                                <constraint firstItem="hsS-Xq-vQ8" firstAttribute="top" secondItem="Y9v-9Y-KKF" secondAttribute="topMargin" id="WtE-Jd-kdj"/>
+                                                <constraint firstItem="35N-yY-tQJ" firstAttribute="leading" secondItem="Y9v-9Y-KKF" secondAttribute="leading" constant="16" id="NTk-qb-S2P"/>
+                                                <constraint firstItem="hsS-Xq-vQ8" firstAttribute="top" secondItem="Y9v-9Y-KKF" secondAttribute="topMargin" constant="16" id="WtE-Jd-kdj"/>
                                                 <constraint firstAttribute="bottom" secondItem="35N-yY-tQJ" secondAttribute="bottom" constant="8" id="dH1-ZJ-p2z"/>
                                                 <constraint firstItem="35N-yY-tQJ" firstAttribute="top" secondItem="hsS-Xq-vQ8" secondAttribute="bottom" constant="8" id="hZu-NG-aZ7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hsS-Xq-vQ8" secondAttribute="trailing" constant="16" id="m2N-lZ-88f"/>
-                                                <constraint firstAttribute="trailing" secondItem="35N-yY-tQJ" secondAttribute="trailing" id="u5J-Uk-M7Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="35N-yY-tQJ" secondAttribute="trailing" constant="16" id="u5J-Uk-M7Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

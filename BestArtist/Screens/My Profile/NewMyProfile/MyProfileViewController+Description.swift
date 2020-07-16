@@ -143,6 +143,8 @@ extension MyProfileViewController: UITextViewDelegate {
         case .info:
             if atIndex == 1 {
                 return descriptionCellHeight()
+            } else if atIndex == 4 {
+                return UITableView.automaticDimension
             } else {
                 return 0
             }

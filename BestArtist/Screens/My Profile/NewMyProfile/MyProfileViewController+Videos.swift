@@ -113,6 +113,7 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
             } else {
                 let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
+                
                 let image = data[indexPath.row]
                 photoCell.photoImageView.image = image
                 return photoCell
@@ -128,12 +129,13 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
             slideShow.setCurrentPage(indexPath.row, animated: false)
             slideShow.presentFullScreenController(from: self)
         } else {
+            imagePickerForUserPhoto = false
             openGalery()
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 32, height: 200)
+        return CGSize(width: UIScreen.main.bounds.width - 37, height: 200)
     }
 
     func getDataArray(for collectionView: UICollectionView) -> [Any] {

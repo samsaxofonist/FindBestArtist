@@ -27,7 +27,7 @@ extension MyProfileViewController {
     func setupPriceController(_ controller: SelectPriceViewController) {
         guard let artist = self.artist else { return }
         controller.currentPrice = artist.price
-        controller.fromCity = artist.city
+        controller.fromCity = selectedCity ?? artist.city
         controller.finishBlock = { price in
             self.showPrice(price)
         }
