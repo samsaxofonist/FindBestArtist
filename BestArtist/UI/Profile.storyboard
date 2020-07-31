@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -891,7 +891,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="517" id="eGR-Wf-Jav" userLabel="photosAndVideos">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="517" id="eGR-Wf-Jav" userLabel="photosAndVideos">
                                         <rect key="frame" x="0.0" y="738" width="375" height="517"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGR-Wf-Jav" id="9QX-ab-php">
@@ -1009,7 +1009,6 @@
                                                                 <constraint firstItem="4Sk-hm-eKa" firstAttribute="top" secondItem="j3l-KY-IO0" secondAttribute="top" id="SsE-Yx-omH"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outletCollection property="gestureRecognizers" destination="4gl-lJ-f4T" appends="YES" id="Ppq-fx-T8h"/>
                                                                 <segue destination="B8W-hC-lrP" kind="presentation" id="N6W-qN-WEb"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -1020,7 +1019,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
+                                                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
@@ -1041,7 +1040,6 @@
                                                     <connections>
                                                         <outlet property="dataSource" destination="v0W-bV-a4w" id="UHM-KZ-DNE"/>
                                                         <outlet property="delegate" destination="v0W-bV-a4w" id="e1g-HT-LEP"/>
-                                                        <outletCollection property="gestureRecognizers" destination="a1M-gR-tP3" appends="YES" id="Ibr-BP-G7h"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -1111,9 +1109,6 @@
                                                                 <constraint firstItem="TO4-Ak-wHM" firstAttribute="top" secondItem="MbS-k4-jn7" secondAttribute="top" id="ZIX-5Q-CNR"/>
                                                                 <constraint firstItem="TO4-Ak-wHM" firstAttribute="left" secondItem="MbS-k4-jn7" secondAttribute="left" id="sO3-ff-ObT"/>
                                                             </constraints>
-                                                            <connections>
-                                                                <outletCollection property="gestureRecognizers" destination="wcZ-51-HFb" appends="YES" id="MRk-yh-DbV"/>
-                                                            </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="VideoCell" id="FPd-CY-IWq" customClass="VideoCell" customModule="BestArtist" customModuleProvider="target">
                                                             <rect key="frame" x="348" y="0.0" width="343" height="200"/>
@@ -1157,9 +1152,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="cD0-tS-RPv" appends="YES" id="V29-uv-cMs"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="366" id="0Gc-pR-7ZJ" userLabel="calendar">
                                         <rect key="frame" x="0.0" y="1508" width="375" height="366"/>
@@ -1237,32 +1229,6 @@
                         <action selector="backgroundClicked:" destination="v0W-bV-a4w" id="bqQ-dU-Ckh"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="kFe-Hj-SBS"/>
-                <tapGestureRecognizer id="4gl-lJ-f4T">
-                    <connections>
-                        <action selector="tapOnAddVideo:" destination="v0W-bV-a4w" id="0W0-7Y-zSC"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="wcZ-51-HFb">
-                    <connections>
-                        <action selector="tapOnAddFeedback:" destination="v0W-bV-a4w" id="M05-fg-lSc"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kfp-vA-bcG" userLabel="longPhotosTap">
-                    <connections>
-                        <action selector="longTapOnPhotos:" destination="v0W-bV-a4w" id="UR9-14-9JY"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="a1M-gR-tP3" userLabel="longVideosTap">
-                    <connections>
-                        <action selector="longTapOnVideos:" destination="v0W-bV-a4w" id="aXs-Kf-QmR"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="cD0-tS-RPv" userLabel="longFeedbacksTap">
-                    <connections>
-                        <action selector="longTapOnFeedbacks:" destination="v0W-bV-a4w" id="pAV-H8-fno"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="9004" y="-1245.8770614692655"/>
         </scene>

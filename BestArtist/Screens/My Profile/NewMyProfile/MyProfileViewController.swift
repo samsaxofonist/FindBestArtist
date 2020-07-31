@@ -15,7 +15,7 @@ import ARSLineProgress
 import Combine
 import BetterSegmentedControl
 
-final class MyProfileViewController: UITableViewController {
+final class MyProfileViewController: UITableViewController, UIGestureRecognizerDelegate {
     typealias VideoId = String
     
     @IBOutlet weak var photoBackgroundVIew: UIView!
@@ -75,6 +75,109 @@ final class MyProfileViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         setupSegmentsControl()
         setupInitialInfo()
+        setupMediasLongTap()
+    }
+
+    func setupMediasLongTap() {
+        let photosRecognizer = makeLongTapGestureRecognizer()
+        self.photosCollectionView?.addGestureRecognizer(photosRecognizer)
+
+        let videosRecognizer = makeLongTapGestureRecognizer()
+        self.videosCollectionView?.addGestureRecognizer(videosRecognizer)
+
+        let feedbacksRecognizer = makeLongTapGestureRecognizer()
+        self.feedbacksCollectionVIew?.addGestureRecognizer(feedbacksRecognizer)
+
+        let shortTapVideos = makeShortTapGestureRecognized()
+        videosCollectionView.addGestureRecognizer(shortTapVideos)
+
+        let shortTapFeedbacks = makeShortTapGestureRecognized()
+        feedbacksCollectionVIew.addGestureRecognizer(shortTapFeedbacks)
+    }
+
+    func makeShortTapGestureRecognized() -> UITapGestureRecognizer {
+        return UITapGestureRecognizer(target: self, action: #selector(MyProfileViewController.handleShortTap(gestureRecognizer:)))
+    }
+
+    func makeLongTapGestureRecognizer() -> UILongPressGestureRecognizer {
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(MyProfileViewController.handleLongMediaPress(gestureRecognizer:)))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delegate = self
+        lpgr.delaysTouchesBegan = true
+        return lpgr
+    }
+
+    @objc func handleShortTap(gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.view == videosCollectionView {
+            let point = gestureRecognizer.location(in: videosCollectionView)
+            if let indexPath = self.videosCollectionView?.indexPathForItem(at: point), let cell = videosCollectionView.cellForItem(at: indexPath) as? VideoCell {
+                if cell.playerView.playerState() == .playing {
+                    cell.playerView.pauseVideo()
+                } else {
+                    cell.playerView.playVideo()
+                }
+            } else {
+                openAddNewVideo()
+            }
+        } else if gestureRecognizer.view == feedbacksCollectionVIew {
+            let point = gestureRecognizer.location(in: feedbacksCollectionVIew)
+            if let indexPath = self.feedbacksCollectionVIew?.indexPathForItem(at: point), let cell = feedbacksCollectionVIew.cellForItem(at: indexPath) as? VideoCell {
+                if cell.playerView.playerState() == .playing {
+                    cell.playerView.pauseVideo()
+                } else {
+                    cell.playerView.playVideo()
+                }
+            } else {
+                openAddNewFeedback()
+            }
+        }
+    }
+
+    @objc func handleLongMediaPress(gestureRecognizer: UILongPressGestureRecognizer){
+        if (gestureRecognizer.state != UIGestureRecognizer.State.changed){
+            return
+        }
+
+        let pointInPhotos = gestureRecognizer.location(in: photosCollectionView)
+        if gestureRecognizer.view == photosCollectionView {
+            if let indexPath = self.photosCollectionView?.indexPathForItem(at: pointInPhotos) {
+                showMediaDeleteAlert(mediaType: "photo", collectionView: photosCollectionView, indexPath: indexPath, confirmDelete: {
+                    self.allPhotos.remove(at: indexPath.row)
+                })
+            }
+        } else {
+            let pointInVideos = gestureRecognizer.location(in: videosCollectionView)
+            if gestureRecognizer.view == videosCollectionView {
+                if let indexPath = self.videosCollectionView?.indexPathForItem(at: pointInVideos) {
+                    showMediaDeleteAlert(mediaType: "video", collectionView: videosCollectionView, indexPath: indexPath, confirmDelete: {
+                        self.allVideos.remove(at: indexPath.row)
+                    })
+                }
+            } else {
+                let pointInFeedbacks = gestureRecognizer.location(in: feedbacksCollectionVIew)
+                if gestureRecognizer.view == feedbacksCollectionVIew {
+                    if let indexPath = self.feedbacksCollectionVIew?.indexPathForItem(at: pointInFeedbacks) {
+                        showMediaDeleteAlert(mediaType: "feedback video", collectionView: feedbacksCollectionVIew, indexPath: indexPath, confirmDelete: {
+                            self.allFeedbacks.remove(at: indexPath.row)
+                        })
+                    }
+                }
+            }
+        }
+    }
+
+    func showMediaDeleteAlert(mediaType: String, collectionView: UICollectionView, indexPath: IndexPath, confirmDelete: @escaping () -> ()) {
+        let alert = UIAlertController(title: "Do you want to delete \(mediaType)?", message: nil, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            collectionView.performBatchUpdates({
+                confirmDelete()
+                collectionView.deleteItems(at: [indexPath])
+            }, completion:nil)
+        }))
+
+        self.present(alert, animated: true)
     }
 
     func setupPhotoShadow() {
@@ -90,7 +193,7 @@ final class MyProfileViewController: UITableViewController {
 
     private func setupSegmentsControl() {
         segmentsControl.segments = LabelSegment.segments(
-            withTitles: ["Info", "Media", "Feedbacks"],
+            withTitles: ["Info", "Media", "Calendar"],
             normalTextColor: UIColor(rgb: 0x919191),
             selectedTextColor: UIColor(rgb: 0x363636)
         )
@@ -110,7 +213,7 @@ final class MyProfileViewController: UITableViewController {
         case 1:
             self.screenState = .media
         case 2:
-            self.screenState = .feedback
+            self.screenState = .calendar
         default:
             return
         }

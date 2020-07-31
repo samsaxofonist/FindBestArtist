@@ -55,10 +55,6 @@ extension MyProfileViewController {
 
     }
 
-    @IBAction func longTapOnPhotos(_ sender: Any) {
-        showDeletePhotoAlert()
-    }
-
     func openGalery() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary

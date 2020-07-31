@@ -10,25 +10,6 @@ import UIKit
 import ImageSlideshow
 
 extension MyProfileViewController {
-    @IBAction func longTapOnVideos(_ sender: Any) {
-        showDeleteVideoAlert()
-    }
-
-    @IBAction func longTapOnFeedbacks(_ sender: Any) {
-        showDeleteFeedbackAlert()
-    }
-
-    @IBAction func tapOnAddVideo(_ sender: Any) {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
-
-        addVideoVC.finishBlock = { videoString in
-            if let videoId = videoString {
-                self.insertNewVideo(videoId: videoId)
-            }
-        }
-        present(addVideoNav, animated: true, completion: nil)
-    }
 
     func deleteCurrentVideo() {
         let visibleRect = CGRect(origin: videosCollectionView.contentOffset, size: videosCollectionView.bounds.size)
@@ -73,26 +54,17 @@ extension MyProfileViewController {
         self.allFeedbacks.append(videoId)
         self.feedbacksCollectionVIew.reloadData()
     }
-
-    @IBAction func tapOnAddFeedback(_ sender: Any) {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
-
-        addVideoVC.finishBlock = { videoString in
-            if let videoId = videoString {
-                self.allFeedbacks.append(videoId)
-                self.feedbacksCollectionVIew.reloadData()
-            }
-        }
-        present(addVideoNav, animated: true, completion: nil)
-    }
 }
 
 extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let data = getDataArray(for: collectionView)
-        return data.count + 1
+        if GlobalManager.myUser == artist {
+            return data.count + 1
+        } else {
+            return data.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,16 +94,41 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard collectionView == photosCollectionView else { return }
-        if indexPath.row < allPhotos.count {
-            slideShow.circular = false
-            slideShow.setImageInputs(allPhotos.map { ImageSource(image: $0) })
-            slideShow.setCurrentPage(indexPath.row, animated: false)
-            slideShow.presentFullScreenController(from: self)
-        } else {
-            imagePickerForUserPhoto = false
-            openGalery()
+        if collectionView == photosCollectionView {
+            if indexPath.row < allPhotos.count {
+                slideShow.circular = false
+                slideShow.setImageInputs(allPhotos.map { ImageSource(image: $0) })
+                slideShow.setCurrentPage(indexPath.row, animated: false)
+                slideShow.presentFullScreenController(from: self)
+            } else {
+                imagePickerForUserPhoto = false
+                openGalery()
+            }
         }
+    }
+
+    func openAddNewVideo() {
+        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
+        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+
+        addVideoVC.finishBlock = { videoString in
+            if let videoId = videoString {
+                self.insertNewVideo(videoId: videoId)
+            }
+        }
+        present(addVideoNav, animated: true, completion: nil)
+    }
+
+    func openAddNewFeedback() {
+        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
+        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+
+        addVideoVC.finishBlock = { videoString in
+            if let videoId = videoString {
+                self.insertNewFeedback(videoId: videoId)
+            }
+        }
+        present(addVideoNav, animated: true, completion: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

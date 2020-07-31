@@ -12,7 +12,7 @@ import Kingfisher
 enum ProfileScreenState {
     case info
     case media
-    case feedback
+    case calendar
 }
 
 extension MyProfileViewController: UITextViewDelegate {
@@ -143,21 +143,19 @@ extension MyProfileViewController: UITextViewDelegate {
         case .info:
             if atIndex == 1 {
                 return descriptionCellHeight()
-            } else if atIndex == 4 {
-                return UITableView.automaticDimension
             } else {
                 return 0
             }
 
         case .media:
-            if atIndex == 2 {
+            if atIndex == 2 || atIndex == 3 {
                 return UITableView.automaticDimension
             } else {
                 return 0
             }
 
-        case .feedback:
-            if atIndex == 3 {
+        case .calendar:
+            if atIndex == 4 {
                 return UITableView.automaticDimension
             } else {
                 return 0
