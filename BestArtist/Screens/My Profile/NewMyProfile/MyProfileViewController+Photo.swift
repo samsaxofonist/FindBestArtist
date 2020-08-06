@@ -21,6 +21,14 @@ extension MyProfileViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
 
+        photosCollectionView.layer.borderColor = UIColor.red.cgColor
+        photosCollectionView.layer.cornerRadius = 10
+        photosCollectionView.clipsToBounds = true
+
+        videosCollectionView.layer.borderColor = UIColor.red.cgColor        
+        videosCollectionView.layer.cornerRadius = 10
+        videosCollectionView.clipsToBounds = true
+
         self.processUserPhotoLinks()
     }
 
@@ -112,6 +120,20 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
     func insertNewPhoto(_ photo: UIImage) {
         allPhotos.append(photo)
         photosCollectionView.reloadData()
+    }
+}
+
+extension UIImage {
+    enum JPEGQuality: CGFloat {
+        case lowest  = 0
+        case low     = 0.25
+        case medium  = 0.5
+        case high    = 0.75
+        case highest = 1
+    }
+
+    func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
+        return jpegData(compressionQuality: jpegQuality.rawValue)
     }
 }
 

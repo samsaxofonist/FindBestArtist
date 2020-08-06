@@ -556,12 +556,12 @@
         <!--Choose city-->
         <scene sceneID="hRD-Hx-z3E">
             <objects>
-                <viewController id="8d4-Q9-fGx" customClass="SelectCityViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="citySelectionVC" id="8d4-Q9-fGx" customClass="SelectCityViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFf-vv-N26">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-fl-64P">
+                            <searchBar contentMode="redraw" placeholder="Select your city" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-fl-64P">
                                 <rect key="frame" x="0.0" y="56" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="B2A-Df-kcd"/>
@@ -873,6 +873,12 @@
                                                         <outlet property="delegate" destination="v0W-bV-a4w" id="kI6-AB-iKI"/>
                                                     </connections>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe yourself:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIQ-kZ-yZT">
+                                                    <rect key="frame" x="16" y="161" width="125" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="coo-3g-1WJ" firstAttribute="centerX" secondItem="QNF-ZP-R6U" secondAttribute="centerX" id="KsF-fx-33x"/>
@@ -884,9 +890,11 @@
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="centerX" secondItem="YJ3-5R-y6f" secondAttribute="centerX" id="hwy-V5-OEo"/>
                                                 <constraint firstItem="4sw-n2-0Sc" firstAttribute="top" secondItem="QNF-ZP-R6U" secondAttribute="bottom" constant="16" id="ikH-R3-Dhd"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="YJ3-5R-y6f" secondAttribute="topMargin" constant="16" id="nG5-lf-oC8"/>
+                                                <constraint firstItem="81x-0P-Yxm" firstAttribute="top" secondItem="yIQ-kZ-yZT" secondAttribute="bottom" constant="8" id="o9j-ZQ-s4S"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="centerX" secondItem="YJ3-5R-y6f" secondAttribute="centerX" id="p1R-eE-fAt"/>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="top" secondItem="4sw-n2-0Sc" secondAttribute="bottom" constant="16" id="ssx-RS-TXJ"/>
                                                 <constraint firstItem="O1O-xb-CLy" firstAttribute="centerX" secondItem="YJ3-5R-y6f" secondAttribute="centerX" id="zc5-LB-qS0"/>
+                                                <constraint firstItem="yIQ-kZ-yZT" firstAttribute="leading" secondItem="81x-0P-Yxm" secondAttribute="leading" id="ziM-hn-N6w"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -948,7 +956,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-10-GKV">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-10-GKV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -966,7 +974,7 @@
                                                     </cells>
                                                     <connections>
                                                         <outlet property="dataSource" destination="v0W-bV-a4w" id="VS2-DT-WRe"/>
-                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="vnZ-yE-Kvd"/>
+                                                        <outlet property="delegate" destination="v0W-bV-a4w" id="3th-VJ-ag1"/>
                                                     </connections>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K11-PK-9iB">
@@ -1019,7 +1027,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
+                                                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="133-SI-9IL" customClass="YTPlayerView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>

@@ -15,10 +15,9 @@ class InitialSetupViewController: BaseViewController {
     var userType: UserType!
 
     func openCitySelection(fbProfile: FBSDKProfile) {
-        let cityControllerNav = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "citySelectionNavigation") as! UINavigationController
-        let cityController = cityControllerNav.viewControllers.first as! SelectCityViewController
+        let cityController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "citySelectionVC") as! SelectCityViewController
         setupCityController(cityController, fbProfile: fbProfile)
-        self.present(cityControllerNav, animated: true, completion: nil)
+        self.navigationController?.pushViewController(cityController, animated: true)
     }
 
     func setupCityController(_ controller: SelectCityViewController, fbProfile: FBSDKProfile) {

@@ -45,7 +45,7 @@ extension MyProfileViewController {
         self.present(sheet, animated: true, completion: nil)
     }
 
-    func insertNewVideo(videoId: String) {
+    func insertNewVideo(videoId: String) {        
         self.allVideos.append(videoId)
         self.videosCollectionView.reloadData()
     }
@@ -71,6 +71,10 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
         if collectionView == videosCollectionView || collectionView == feedbacksCollectionVIew {
             let data = getDataArray(for: collectionView) as! [VideoId]
 
+            if collectionView == videosCollectionView {
+                videosCollectionView.layer.borderWidth = allVideos.isEmpty ? 1 : 0
+            }
+
             if indexPath.row == data.count {
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
             } else {
@@ -81,6 +85,8 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
             }
         } else {
             let data = getDataArray(for: collectionView) as! [UIImage]
+            photosCollectionView.layer.borderWidth = allPhotos.isEmpty ? 1 : 0
+
             if indexPath.row == data.count {
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
             } else {

@@ -325,7 +325,7 @@ private extension FirebaseManager {
         }
 
         let riversRef = Storage.storage().reference().child("images/\(name)")
-        let _ = riversRef.putData(photo.pngData()!, metadata: nil) { (metadata, error) in
+        let _ = riversRef.putData(photo.jpeg(.highest)!, metadata: nil) { (metadata, error) in
             riversRef.downloadURL { (url, error) in
                 completion(url)
             }

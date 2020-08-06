@@ -172,7 +172,7 @@ class Artist: User {
             facebookId: user.facebookId,
             name: user.name,
             talent: .dj,
-            description: "Enter your description here",
+            description: "",
             city: City.berlin,
             country: "Germany",
             price: 100,

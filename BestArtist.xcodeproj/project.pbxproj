@@ -12,7 +12,6 @@
 		3E204CEB22E8C8690053283D /* MyProfileViewController+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */; };
 		3E204CED22E8CC8B0053283D /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEC22E8CC8B0053283D /* Themes.swift */; };
 		3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CEE22E8CD0A0053283D /* UIColor+Extensions.swift */; };
-		3E204CF122E8DD460053283D /* CalendarDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CF022E8DD460053283D /* CalendarDecorator.swift */; };
 		3E204CF322E8E1070053283D /* MyProfileViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */; };
 		3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406622D905B500D73406 /* SelectPriceViewController.swift */; };
 		3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */; };
@@ -68,7 +67,6 @@
 		3E204CEA22E8C8690053283D /* MyProfileViewController+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Description.swift"; sourceTree = "<group>"; };
 		3E204CEC22E8CC8B0053283D /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		3E204CEE22E8CD0A0053283D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		3E204CF022E8DD460053283D /* CalendarDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDecorator.swift; sourceTree = "<group>"; };
 		3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Calendar.swift"; sourceTree = "<group>"; };
 		3E2B406622D905B500D73406 /* SelectPriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPriceViewController.swift; sourceTree = "<group>"; };
 		3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Price.swift"; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 				3EAD7D922233F6430031485F /* Cart */,
 				3E36FDD421A35462007781E5 /* ProfilesListViewController.swift */,
 				3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */,
-				3E204CF022E8DD460053283D /* CalendarDecorator.swift */,
 			);
 			path = "Profiles List";
 			sourceTree = "<group>";
@@ -463,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */,
-				3E204CF122E8DD460053283D /* CalendarDecorator.swift in Sources */,
 				3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */,
 				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,

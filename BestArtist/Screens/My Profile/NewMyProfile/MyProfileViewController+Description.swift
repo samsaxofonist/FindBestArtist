@@ -26,6 +26,9 @@ extension MyProfileViewController: UITextViewDelegate {
         self.priceButton.isUserInteractionEnabled = canEdit
         self.descriptionTextView.isUserInteractionEnabled = canEdit
         self.calendarView.isUserInteractionEnabled = canEdit
+        self.descriptionTextView.layer.borderColor = UIColor.red.cgColor
+
+        setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)
 
         if !canEdit {
             self.allPhotos.removeAll()
@@ -95,8 +98,18 @@ extension MyProfileViewController: UITextViewDelegate {
             }
         }
     }
+
+    func setDescriptionFieldEmptyState(isNotEnoughText: Bool) {
+        self.descriptionTextView.layer.borderWidth = isNotEnoughText ? 1 : 0
+    }
     
     func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count >= 20 {
+            setDescriptionFieldEmptyState(isNotEnoughText: false)
+        } else {
+            setDescriptionFieldEmptyState(isNotEnoughText: true)
+        }
+
         UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
         textView.scrollRangeToVisible(NSMakeRange(textView.text.count-1, 0))
@@ -148,8 +161,14 @@ extension MyProfileViewController: UITextViewDelegate {
             }
 
         case .media:
-            if atIndex == 2 || atIndex == 3 {
+            if atIndex == 2 {
                 return UITableView.automaticDimension
+            } else if atIndex == 3 {
+                if GlobalManager.myUser == artist {
+                    return UITableView.automaticDimension
+                } else {
+                    return allFeedbacks.isEmpty ? 0 : UITableView.automaticDimension
+                }
             } else {
                 return 0
             }
