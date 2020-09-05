@@ -13,11 +13,9 @@ import youtube_ios_player_helper
 class SetUserVideoViewController: BaseViewController {
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var videoView: YTPlayerView!
-    
-    var artist: User!
-    
+
     var finishBlock: ((String?) -> Void)!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView.layer.cornerRadius = 10
@@ -92,13 +90,7 @@ class SetUserVideoViewController: BaseViewController {
         }
         return false
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        _ = segue.destination as! SelectCityViewController
-        //artist.youtubeLinks = textfield.text ?? ""
-        //nextViewController.artist = artist
-    }
-    
+
     @IBAction func cancelClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

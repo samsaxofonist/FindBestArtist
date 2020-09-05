@@ -59,43 +59,16 @@ extension MyProfileViewController: UITextViewDelegate {
             self.insertNewVideo(videoId: id)
         })
 
+        if !self.allVideos.isEmpty {
+            self.videosLongTapRecognizer.isEnabled = true
+        }
+
         loadVideoLinks(from: artist.feedbackLinks, doForEachLink: { id in
             self.insertNewFeedback(videoId: id)
         })
-    }
 
-    func loadVideoLinks(from array: [String], doForEachLink: ((String) -> Void)) {
-        array.forEach { link in
-            let videoId: String?
-
-            if link.contains("="), let lastAfterEqual = link.components(separatedBy: "=").last {
-                videoId = lastAfterEqual
-            } else if let lastAfterSlash = link.components(separatedBy: "/").last {
-                videoId = lastAfterSlash
-            } else {
-                videoId = nil
-            }
-
-            if let id = videoId {
-                doForEachLink(id)
-            }
-        }
-    }
-
-    func loadAllPhotos() {
-        guard let artist = self.artist else { return }
-        
-        artist.galleryPhotosLinks.forEach {
-            let url = URL(string: $0)
-
-            KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in
-                switch result {
-                case .success(let value):
-                    self.insertNewPhoto(value.image)
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            }
+        if !self.allFeedbacks.isEmpty {
+            self.feedbacksLongTapRecognizer.isEnabled = true
         }
     }
 

@@ -45,14 +45,34 @@ extension MyProfileViewController {
         self.present(sheet, animated: true, completion: nil)
     }
 
-    func insertNewVideo(videoId: String) {        
+    func insertNewVideo(videoId: String) {
+        self.videosLongTapRecognizer.isEnabled = true
         self.allVideos.append(videoId)
         self.videosCollectionView.reloadData()
     }
 
     func insertNewFeedback(videoId: String) {
+        self.feedbacksLongTapRecognizer.isEnabled = true
         self.allFeedbacks.append(videoId)
         self.feedbacksCollectionVIew.reloadData()
+    }
+
+    func loadVideoLinks(from array: [String], doForEachLink: ((String) -> Void)) {
+        array.forEach { link in
+            let videoId: String?
+
+            if link.contains("="), let lastAfterEqual = link.components(separatedBy: "=").last {
+                videoId = lastAfterEqual
+            } else if let lastAfterSlash = link.components(separatedBy: "/").last {
+                videoId = lastAfterSlash
+            } else {
+                videoId = nil
+            }
+
+            if let id = videoId {
+                doForEachLink(id)
+            }
+        }
     }
 }
 
@@ -110,31 +130,52 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                 imagePickerForUserPhoto = false
                 openGalery()
             }
+        } else if collectionView == videosCollectionView {
+            if indexPath.row < allVideos.count, let cell = videosCollectionView.cellForItem(at: indexPath) as? VideoCell {
+                if cell.playerView.playerState() == .playing {
+                    cell.playerView.pauseVideo()
+                } else {
+                    cell.playerView.playVideo()
+                }
+            } else {
+                openAddNewVideo()
+            }
+        } else if collectionView == feedbacksCollectionVIew {
+            if indexPath.row < allVideos.count, let cell = feedbacksCollectionVIew.cellForItem(at: indexPath) as? VideoCell {
+                if cell.playerView.playerState() == .playing {
+                    cell.playerView.pauseVideo()
+                } else {
+                    cell.playerView.playVideo()
+                }
+            } else {
+                openAddNewFeedback()
+            }
         }
     }
 
     func openAddNewVideo() {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+        let addVideoVC = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoVC") as! SetUserVideoViewController
 
         addVideoVC.finishBlock = { videoString in
             if let videoId = videoString {
                 self.insertNewVideo(videoId: videoId)
             }
         }
-        present(addVideoNav, animated: true, completion: nil)
+
+        let navC = UINavigationController(rootViewController: addVideoVC)
+        present(navC, animated: true, completion: nil)
     }
 
     func openAddNewFeedback() {
-        let addVideoNav = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoNavigation") as! UINavigationController
-        let addVideoVC = addVideoNav.viewControllers.first as! SetUserVideoViewController
+        let addVideoVC = self.storyboard?.instantiateViewController(withIdentifier: "AddVideoVC") as! SetUserVideoViewController
 
         addVideoVC.finishBlock = { videoString in
             if let videoId = videoString {
                 self.insertNewFeedback(videoId: videoId)
             }
         }
-        present(addVideoNav, animated: true, completion: nil)
+        let navC = UINavigationController(rootViewController: addVideoVC)
+        present(navC, animated: true, completion: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

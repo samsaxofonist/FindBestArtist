@@ -66,7 +66,11 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     var applyBarButton: UIBarButtonItem!
 
     var isNewProfile = false
-    
+
+    var photosLongTapRecognizer: UIGestureRecognizer!
+    var videosLongTapRecognizer: UIGestureRecognizer!
+    var feedbacksLongTapRecognizer: UIGestureRecognizer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,24 +83,14 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     }
 
     func setupMediasLongTap() {
-        let photosRecognizer = makeLongTapGestureRecognizer()
-        self.photosCollectionView?.addGestureRecognizer(photosRecognizer)
+        photosLongTapRecognizer = makeLongTapGestureRecognizer()
+        self.photosCollectionView?.addGestureRecognizer(photosLongTapRecognizer)
 
-        let videosRecognizer = makeLongTapGestureRecognizer()
-        self.videosCollectionView?.addGestureRecognizer(videosRecognizer)
+        videosLongTapRecognizer = makeLongTapGestureRecognizer()
+        self.videosCollectionView?.addGestureRecognizer(videosLongTapRecognizer)
 
-        let feedbacksRecognizer = makeLongTapGestureRecognizer()
-        self.feedbacksCollectionVIew?.addGestureRecognizer(feedbacksRecognizer)
-
-        let shortTapVideos = makeShortTapGestureRecognized()
-        videosCollectionView.addGestureRecognizer(shortTapVideos)
-
-        let shortTapFeedbacks = makeShortTapGestureRecognized()
-        feedbacksCollectionVIew.addGestureRecognizer(shortTapFeedbacks)
-    }
-
-    func makeShortTapGestureRecognized() -> UITapGestureRecognizer {
-        return UITapGestureRecognizer(target: self, action: #selector(MyProfileViewController.handleShortTap(gestureRecognizer:)))
+        feedbacksLongTapRecognizer = makeLongTapGestureRecognizer()
+        self.feedbacksCollectionVIew?.addGestureRecognizer(feedbacksLongTapRecognizer)
     }
 
     func makeLongTapGestureRecognizer() -> UILongPressGestureRecognizer {
@@ -104,33 +98,8 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         lpgr.minimumPressDuration = 0.5
         lpgr.delegate = self
         lpgr.delaysTouchesBegan = true
+        lpgr.isEnabled = false
         return lpgr
-    }
-
-    @objc func handleShortTap(gestureRecognizer: UILongPressGestureRecognizer) {
-        if gestureRecognizer.view == videosCollectionView {
-            let point = gestureRecognizer.location(in: videosCollectionView)
-            if let indexPath = self.videosCollectionView?.indexPathForItem(at: point), let cell = videosCollectionView.cellForItem(at: indexPath) as? VideoCell {
-                if cell.playerView.playerState() == .playing {
-                    cell.playerView.pauseVideo()
-                } else {
-                    cell.playerView.playVideo()
-                }
-            } else {
-                openAddNewVideo()
-            }
-        } else if gestureRecognizer.view == feedbacksCollectionVIew {
-            let point = gestureRecognizer.location(in: feedbacksCollectionVIew)
-            if let indexPath = self.feedbacksCollectionVIew?.indexPathForItem(at: point), let cell = feedbacksCollectionVIew.cellForItem(at: indexPath) as? VideoCell {
-                if cell.playerView.playerState() == .playing {
-                    cell.playerView.pauseVideo()
-                } else {
-                    cell.playerView.playVideo()
-                }
-            } else {
-                openAddNewFeedback()
-            }
-        }
     }
 
     @objc func handleLongMediaPress(gestureRecognizer: UILongPressGestureRecognizer){
@@ -141,24 +110,33 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         let pointInPhotos = gestureRecognizer.location(in: photosCollectionView)
         if gestureRecognizer.view == photosCollectionView {
             if let indexPath = self.photosCollectionView?.indexPathForItem(at: pointInPhotos) {
-                showMediaDeleteAlert(mediaType: "photo", collectionView: photosCollectionView, indexPath: indexPath, confirmDelete: {
+                showMediaDeleteAlert(mediaType: "photo", collectionView: photosCollectionView, indexPath: indexPath, confirmDelete: { [unowned self] in
                     self.allPhotos.remove(at: indexPath.row)
+                    if self.allPhotos.isEmpty {
+                        self.photosLongTapRecognizer.isEnabled = false
+                    }
                 })
             }
         } else {
             let pointInVideos = gestureRecognizer.location(in: videosCollectionView)
             if gestureRecognizer.view == videosCollectionView {
-                if let indexPath = self.videosCollectionView?.indexPathForItem(at: pointInVideos) {
-                    showMediaDeleteAlert(mediaType: "video", collectionView: videosCollectionView, indexPath: indexPath, confirmDelete: {
+                if let indexPath = self.videosCollectionView?.indexPathForItem(at: pointInVideos), indexPath.row < self.allVideos.count {
+                    showMediaDeleteAlert(mediaType: "video", collectionView: videosCollectionView, indexPath: indexPath, confirmDelete: { [unowned self] in
                         self.allVideos.remove(at: indexPath.row)
+                        if self.allVideos.isEmpty {
+                            self.videosLongTapRecognizer.isEnabled = false
+                        }
                     })
                 }
             } else {
                 let pointInFeedbacks = gestureRecognizer.location(in: feedbacksCollectionVIew)
                 if gestureRecognizer.view == feedbacksCollectionVIew {
-                    if let indexPath = self.feedbacksCollectionVIew?.indexPathForItem(at: pointInFeedbacks) {
-                        showMediaDeleteAlert(mediaType: "feedback video", collectionView: feedbacksCollectionVIew, indexPath: indexPath, confirmDelete: {
+                    if let indexPath = self.feedbacksCollectionVIew?.indexPathForItem(at: pointInFeedbacks), indexPath.row < self.allFeedbacks.count {
+                        showMediaDeleteAlert(mediaType: "feedback video", collectionView: feedbacksCollectionVIew, indexPath: indexPath, confirmDelete: { [unowned self] in
                             self.allFeedbacks.remove(at: indexPath.row)
+                            if self.allFeedbacks.isEmpty {
+                                self.feedbacksLongTapRecognizer.isEnabled = false
+                            }
                         })
                     }
                 }
@@ -178,17 +156,6 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         }))
 
         self.present(alert, animated: true)
-    }
-
-    func setupPhotoShadow() {
-        photoBackgroundVIew.addShadow(
-            shadowColor: UIColor.lightGray,
-            offSet: .zero,
-            opacity: 0.8,
-            shadowRadius: 2,
-            cornerRadius: 77,
-            corners: .allCorners
-        )
     }
 
     private func setupSegmentsControl() {

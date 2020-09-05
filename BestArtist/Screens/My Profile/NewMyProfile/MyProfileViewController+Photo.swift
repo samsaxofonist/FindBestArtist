@@ -35,8 +35,10 @@ extension MyProfileViewController {
     func processUserPhotoLinks() {
         artist.galleryPhotosLinks.publisher
             .compactMap { URL(string: $0) }
-            .sink(receiveCompletion: { _ in
-                
+            .sink(receiveCompletion: { [unowned self] _ in
+                if !(self.allPhotos.isEmpty == true) {
+                    self.photosLongTapRecognizer.isEnabled = true
+                }
             }, receiveValue: { url in
                 KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), options: nil, progressBlock: nil) { result in
                     switch result {
@@ -119,8 +121,38 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
 
     func insertNewPhoto(_ photo: UIImage) {
         allPhotos.append(photo)
+        photosLongTapRecognizer.isEnabled = true
         photosCollectionView.reloadData()
     }
+
+    func setupPhotoShadow() {
+        photoBackgroundVIew.addShadow(
+            shadowColor: UIColor.lightGray,
+            offSet: .zero,
+            opacity: 0.8,
+            shadowRadius: 2,
+            cornerRadius: 77,
+            corners: .allCorners
+        )
+    }
+
+    func loadAllPhotos() {
+        guard let artist = self.artist else { return }
+
+        artist.galleryPhotosLinks.forEach {
+            let url = URL(string: $0)
+
+            KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    self.insertNewPhoto(value.image)
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+        }
+    }
+
 }
 
 extension UIImage {
