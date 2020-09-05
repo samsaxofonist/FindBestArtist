@@ -103,10 +103,8 @@ class FirebaseManager {
                 self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: uploadPhotoCompletion)
             }
 
-            if existedArtist.galleryPhotosLinks.sorted() != artist.galleryPhotosLinks.sorted() {
-                uploadGroup.enter()
-                self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: uploadGalleryPhotosCompletion)
-            }
+            uploadGroup.enter()
+            self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: uploadGalleryPhotosCompletion)
 
             uploadGroup.enter()
             updateArtistsMainInfo(ref: ref, artist: artist)
@@ -319,16 +317,31 @@ private extension FirebaseManager {
     }
 
     private static func uploadAnyPhoto(_ photo: UIImage?, name: String, completion: @escaping ((URL?) -> Void)) {
-        guard let photo = photo else {
+        guard let photo = photo, let url = saveImage(photo, name: name) else {
             completion(nil)
             return
         }
 
         let riversRef = Storage.storage().reference().child("images/\(name)")
-        let _ = riversRef.putData(photo.jpeg(.highest)!, metadata: nil) { (metadata, error) in
+
+        let _ = riversRef.putFile(from: url, metadata: nil) { (metadata, error) in
             riversRef.downloadURL { (url, error) in
                 completion(url)
             }
         }
     }
+
+    static func saveImage(_ image: UIImage, name: String) -> URL? {
+        guard let imageData = image.jpegData(compressionQuality: 1) else {
+            return nil
+        }
+        do {
+            let imageURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent(name)
+            try imageData.write(to: imageURL)
+            return imageURL
+        } catch {
+            return nil
+        }
+    }
+
 }

@@ -53,8 +53,6 @@ extension MyProfileViewController: UITextViewDelegate {
         selectedRole = artist.talent
         self.artistTypeLabel.text = artist.talent.description
 
-        loadAllPhotos()
-
         loadVideoLinks(from: artist.youtubeLinks, doForEachLink: { id in
             self.insertNewVideo(videoId: id)
         })

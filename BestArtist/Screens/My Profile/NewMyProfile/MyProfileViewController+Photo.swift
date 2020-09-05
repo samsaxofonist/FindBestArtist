@@ -135,24 +135,6 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
             corners: .allCorners
         )
     }
-
-    func loadAllPhotos() {
-        guard let artist = self.artist else { return }
-
-        artist.galleryPhotosLinks.forEach {
-            let url = URL(string: $0)
-
-            KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url!), options: nil, progressBlock: nil) { result in
-                switch result {
-                case .success(let value):
-                    self.insertNewPhoto(value.image)
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            }
-        }
-    }
-
 }
 
 extension UIImage {

@@ -78,8 +78,8 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         setupPhotoShadow()
         tableView.tableFooterView = UIView()
         setupSegmentsControl()
-        setupInitialInfo()
         setupMediasLongTap()
+        setupInitialInfo()
     }
 
     func setupMediasLongTap() {
