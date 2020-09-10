@@ -13,6 +13,7 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var getButton: UIButton!
     @IBOutlet weak var smallBackgroundView: UIView!
     @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +24,9 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
 
         greetingLabel.text = "Hi, \(GlobalManager.myUser?.name ?? "user")"
+        updateTotalPrice()
     }
     
-    @IBAction func delButtonClicked(_ sender: Any) {
-        if tableView.isEditing {
-            tableView.setEditing(false, animated: true)
-        } else {
-           tableView.setEditing(true, animated: true)
-        }
-    }
-    
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     @IBAction func GetButtonClicked(_ sender: Any) {
     }
     
@@ -72,6 +63,12 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             GlobalManager.selectedArtists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            updateTotalPrice()
         }
+    }
+
+    func updateTotalPrice() {
+        let totalPrice = GlobalManager.selectedArtists.reduce(0) { $0 + $1.price }
+        totalPriceLabel.text = "Total: \(totalPrice) €"
     }
 }

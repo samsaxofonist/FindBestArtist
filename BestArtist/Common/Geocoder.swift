@@ -10,7 +10,38 @@ import Foundation
 import MapKit
 import CoreLocation
 
+struct Address {
+    let postalCode: String
+    let street: String
+    let streetNumber: String
+    let city: String
+    let country: String
+}
+
 class Geocoder {
+
+    static func getDetailedAddress(locationObject: MKLocalSearchCompletion, completion: @escaping ((Address?) -> Void)) {
+        getCoordinates(locationObject: locationObject) { coordinate in
+            let geoCoder = CLGeocoder()
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
+                guard let placeMark = placemarks?.first else { return }
+
+                // Получили имя города и страны
+                if let cityName = placeMark.subAdministrativeArea,
+                    let countryName = placeMark.country,
+                    let postalCode = placeMark.postalCode,
+                    let street = placeMark.thoroughfare,
+                    let streetNumber = placeMark.subThoroughfare {
+                    let address = Address(postalCode: postalCode, street: street, streetNumber: streetNumber, city: cityName, country: countryName)
+                    completion(address)
+                } else {
+                    completion(nil)
+                }
+            })
+        }
+    }
+
     static func getCityAndCountry(locationObject: MKLocalSearchCompletion, completion: @escaping ((City, String) -> Void)) {
         getCoordinates(locationObject: locationObject) { coordinate in
             let geoCoder = CLGeocoder()

@@ -15,6 +15,7 @@
 		3E204CF322E8E1070053283D /* MyProfileViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */; };
 		3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406622D905B500D73406 /* SelectPriceViewController.swift */; };
 		3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */; };
+		3E3085CC250A947A00C73D9E /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3085CB250A947A00C73D9E /* SelectAddressViewController.swift */; };
 		3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991D21C687B400BC33AB /* BaseViewController.swift */; };
 		3E32992021C68A5800BC33AB /* SetUserVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */; };
 		3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36FDB621A353AA007781E5 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		3E204CF222E8E1070053283D /* MyProfileViewController+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Calendar.swift"; sourceTree = "<group>"; };
 		3E2B406622D905B500D73406 /* SelectPriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPriceViewController.swift; sourceTree = "<group>"; };
 		3E2B406822D90A1200D73406 /* MyProfileViewController+Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Price.swift"; sourceTree = "<group>"; };
+		3E3085CB250A947A00C73D9E /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
 		3E32991D21C687B400BC33AB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserVideoViewController.swift; sourceTree = "<group>"; };
 		3E36FDB321A353AA007781E5 /* BestArtist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestArtist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +249,7 @@
 				3EFAD9F922CE731300DF5093 /* NewMyProfile */,
 				3E32991F21C68A5800BC33AB /* SetUserVideoViewController.swift */,
 				3EBEC72321EBA37800274C76 /* SelectCityViewController.swift */,
+				3E3085CB250A947A00C73D9E /* SelectAddressViewController.swift */,
 				3E2B406622D905B500D73406 /* SelectPriceViewController.swift */,
 				3E59389324880E1B00898484 /* PriceCalculator.swift */,
 				3E60598F222F013F00156CB4 /* SetUserDatesVC.swift */,
@@ -498,6 +501,7 @@
 				3E36FDFF21A35463007781E5 /* ProfilesListViewController.swift in Sources */,
 				3E75CAB2228FEB35004F8127 /* City.swift in Sources */,
 				3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */,
+				3E3085CC250A947A00C73D9E /* SelectAddressViewController.swift in Sources */,
 				3EC9895D249A978C005A9662 /* RootViewController.swift in Sources */,
 				3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */,
 				3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */,
