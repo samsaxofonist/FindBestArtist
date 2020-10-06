@@ -27,7 +27,6 @@ class Geocoder {
             geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
                 guard let placeMark = placemarks?.first else { return }
 
-                // Получили имя города и страны
                 if let cityName = placeMark.subAdministrativeArea,
                     let countryName = placeMark.country,
                     let postalCode = placeMark.postalCode,

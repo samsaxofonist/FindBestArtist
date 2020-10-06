@@ -1062,11 +1062,11 @@
             </objects>
             <point key="canvasLocation" x="4975.1999999999998" y="-2118.4729064039411"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Order Contacts View Controller-->
         <scene sceneID="taz-LX-pTY">
             <objects>
-                <tableViewController id="2s7-Hn-hQh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZfK-aC-oDJ">
+                <tableViewController id="2s7-Hn-hQh" customClass="OrderContactsViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZfK-aC-oDJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1304,6 +1304,33 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.8980392157" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="85" id="wPY-fY-vQs">
+                                        <rect key="frame" x="0.0" y="708" width="375" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wPY-fY-vQs" id="M8A-pF-fom">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO6-eN-URv">
+                                                    <rect key="frame" x="8" y="11" width="359" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="zPp-9M-Ir9"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Send"/>
+                                                    <connections>
+                                                        <action selector="sendButtonClicked" destination="2s7-Hn-hQh" eventType="touchUpInside" id="XYv-YY-hEs"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wO6-eN-URv" firstAttribute="leading" secondItem="M8A-pF-fom" secondAttribute="leadingMargin" id="8bN-2v-Bbg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wO6-eN-URv" secondAttribute="bottom" id="X8v-ze-rTj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wO6-eN-URv" secondAttribute="trailing" id="aFG-Jz-kfA"/>
+                                                <constraint firstItem="wO6-eN-URv" firstAttribute="top" secondItem="M8A-pF-fom" secondAttribute="topMargin" id="dTc-Oq-xmd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1313,6 +1340,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tXZ-bh-clI"/>
+                    <connections>
+                        <outlet property="cityTextField" destination="cs5-iW-2R6" id="nmb-7o-x1L"/>
+                        <outlet property="emailTextField" destination="HnL-NC-xo2" id="TFa-q2-5cd"/>
+                        <outlet property="lastNameTextField" destination="N3e-3k-PFX" id="vnx-9R-KcY"/>
+                        <outlet property="nameTextField" destination="4JU-IE-bxv" id="oju-xN-FDf"/>
+                        <outlet property="phoneTextField" destination="u6J-2i-e1O" id="QGr-2P-RXI"/>
+                        <outlet property="postalCodeTextField" destination="Yds-PC-f9B" id="sNp-lL-7ZE"/>
+                        <outlet property="sendButton" destination="wO6-eN-URv" id="9nA-Zu-bV4"/>
+                        <outlet property="streetAndNumberTextField" destination="FBx-kl-oEo" id="uQd-r3-gsk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfO-T8-KFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1430,11 +1467,17 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="8x1-El-Cha">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
         <designable name="hfy-Dy-zRW">
             <size key="intrinsicContentSize" width="60" height="40"/>
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
+        </designable>
+        <designable name="uOD-MS-g2u">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>

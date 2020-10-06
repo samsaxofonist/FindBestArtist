@@ -9,12 +9,12 @@
 import UIKit
 
 class SelectAddressViewController: SelectCityViewController {
+
+    var addressFinishBlock: ((Address) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Select address"
         self.navigationItem.title = "Select address"
-        self.navigationController?.title = "Select address"
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -24,9 +24,9 @@ class SelectAddressViewController: SelectCityViewController {
 
         Geocoder.getDetailedAddress(locationObject: completion) { address in
             if let address = address {
-                // 
+                self.addressFinishBlock(address)
             }
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

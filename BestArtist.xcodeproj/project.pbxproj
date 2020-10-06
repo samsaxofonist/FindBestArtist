@@ -45,6 +45,7 @@
 		3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAB3228FEBEA004F8127 /* StartViewController.swift */; };
 		3E75CCDC22902C7E004F8127 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CCDB22902C7E004F8127 /* MapVC.swift */; };
 		3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E85491022C9157400869A9B /* MyProfileViewController.swift */; };
+		3E93CAB4252CD47100F33DD5 /* OrderContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93CAB3252CD47100F33DD5 /* OrderContactsViewController.swift */; };
 		3E9C21F122BAB2F60080A7CC /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C21F022BAB2F50080A7CC /* CountriesList.json */; };
 		3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */; };
 		3EAD7D942233F69E0031485F /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD7D932233F69E0031485F /* CartVC.swift */; };
@@ -103,6 +104,7 @@
 		3E75CAB3228FEBEA004F8127 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		3E75CCDB22902C7E004F8127 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		3E85491022C9157400869A9B /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		3E93CAB3252CD47100F33DD5 /* OrderContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContactsViewController.swift; sourceTree = "<group>"; };
 		3E9C21F022BAB2F50080A7CC /* CountriesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountriesList.json; sourceTree = "<group>"; };
 		3EA1B056226A0BED0039CFC1 /* FullScreenImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageVC.swift; sourceTree = "<group>"; };
 		3EAD7D932233F69E0031485F /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				3E36FDD321A35462007781E5 /* Profiles List */,
 				3E36FDD521A35462007781E5 /* My Profile */,
 				3E36FDD921A35462007781E5 /* MenuViewController.swift */,
+				3E93CAB3252CD47100F33DD5 /* OrderContactsViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				3E2B406922D90A1200D73406 /* MyProfileViewController+Price.swift in Sources */,
 				3E2B406722D905B500D73406 /* SelectPriceViewController.swift in Sources */,
 				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
+				3E93CAB4252CD47100F33DD5 /* OrderContactsViewController.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,
 				3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */,
 				3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */,
