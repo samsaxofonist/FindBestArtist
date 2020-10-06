@@ -9,6 +9,13 @@
 import UIKit
 
 class SelectAddressViewController: SelectCityViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Select address"
+        self.navigationItem.title = "Select address"
+        self.navigationController?.title = "Select address"
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
