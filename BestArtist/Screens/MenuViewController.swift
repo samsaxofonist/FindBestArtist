@@ -18,6 +18,7 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileCellTitleLabel: UILabel!
     @IBOutlet weak var logoutCellTitleLabel: UILabel!
+    @IBOutlet weak var myOrdersCellTitleLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class MenuViewController: UITableViewController {
         self.nameLabel.textColor = theme.textColor
         self.profileCellTitleLabel.textColor = theme.textColor
         self.logoutCellTitleLabel.textColor = theme.textColor
+        self.myOrdersCellTitleLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +93,12 @@ class MenuViewController: UITableViewController {
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
         } else if indexPath.row == 2 {
+            let myOrders = UIStoryboard(name: "MyOrders", bundle: nil).instantiateViewController(withIdentifier: "MyOrdersViewController")
+
+            neededNavigation?.pushViewController(myOrders, animated: true)
+            dismiss(animated: true, completion: nil)
+        }
+        else if indexPath.row == 3 {
             FBSDKLoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             

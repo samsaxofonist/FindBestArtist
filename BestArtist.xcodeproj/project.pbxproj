@@ -54,6 +54,12 @@
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
 		3EC9895D249A978C005A9662 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9895C249A978C005A9662 /* RootViewController.swift */; };
+		3EEFE24E2538A2E7008E4667 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE24D2538A2E7008E4667 /* MyOrdersViewController.swift */; };
+		3EEFE2512538A36D008E4667 /* MyOrders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFE2502538A36D008E4667 /* MyOrders.storyboard */; };
+		3EEFE2542538A521008E4667 /* MyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE2532538A521008E4667 /* MyOrderCell.swift */; };
+		3EEFE2572538A7A4008E4667 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE2562538A7A4008E4667 /* OrderDetailsViewController.swift */; };
+		3EEFE25A2538A80A008E4667 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE2592538A80A008E4667 /* Order.swift */; };
+		3EEFE25D2538ABBE008E4667 /* MyOrdersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE25C2538ABBE008E4667 /* MyOrdersLoader.swift */; };
 		3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */; };
 		3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */; };
 		3EFAD9FF22CE794700DF5093 /* MyProfileViewController+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */; };
@@ -113,6 +119,12 @@
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3EC9895C249A978C005A9662 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		3EEFE24D2538A2E7008E4667 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
+		3EEFE2502538A36D008E4667 /* MyOrders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyOrders.storyboard; sourceTree = "<group>"; };
+		3EEFE2532538A521008E4667 /* MyOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderCell.swift; sourceTree = "<group>"; };
+		3EEFE2562538A7A4008E4667 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		3EEFE2592538A80A008E4667 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		3EEFE25C2538ABBE008E4667 /* MyOrdersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersLoader.swift; sourceTree = "<group>"; };
 		3EFAD9FA22CE733100DF5093 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		3EFAD9FC22CE75D200DF5093 /* MyProfileViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Photo.swift"; sourceTree = "<group>"; };
 		3EFAD9FE22CE794700DF5093 /* MyProfileViewController+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Name.swift"; sourceTree = "<group>"; };
@@ -206,6 +218,7 @@
 				3E36FDD021A35462007781E5 /* Buttons */,
 				3E017C11220307F600CF2E96 /* GradientView.swift */,
 				3EC9895C249A978C005A9662 /* RootViewController.swift */,
+				3EEFE2502538A36D008E4667 /* MyOrders.storyboard */,
 				3E36FDCB21A35462007781E5 /* LaunchScreen.storyboard */,
 				3E36FDCD21A35462007781E5 /* Main.storyboard */,
 				3EC0D00621BD38CF004627EA /* Profile.storyboard */,
@@ -218,11 +231,11 @@
 		3E36FDCF21A35462007781E5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3EEFE24C2538A2D0008E4667 /* Orders */,
 				3E36FDD721A35462007781E5 /* Login */,
 				3E36FDD321A35462007781E5 /* Profiles List */,
 				3E36FDD521A35462007781E5 /* My Profile */,
 				3E36FDD921A35462007781E5 /* MenuViewController.swift */,
-				3E93CAB3252CD47100F33DD5 /* OrderContactsViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -313,6 +326,19 @@
 				3EAD7D932233F69E0031485F /* CartVC.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		3EEFE24C2538A2D0008E4667 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				3E93CAB3252CD47100F33DD5 /* OrderContactsViewController.swift */,
+				3EEFE24D2538A2E7008E4667 /* MyOrdersViewController.swift */,
+				3EEFE25C2538ABBE008E4667 /* MyOrdersLoader.swift */,
+				3EEFE2562538A7A4008E4667 /* OrderDetailsViewController.swift */,
+				3EEFE2532538A521008E4667 /* MyOrderCell.swift */,
+				3EEFE2592538A80A008E4667 /* Order.swift */,
+			);
+			path = Orders;
 			sourceTree = "<group>";
 		};
 		3EFAD9F922CE731300DF5093 /* NewMyProfile */ = {
@@ -417,6 +443,7 @@
 				3E9C21F122BAB2F60080A7CC /* CountriesList.json in Resources */,
 				3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */,
 				3E36FDFB21A35463007781E5 /* LaunchScreen.storyboard in Resources */,
+				3EEFE2512538A36D008E4667 /* MyOrders.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,8 +497,10 @@
 				3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */,
 				3E93CAB4252CD47100F33DD5 /* OrderContactsViewController.swift in Sources */,
 				3E36FDF921A35463007781E5 /* ProfileCell.swift in Sources */,
+				3EEFE2542538A521008E4667 /* MyOrderCell.swift in Sources */,
 				3E36FDB721A353AA007781E5 /* AppDelegate.swift in Sources */,
 				3EA1B057226A0BED0039CFC1 /* FullScreenImageVC.swift in Sources */,
+				3EEFE2572538A7A4008E4667 /* OrderDetailsViewController.swift in Sources */,
 				3EAD7D942233F69E0031485F /* CartVC.swift in Sources */,
 				3E75CAB4228FEBEA004F8127 /* StartViewController.swift in Sources */,
 				3E204CF322E8E1070053283D /* MyProfileViewController+Calendar.swift in Sources */,
@@ -488,6 +517,7 @@
 				3EFD0AC924B787FF0097BB61 /* PhotoCell.swift in Sources */,
 				3E6E3F2324A3CAF7001E90B3 /* InitialSetupViewController.swift in Sources */,
 				3E60598C222EDA4400156CB4 /* LoginManager.swift in Sources */,
+				3EEFE24E2538A2E7008E4667 /* MyOrdersViewController.swift in Sources */,
 				3E6BE0F223AF965300B84BF7 /* MyProfileViewController+Videos.swift in Sources */,
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */,
@@ -510,6 +540,8 @@
 				3EBEC72421EBA37800274C76 /* SelectCityViewController.swift in Sources */,
 				3E204CEF22E8CD0A0053283D /* UIColor+Extensions.swift in Sources */,
 				3E36FDFE21A35463007781E5 /* GlobalManager.swift in Sources */,
+				3EEFE25A2538A80A008E4667 /* Order.swift in Sources */,
+				3EEFE25D2538ABBE008E4667 /* MyOrdersLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
