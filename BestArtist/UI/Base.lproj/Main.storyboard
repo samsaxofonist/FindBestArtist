@@ -1477,26 +1477,31 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="jc1-Um-VR2" id="lbt-T6-Rl1"/>
                         <outlet property="searchResultsTableView" destination="knS-O6-9rK" id="EGG-8l-kjz"/>
                     </connections>
                 </viewController>
+                <searchBar contentMode="redraw" placeholder="Select your address" translatesAutoresizingMaskIntoConstraints="NO" id="PG7-wI-ztA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="ape-ma-wdM"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="tgX-86-vzM" id="VkW-Ha-cfY"/>
+                    </connections>
+                </searchBar>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeX-wg-J1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3422" y="-2846"/>
         </scene>
     </scenes>
     <designables>
-        <designable name="8x1-El-Cha">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
-        </designable>
         <designable name="hfy-Dy-zRW">
             <size key="intrinsicContentSize" width="60" height="40"/>
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
-        </designable>
-        <designable name="uOD-MS-g2u">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>

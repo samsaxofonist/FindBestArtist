@@ -20,7 +20,7 @@ class MyOrderCell: UITableViewCell {
     }()
     
     func setupWithOrder(_ order: Order) {
-        priceLabel.text = String(order.totalPrice) + "€"
+        priceLabel.text = String(order.artists.reduce(0) { $0 + $1.fixedPrice }) + "€"
         dateLabel.text = MyOrderCell.dateFormatter.string(from: order.date)
     }
 }

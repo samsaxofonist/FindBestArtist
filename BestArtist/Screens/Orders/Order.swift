@@ -8,11 +8,22 @@
 
 import Foundation
 
+struct ArtistOrderInfo {
+    let artistId: String
+    let fixedPrice: Int
+
+    func convertToSimpleData() -> [String: Int] {
+        return [artistId: fixedPrice]
+    }
+}
+
 struct Order {
     let date: Date
     let city: String
-    let artists: [Artist]
-    let totalPrice: Double
-    let pricePerArtist: [String: Double]
+    let artists: [ArtistOrderInfo]
     let isApproved: Bool
+
+    func getSimpleArtists() -> [[String: Int]] {
+        return artists.map { $0.convertToSimpleData() }
+    }
 }

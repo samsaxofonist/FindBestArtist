@@ -10,11 +10,27 @@ import UIKit
 
 class SelectAddressViewController: SelectCityViewController {
 
-    var addressFinishBlock: ((Address) -> Void)!
+    @IBOutlet weak var searchBar: UISearchBar!
+    var prefilledValue: String?
+
+    var addressFinishBlock: ((Address, String) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Select address"
+        self.searchBar.text = prefilledValue
+        self.searchBar(self.searchBar, textDidChange: prefilledValue ?? "")
+    }
+
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let numbersRange = self.searchBar.text!.rangeOfCharacter(from: .decimalDigits)
+        let hasNumbers = (numbersRange != nil)
+
+        if hasNumbers {
+            return indexPath
+        } else {
+            return nil
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -24,7 +40,7 @@ class SelectAddressViewController: SelectCityViewController {
 
         Geocoder.getDetailedAddress(locationObject: completion) { address in
             if let address = address {
-                self.addressFinishBlock(address)
+                self.addressFinishBlock(address, self.searchBar.text!)
             }
             self.navigationController?.popViewController(animated: true)
         }

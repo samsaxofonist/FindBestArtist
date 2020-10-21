@@ -31,6 +31,13 @@ struct ArtistKeys {
     static let type = "type"
 }
 
+struct OrderKeys {
+    static let dateKey = "date"
+    static let cityKey = "city"
+    static let artistsKey = "artists"
+    static let isApprovedKey = "isApproved"
+}
+
 class FirebaseManager {
     static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
         let ref: DatabaseReference
@@ -54,6 +61,16 @@ class FirebaseManager {
             ref = Database.database().reference().child("customers").childByAutoId()
             createNewCustomer(ref: ref, customer: customer, finish: finish)
         }
+    }
+
+    static func sendOrder(order: Order, completion: (() -> Void)) {
+        let ref: DatabaseReference = Database.database().reference().child("orders")
+        ref.setValue([OrderKeys.dateKey: order.date.timeIntervalSince1970,
+                      OrderKeys.cityKey: order.city,
+                      OrderKeys.artistsKey: order.getSimpleArtists(),
+                      OrderKeys.isApprovedKey: order.isApproved,
+                      ])
+        completion()
     }
 
     static func createNewCustomer(ref: DatabaseReference, customer: User, finish: @escaping (()->())) {

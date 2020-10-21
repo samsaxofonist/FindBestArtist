@@ -11,13 +11,13 @@ import Foundation
 class MyOrdersLoader {
 
     func loadMyOrders(completion: (([Order]) -> Void)) {
-        let artist = Artist.instantiate(fromUser: GlobalManager.myUser!)
+        let artist = ArtistOrderInfo(artistId: "s", fixedPrice: 12)
         let orders = [
-            Order(date: Date(), city: "Berlin", artists: [artist], totalPrice: 1000, pricePerArtist: [artist.facebookId: 500], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], totalPrice: 1000, pricePerArtist: [artist.facebookId: 500], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], totalPrice: 1000, pricePerArtist: [artist.facebookId: 500], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], totalPrice: 1000, pricePerArtist: [artist.facebookId: 500], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], totalPrice: 1000, pricePerArtist: [artist.facebookId: 500], isApproved: false)
+            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
+            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
+            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
+            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
+            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false)
         ]
         completion(orders)
     }

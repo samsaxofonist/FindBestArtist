@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ARSLineProgress
 
 class OrderContactsViewController: UITableViewController {
 
@@ -20,6 +21,8 @@ class OrderContactsViewController: UITableViewController {
     @IBOutlet weak var postalCodeTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+
+    var addressSearchString: String?
 
     var disposeBag = DisposeBag()
 
@@ -56,7 +59,11 @@ class OrderContactsViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addressController = segue.destination as! SelectAddressViewController
-        addressController.addressFinishBlock = { address in
+        addressController.prefilledValue = addressSearchString
+
+        addressController.addressFinishBlock = { address, enteredString in
+            self.addressSearchString = enteredString
+
             self.streetAndNumberTextField.text = address.street + " " + address.streetNumber
             self.postalCodeTextField.text = address.postalCode
             self.cityTextField.text = address.city
@@ -67,6 +74,21 @@ class OrderContactsViewController: UITableViewController {
     }
 
     @IBAction func sendButtonClicked() {
+        let artistsInfos = GlobalManager.selectedArtists.map {
+            ArtistOrderInfo(artistId: $0.databaseId!, fixedPrice: $0.price)
+        }
 
+        let newOrder = Order(
+            date: Date(),
+            city: self.cityTextField.text!,
+            artists: artistsInfos,
+            isApproved: false
+        )
+
+        ARSLineProgress.show()
+        FirebaseManager.sendOrder(order: newOrder) {
+            ARSLineProgress.hide()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

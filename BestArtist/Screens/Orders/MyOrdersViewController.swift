@@ -17,6 +17,9 @@ class MyOrdersViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        self.navigationItem.title = "My Orders"
+        
         loader.loadMyOrders(completion: { loadedOrders in
             self.orders = loadedOrders
             self.tableView.reloadData()

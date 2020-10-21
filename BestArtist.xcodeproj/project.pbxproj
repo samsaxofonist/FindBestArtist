@@ -54,6 +54,7 @@
 		3EBEC72621EBA9C600274C76 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEC72521EBA9C600274C76 /* Geocoder.swift */; };
 		3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D00621BD38CF004627EA /* Profile.storyboard */; };
 		3EC9895D249A978C005A9662 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9895C249A978C005A9662 /* RootViewController.swift */; };
+		3EE899122540A064004C2C89 /* ArtistLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE899112540A064004C2C89 /* ArtistLoader.swift */; };
 		3EEFE24E2538A2E7008E4667 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE24D2538A2E7008E4667 /* MyOrdersViewController.swift */; };
 		3EEFE2512538A36D008E4667 /* MyOrders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFE2502538A36D008E4667 /* MyOrders.storyboard */; };
 		3EEFE2542538A521008E4667 /* MyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFE2532538A521008E4667 /* MyOrderCell.swift */; };
@@ -119,6 +120,7 @@
 		3EBEC72521EBA9C600274C76 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		3EC0D00621BD38CF004627EA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3EC9895C249A978C005A9662 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		3EE899112540A064004C2C89 /* ArtistLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistLoader.swift; sourceTree = "<group>"; };
 		3EEFE24D2538A2E7008E4667 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
 		3EEFE2502538A36D008E4667 /* MyOrders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyOrders.storyboard; sourceTree = "<group>"; };
 		3EEFE2532538A521008E4667 /* MyOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderCell.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				3EEFE2562538A7A4008E4667 /* OrderDetailsViewController.swift */,
 				3EEFE2532538A521008E4667 /* MyOrderCell.swift */,
 				3EEFE2592538A80A008E4667 /* Order.swift */,
+				3EE899112540A064004C2C89 /* ArtistLoader.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
 				3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */,
+				3EE899122540A064004C2C89 /* ArtistLoader.swift in Sources */,
 				3EFAD9FD22CE75D200DF5093 /* MyProfileViewController+Photo.swift in Sources */,
 				3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */,
 				3E3ECA8521EFC60D007B1FC3 /* User.swift in Sources */,
