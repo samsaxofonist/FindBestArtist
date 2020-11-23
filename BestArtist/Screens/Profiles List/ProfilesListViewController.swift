@@ -64,6 +64,10 @@ class ProfilesListViewController: BaseViewController {
         sortButton.setTitleColor(theme.textColor, for: .normal)
         filterButton.setTitleColor(theme.textColor, for: .normal)
     }
+
+    @objc func reloadTableView() {
+        profilesTableView.reloadData()
+    }
     
     @objc func reloadDataList() {
         ARSLineProgressConfiguration.backgroundViewStyle = .full
@@ -101,6 +105,7 @@ class ProfilesListViewController: BaseViewController {
         applyTheme(theme: ThemeManager.theme)
         UIApplication.shared.beginIgnoringInteractionEvents()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name("NewOrderSent"), object: nil)
 
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396

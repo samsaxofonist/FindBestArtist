@@ -42,6 +42,7 @@ class ProfileCell: UITableViewCell {
         nameLabel.text = artist.name
         priceLabel.text = "€ " + String(artist.price)
         informationLabel.text = artist.city.name
+        checkBox.checkState = GlobalManager.selectedArtists.contains { $0.facebookId == artist.facebookId } ? .checked : .unchecked
         
         if let link = artist.photoLink, let photoURL = URL(string: link) {
             photoImage.kf.setImage(with: ImageResource(downloadURL: photoURL))

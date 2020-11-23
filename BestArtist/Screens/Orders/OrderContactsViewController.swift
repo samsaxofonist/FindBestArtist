@@ -101,6 +101,8 @@ class OrderContactsViewController: UITableViewController, UITextFieldDelegate {
         ARSLineProgress.show()
         FirebaseManager.sendOrder(order: newOrder, userId: GlobalManager.myUser!.facebookId) {
             ARSLineProgress.hide()
+            GlobalManager.selectedArtists.removeAll()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewOrderSent"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }
     }
