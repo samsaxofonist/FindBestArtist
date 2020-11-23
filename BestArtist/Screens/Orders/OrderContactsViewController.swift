@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import ARSLineProgress
 
-class OrderContactsViewController: UITableViewController {
+class OrderContactsViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -30,7 +30,12 @@ class OrderContactsViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Your contacts"
         tableView.tableFooterView = UIView()
+        emailTextField.delegate = self
         setupSendButtonValidation()
+
+        LoginManager.getFacebookEmail(completion: { email in
+            self.emailTextField.text = email
+        })
     }
 
     func setupSendButtonValidation() {
@@ -55,6 +60,14 @@ class OrderContactsViewController: UITableViewController {
         enableButton
                 .bind(to: sendButton.rx.isEnabled)
                 .disposed(by: disposeBag)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTextField, let text = textField.text, !text.isEmpty {
+            if !text.isValidEmail() {
+                self.showError(text: "Entered email is not valid!")
+            }
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,5 +103,13 @@ class OrderContactsViewController: UITableViewController {
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension String {
+    func isValidEmail() -> Bool {
+        // here, `try!` will always succeed because the pattern is valid
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
 }

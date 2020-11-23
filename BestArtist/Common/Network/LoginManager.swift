@@ -28,6 +28,16 @@ final class LoginManager {
         })
     }
 
+    static func getFacebookEmail(completion: @escaping ((String?) -> Void)) {
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email"])?.start(completionHandler: { (connection, result, error) in
+            if let resultDict = result as? [String: Any], error == nil {
+                completion(resultDict["email"] as? String)
+            } else {
+                completion(nil)
+            }
+        })
+    }
+
     static func loginWithSavedUser(completion: @escaping ((FBSDKProfile?, User?) -> ())) {
         guard let fbToken = FBSDKAccessToken.current() else {
             return completion(nil, nil)
