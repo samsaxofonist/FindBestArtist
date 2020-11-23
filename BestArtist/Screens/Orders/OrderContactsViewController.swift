@@ -75,7 +75,7 @@ class OrderContactsViewController: UITableViewController {
 
     @IBAction func sendButtonClicked() {
         let artistsInfos = GlobalManager.selectedArtists.map {
-            ArtistOrderInfo(artistId: $0.databaseId!, fixedPrice: $0.price)
+            ArtistOrderInfo(artistId: $0.facebookId, fixedPrice: $0.price)
         }
 
         let newOrder = Order(
