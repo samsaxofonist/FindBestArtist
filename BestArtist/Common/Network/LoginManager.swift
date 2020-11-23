@@ -37,7 +37,7 @@ final class LoginManager {
     
     static private func loginToFirebase(token: String, completion: @escaping ((FBSDKProfile?, User?) -> ())) {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
-        Auth.auth().signInAndRetrieveData(with: credential, completion: { (result, error) in
+        Auth.auth().signIn(with: credential, completion: { (result, error) in
             FBSDKProfile.loadCurrentProfile { (profile, error) in
                 guard let profile = profile else {
                     return completion(nil, nil)

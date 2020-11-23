@@ -63,14 +63,33 @@ class FirebaseManager {
         }
     }
 
-    static func sendOrder(order: Order, completion: (() -> Void)) {
-        let ref: DatabaseReference = Database.database().reference().child("orders")
+    static func sendOrder(order: Order, userId: String, completion: (() -> Void)) {
+        let ref: DatabaseReference = Database.database().reference().child("orders/\(userId)").childByAutoId()
         ref.setValue([OrderKeys.dateKey: order.date.timeIntervalSince1970,
                       OrderKeys.cityKey: order.city,
                       OrderKeys.artistsKey: order.getSimpleArtists(),
                       OrderKeys.isApprovedKey: order.isApproved,
                       ])
         completion()
+    }
+
+    static func loadOrders(userId: String, completion: @escaping (([Order]) -> Void)) {
+        let ref: DatabaseReference = Database.database().reference().child("orders/\(userId)")
+
+        ref.observeSingleEvent(of: .value, with: { data in
+            guard let jsonData = data.value as? [String: [String: Any]] else { return }
+            var orders = [Order]()
+
+            for (_, value) in jsonData {
+                if let order = parseOrder(from: value) {
+                    orders.append(order)
+                }
+            }
+
+            completion(orders)
+        }) { error in
+            completion([])
+        }
     }
 
     static func createNewCustomer(ref: DatabaseReference, customer: User, finish: @escaping (()->())) {
@@ -235,6 +254,24 @@ class FirebaseManager {
 }
 
 private extension FirebaseManager {
+
+    static func parseOrder(from value: [String : Any]) -> Order? {
+        guard let artists = value[OrderKeys.artistsKey] as? [[String: Int]],
+            let city = value[OrderKeys.cityKey] as? String,
+            let date = value[OrderKeys.dateKey] as? Double,
+            let isApproved = value[OrderKeys.isApprovedKey] as? Bool else {
+                return nil
+        }
+
+        let parsedArtistsOrderInfos = artists.map { ArtistOrderInfo(artistId: $0.keys.first!, fixedPrice: $0.values.first!) }
+        let order = Order(
+            date: Date(timeIntervalSince1970: date),
+            city: city,
+            artists: parsedArtistsOrderInfos,
+            isApproved: isApproved
+        )
+        return order
+    }
 
     static func parseUser(from value: [String : Any], userId: String) -> User? {
         guard let typeValue = value[ArtistKeys.type] as? Int, let userType = UserType(rawValue: typeValue), userType == .customer else { return nil }

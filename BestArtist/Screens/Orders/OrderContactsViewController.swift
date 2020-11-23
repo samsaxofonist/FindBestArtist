@@ -86,7 +86,7 @@ class OrderContactsViewController: UITableViewController {
         )
 
         ARSLineProgress.show()
-        FirebaseManager.sendOrder(order: newOrder) {
+        FirebaseManager.sendOrder(order: newOrder, userId: GlobalManager.myUser!.facebookId) {
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
         }

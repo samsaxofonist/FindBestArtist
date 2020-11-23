@@ -10,15 +10,9 @@ import Foundation
 
 class MyOrdersLoader {
 
-    func loadMyOrders(completion: (([Order]) -> Void)) {
-        let artist = ArtistOrderInfo(artistId: "s", fixedPrice: 12)
-        let orders = [
-            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false),
-            Order(date: Date(), city: "Berlin", artists: [artist], isApproved: false)
-        ]
-        completion(orders)
+    func loadMyOrders(completion: @escaping (([Order]) -> Void)) {
+        FirebaseManager.loadOrders(userId: GlobalManager.myUser!.facebookId, completion: { orders in
+            completion(orders)
+        })
     }
 }

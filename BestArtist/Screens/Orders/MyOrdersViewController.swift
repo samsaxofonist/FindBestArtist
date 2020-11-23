@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARSLineProgress
 
 class MyOrdersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var emptyView: UIView!
@@ -19,8 +20,10 @@ class MyOrdersViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.navigationItem.title = "My Orders"
-        
+
+        ARSLineProgress.show()
         loader.loadMyOrders(completion: { loadedOrders in
+            ARSLineProgress.hide()
             self.orders = loadedOrders
             self.tableView.reloadData()
         })
