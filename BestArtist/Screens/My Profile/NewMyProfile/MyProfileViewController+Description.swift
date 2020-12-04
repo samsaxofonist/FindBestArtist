@@ -43,7 +43,18 @@ extension MyProfileViewController: UITextViewDelegate {
         if artist.description.isEmpty == false {
             descriptionTextView.text = artist.description
         }
-        nameTextField.text = artist.name
+
+        if canEdit {
+            nameTextField.text = artist.name
+            artistTypeToName.priority = .defaultHigh
+            artistTypeToPhoto.priority = .defaultLow
+        } else {
+            self.navigationItem.title = artist.name
+            nameTextField.isHidden = true
+            artistTypeToName.priority = .defaultLow
+            artistTypeToPhoto.priority = .defaultHigh
+        }
+
         self.selectedCity = artist.city
         cityButton.setTitle(artist.city.name, for: .normal)
 
@@ -113,7 +124,7 @@ extension MyProfileViewController: UITextViewDelegate {
                                            options: .usesLineFragmentOrigin,
                                            attributes: [.font: font], context: nil)
         
-        return neededArea.height + 206
+        return neededArea.height + 73
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -20,8 +20,8 @@ class RootViewController: UIViewController {
 
         tabBar.layer.cornerRadius = 16
 
-        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerAppears), name: Notification.Name("ProfilesListAppears"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerDisappears), name: Notification.Name("ProfilesListDisappears"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerAppears), name: Notification.Name("NeedShowTabBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contentControllerDisappears), name: Notification.Name("NeedHideTabBar"), object: nil)
     }
 
     @objc func contentControllerAppears() {

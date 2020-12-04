@@ -106,6 +106,7 @@ class MenuViewController: UITableViewController {
                 rootNavigation?.setViewControllers([newLoginView], animated: true)
             }
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -55,7 +55,7 @@ class ProfilesListViewController: BaseViewController {
         super.viewWillAppear(animated)
         GlobalManager.navigation = self.navigationController!
 
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListAppears"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedShowTabBar"), object: nil)
     }
 
     func applyTheme(theme: Theme) {
@@ -140,7 +140,7 @@ class ProfilesListViewController: BaseViewController {
             self.profilesTableView.reloadData()
         }
         self.navigationController?.pushViewController(filterVC, animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
     }
     
     func sortArtists() {
@@ -204,7 +204,7 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         let artist = self.filteredArtists[indexPath.row]
         detailsVC.artist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ProfilesListDisappears"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

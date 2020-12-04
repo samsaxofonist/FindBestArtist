@@ -36,7 +36,10 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     @IBOutlet weak var artistTypeLabel: UILabel!
     @IBOutlet weak var segmentsControl: BetterSegmentedControl!
     @IBOutlet weak var photosCollectionView: UICollectionView!
-
+    
+    @IBOutlet weak var artistTypeToName: NSLayoutConstraint!
+    @IBOutlet weak var artistTypeToPhoto: NSLayoutConstraint!
+    
     let slideShow = ImageSlideshow()
 
     var screenState: ProfileScreenState = .info
