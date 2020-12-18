@@ -1497,11 +1497,17 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="8x1-El-Cha">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
         <designable name="hfy-Dy-zRW">
             <size key="intrinsicContentSize" width="60" height="40"/>
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
+        </designable>
+        <designable name="uOD-MS-g2u">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>
