@@ -16,13 +16,14 @@ import ARSLineProgress
 class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var profilesTableView: UITableView!
     @IBOutlet var listSettingsView: UIView!
-    @IBOutlet var topPanelView: UIView!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
 
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     var artists = [Artist]()
+
+    var topArtists = [Artist]()
     var filteredArtists = [Artist]()
 
     var talentForThisScreen: Talent!
@@ -60,7 +61,7 @@ class ProfilesListViewController: BaseViewController {
 
     func applyTheme(theme: Theme) {
         self.view.backgroundColor = theme.backgroundColor
-        topPanelView.backgroundColor = theme.backgroundColor
+        listSettingsView.backgroundColor = theme.backgroundColor
         sortButton.setTitleColor(theme.textColor, for: .normal)
         filterButton.setTitleColor(theme.textColor, for: .normal)
     }
@@ -72,6 +73,7 @@ class ProfilesListViewController: BaseViewController {
     @objc func reloadDataList() {
         ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
+
         NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
             ARSLineProgressConfiguration.backgroundViewStyle = .simple
@@ -82,7 +84,10 @@ class ProfilesListViewController: BaseViewController {
 
                 artistsForCurrentTab.forEach { $0.adjustPriceForCustomerCity(customerCity: GlobalManager.myUser!.city) }
 
-                self.artists = artistsForCurrentTab
+                self.topArtists = artistsForCurrentTab.filter { $0.averageRating ?? 0 >= 4 }
+                let otherArtists = artistsForCurrentTab.filter { $0.averageRating ?? 0 < 4 }
+
+                self.artists = otherArtists
                     .sorted(by: {
                         if GlobalManager.sorting == .lowToHigh {
                             return $0.price < $1.price
@@ -90,9 +95,10 @@ class ProfilesListViewController: BaseViewController {
                             return $0.price > $1.price
                         }
                 })
-                self.filterButton.isEnabled = self.artists.count > 1
 
-                self.filteredArtists = self.artists
+
+                self.filterButton.isEnabled = self.artists.count > 1
+                self.filteredArtists = otherArtists
                 self.profilesTableView.reloadData()
             } else {
                 //TODO: Show error to user
@@ -110,6 +116,7 @@ class ProfilesListViewController: BaseViewController {
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396
         profilesTableView.rowHeight = UITableView.automaticDimension
+        profilesTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -178,13 +185,34 @@ class ProfilesListViewController: BaseViewController {
 }
 
 extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if !self.topArtists.isEmpty {
+            return 2
+        } else {
+            return 1
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filteredArtists.count
+        if section == 0 && !self.topArtists.isEmpty {
+            return self.topArtists.count
+        } else {
+            return self.filteredArtists.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-        let artist = self.filteredArtists[indexPath.row]
+
+        let artist: Artist
+
+        if indexPath.section == 0 && !self.topArtists.isEmpty {
+            artist = self.topArtists[indexPath.row]
+        } else {
+            artist = self.filteredArtists[indexPath.row]
+        }
+
         cell.setupWithArtist(artist)
         cell.onClickBlock = {
             let index = GlobalManager.selectedArtists.firstIndex(of: artist)            
@@ -201,7 +229,15 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
 
         let detailsVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
-        let artist = self.filteredArtists[indexPath.row]
+
+        let artist: Artist
+
+        if indexPath.section == 0 && !self.topArtists.isEmpty {
+            artist = self.topArtists[indexPath.row]
+        } else {
+            artist = self.filteredArtists[indexPath.row]
+        }
+
         detailsVC.artist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
@@ -225,11 +261,44 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return listSettingsView
+        if section == 0 && !self.topArtists.isEmpty {
+            return makeHeaderLabel(text: "Top")
+        } else if !self.topArtists.isEmpty {
+            return makeHeaderLabel(text: "Good")
+        } else {
+            return UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 0 && !self.topArtists.isEmpty {
+            return 50
+        } else if !self.topArtists.isEmpty {
+            return 50
+        } else {
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+
+    func makeHeaderLabel(text: String) -> UIView {
+        let containerView = UIView()
+        let label = UILabel()
+        label.text = text
+        label.font = UIFont.boldSystemFont(ofSize: 27)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        containerView.addSubview(label)
+
+        label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 30).isActive = true
+        label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+
+        return containerView
     }
     
     func wasCellAlreadyPresent(index: IndexPath) -> Bool {

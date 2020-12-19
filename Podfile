@@ -27,4 +27,5 @@ pod 'KDCalendar', '~> 1.6.5'
 pod 'Cards'
 pod 'RangeSeekSlider'
 pod 'BetterSegmentedControl', '~> 1.3'
+pod 'Cosmos', '~> 23.0'
 end

@@ -27,6 +27,8 @@ extension MyProfileViewController: UITextViewDelegate {
         self.descriptionTextView.isUserInteractionEnabled = canEdit
         self.calendarView.isUserInteractionEnabled = canEdit
         self.descriptionTextView.layer.borderColor = UIColor.red.cgColor
+        self.ratingView.settings.fillMode = .precise
+        self.ratingView.rating = artist.averageRating ?? 3
 
         setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)
 
@@ -46,13 +48,13 @@ extension MyProfileViewController: UITextViewDelegate {
 
         if canEdit {
             nameTextField.text = artist.name
-            artistTypeToName.priority = .defaultHigh
-            artistTypeToPhoto.priority = .defaultLow
+            ratingToName.priority = .defaultHigh
+            ratingToPhoto.priority = .defaultLow
         } else {
             self.navigationItem.title = artist.name
             nameTextField.isHidden = true
-            artistTypeToName.priority = .defaultLow
-            artistTypeToPhoto.priority = .defaultHigh
+            ratingToName.priority = .defaultLow
+            ratingToPhoto.priority = .defaultHigh
         }
 
         self.selectedCity = artist.city

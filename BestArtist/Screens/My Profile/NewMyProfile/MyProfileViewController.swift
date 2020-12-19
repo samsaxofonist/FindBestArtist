@@ -14,6 +14,7 @@ import CropViewController
 import ARSLineProgress
 import Combine
 import BetterSegmentedControl
+import Cosmos
 
 final class MyProfileViewController: UITableViewController, UIGestureRecognizerDelegate {
     typealias VideoId = String
@@ -37,9 +38,10 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     @IBOutlet weak var segmentsControl: BetterSegmentedControl!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
-    @IBOutlet weak var artistTypeToName: NSLayoutConstraint!
-    @IBOutlet weak var artistTypeToPhoto: NSLayoutConstraint!
-    
+    @IBOutlet weak var ratingToName: NSLayoutConstraint!
+    @IBOutlet weak var ratingToPhoto: NSLayoutConstraint!
+    @IBOutlet weak var ratingView: CosmosView!
+
     let slideShow = ImageSlideshow()
 
     var screenState: ProfileScreenState = .info

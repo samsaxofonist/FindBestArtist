@@ -29,6 +29,7 @@ struct ArtistKeys {
     static let photoGaleryLinks = "photoGaleryLinks"
     static let busyDates = "busyDates"
     static let type = "type"
+    static let ratings = "ratings"
 }
 
 struct OrderKeys {
@@ -166,7 +167,8 @@ class FirebaseManager {
             ArtistKeys.facebookID: artist.facebookId,
             ArtistKeys.busyDates: artist.busyDates,
             ArtistKeys.countryName: artist.country,
-            ArtistKeys.type: artist.type.rawValue
+            ArtistKeys.type: artist.type.rawValue,
+            ArtistKeys.ratings: artist.ratings
         ])
     }
 
@@ -187,6 +189,7 @@ class FirebaseManager {
                               ArtistKeys.busyDates: artist.busyDates,
                               ArtistKeys.countryName: artist.country,
                               ArtistKeys.type: artist.type.rawValue,
+                              ArtistKeys.ratings: artist.ratings,
                               ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
                 finish()
             })
@@ -316,6 +319,8 @@ private extension FirebaseManager {
         }
 
         let photoLink = value[ArtistKeys.photoLink] as? String
+        let ratings = value[ArtistKeys.ratings] as? [Double]
+
         let realTalent = Talent(string: talent)
         let artist = Artist(facebookId: facebookId, name: name, talent: realTalent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink ?? "")
 
@@ -336,6 +341,8 @@ private extension FirebaseManager {
         if let busyDates = value[ArtistKeys.busyDates] as? [Double] {
             artist.busyDates = busyDates
         }
+
+        artist.ratings = ratings
         return artist
     }
 
