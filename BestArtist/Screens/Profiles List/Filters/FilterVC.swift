@@ -9,22 +9,19 @@
 import UIKit
 import RangeSeekSlider
 import MapKit
+import ARSLineProgress
 
-class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDelegate {
+class FilterVC: UIViewController, RangeSeekSliderDelegate {
     
     @IBOutlet weak var priceSlider: RangeSeekSlider!
     @IBOutlet weak var distanceSlider: RangeSeekSlider!
-    @IBOutlet weak var countriesPicker: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
 
     var filterChangedBlock: (() -> ())!
     var artists: [Artist]!
-    var countries = [String]()
+    var radiusM: CLLocationDistance = 3000000
 
     let zoneCircleRadius: Double = 125
-    var userLocationIsTaken = false
-
-    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,36 +30,23 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDele
         priceSlider.delegate = self
         distanceSlider.delegate = self
         setInitialFilterValues()
-        setupLocationManager()
-        readCountriesFromFile()
         addArtistsOnMap()
+        moveMapToUsersCity()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        selectMyCountry()
+
+    func moveMapToUsersCity() {
+        if let city = GlobalManager.myUser?.city {
+            moveMap(location: city.location)
+        }
     }
-    
+
     func applyTheme(theme: Theme) {
     }
 
-    func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        locationManager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard userLocationIsTaken == false else { return }
-        guard let latestLocation = locations.first else { return }
-        let regionRadius: CLLocationDistance = 100000
-        let region = MKCoordinateRegion(center: latestLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+    func moveMap(location: CLLocationCoordinate2D) {
+        let regionRadius: CLLocationDistance = radiusM * 2
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(region, animated: true)
-        userLocationIsTaken = true
     }
 
     func addArtistsOnMap() {
@@ -80,26 +64,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDele
             mapView.addAnnotation(annotaion)
         }
     }
-    
-    func readCountriesFromFile() {
-        let url = Bundle.main.url(forResource: "CountriesList", withExtension: "json")!
-        let jsonData = try! Data(contentsOf: url)
-        let json = try! JSONSerialization.jsonObject(with: jsonData) as! [[String: Any]]
-        
-        for countryDict in json {
-            let name = countryDict["name"] as! String
-            countries.append(name)
-        }
-        
-        countries.sort()
-    }
-    
-    func selectMyCountry() {
-        if let artist = GlobalManager.myUser as? Artist, let index = countries.index(of: artist.country) {
-            countriesPicker.selectRow(index, inComponent: 0, animated: true)
-        }
-    }
-    
+
     func setInitialFilterValues() {
         let allPrices = artists.map { $0.price }
         let minPrice = allPrices.min()!
@@ -116,6 +81,13 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDele
                 priceSlider.selectedMaxValue = CGFloat(up)
             }
         }
+
+        if let distanceFilter = GlobalManager.filterDistance {
+            if case let FilterType.distance(center, radius) = distanceFilter {
+                distanceSlider.selectedMaxValue = CGFloat(radius)
+                radiusM = radius
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -126,7 +98,28 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDele
         mapVC.allArtists = artists
     }
     
-    @IBAction func countryButtonClicked(_ sender: Any) {
+    @IBAction func changeCityButtonClicked(_ sender: Any) {
+        let cityController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "citySelectionVC") as! SelectCityViewController
+        setupCityController(cityController)
+        self.navigationController?.present(cityController, animated: true, completion: nil)
+    }
+
+    func setupCityController(_ controller: SelectCityViewController) {
+        controller.finishBlock = { [weak self] city, country in
+            self?.updateUsersCityIfNeeded(city: city, country: country)
+            self?.moveMap(location: city.location)
+        }
+    }
+
+    func updateUsersCityIfNeeded(city: City, country: String) {
+        if GlobalManager.myUser is Artist {
+            return
+        }
+
+        ARSLineProgress.show()
+        NetworkManager.saveCustomer(GlobalManager.myUser!) {
+            ARSLineProgress.hide()
+        }
     }
     
     @IBAction func applyButtonClicked(_ sender: Any) {
@@ -145,21 +138,14 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate, CLLocationManagerDele
 
             GlobalManager.filterPrice = .price(from: lowValue, up: highValue)
         } else {
-            
+            // вызывать только при остановке слайдера
+            radiusM = Double(maxValue * 1000)
+            let regionRadius: CLLocationDistance = radiusM * 2
+            let oldRegion = mapView.region
+
+            let newRegion = MKCoordinateRegion(center: oldRegion.center, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+            mapView.setRegion(newRegion, animated: true)
         }
     }
 }
 
-extension FilterVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countries.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countries[row]
-    }
-}

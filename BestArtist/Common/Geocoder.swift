@@ -50,7 +50,7 @@ class Geocoder {
                 
                 // Получили имя города и страны
                 if let cityName = placeMark.subAdministrativeArea, let countryName = placeMark.country {
-                    getLocation(forCityName: cityName, completion: { location in
+                    getLocation(forName: cityName, completion: { location in
                         guard let cityLocation = location else { return }
                         let city = City(name: cityName, location: cityLocation.coordinate)
                         completion(city, countryName)
@@ -71,7 +71,7 @@ class Geocoder {
         }
     }
     
-    static func getLocation(forCityName name: String, completion: @escaping(CLLocation?) -> Void) {
+    static func getLocation(forName name: String, completion: @escaping(CLLocation?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(name) { placemarks, error in
             

@@ -97,7 +97,7 @@ class ProfilesListViewController: BaseViewController {
                 })
 
 
-                self.filterButton.isEnabled = self.artists.count > 1
+                self.filterButton.isEnabled = (self.topArtists.count + self.artists.count) > 1
                 self.filteredArtists = otherArtists
                 self.profilesTableView.reloadData()
             } else {
@@ -262,9 +262,9 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 && !self.topArtists.isEmpty {
-            return makeHeaderLabel(text: "Top")
+            return makeTopHeaderLabel(text: "Top")
         } else if !self.topArtists.isEmpty {
-            return makeHeaderLabel(text: "Good")
+            return makeOthersHeaderView()
         } else {
             return UIView()
         }
@@ -274,7 +274,7 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         if section == 0 && !self.topArtists.isEmpty {
             return 50
         } else if !self.topArtists.isEmpty {
-            return 50
+            return 20
         } else {
             return 0
         }
@@ -284,7 +284,24 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         return 0.01
     }
 
-    func makeHeaderLabel(text: String) -> UIView {
+    func makeOthersHeaderView() -> UIView {
+        let containerView = UIView()
+
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .lightGray
+
+        containerView.addSubview(line)
+
+        line.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 30).isActive = true
+        line.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -30).isActive = true
+        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        line.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+
+        return containerView
+    }
+
+    func makeTopHeaderLabel(text: String) -> UIView {
         let containerView = UIView()
         let label = UILabel()
         label.text = text
