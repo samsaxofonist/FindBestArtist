@@ -18,8 +18,6 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.layer.cornerRadius = 16
-
         NotificationCenter.default.addObserver(self, selector: #selector(contentControllerAppears), name: Notification.Name("NeedShowTabBar"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(contentControllerDisappears), name: Notification.Name("NeedHideTabBar"), object: nil)
     }

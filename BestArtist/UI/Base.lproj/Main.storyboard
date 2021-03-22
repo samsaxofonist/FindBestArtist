@@ -248,7 +248,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-Pt-vCF">
                                 <rect key="frame" x="0.0" y="712" width="375" height="100"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-wh-mia" userLabel="tabBar">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-wh-mia" userLabel="tabBar" customClass="DesignableView" customModule="Spring">
                                         <rect key="frame" x="16" y="6" width="343" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-GA-8vc">
@@ -293,9 +293,26 @@
                                             <constraint firstItem="zXO-GA-8vc" firstAttribute="leading" secondItem="8sm-wh-mia" secondAttribute="leading" constant="16" id="F9b-Kd-Fof"/>
                                             <constraint firstAttribute="bottom" secondItem="zXO-GA-8vc" secondAttribute="bottom" id="tWW-oL-s5p"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="PyH-Gl-xnl"/>
                                     <constraint firstItem="8sm-wh-mia" firstAttribute="leading" secondItem="oRn-Pt-vCF" secondAttribute="leading" constant="16" id="S08-At-0J4"/>
@@ -529,6 +546,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-mF-QRz">
+                                <rect key="frame" x="0.0" y="138" width="375" height="547"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eg1-Zk-soz" id="yKA-yn-2BT"/>
+                                    <outlet property="delegate" destination="Eg1-Zk-soz" id="A2N-PY-CEw"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eez-Xs-7T9">
                                 <rect key="frame" x="0.0" y="88" width="375" height="50"/>
                                 <subviews>
@@ -579,14 +604,13 @@
                                     <constraint firstItem="q1v-vy-XtP" firstAttribute="top" secondItem="eez-Xs-7T9" secondAttribute="top" id="xha-eS-9To"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-mF-QRz">
-                                <rect key="frame" x="0.0" y="138" width="375" height="547"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Eg1-Zk-soz" id="yKA-yn-2BT"/>
-                                    <outlet property="delegate" destination="Eg1-Zk-soz" id="A2N-PY-CEw"/>
-                                </connections>
-                            </tableView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyState" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-On-E1A">
+                                <rect key="frame" x="87.666666666666686" y="286.66666666666669" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="4Tm-1w-bBl"/>
+                                    <constraint firstAttribute="width" constant="200" id="7R2-Mz-YEM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QGZ-SU-ltf"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -598,6 +622,8 @@
                             <constraint firstItem="fQ7-mF-QRz" firstAttribute="top" secondItem="eez-Xs-7T9" secondAttribute="bottom" id="aea-h9-Gcj"/>
                             <constraint firstItem="QGZ-SU-ltf" firstAttribute="trailing" secondItem="eez-Xs-7T9" secondAttribute="trailing" id="hBC-QM-OrQ"/>
                             <constraint firstItem="eez-Xs-7T9" firstAttribute="leading" secondItem="6lT-yp-Azf" secondAttribute="leading" id="hl1-V7-qgQ"/>
+                            <constraint firstItem="dKb-On-E1A" firstAttribute="centerY" secondItem="QGZ-SU-ltf" secondAttribute="centerY" id="ktI-cJ-iHt"/>
+                            <constraint firstItem="dKb-On-E1A" firstAttribute="centerX" secondItem="QGZ-SU-ltf" secondAttribute="centerX" id="pys-1N-Qtj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tamada" id="Pfc-Ay-Vom">
@@ -613,9 +639,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyStateImage" destination="dKb-On-E1A" id="gKL-ay-M04"/>
                         <outlet property="filterButton" destination="Qj2-fl-sDw" id="0FF-7C-Zkh"/>
                         <outlet property="listSettingsView" destination="eez-Xs-7T9" id="W1N-xD-cBc"/>
                         <outlet property="profilesTableView" destination="fQ7-mF-QRz" id="ciQ-ol-oFX"/>
+                        <outlet property="settingsViewHeight" destination="9hA-t4-xjV" id="3d3-5Y-Kdc"/>
                         <outlet property="sortButton" destination="PmC-gA-Kng" id="md1-Ua-PNV"/>
                     </connections>
                 </viewController>
@@ -1535,6 +1563,7 @@
         <image name="Menu" width="20" height="20"/>
         <image name="advertising" width="30" height="30"/>
         <image name="circle" width="159.5" height="159.5"/>
+        <image name="emptyState" width="444" height="360"/>
         <image name="record-player" width="30" height="30"/>
         <image name="saxophone" width="30" height="30"/>
         <image name="video-camera-1" width="30" height="30"/>

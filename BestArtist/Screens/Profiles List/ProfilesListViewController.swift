@@ -18,6 +18,8 @@ class ProfilesListViewController: BaseViewController {
     @IBOutlet var listSettingsView: UIView!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var emptyStateImage: UIImageView!
+    @IBOutlet weak var settingsViewHeight: NSLayoutConstraint!
 
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
@@ -99,12 +101,32 @@ class ProfilesListViewController: BaseViewController {
 
                 self.filterButton.isEnabled = (self.topArtists.count + self.artists.count) > 1
                 self.filteredArtists = otherArtists
+                self.showEmptyStateIfNeeded()
                 self.profilesTableView.reloadData()
             } else {
                 //TODO: Show error to user
             }
             UIApplication.shared.endIgnoringInteractionEvents()
         })
+    }
+
+    func showEmptyStateIfNeeded() {
+        if self.topArtists.isEmpty && self.filteredArtists.isEmpty {
+            self.emptyStateImage.isHidden = false
+            self.setSettingsViewVisible(false)
+        } else {
+            if self.filteredArtists.count == 1 {
+                self.setSettingsViewVisible(false)
+            } else {
+                self.setSettingsViewVisible(true)
+            }
+            self.emptyStateImage.isHidden = true
+        }
+    }
+
+    func setSettingsViewVisible(_ isVisible: Bool) {
+        self.listSettingsView.isHidden = !isVisible
+        self.settingsViewHeight.constant = isVisible ? 50 : 0
     }
     
     func setup() {
@@ -144,6 +166,7 @@ class ProfilesListViewController: BaseViewController {
         filterVC.filterChangedBlock = {
             self.filterArtists()
             self.sortArtists()
+            self.showEmptyStateIfNeeded()
             self.profilesTableView.reloadData()
         }
         self.navigationController?.pushViewController(filterVC, animated: true)
