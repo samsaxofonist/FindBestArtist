@@ -16,10 +16,11 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
     @IBOutlet weak var priceSlider: RangeSeekSlider!
     @IBOutlet weak var distanceSlider: RangeSeekSlider!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var filtersContainer: UIView!
 
     var filterChangedBlock: (() -> ())!
     var artists: [Artist]!
-    var radiusM: CLLocationDistance = 3000000
+    var radiusM: CLLocationDistance = 500000
 
     let zoneCircleRadius: Double = 125
 
@@ -27,6 +28,8 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         super.viewDidLoad()
         
         applyTheme(theme: ThemeManager.theme)
+        filtersContainer.layer.cornerRadius = 25
+
         priceSlider.delegate = self
         distanceSlider.delegate = self
         setInitialFilterValues()
@@ -55,11 +58,9 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         // Взять только уникальные координаты, которые не повторяются
         let uniqueLocations = Set<CLLocationCoordinate2D>(usersLocations)
 
+        // проходим по каждой уникальной локации
         for location in uniqueLocations {
-            let numberOfUsers = artists.filter { $0.city.location == location }.count
-
             let annotaion = MKPointAnnotation()
-            annotaion.title = "\(numberOfUsers) artists"
             annotaion.coordinate = location
             mapView.addAnnotation(annotaion)
         }
@@ -83,8 +84,8 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         }
 
         if let distanceFilter = GlobalManager.filterDistance {
-            if case let FilterType.distance(center, radius) = distanceFilter {
-                distanceSlider.selectedMaxValue = CGFloat(radius)
+            if case let FilterType.distance(_, radius) = distanceFilter {
+                distanceSlider.selectedMaxValue = CGFloat(radius / 1000)
                 radiusM = radius
             }
         }
@@ -108,7 +109,13 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         controller.finishBlock = { [weak self] city, country in
             self?.updateUsersCityIfNeeded(city: city, country: country)
             self?.moveMap(location: city.location)
+            self?.updateRadiusFilter(for: city)
         }
+    }
+
+    func updateRadiusFilter(for city: City) {
+        GlobalManager.filterDistance = .distance(center: city.location, radius: radiusM)
+        GlobalManager.myUser?.city = city
     }
 
     func updateUsersCityIfNeeded(city: City, country: String) {
@@ -147,5 +154,18 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
             mapView.setRegion(newRegion, animated: true)
         }
     }
+
+    func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMaxValue: CGFloat) -> String? {
+        if slider == self.distanceSlider {
+            if stringForMaxValue == slider.maxValue {
+                return String(format: ">%.0f", stringForMaxValue)
+            } else {
+                return String(format: "%.0f", stringForMaxValue)
+            }
+        } else {
+            return String(format: "%.0f", stringForMaxValue)
+        }
+    }
+
 }
 

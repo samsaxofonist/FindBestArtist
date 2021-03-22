@@ -139,7 +139,7 @@ class ProfilesListViewController: BaseViewController {
         let filterNavVC = storyboard?.instantiateViewController(withIdentifier: "FilterContainerVC") as! UINavigationController
         let filterVC = filterNavVC.viewControllers.first as! FilterVC
         
-        filterVC.artists = filteredArtists
+        filterVC.artists = self.artists + self.topArtists
         
         filterVC.filterChangedBlock = {
             self.filterArtists()
@@ -161,14 +161,24 @@ class ProfilesListViewController: BaseViewController {
     }
     
     func filterArtists() {
-        if GlobalManager.filterPrice == nil {
-            self.filteredArtists = self.artists
-        } else {
-            self.filteredArtists = self.artists.filter {
-                if case let FilterType.price(from, up) = GlobalManager.filterPrice! {
+        self.filteredArtists = self.artists
+
+        if let priceFilter = GlobalManager.filterPrice {
+            self.filteredArtists = self.filteredArtists.filter {
+                if case let FilterType.price(from, up) = priceFilter {
                     return $0.price >= from && $0.price <= up
                 } else {
                     // Добавить логику, когда у артиста будет задано расстояние на котором он работает
+                    return true
+                }
+            }
+        }
+
+        if let distanceFilter = GlobalManager.filterDistance {
+            self.filteredArtists = self.filteredArtists.filter {
+                if case let FilterType.distance(center, radius) = distanceFilter {
+                    return $0.city.location.distance(from: center) <= radius
+                } else {
                     return true
                 }
             }

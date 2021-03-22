@@ -49,7 +49,7 @@ class Geocoder {
                 guard let placeMark = placemarks?.first else { return }
                 
                 // Получили имя города и страны
-                if let cityName = placeMark.subAdministrativeArea, let countryName = placeMark.country {
+                if let cityName = placeMark.administrativeArea, let countryName = placeMark.country {
                     getLocation(forName: cityName, completion: { location in
                         guard let cityLocation = location else { return }
                         let city = City(name: cityName, location: cityLocation.coordinate)
