@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Kingfisher
 
 final class MyProfileViewModel {
     
@@ -19,16 +20,15 @@ final class MyProfileViewModel {
         }
 
         if let link = artist?.photoLink, let photoURL = URL(string: link) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: photoURL)
-                DispatchQueue.main.async {
-                    if let imageData = data {
-                        block(UIImage(data: imageData), photoURL)
-                    } else {
-                        block(nil, photoURL)
-                    }
+            let resource = ImageResource(downloadURL: photoURL)
+            _ = KingfisherManager.shared.retrieveImage(with: .network(resource)) { result in
+                switch result {
+                case .success(let imageResult):
+                    block(imageResult.image, photoURL)
+                case .failure:
+                    block(nil, photoURL)
                 }
-            }
+            }            
         } else if GlobalManager.myUser?.facebookId == artist?.facebookId {
             NetworkManager.loadFacebookPhoto(block: block)
         } else {

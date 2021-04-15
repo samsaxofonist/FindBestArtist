@@ -31,6 +31,8 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
         filtersContainer.layer.cornerRadius = 25
 
         priceSlider.delegate = self
+        priceSlider.numberFormatter.positiveSuffix = "€"
+        
         distanceSlider.delegate = self
         setInitialFilterValues()
         addArtistsOnMap()
@@ -163,7 +165,7 @@ class FilterVC: UIViewController, RangeSeekSliderDelegate {
                 return String(format: "%.0f", stringForMaxValue)
             }
         } else {
-            return String(format: "%.0f", stringForMaxValue)
+            return String(format: "%.0f€", stringForMaxValue)
         }
     }
 
