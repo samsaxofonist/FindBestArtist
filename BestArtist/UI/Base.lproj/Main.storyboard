@@ -295,7 +295,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="16"/>
+                                                <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,10 +304,10 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.20000000000000001"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -568,6 +568,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Low price to high">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="sortButtonClicked:" destination="Eg1-Zk-soz" eventType="touchUpInside" id="MkY-2F-V2o"/>
@@ -627,12 +628,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tamada" id="Pfc-Ay-Vom">
-                        <barButtonItem key="leftBarButtonItem" image="Menu" id="7Bu-6b-mO4">
+                        <barButtonItem key="leftBarButtonItem" image="menu best" id="7Bu-6b-mO4">
                             <connections>
                                 <segue destination="YDO-4j-Wck" kind="presentation" id="48w-yC-r3u"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Bq3-3M-BHX">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="wishlist+icon-1320165997565269065_0" id="Bq3-3M-BHX">
                             <connections>
                                 <segue destination="f2P-9O-hZ2" kind="presentation" id="J7L-yx-7pB"/>
                             </connections>
@@ -941,16 +942,16 @@
                                 </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aif-rk-81c" userLabel="filterContainer">
-                                <rect key="frame" x="16" y="50" width="343" height="190"/>
+                                <rect key="frame" x="16" y="20" width="343" height="190"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulD-Kq-vkR">
-                                        <rect key="frame" x="16" y="16" width="311" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="27" y="16" width="300" height="20"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x1-El-Cha" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                        <rect key="frame" x="16" y="26" width="311" height="50"/>
+                                        <rect key="frame" x="16" y="28" width="311" height="50"/>
                                         <color key="tintColor" red="0.77647058820000003" green="0.7843137255" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="pg6-Zx-JJH"/>
@@ -973,34 +974,34 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="step">
-                                                <real key="value" value="100"/>
+                                                <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="NO"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
-                                                <color key="value" systemColor="linkColor"/>
+                                                <color key="value" red="0.99195998910000005" green="0.4187951982" blue="0.18026822810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="handleBorderColor">
                                                 <color key="value" systemColor="systemPinkColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-qG-040">
-                                        <rect key="frame" x="16" y="92" width="311" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-qG-040">
+                                        <rect key="frame" x="27" y="94" width="300" height="20"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-MS-g2u" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
-                                        <rect key="frame" x="16" y="102" width="311" height="50"/>
+                                        <rect key="frame" x="16" y="106" width="311" height="50"/>
                                         <color key="tintColor" red="0.77647058820000003" green="0.7843137255" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Hhy-5g-MR8"/>
@@ -1027,16 +1028,16 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
-                                                <color key="value" systemColor="linkColor"/>
+                                                <color key="value" red="0.99195998910000005" green="0.4187951982" blue="0.18026822810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -1045,7 +1046,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="0IT-qG-040" secondAttribute="trailing" constant="16" id="0QL-WT-b7R"/>
                                     <constraint firstItem="uOD-MS-g2u" firstAttribute="top" secondItem="0IT-qG-040" secondAttribute="bottom" constant="-8" id="0Ug-0w-3Rs"/>
-                                    <constraint firstItem="ulD-Kq-vkR" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="16" id="8Se-eT-A0F"/>
+                                    <constraint firstItem="ulD-Kq-vkR" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="27" id="8Se-eT-A0F"/>
                                     <constraint firstAttribute="trailing" secondItem="8x1-El-Cha" secondAttribute="trailing" constant="16" id="9bC-Du-avq"/>
                                     <constraint firstItem="uOD-MS-g2u" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="16" id="Oy1-ck-KFO"/>
                                     <constraint firstItem="ulD-Kq-vkR" firstAttribute="top" secondItem="aif-rk-81c" secondAttribute="top" constant="16" id="UPI-dh-vZe"/>
@@ -1053,14 +1054,14 @@
                                     <constraint firstItem="8x1-El-Cha" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="16" id="bbC-lk-eGX"/>
                                     <constraint firstAttribute="trailing" secondItem="ulD-Kq-vkR" secondAttribute="trailing" constant="16" id="box-oj-Ep3"/>
                                     <constraint firstItem="8x1-El-Cha" firstAttribute="top" secondItem="ulD-Kq-vkR" secondAttribute="bottom" constant="-8" id="cV3-J7-9Ah"/>
-                                    <constraint firstItem="0IT-qG-040" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="16" id="eDl-8A-oY4"/>
+                                    <constraint firstItem="0IT-qG-040" firstAttribute="leading" secondItem="aif-rk-81c" secondAttribute="leading" constant="27" id="eDl-8A-oY4"/>
                                     <constraint firstAttribute="trailing" secondItem="uOD-MS-g2u" secondAttribute="trailing" constant="16" id="nk2-di-gRe"/>
                                     <constraint firstItem="0IT-qG-040" firstAttribute="top" secondItem="8x1-El-Cha" secondAttribute="bottom" constant="16" id="pvR-hS-cr3"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbA-3k-GFz" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                 <rect key="frame" x="30" y="620" width="315" height="50"/>
-                                <color key="backgroundColor" red="0.32888546590000001" green="0.80144029859999999" blue="0.91668939589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99195998910000005" green="0.4187951982" blue="0.18026822810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U71-bK-QzD"/>
                                 </constraints>
@@ -1089,7 +1090,7 @@
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HEH-RV-Mcl" firstAttribute="top" secondItem="mGF-c2-GzI" secondAttribute="top" id="1D5-Ju-yVd"/>
-                            <constraint firstItem="aif-rk-81c" firstAttribute="top" secondItem="mGF-c2-GzI" secondAttribute="top" constant="50" id="1cO-o4-8PD"/>
+                            <constraint firstItem="aif-rk-81c" firstAttribute="top" secondItem="mGF-c2-GzI" secondAttribute="top" constant="20" id="1cO-o4-8PD"/>
                             <constraint firstItem="HEH-RV-Mcl" firstAttribute="leading" secondItem="mGF-c2-GzI" secondAttribute="leading" id="2KV-rl-l4h"/>
                             <constraint firstAttribute="bottom" secondItem="HEH-RV-Mcl" secondAttribute="bottom" id="4vE-Z4-WB1"/>
                             <constraint firstItem="mGF-c2-GzI" firstAttribute="trailing" secondItem="aif-rk-81c" secondAttribute="trailing" constant="16" id="5Bq-fZ-Am9"/>
@@ -1542,6 +1543,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="8x1-El-Cha">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
         <designable name="MbA-3k-GFz">
             <size key="intrinsicContentSize" width="102" height="35"/>
         </designable>
@@ -1550,6 +1554,9 @@
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
+        </designable>
+        <designable name="uOD-MS-g2u">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>
@@ -1560,16 +1567,14 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo-1" width="2500" height="2500"/>
-        <image name="Menu" width="20" height="20"/>
         <image name="advertising" width="30" height="30"/>
         <image name="circle" width="159.5" height="159.5"/>
         <image name="emptyState" width="444" height="360"/>
+        <image name="menu best" width="30" height="30"/>
         <image name="record-player" width="30" height="30"/>
         <image name="saxophone" width="30" height="30"/>
         <image name="video-camera-1" width="30" height="30"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="wishlist+icon-1320165997565269065_0" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

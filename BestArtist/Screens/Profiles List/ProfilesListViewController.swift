@@ -78,7 +78,7 @@ class ProfilesListViewController: BaseViewController {
 
         NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
-            ARSLineProgressConfiguration.backgroundViewStyle = .simple
+            ARSLineProgressConfiguration.backgroundViewStyle = .full
             if error == nil {
                 // Использовать реальный город пользователя
                 let artistsForCurrentTab = artists
