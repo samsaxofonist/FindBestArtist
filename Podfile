@@ -28,4 +28,5 @@ pod 'Cards'
 pod 'RangeSeekSlider'
 pod 'BetterSegmentedControl', '~> 1.3'
 pod 'Cosmos', '~> 23.0'
+pod 'VisualEffectView'
 end

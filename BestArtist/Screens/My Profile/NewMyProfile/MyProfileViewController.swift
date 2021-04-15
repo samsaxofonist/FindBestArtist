@@ -15,6 +15,7 @@ import ARSLineProgress
 import Combine
 import BetterSegmentedControl
 import Cosmos
+import VisualEffectView
 
 final class MyProfileViewController: UITableViewController, UIGestureRecognizerDelegate {
     typealias VideoId = String
@@ -75,16 +76,31 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     var photosLongTapRecognizer: UIGestureRecognizer!
     var videosLongTapRecognizer: UIGestureRecognizer!
     var feedbacksLongTapRecognizer: UIGestureRecognizer!
+    
+    var blur: VisualEffectView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         applyTheme(theme: ThemeManager.theme)
         setupPhotoShadow()
+                
         tableView.tableFooterView = UIView()
+        
+        blur = VisualEffectView(frame: tableView.frame)
+        blur.colorTint = .white
+        blur.colorTintAlpha = 0.2
+        blur.blurRadius = 7
+        self.tableView.addSubview(blur)
+        blur.isHidden = true
+        
         setupSegmentsControl()
         setupMediasLongTap()
         setupInitialInfo()
+    }
+    
+    func setBlurVisible(_ visible: Bool) {
+        blur.isHidden = !visible
     }
 
     func setupMediasLongTap() {
@@ -253,10 +269,12 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         self.artist.feedbackLinks = self.allFeedbacks
         self.artist.photoLink = self.userPhotoURL?.absoluteString ?? artist.photoLink
 
+        setBlurVisible(true)
         ARSLineProgress.show()
         guard let artist = self.artist else { return }
         NetworkManager.saveArtist(artist, finish: {
             ARSLineProgress.hide()
+            self.setBlurVisible(false)
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)
 
             if self.isNewProfile {

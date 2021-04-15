@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import ARSLineProgress
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSAttributedString.Key.foregroundColor: ThemeManager.theme.textColor,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)
         ]
-        
+        ARSLineProgressConfiguration.backgroundViewStyle = .full
         UINavigationBar.appearance().titleTextAttributes = attrs
         return true
     }

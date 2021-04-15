@@ -73,12 +73,10 @@ class ProfilesListViewController: BaseViewController {
     }
     
     @objc func reloadDataList() {
-        ARSLineProgressConfiguration.backgroundViewStyle = .full
         ARSLineProgress.show()
 
         NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
-            ARSLineProgressConfiguration.backgroundViewStyle = .full
             if error == nil {
                 // Использовать реальный город пользователя
                 let artistsForCurrentTab = artists
@@ -296,7 +294,7 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 && !self.topArtists.isEmpty {
             return makeTopHeaderLabel(text: "Top")
-        } else if !self.topArtists.isEmpty {
+        } else if !self.topArtists.isEmpty && !self.filteredArtists.isEmpty {
             return makeOthersHeaderView()
         } else {
             return UIView()
