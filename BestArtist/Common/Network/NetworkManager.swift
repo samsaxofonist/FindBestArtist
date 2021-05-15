@@ -22,8 +22,8 @@ final class NetworkManager {
     static func loadCustomers(completion: @escaping (([User], Error?) -> Void)) {
     }
     
-    static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
-        FirebaseManager.saveArtist(artist, finish: finish)
+    static func saveArtist(_ artist: Artist, photoChanged: Bool, galleryPhotosChanged: Bool, finish: @escaping (()->())) {
+        FirebaseManager.saveArtist(artist, photoChanged: photoChanged, galleryPhotosChanged: galleryPhotosChanged, finish: finish)
     }
     
     static func loadArtists(completion: @escaping (([Artist], Error?) -> Void)) {

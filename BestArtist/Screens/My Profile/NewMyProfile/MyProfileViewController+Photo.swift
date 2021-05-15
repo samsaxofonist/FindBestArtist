@@ -113,8 +113,10 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         }
         
         if imagePickerForUserPhoto {
+            mainPhotoChanged = true
             photoImageView.image = selectedImage.resized(toWidth: 600)
         } else {
+            galleryPhotosChanged = true
             insertNewPhoto(compressed)
         }
     }

@@ -40,12 +40,12 @@ struct OrderKeys {
 }
 
 class FirebaseManager {
-    static func saveArtist(_ artist: Artist, finish: @escaping (()->())) {
+    static func saveArtist(_ artist: Artist, photoChanged: Bool, galleryPhotosChanged: Bool, finish: @escaping (()->())) {
         let ref: DatabaseReference
 
         if let userId = artist.databaseId {
             ref = Database.database().reference().child("users/\(userId)")
-            updateArtist(ref: ref, artist: artist, userId: userId, finish: finish)
+            updateArtist(ref: ref, artist: artist, userId: userId, photoChanged: photoChanged, galleryPhotosChanged: galleryPhotosChanged, finish: finish)
         } else {
             ref = Database.database().reference().child("users").childByAutoId()
             createNewArtist(ref: ref, artist: artist, finish: finish)
@@ -110,7 +110,7 @@ class FirebaseManager {
     static func updateCustomer(ref: DatabaseReference, customer: User, userId: String, finish: @escaping (()->())) {
     }
 
-    static func updateArtist(ref: DatabaseReference, artist: Artist, userId: String, finish: @escaping (()->())) {
+    static func updateArtist(ref: DatabaseReference, artist: Artist, userId: String, photoChanged: Bool, galleryPhotosChanged: Bool, finish: @escaping (()->())) {
         ref.observeSingleEvent(of: .value) { data in
             guard let jsonData = data.value as? [String: Any] else { return }
             guard let existedArtist = parseArtist(from: jsonData, userId: userId) else { return }
@@ -135,13 +135,15 @@ class FirebaseManager {
                 existedArtist.photo = UIImage(data: data)
             }
 
-            if existedArtist.photo?.pngData() != artist.photo?.pngData() {
+            if photoChanged {
                 uploadGroup.enter()
                 self.uploadProfilePhoto(artist.photo, forFacebookId: artist.facebookId, completion: uploadPhotoCompletion)
             }
 
-            uploadGroup.enter()
-            self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: uploadGalleryPhotosCompletion)
+            if galleryPhotosChanged {
+                uploadGroup.enter()
+                self.uploadGalleryPhotos(artist.galleryPhotos, forFacebookId: artist.facebookId, completion: uploadGalleryPhotosCompletion)
+            }
 
             uploadGroup.enter()
             updateArtistsMainInfo(ref: ref, artist: artist)

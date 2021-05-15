@@ -78,6 +78,9 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     var feedbacksLongTapRecognizer: UIGestureRecognizer!
     
     var blur: VisualEffectView!
+    
+    var mainPhotoChanged = false
+    var galleryPhotosChanged = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -272,7 +275,7 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         setBlurVisible(true)
         ARSLineProgress.show()
         guard let artist = self.artist else { return }
-        NetworkManager.saveArtist(artist, finish: {
+        NetworkManager.saveArtist(artist, photoChanged: mainPhotoChanged, galleryPhotosChanged: galleryPhotosChanged, finish: {
             ARSLineProgress.hide()
             self.setBlurVisible(false)
             NotificationCenter.default.post(name: .refreshNamesList, object: nil)
