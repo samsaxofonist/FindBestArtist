@@ -387,15 +387,15 @@ private extension FirebaseManager {
 
         let riversRef = Storage.storage().reference().child("images/\(name)")
 
-        let _ = riversRef.putFile(from: url, metadata: nil) { (metadata, error) in
-            riversRef.downloadURL { (url, error) in
+        let _ = riversRef.putFile(from: url, metadata: nil) { [weak riversRef] (metadata, error) in
+            riversRef?.downloadURL { (url, error) in
                 completion(url)
             }
         }
     }
 
     static func saveImage(_ image: UIImage, name: String) -> URL? {
-        guard let imageData = image.jpegData(compressionQuality: 1) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             return nil
         }
         do {
