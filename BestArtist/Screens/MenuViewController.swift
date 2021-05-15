@@ -99,7 +99,7 @@ class MenuViewController: UITableViewController {
             dismiss(animated: true, completion: nil)
         }
         else if indexPath.row == 3 {
-            FBSDKLoginManager().logOut()
+            LoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             
             dismiss(animated: false) {

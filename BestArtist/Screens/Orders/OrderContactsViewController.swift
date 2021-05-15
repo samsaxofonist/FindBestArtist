@@ -33,7 +33,7 @@ class OrderContactsViewController: UITableViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         setupSendButtonValidation()
 
-        LoginManager.getFacebookEmail(completion: { email in
+        AppLoginManager.getFacebookEmail(completion: { email in
             self.emailTextField.text = email
         })
     }

@@ -25,8 +25,8 @@ final class StartViewController: InitialSetupViewController {
     }
 
     func checkLogin() {
-        if LoginManager.hasUser {
-            LoginManager.loginWithSavedUser { (fbProfile, user) in
+        if AppLoginManager.hasUser {
+            AppLoginManager.loginWithSavedUser { (fbProfile, user) in
                 GlobalManager.fbProfile = fbProfile
                 if user == nil && fbProfile != nil {
                     self.showUserTypeSelection()

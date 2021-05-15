@@ -14,22 +14,22 @@ class InitialSetupViewController: BaseViewController {
 
     var userType: UserType!
 
-    func openCitySelection(fbProfile: FBSDKProfile) {
+    func openCitySelection(fbProfile: Profile) {
         let cityController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "citySelectionVC") as! SelectCityViewController
         setupCityController(cityController, fbProfile: fbProfile)
         self.navigationController?.pushViewController(cityController, animated: true)
     }
 
-    func setupCityController(_ controller: SelectCityViewController, fbProfile: FBSDKProfile) {
+    func setupCityController(_ controller: SelectCityViewController, fbProfile: Profile) {
         controller.finishBlock = { city, country in
             self.finishLogin(fbProfile: fbProfile, existedArtist: nil, city: city, country: country)
         }
     }
 
-    func finishLogin(fbProfile: FBSDKProfile, existedArtist: User?, city: City, country: String) {
+    func finishLogin(fbProfile: Profile, existedArtist: User?, city: City, country: String) {
         switch self.userType {
         case .artist:
-            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name, country: country, city: city))
+            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city))
 
             if existedArtist != nil {
                 self.openMainScreen()
@@ -37,7 +37,7 @@ class InitialSetupViewController: BaseViewController {
                 self.openCreateProfile(fbProfile: fbProfile)
             }
         case .customer:
-            let customer = User(facebookId: fbProfile.userID, name: fbProfile.name, country: country, city: city)
+            let customer = User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city)
             GlobalManager.myUser = customer
             ARSLineProgress.show()
             NetworkManager.saveCustomer(customer) {
@@ -49,7 +49,7 @@ class InitialSetupViewController: BaseViewController {
         }
     }
 
-    func openCreateProfile(fbProfile: FBSDKProfile) {
+    func openCreateProfile(fbProfile: Profile) {
         guard let user = GlobalManager.myUser else { return }
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController

@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        FBSDKSettings.setAutoLogAppEventsEnabled(NSNumber(booleanLiteral: false))
-        FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let attrs = [
             NSAttributedString.Key.foregroundColor: ThemeManager.theme.textColor,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance()!.application(app, open: url, options: options)
+        let handled = ApplicationDelegate.shared.application(app, open: url, options: options)
         return handled
     }
     

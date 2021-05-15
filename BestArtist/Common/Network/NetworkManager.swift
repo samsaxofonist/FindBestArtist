@@ -33,7 +33,7 @@ final class NetworkManager {
     static func loadFacebookPhoto(block: @escaping ((UIImage?, URL?) -> Void)) {
         DispatchQueue.global().async {
             if let profile = GlobalManager.fbProfile {
-                guard let url = profile.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else {
+                guard let url = profile.imageURL(forMode: .normal, size: CGSize(width: 1000, height: 1000)) else {
                     block(nil, nil)
                     return
                 }
@@ -45,8 +45,8 @@ final class NetworkManager {
                     block(image, url)
                 }
             } else {
-                FBSDKProfile.loadCurrentProfile { (profile, error) in
-                    guard let url = FBSDKProfile.current()?.imageURL(for: .normal, size: CGSize(width: 1000, height: 1000)) else {
+                Profile.loadCurrentProfile { (profile, error) in
+                    guard let url = Profile.current?.imageURL(forMode: .normal, size: CGSize(width: 1000, height: 1000)) else {
                         block(nil, nil)
                         return
                     }

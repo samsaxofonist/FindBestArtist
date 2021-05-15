@@ -34,7 +34,7 @@ class GlobalManager {
     static var rootNavigation: UINavigationController?
 
     static var myUser: User?
-    static var fbProfile: FBSDKProfile?
+    static var fbProfile: Profile?
 
     static var selectedArtists = [Artist]()
     static var sorting: SortingType = .lowToHigh
