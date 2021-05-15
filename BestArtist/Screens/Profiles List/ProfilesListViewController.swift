@@ -132,6 +132,7 @@ class ProfilesListViewController: BaseViewController {
         UIApplication.shared.beginIgnoringInteractionEvents()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataList), name: .refreshNamesList, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name("NewOrderSent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name("CartClosed"), object: nil)
 
         profilesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         profilesTableView.estimatedRowHeight = 396

@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         ARSLineProgressConfiguration.backgroundViewStyle = .full
         UINavigationBar.appearance().titleTextAttributes = attrs
+        UINavigationBar.appearance().barTintColor = ThemeManager.theme.backgroundColor
+        UINavigationBar.appearance().tintColor = ThemeManager.theme.textColor
+
         return true
     }
 

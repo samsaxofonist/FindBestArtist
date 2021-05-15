@@ -27,6 +27,12 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         updateTotalPrice()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CartClosed"), object: nil)
+    }
+    
     @IBAction func GetButtonClicked(_ sender: Any) {
     }
     

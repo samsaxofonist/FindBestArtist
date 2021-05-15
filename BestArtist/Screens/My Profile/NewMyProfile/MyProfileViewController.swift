@@ -316,8 +316,6 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         videosTitleLabel.textColor = theme.textColor
         feedbacksTitleLabel.textColor = theme.textColor
         calendarTitleLabel.textColor = theme.textColor
-        navigationController?.navigationBar.barTintColor = theme.backgroundColor
-        navigationController?.navigationBar.tintColor = theme.textColor
         CalendarDecorator.decorateCalendar()
     }
     
