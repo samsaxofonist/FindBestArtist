@@ -100,6 +100,10 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         setupSegmentsControl()
         setupMediasLongTap()
         setupInitialInfo()
+        
+        if GlobalManager.myUser != artist {
+            ratingView.isUserInteractionEnabled = false
+        }
     }
     
     func setBlurVisible(_ visible: Bool) {

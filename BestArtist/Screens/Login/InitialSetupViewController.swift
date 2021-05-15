@@ -27,25 +27,43 @@ class InitialSetupViewController: BaseViewController {
     }
 
     func finishLogin(fbProfile: Profile, existedArtist: User?, city: City, country: String) {
+        
+        if let user = existedArtist {
+            GlobalManager.myUser = user
+            self.openMainScreen()
+        } else {
+            processNewUser(fbProfile: fbProfile, existedArtist: existedArtist, city: city, country: country)
+        }
+    }
+    
+    func processNewUser(fbProfile: Profile, existedArtist: User?, city: City, country: String) {
         switch self.userType {
         case .artist:
-            GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city))
-
-            if existedArtist != nil {
-                self.openMainScreen()
-            } else {
-                self.openCreateProfile(fbProfile: fbProfile)
-            }
+            processArtistFlow(fbProfile: fbProfile, existedArtist: existedArtist, city: city, country: country)
         case .customer:
-            let customer = User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city)
-            GlobalManager.myUser = customer
-            ARSLineProgress.show()
-            NetworkManager.saveCustomer(customer) {
-                ARSLineProgress.hide()
-                self.openMainScreen()
-            }
+            processCustomerFlow(fbProfile: fbProfile, city: city, country: country)
         case .none:
             break
+        }
+    }
+    
+    func processArtistFlow(fbProfile: Profile, existedArtist: User?, city: City, country: String) {
+        GlobalManager.myUser = Artist.instantiate(fromUser: User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city))
+
+        if existedArtist != nil {
+            self.openMainScreen()
+        } else {
+            self.openCreateProfile(fbProfile: fbProfile)
+        }
+    }
+    
+    func processCustomerFlow(fbProfile: Profile, city: City, country: String) {
+        let customer = User(facebookId: fbProfile.userID, name: fbProfile.name ?? "", country: country, city: city)
+        GlobalManager.myUser = customer
+        ARSLineProgress.show()
+        NetworkManager.saveCustomer(customer) {
+            ARSLineProgress.hide()
+            self.openMainScreen()
         }
     }
 
