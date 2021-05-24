@@ -272,7 +272,7 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         self.artist.price = self.selectedPrice
         self.artist.photo = photo
         self.artist.galleryPhotos = self.allPhotos
-        self.artist.busyDates = self.selectedDates
+        self.artist.dates = self.selectedDates
         self.artist.feedbackLinks = self.allFeedbacks
         self.artist.photoLink = self.userPhotoURL?.absoluteString ?? artist.photoLink
 

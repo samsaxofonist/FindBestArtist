@@ -19,7 +19,7 @@ extension MyProfileViewController: CalendarViewDataSource, CalendarViewDelegate 
     func selectCalendarDates() {
         guard let artist = self.artist else { return }
         calendarView.setDisplayDate(Date(), animated: false)
-        for timeInterval in artist.busyDates {
+        for timeInterval in artist.dates {
             calendarView.selectDate(Date(timeIntervalSince1970: timeInterval))
         }
     }
@@ -43,7 +43,9 @@ extension MyProfileViewController: CalendarViewDataSource, CalendarViewDelegate 
     }
 
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {}
-    func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool { return true }
+    func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
+        return GlobalManager.myUser == artist
+    }
     func calendar(_ calendar: CalendarView, didLongPressDate date: Date) {}
 }
 

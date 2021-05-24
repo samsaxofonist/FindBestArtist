@@ -25,7 +25,6 @@ extension MyProfileViewController: UITextViewDelegate {
         self.cityButton.isUserInteractionEnabled = canEdit
         self.priceButton.isUserInteractionEnabled = canEdit
         self.descriptionTextView.isUserInteractionEnabled = canEdit
-        self.calendarView.isUserInteractionEnabled = canEdit
         self.descriptionTextView.layer.borderColor = UIColor.red.cgColor
         self.ratingView.settings.fillMode = .precise
         self.ratingView.rating = artist.averageRating ?? 3
@@ -42,7 +41,7 @@ extension MyProfileViewController: UITextViewDelegate {
         if let photoLink = artist.photoLink {
             self.userPhotoURL = URL(string: photoLink)
         }
-        self.selectedDates = artist.busyDates
+        self.selectedDates = artist.dates
         
         if artist.description.isEmpty == false {
             descriptionTextView.text = artist.description

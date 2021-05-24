@@ -43,10 +43,10 @@ final class LoginViewController: InitialSetupViewController {
         ARSLineProgress.hide()
         GlobalManager.fbProfile = fbProfile
 
-        if existedArtist != nil {
-            finishLogin(fbProfile: fbProfile, existedArtist: existedArtist, city: existedArtist!.city, country: existedArtist!.country)
+        if let user = existedArtist {
+            finishLogin(fbProfile: fbProfile, existedArtist: user, city: user.city, country: user.country)
         } else {
-            openCitySelection(fbProfile: fbProfile)
+            openEventDateScreen(fbProfile: fbProfile)
         }
     }
 
