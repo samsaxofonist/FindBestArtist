@@ -23,6 +23,7 @@ class User: Equatable {
     var photoLink: String?
     var country: String
     var city: City
+    var dates = [TimeInterval]()
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId
@@ -142,7 +143,6 @@ class Artist: User {
 
     var galleryPhotos = [UIImage]()
     var galleryPhotosLinks = [String]()
-    var busyDates = [TimeInterval]()
 
     var averageRating: Double? {
         guard let existed = ratings else { return nil }

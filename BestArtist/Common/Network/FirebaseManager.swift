@@ -27,9 +27,9 @@ struct ArtistKeys {
     static let countryName = "countryName"
     static let facebookID = "fbId"
     static let photoGaleryLinks = "photoGaleryLinks"
-    static let busyDates = "busyDates"
     static let type = "type"
     static let ratings = "ratings"
+    static let dates = "dates"
 }
 
 struct OrderKeys {
@@ -102,7 +102,8 @@ class FirebaseManager {
                           ArtistKeys.cityLongitude: customer.city.location.longitude,
                           ArtistKeys.facebookID: customer.facebookId,
                           ArtistKeys.countryName: customer.country,
-                          ArtistKeys.type: customer.type.rawValue])
+                          ArtistKeys.type: customer.type.rawValue,
+                          ArtistKeys.dates: customer.dates])
             finish()
         })
     }
@@ -167,7 +168,7 @@ class FirebaseManager {
             ArtistKeys.cityLatitude: artist.city.location.latitude,
             ArtistKeys.cityLongitude: artist.city.location.longitude,
             ArtistKeys.facebookID: artist.facebookId,
-            ArtistKeys.busyDates: artist.busyDates,
+            ArtistKeys.dates: artist.dates,
             ArtistKeys.countryName: artist.country,
             ArtistKeys.type: artist.type.rawValue,
             ArtistKeys.ratings: artist.ratings
@@ -188,11 +189,12 @@ class FirebaseManager {
                               ArtistKeys.cityLatitude: artist.city.location.latitude,
                               ArtistKeys.cityLongitude: artist.city.location.longitude,
                               ArtistKeys.facebookID: artist.facebookId,
-                              ArtistKeys.busyDates: artist.busyDates,
+                              ArtistKeys.dates: artist.dates,
                               ArtistKeys.countryName: artist.country,
                               ArtistKeys.type: artist.type.rawValue,
                               ArtistKeys.ratings: artist.ratings,
-                              ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString } ])
+                              ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString },
+                              ArtistKeys.dates: artist.dates])
                 finish()
             })
         })
@@ -340,8 +342,8 @@ private extension FirebaseManager {
             artist.galleryPhotosLinks = galleryPhotosLinks
         }
 
-        if let busyDates = value[ArtistKeys.busyDates] as? [Double] {
-            artist.busyDates = busyDates
+        if let dates = value[ArtistKeys.dates] as? [Double] {
+            artist.dates = dates
         }
 
         artist.ratings = ratings
