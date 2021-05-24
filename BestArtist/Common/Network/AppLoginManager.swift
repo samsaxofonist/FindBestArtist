@@ -10,14 +10,14 @@ import Foundation
 import Firebase
 import FBSDKLoginKit
 
-final class LoginManager {
+final class AppLoginManager {
     static var hasUser: Bool {
-        return FBSDKAccessToken.current() != nil && Auth.auth().currentUser != nil
+        return AccessToken.current != nil && Auth.auth().currentUser != nil
     }
     
-    static func login(fromViewController viewController: UIViewController, progressStartBlock: @escaping (()->()), completion: @escaping ((FBSDKProfile?, User?) -> ())) {
+    static func login(fromViewController viewController: UIViewController, progressStartBlock: @escaping (()->()), completion: @escaping ((Profile?, User?) -> ())) {
         loginToFacebook(fromViewController: viewController, completion: { isFacebookOK in
-            guard isFacebookOK, let token = FBSDKAccessToken.current() else {
+            guard isFacebookOK, let token = AccessToken.current else {
                 completion(nil, nil)
                 return
             }
@@ -29,7 +29,7 @@ final class LoginManager {
     }
 
     static func getFacebookEmail(completion: @escaping ((String?) -> Void)) {
-        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email"])?.start(completionHandler: { (connection, result, error) in
+        GraphRequest(graphPath: "me", parameters: ["fields": "email"]).start(completionHandler: { (connection, result, error) in
             if let resultDict = result as? [String: Any], error == nil {
                 completion(resultDict["email"] as? String)
             } else {
@@ -38,17 +38,17 @@ final class LoginManager {
         })
     }
 
-    static func loginWithSavedUser(completion: @escaping ((FBSDKProfile?, User?) -> ())) {
-        guard let fbToken = FBSDKAccessToken.current() else {
+    static func loginWithSavedUser(completion: @escaping ((Profile?, User?) -> ())) {
+        guard let fbToken = AccessToken.current else {
             return completion(nil, nil)
         }
         loginToFirebase(token: fbToken.tokenString, completion: completion)
     }
     
-    static private func loginToFirebase(token: String, completion: @escaping ((FBSDKProfile?, User?) -> ())) {
+    static private func loginToFirebase(token: String, completion: @escaping ((Profile?, User?) -> ())) {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
         Auth.auth().signIn(with: credential, completion: { (result, error) in
-            FBSDKProfile.loadCurrentProfile { (profile, error) in
+            Profile.loadCurrentProfile { (profile, error) in
                 guard let profile = profile else {
                     return completion(nil, nil)
                 }
@@ -71,7 +71,7 @@ final class LoginManager {
     }
     
     static private func loginToFacebook(fromViewController viewController: UIViewController, completion: @escaping ((Bool) -> ())) {
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: viewController) { (result, error) in
+        LoginManager().logIn(permissions: ["public_profile", "email"], from: viewController) { (result, error) in
             completion(error == nil)
         }
     }

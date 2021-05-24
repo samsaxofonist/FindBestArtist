@@ -10,6 +10,7 @@ import UIKit
 
 protocol Theme {
     var backgroundColor: UIColor { get }
+    var menuBackgroundColor: UIColor { get }
     var textColor: UIColor { get }
     var darkColor: UIColor { get }
     var gradientStartColor: UIColor { get }
@@ -19,6 +20,7 @@ protocol Theme {
 
 class ThemeOlive: Theme {
     var backgroundColor: UIColor = UIColor.white
+    var menuBackgroundColor: UIColor = UIColor.white
     var textColor: UIColor = UIColor(rgb: 0x8996A7)
     var darkColor: UIColor = UIColor(rgb: 0x404040)
     var gradientStartColor: UIColor = UIColor(red: 0/255, green: 179/255, blue: 241/255, alpha: 1.0)

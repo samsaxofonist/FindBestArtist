@@ -45,4 +45,8 @@ class SelectAddressViewController: SelectCityViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction override func cancelClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

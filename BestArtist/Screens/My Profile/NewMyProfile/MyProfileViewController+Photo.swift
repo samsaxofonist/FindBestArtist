@@ -82,8 +82,10 @@ extension MyProfileViewController {
     }
     
     @IBAction func photoClicked(_ sender: Any) {
-        imagePickerForUserPhoto = true
-        present(imagePicker, animated: true, completion: nil)
+        if GlobalManager.myUser == artist {
+            imagePickerForUserPhoto = true
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
@@ -113,8 +115,10 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
         }
         
         if imagePickerForUserPhoto {
+            mainPhotoChanged = true
             photoImageView.image = selectedImage.resized(toWidth: 600)
         } else {
+            galleryPhotosChanged = true
             insertNewPhoto(compressed)
         }
     }

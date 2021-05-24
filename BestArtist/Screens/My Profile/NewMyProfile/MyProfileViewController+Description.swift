@@ -30,7 +30,9 @@ extension MyProfileViewController: UITextViewDelegate {
         self.ratingView.settings.fillMode = .precise
         self.ratingView.rating = artist.averageRating ?? 3
 
-        setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)
+        if GlobalManager.myUser == artist {
+            setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)
+        }
 
         if !canEdit {
             self.allPhotos.removeAll()

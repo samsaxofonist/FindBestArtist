@@ -32,6 +32,17 @@ class MenuViewController: UITableViewController {
         photoView.layer.cornerRadius = 28
         backgroundView.layer.cornerRadius = 30
         self.tableView.tableFooterView = UIView(frame: .zero)
+        addVerticalSeparator()
+    }
+    
+    func addVerticalSeparator() {
+        let separator = UIView(frame: CGRect(x: 240, y: -20, width: 1, height: self.view.frame.height))
+        separator.backgroundColor = .black
+        separator.clipsToBounds = false
+        separator.layer.shadowOpacity = 1
+        separator.layer.shadowOffset = .zero
+        separator.layer.shadowRadius = 10
+        tableView.addSubview(separator)
     }
 
     func setupUserInfoInMenu() {
@@ -99,7 +110,7 @@ class MenuViewController: UITableViewController {
             dismiss(animated: true, completion: nil)
         }
         else if indexPath.row == 3 {
-            FBSDKLoginManager().logOut()
+            LoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             
             dismiss(animated: false) {

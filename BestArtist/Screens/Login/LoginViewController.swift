@@ -28,7 +28,7 @@ final class LoginViewController: InitialSetupViewController {
     @IBAction func loginClicked(_ sender: Any) {
         setEverythingVisible(isVisible: false)
         
-        LoginManager.login(fromViewController: self, progressStartBlock: {
+        AppLoginManager.login(fromViewController: self, progressStartBlock: {
             ARSLineProgress.show()            
         }, completion: { fbProfile, existedArtist in
             if let profile = fbProfile {
@@ -39,7 +39,7 @@ final class LoginViewController: InitialSetupViewController {
         })
     }
 
-    func processSuccessLogin(fbProfile: FBSDKProfile, existedArtist: User?) {
+    func processSuccessLogin(fbProfile: Profile, existedArtist: User?) {
         ARSLineProgress.hide()
         GlobalManager.fbProfile = fbProfile
 
