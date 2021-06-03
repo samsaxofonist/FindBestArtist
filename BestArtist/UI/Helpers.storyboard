@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQw-i9-CmA" customClass="CalendarView" customModule="KDCalendar">
-                                <rect key="frame" x="30" y="413.5" width="354" height="300"/>
+                                <rect key="frame" x="30" y="413.5" width="354" height="265.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="8l4-LP-jOB"/>
+                                    <constraint firstAttribute="width" secondItem="OQw-i9-CmA" secondAttribute="height" multiplier="2:1.5" id="Gfo-Fr-ytf"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="rbK-yR-kZK"/>
                                 </constraints>
                             </view>
@@ -120,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="OQw-i9-CmA" id="3az-be-kRW"/>
+                        <outlet property="continueButton" destination="4Op-LT-ozG" id="b0R-IN-fb9"/>
                         <outlet property="selectCityButton" destination="AtO-F1-FuS" id="fn1-6u-a5b"/>
                         <outlet property="selectDateLabel" destination="nQu-8A-r1D" id="L3l-Y2-qQh"/>
                         <outlet property="selectedCityLabel" destination="K2W-6H-WFA" id="xIU-8w-aZJ"/>
@@ -133,6 +134,9 @@
     <designables>
         <designable name="4Op-LT-ozG">
             <size key="intrinsicContentSize" width="77" height="35"/>
+        </designable>
+        <designable name="AtO-F1-FuS">
+            <size key="intrinsicContentSize" width="122" height="46"/>
         </designable>
     </designables>
     <resources>

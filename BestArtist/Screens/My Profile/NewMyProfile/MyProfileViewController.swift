@@ -98,7 +98,7 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         blur.isHidden = true
         
         setupSegmentsControl()
-        setupMediasLongTap()
+        //setupMediasLongTap()
         setupInitialInfo()
         
         if GlobalManager.myUser != artist {

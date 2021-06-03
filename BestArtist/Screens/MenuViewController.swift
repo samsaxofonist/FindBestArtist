@@ -19,7 +19,8 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var profileCellTitleLabel: UILabel!
     @IBOutlet weak var logoutCellTitleLabel: UILabel!
     @IBOutlet weak var myOrdersCellTitleLabel: UILabel!
-
+    @IBOutlet weak var settingsCellTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,6 +81,7 @@ class MenuViewController: UITableViewController {
         self.profileCellTitleLabel.textColor = theme.textColor
         self.logoutCellTitleLabel.textColor = theme.textColor
         self.myOrdersCellTitleLabel.textColor = theme.textColor
+        self.settingsCellTitleLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,13 +105,17 @@ class MenuViewController: UITableViewController {
 
             neededNavigation?.pushViewController(profileController, animated: true)
             dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
         } else if indexPath.row == 2 {
             let myOrders = UIStoryboard(name: "MyOrders", bundle: nil).instantiateViewController(withIdentifier: "MyOrdersViewController")
 
             neededNavigation?.pushViewController(myOrders, animated: true)
             dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
         }
         else if indexPath.row == 3 {
+            openCityDateSelection()
+        } else if indexPath.row == 4 {
             LoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             
@@ -117,13 +123,29 @@ class MenuViewController: UITableViewController {
                 rootNavigation?.setViewControllers([newLoginView], animated: true)
             }
         }
+    }
+    
+    func openCityDateSelection() {
+        let cityDateSelectVC = UIStoryboard(name: "Helpers", bundle: nil).instantiateViewController(withIdentifier: "cityDateSelectVC") as! EventDateSelectionViewController
+        cityDateSelectVC.userType = GlobalManager.myUser!.type
+        
+        cityDateSelectVC.finishBlock = { selectedDates, city, country in
+            GlobalManager.myUser?.dates = selectedDates
+            GlobalManager.myUser?.city = city
+            GlobalManager.myUser?.country = country
+        }
+        GlobalManager.navigation?.pushViewController(cityDateSelectVC, animated: true)
+        dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 && GlobalManager.myUser?.type == .customer {
             return 0
-        } else {
+        } else if indexPath.row == 3 && GlobalManager.myUser?.type == .artist {
+            return 0
+        }
+        else {
             return UITableView.automaticDimension
         }
     }
