@@ -109,6 +109,15 @@ class FirebaseManager {
     }
 
     static func updateCustomer(ref: DatabaseReference, customer: User, userId: String, finish: @escaping (()->())) {
+            ref.updateChildValues([ArtistKeys.name: customer.name,
+                          ArtistKeys.cityName: customer.city.name,
+                          ArtistKeys.cityLatitude: customer.city.location.latitude,
+                          ArtistKeys.cityLongitude: customer.city.location.longitude,
+                          ArtistKeys.facebookID: customer.facebookId,
+                          ArtistKeys.countryName: customer.country,
+                          ArtistKeys.type: customer.type.rawValue,
+                          ArtistKeys.dates: customer.dates])
+            finish()
     }
 
     static func updateArtist(ref: DatabaseReference, artist: Artist, userId: String, photoChanged: Bool, galleryPhotosChanged: Bool, finish: @escaping (()->())) {
@@ -193,8 +202,8 @@ class FirebaseManager {
                               ArtistKeys.countryName: artist.country,
                               ArtistKeys.type: artist.type.rawValue,
                               ArtistKeys.ratings: artist.ratings,
-                              ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString },
-                              ArtistKeys.dates: artist.dates])
+                              ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString }
+                ])
                 finish()
             })
         })
@@ -288,7 +297,8 @@ private extension FirebaseManager {
             let cityName = value[ArtistKeys.cityName] as? String,
             let lat = value[ArtistKeys.cityLatitude] as? Double,
             let lon = value[ArtistKeys.cityLongitude] as? Double,
-            let country = value[ArtistKeys.countryName] as? String else {
+            let country = value[ArtistKeys.countryName] as? String,
+            let dates = value[ArtistKeys.dates] as? [Double] else {
                 return nil
         }
 
@@ -303,6 +313,7 @@ private extension FirebaseManager {
         )
 
         customer.databaseId = userId
+        customer.dates = dates
 
         return customer
     }

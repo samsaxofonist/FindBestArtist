@@ -8,17 +8,22 @@
 
 import UIKit
 import KDCalendar
+import ARSLineProgress
+import VisualEffectView
 
 class EventDateSelectionViewController: UIViewController, CalendarViewDataSource, CalendarViewDelegate {
     @IBOutlet weak var selectedCityLabel: UILabel!
     @IBOutlet weak var calendarView: CalendarView!
     @IBOutlet weak var selectCityButton: UIButton!
     @IBOutlet weak var selectDateLabel: UILabel!
+    @IBOutlet weak var continueButton: HelpUIButtonClass!
     
     var selectedDates = [TimeInterval]()
     var selectedCity: City?
     var selectedCountry: String?
     var userType: UserType!
+    
+    var blur: VisualEffectView!
     
     var finishBlock: (([TimeInterval], City, String) -> Void)!
     
@@ -32,8 +37,65 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
             selectedCityLabel.text = "City of event"
             selectDateLabel.text = "Date of event"
         }
+        
+        if let city = GlobalManager.myUser?.city {
+            selectedCity = city
+            selectedCityLabel.text = city.name
+            selectedCountry = GlobalManager.myUser?.country
             
+            continueButton.isHidden = true
+        }
+        setupBlur()
         setupCalendar()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveClicked))
+    }
+    
+    func setupBlur() {
+        blur = VisualEffectView(frame: self.view.frame)
+        blur.colorTint = .white
+        blur.colorTintAlpha = 0.2
+        blur.blurRadius = 7
+        self.view.addSubview(blur)
+        blur.isHidden = true
+    }
+    
+    func setBlurVisible(_ visible: Bool) {
+        blur.isHidden = !visible
+    }
+    
+    @objc func saveClicked() {
+        
+        if let newCity = selectedCity {
+            GlobalManager.myUser?.city = newCity
+            NotificationCenter.default.post(name: .refreshNamesList, object: nil)
+        }
+
+        if let newCountry = selectedCountry {
+            GlobalManager.myUser?.country = newCountry
+        }
+        
+        GlobalManager.myUser?.dates = selectedDates
+
+        setBlurVisible(true)
+        NetworkManager.saveCustomer(GlobalManager.myUser!) {
+            ARSLineProgress.showSuccess()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.setBlurVisible(false)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let dates = GlobalManager.myUser?.dates {
+            selectedDates = dates
+            for timeInterval in dates {
+                calendarView.selectDate(Date(timeIntervalSince1970: timeInterval))
+            }
+        }
     }
     
     func setupCalendar() {
