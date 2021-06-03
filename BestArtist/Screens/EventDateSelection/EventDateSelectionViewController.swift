@@ -27,10 +27,10 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
         
         if userType == .artist {
             selectedCityLabel.text = "Your city"
-            selectDateLabel.text = "Select your busy dates"
+            selectDateLabel.text = "Your busy dates"
         } else {
-            selectedCityLabel.text = "City of your event"
-            selectDateLabel.text = "Select possible dates"
+            selectedCityLabel.text = "City of event"
+            selectDateLabel.text = "Date of event"
         }
             
         setupCalendar()
