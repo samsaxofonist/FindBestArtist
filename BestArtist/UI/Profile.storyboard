@@ -751,9 +751,6 @@
                                                         <constraint firstAttribute="height" constant="150" id="Cyv-QH-lar"/>
                                                         <constraint firstAttribute="width" constant="150" id="rzC-za-XWX"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="2Xe-T7-iyF" appends="YES" id="8Yn-an-TSm"/>
-                                                    </connections>
                                                 </imageView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-1Y-9j5">
                                                     <rect key="frame" x="32" y="172" width="311" height="40"/>
@@ -983,9 +980,22 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fakePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-10-GKV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                     </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaN-hh-oaJ">
+                                                                        <rect key="frame" x="95" y="0.0" width="33" height="33"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="33" id="H0R-qN-xr9"/>
+                                                                            <constraint firstAttribute="width" constant="33" id="eqT-ud-CgL"/>
+                                                                        </constraints>
+                                                                        <state key="normal" image="closeCross"/>
+                                                                        <connections>
+                                                                            <action selector="deletePhotoButtonClicked" destination="Qpd-QL-3QM" eventType="touchUpInside" id="pJ5-Nx-0J0"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="xaN-hh-oaJ" secondAttribute="trailing" id="BJI-dQ-vyA"/>
                                                                     <constraint firstItem="N9u-10-GKV" firstAttribute="top" secondItem="TC8-pX-2Wq" secondAttribute="top" id="VV9-hY-JOe"/>
+                                                                    <constraint firstItem="xaN-hh-oaJ" firstAttribute="top" secondItem="TC8-pX-2Wq" secondAttribute="top" id="ceC-0X-4m5"/>
                                                                     <constraint firstItem="N9u-10-GKV" firstAttribute="leading" secondItem="TC8-pX-2Wq" secondAttribute="leading" id="jbf-jL-QnG"/>
                                                                     <constraint firstAttribute="trailing" secondItem="N9u-10-GKV" secondAttribute="trailing" id="o8H-gs-egp"/>
                                                                     <constraint firstAttribute="bottom" secondItem="N9u-10-GKV" secondAttribute="bottom" id="r4l-RO-jLd"/>
@@ -1052,6 +1062,17 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nme-7T-BEb">
+                                                                        <rect key="frame" x="302" y="8" width="33" height="33"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="33" id="DXI-0c-zqB"/>
+                                                                            <constraint firstAttribute="height" constant="33" id="gTF-uv-bUy"/>
+                                                                        </constraints>
+                                                                        <state key="normal" image="closeCross"/>
+                                                                        <connections>
+                                                                            <action selector="deleteButtonClicked" destination="xgL-tQ-wl2" eventType="touchUpInside" id="a4S-RA-L5J"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                             </view>
                                                             <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
@@ -1060,6 +1081,8 @@
                                                                 <constraint firstItem="133-SI-9IL" firstAttribute="leading" secondItem="xgL-tQ-wl2" secondAttribute="leading" id="L9a-QN-beB"/>
                                                                 <constraint firstItem="133-SI-9IL" firstAttribute="top" secondItem="xgL-tQ-wl2" secondAttribute="top" id="PyZ-I2-zeh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="133-SI-9IL" secondAttribute="bottom" id="TTk-9b-p5v"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="Nme-7T-BEb" secondAttribute="trailing" id="asQ-mX-OG1"/>
+                                                                <constraint firstItem="Nme-7T-BEb" firstAttribute="top" secondItem="xgL-tQ-wl2" secondAttribute="topMargin" id="vjw-3Q-JY9"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="playerView" destination="133-SI-9IL" id="Jg8-sn-fpL"/>
@@ -1252,11 +1275,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-q8-IRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2Xe-T7-iyF" userLabel="photoTapGesture">
-                    <connections>
-                        <action selector="photoClicked:" destination="v0W-bV-a4w" id="Nby-5t-szR"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer enabled="NO" id="Q54-dG-gu0" userLabel="backgroundTapGesture">
                     <connections>
                         <action selector="backgroundClicked:" destination="v0W-bV-a4w" id="bqQ-dU-Ckh"/>
@@ -1326,6 +1344,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="closeCross" width="452" height="452"/>
         <image name="fakePhoto" width="210" height="140"/>
         <image name="plusIcon" width="128" height="128"/>
         <systemColor name="groupTableViewBackgroundColor">

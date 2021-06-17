@@ -46,13 +46,11 @@ extension MyProfileViewController {
     }
 
     func insertNewVideo(videoId: String) {
-        self.videosLongTapRecognizer.isEnabled = true
         self.allVideos.append(videoId)
         self.videosCollectionView.reloadData()
     }
 
     func insertNewFeedback(videoId: String) {
-        self.feedbacksLongTapRecognizer.isEnabled = true
         self.allFeedbacks.append(videoId)
         self.feedbacksCollectionVIew.reloadData()
     }
@@ -101,6 +99,17 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                 let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
                 let videoId = data[indexPath.row]
                 videoCell.playerView.load(withVideoId: videoId)
+                videoCell.deleteHandler = { [weak self] in
+                    if collectionView == self?.videosCollectionView {
+                        self?.showMediaDeleteAlert(mediaType: "video", collectionView: collectionView, indexPath: indexPath, confirmDelete: { [unowned self] in
+                            self?.allVideos.remove(at: indexPath.row)
+                        })
+                    } else {
+                        self?.showMediaDeleteAlert(mediaType: "feedback video", collectionView: collectionView, indexPath: indexPath, confirmDelete: { [unowned self] in
+                            self?.allFeedbacks.remove(at: indexPath.row)
+                        })
+                    }
+                }
                 return videoCell
             }
         } else {
@@ -111,9 +120,13 @@ extension MyProfileViewController: UICollectionViewDataSource, UICollectionViewD
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "AddVideoCell", for: indexPath)
             } else {
                 let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
-                
                 let image = data[indexPath.row]
                 photoCell.photoImageView.image = image
+                photoCell.deleteHandler = { [weak self] in
+                    self?.showMediaDeleteAlert(mediaType: "photo", collectionView: collectionView, indexPath: indexPath, confirmDelete: { [unowned self] in
+                        self?.allPhotos.remove(at: indexPath.row)
+                    })
+                }
                 return photoCell
             }
         }

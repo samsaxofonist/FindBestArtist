@@ -71,17 +71,9 @@ extension MyProfileViewController: UITextViewDelegate {
             self.insertNewVideo(videoId: id)
         })
 
-        if !self.allVideos.isEmpty {
-            self.videosLongTapRecognizer.isEnabled = true
-        }
-
         loadVideoLinks(from: artist.feedbackLinks, doForEachLink: { id in
             self.insertNewFeedback(videoId: id)
         })
-
-        if !self.allFeedbacks.isEmpty {
-            self.feedbacksLongTapRecognizer.isEnabled = true
-        }
     }
 
     func setDescriptionFieldEmptyState(isNotEnoughText: Bool) {
