@@ -48,7 +48,7 @@ class MenuViewController: UITableViewController {
 
     func setupUserInfoInMenu() {
         if let user = GlobalManager.myUser {
-            nameLabel.text = user.name
+            nameLabel.text = "Hi, " + user.name
             loadUserPhoto(user: user)
         }
     }
