@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
+    
+    var deleteHandler: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,4 +20,7 @@ class PhotoCell: UICollectionViewCell {
         self.photoImageView.clipsToBounds = true
     }
 
+    @IBAction func deletePhotoButtonClicked() {
+        deleteHandler?()
+    }
 }

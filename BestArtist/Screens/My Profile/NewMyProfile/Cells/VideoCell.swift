@@ -11,11 +11,17 @@ import youtube_ios_player_helper
 
 class VideoCell: UICollectionViewCell {
     @IBOutlet weak var playerView: YTPlayerView!
+    
+    var deleteHandler: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.playerView.layer.cornerRadius = 10
         self.playerView.clipsToBounds = true
+    }
+    
+    @IBAction func deleteButtonClicked() {
+        deleteHandler?()
     }
 }

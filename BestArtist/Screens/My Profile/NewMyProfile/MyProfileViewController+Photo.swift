@@ -36,9 +36,7 @@ extension MyProfileViewController {
         artist.galleryPhotosLinks.publisher
             .compactMap { URL(string: $0) }
             .sink(receiveCompletion: { [unowned self] _ in
-                if !(self.allPhotos.isEmpty == true) {
-                    self.photosLongTapRecognizer.isEnabled = true
-                }
+                
             }, receiveValue: { url in
                 KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), options: nil, progressBlock: nil) { result in
                     switch result {
@@ -125,7 +123,6 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
 
     func insertNewPhoto(_ photo: UIImage) {
         allPhotos.append(photo)
-        photosLongTapRecognizer.isEnabled = true
         photosCollectionView.reloadData()
     }
 
