@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -93,6 +94,28 @@
                                     <constraint firstAttribute="width" constant="10" id="bIC-Q8-hVZ"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg2-qj-BAM" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="192" y="78.5" width="20" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="RPj-bs-a0f"/>
+                                    <constraint firstAttribute="width" constant="20" id="cGu-u9-NKR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="1" green="0.31764705879999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZS-m5-Gpc">
+                                <rect key="frame" x="218" y="80" width="9" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,13 +127,17 @@
                             <constraint firstItem="Xkb-uD-3dM" firstAttribute="top" secondItem="zPv-vp-gOl" secondAttribute="top" constant="16" id="Jar-ge-VOh"/>
                             <constraint firstAttribute="trailing" secondItem="Xkb-uD-3dM" secondAttribute="trailing" constant="12" id="Rjt-uE-2Z9"/>
                             <constraint firstAttribute="trailing" secondItem="xEd-WR-VXw" secondAttribute="trailing" constant="12" id="TRe-rI-9iq"/>
+                            <constraint firstItem="yg2-qj-BAM" firstAttribute="leading" secondItem="vvZ-N4-LJw" secondAttribute="trailing" constant="16" id="VPW-fc-Jh3"/>
                             <constraint firstItem="Xkb-uD-3dM" firstAttribute="leading" secondItem="GeW-nG-9Hv" secondAttribute="trailing" constant="18" id="dJ4-T0-nrq"/>
                             <constraint firstAttribute="bottom" secondItem="vvZ-N4-LJw" secondAttribute="bottom" constant="17" id="epK-Nm-RsN"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="centerY" secondItem="zPv-vp-gOl" secondAttribute="centerY" id="eqf-MO-Bpu"/>
+                            <constraint firstItem="GZS-m5-Gpc" firstAttribute="centerY" secondItem="yg2-qj-BAM" secondAttribute="centerY" id="gND-Ze-VAs"/>
+                            <constraint firstItem="yg2-qj-BAM" firstAttribute="centerY" secondItem="vvZ-N4-LJw" secondAttribute="centerY" id="hyM-Uv-Rxk"/>
                             <constraint firstItem="vvZ-N4-LJw" firstAttribute="top" secondItem="xEd-WR-VXw" secondAttribute="bottom" constant="8" id="k5q-xF-9Nu"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="leading" secondItem="ZdU-iK-mN6" secondAttribute="trailing" constant="5" id="kRH-8k-ubF"/>
                             <constraint firstItem="GeW-nG-9Hv" firstAttribute="leading" secondItem="zPv-vp-gOl" secondAttribute="leading" constant="13" id="o7k-yo-U30"/>
                             <constraint firstAttribute="trailing" secondItem="MCG-0V-r5j" secondAttribute="trailing" constant="16" id="qbJ-ul-5IX"/>
+                            <constraint firstItem="GZS-m5-Gpc" firstAttribute="leading" secondItem="yg2-qj-BAM" secondAttribute="trailing" constant="6" id="sQs-kt-1yF"/>
                             <constraint firstItem="xEd-WR-VXw" firstAttribute="top" secondItem="Xkb-uD-3dM" secondAttribute="bottom" id="taJ-t5-l9f"/>
                             <constraint firstItem="ZdU-iK-mN6" firstAttribute="leading" secondItem="Xkb-uD-3dM" secondAttribute="leading" id="tg4-3v-Lw8"/>
                         </constraints>
@@ -156,11 +183,16 @@
                 <outlet property="nameLabel" destination="Xkb-uD-3dM" id="Oa9-ms-iTU"/>
                 <outlet property="photoImage" destination="GeW-nG-9Hv" id="Hbp-eR-YM9"/>
                 <outlet property="priceLabel" destination="vvZ-N4-LJw" id="kPE-To-jZB"/>
+                <outlet property="ratingCount" destination="GZS-m5-Gpc" id="Shc-qG-2VI"/>
+                <outlet property="ratingView" destination="yg2-qj-BAM" id="18e-pv-RYI"/>
             </connections>
             <point key="canvasLocation" x="-195.19999999999999" y="68.815592203898049"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="hotpng.com" width="60" height="60"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

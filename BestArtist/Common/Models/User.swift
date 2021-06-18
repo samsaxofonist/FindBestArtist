@@ -136,19 +136,14 @@ class Artist: User {
     var talent: Talent
     var description: String
     var price: Int
-    var ratings: [Double]?
-
+    var gotBonus: Bool = false
     var youtubeLinks = [String]()
     var feedbackLinks = [String]()
 
     var galleryPhotos = [UIImage]()
     var galleryPhotosLinks = [String]()
 
-    var averageRating: Double? {
-        guard let existed = ratings else { return nil }
-        let sum = existed.reduce(0, +)
-        return sum / Double(existed.count)
-    }
+    var rating: Double
 
     init(facebookId: String,
          name: String,
@@ -162,16 +157,9 @@ class Artist: User {
         self.talent = talent
         self.description = description        
         self.price = price
+        self.rating = 3
         super.init(type: .artist, facebookId: facebookId, name: name, country: country, city: city)
         self.photoLink = photoLink
-    }
-
-    func updateRating(rating: Double) {
-        if self.ratings != nil {
-            self.ratings!.append(rating)
-        } else {
-            self.ratings = [rating]
-        }
     }
 
     func adjustPriceForCustomerCity(customerCity: City) {

@@ -208,6 +208,12 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         self.artist.feedbackLinks = self.allFeedbacks
         self.artist.photoLink = self.userPhotoURL?.absoluteString ?? artist.photoLink
 
+        let bonus = bonusRating()
+        if bonus > 0 {
+            self.artist.gotBonus = true
+            self.artist.rating += bonus
+        }
+        
         setBlurVisible(true)
         ARSLineProgress.show()
         guard let artist = self.artist else { return }
@@ -222,6 +228,27 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
                 self.navigationController?.popToRootViewController(animated: true)
             }
         })
+    }
+    
+    func bonusRating() -> Double {
+        let firstBonusPhotosCount = allPhotos.count >= 3 && allPhotos.count <= 5
+        let firstBonusVideosCount = allVideos.count >= 2 && allVideos.count < 4
+        
+        let secondBonusPhotosCount = artist.galleryPhotos.count <= 5 && allPhotos.count > 5
+        let secondBonusVideosCount = artist.youtubeLinks.count <= 3 && allVideos.count > 3
+        
+        let superBonusPhotosCount = artist.galleryPhotos.count <= 2 && allPhotos.count > 5
+        let superBonusVideosCount = artist.youtubeLinks.count <= 1 && allVideos.count > 3
+        
+        if !artist.gotBonus && firstBonusPhotosCount && firstBonusVideosCount {
+            return 0.2
+        } else if artist.gotBonus && secondBonusPhotosCount && secondBonusVideosCount {
+            return 0.2
+        } else if !artist.gotBonus && superBonusPhotosCount && superBonusVideosCount {
+            return 0.5
+        } else {
+            return 0
+        }
     }
 
     func createAndOpenMainScreen() {

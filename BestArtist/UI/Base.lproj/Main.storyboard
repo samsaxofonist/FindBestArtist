@@ -659,6 +659,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cartButton" destination="Bq3-3M-BHX" id="kiE-nI-wpB"/>
                         <outlet property="emptyStateImage" destination="dKb-On-E1A" id="gKL-ay-M04"/>
                         <outlet property="filterButton" destination="Qj2-fl-sDw" id="0FF-7C-Zkh"/>
                         <outlet property="listSettingsView" destination="eez-Xs-7T9" id="W1N-xD-cBc"/>
@@ -1563,9 +1564,6 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="8x1-El-Cha">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
-        </designable>
         <designable name="MbA-3k-GFz">
             <size key="intrinsicContentSize" width="102" height="35"/>
         </designable>
@@ -1574,9 +1572,6 @@
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
-        </designable>
-        <designable name="uOD-MS-g2u">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>

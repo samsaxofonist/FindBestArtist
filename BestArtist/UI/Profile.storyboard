@@ -764,7 +764,7 @@
                                                         <outlet property="delegate" destination="v0W-bV-a4w" id="wb3-AZ-9xE"/>
                                                     </connections>
                                                 </textField>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUI-kL-O1g" customClass="CosmosView" customModule="Cosmos">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUI-kL-O1g" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="127.5" y="216" width="120" height="20"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -1326,9 +1326,6 @@
         </designable>
         <designable name="HjV-4m-RKF">
             <size key="intrinsicContentSize" width="51" height="40"/>
-        </designable>
-        <designable name="KUI-kL-O1g">
-            <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
         <designable name="YE5-eW-SIU">
             <size key="intrinsicContentSize" width="51" height="40"/>
