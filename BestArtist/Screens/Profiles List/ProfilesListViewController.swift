@@ -20,7 +20,8 @@ class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var emptyStateImage: UIImageView!
     @IBOutlet weak var settingsViewHeight: NSLayoutConstraint!
-
+    @IBOutlet weak var cartButton: UIBarButtonItem!
+    
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     var artists = [Artist]()
@@ -74,7 +75,7 @@ class ProfilesListViewController: BaseViewController {
     
     @objc func reloadDataList() {
         ARSLineProgress.show()
-
+        
         NetworkManager.loadArtists(completion: { artists, error in
             ARSLineProgress.hide()
             if error == nil {
@@ -84,8 +85,8 @@ class ProfilesListViewController: BaseViewController {
 
                 artistsForCurrentTab.forEach { $0.adjustPriceForCustomerCity(customerCity: GlobalManager.myUser!.city) }
 
-                self.topArtists = artistsForCurrentTab.filter { $0.averageRating ?? 0 >= 4 }
-                let otherArtists = artistsForCurrentTab.filter { $0.averageRating ?? 0 < 4 }
+                self.topArtists = artistsForCurrentTab.filter { $0.rating >= 4 }
+                let otherArtists = artistsForCurrentTab.filter { $0.rating < 4 }
 
                 self.artists = otherArtists
                     .sorted(by: {

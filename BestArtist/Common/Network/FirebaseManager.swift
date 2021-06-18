@@ -30,6 +30,8 @@ struct ArtistKeys {
     static let type = "type"
     static let ratings = "ratings"
     static let dates = "dates"
+    static let gotBonus = "gotBonus"
+    static let rating = "rating"
 }
 
 struct OrderKeys {
@@ -180,7 +182,8 @@ class FirebaseManager {
             ArtistKeys.dates: artist.dates,
             ArtistKeys.countryName: artist.country,
             ArtistKeys.type: artist.type.rawValue,
-            ArtistKeys.ratings: artist.ratings
+            ArtistKeys.rating: artist.rating,
+            ArtistKeys.gotBonus: artist.gotBonus
         ])
     }
 
@@ -201,7 +204,7 @@ class FirebaseManager {
                               ArtistKeys.dates: artist.dates,
                               ArtistKeys.countryName: artist.country,
                               ArtistKeys.type: artist.type.rawValue,
-                              ArtistKeys.ratings: artist.ratings,
+                              ArtistKeys.rating: artist.rating,
                               ArtistKeys.photoGaleryLinks: photoURLs.map { $0.absoluteString }
                 ])
                 finish()
@@ -334,11 +337,11 @@ private extension FirebaseManager {
         }
 
         let photoLink = value[ArtistKeys.photoLink] as? String
-        let ratings = value[ArtistKeys.ratings] as? [Double]
-
+        let rating = value[ArtistKeys.rating] as? Double
+        
         let realTalent = Talent(string: talent)
         let artist = Artist(facebookId: facebookId, name: name, talent: realTalent, description: description, city: City(name: cityName, location: CLLocationCoordinate2D(latitude: lat, longitude: lon)), country: country, price: price, photoLink: photoLink ?? "")
-
+        artist.gotBonus = value[ArtistKeys.gotBonus] as? Bool ?? false
         artist.databaseId = userId
 
         if let youtubeLinks = value[ArtistKeys.youtubeLink] as? [String] {
@@ -357,7 +360,7 @@ private extension FirebaseManager {
             artist.dates = dates
         }
 
-        artist.ratings = ratings
+        artist.rating = rating ?? 3
         return artist
     }
 

@@ -27,7 +27,7 @@ extension MyProfileViewController: UITextViewDelegate {
         self.descriptionTextView.isUserInteractionEnabled = canEdit
         self.descriptionTextView.layer.borderColor = UIColor.red.cgColor
         self.ratingView.settings.fillMode = .precise
-        self.ratingView.rating = artist.averageRating ?? 3
+        self.ratingView.rating = artist.rating
 
         if GlobalManager.myUser == artist {
             setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)
