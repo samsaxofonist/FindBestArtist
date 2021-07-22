@@ -114,7 +114,8 @@ class ProfilesListViewController: BaseViewController {
             self.emptyStateImage.isHidden = false
             self.setSettingsViewVisible(false)
         } else {
-            if self.filteredArtists.count == 1 {
+            let totalCount = self.filteredArtists.count + self.topArtists.count
+            if totalCount < 3  {
                 self.setSettingsViewVisible(false)
             } else {
                 self.setSettingsViewVisible(true)

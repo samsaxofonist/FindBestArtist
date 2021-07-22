@@ -80,7 +80,10 @@ class FirebaseManager {
         let ref: DatabaseReference = Database.database().reference().child("orders/\(userId)")
 
         ref.observeSingleEvent(of: .value, with: { data in
-            guard let jsonData = data.value as? [String: [String: Any]] else { return }
+            guard let jsonData = data.value as? [String: [String: Any]] else {
+                completion([])
+                return
+            }
             var orders = [Order]()
 
             for (_, value) in jsonData {

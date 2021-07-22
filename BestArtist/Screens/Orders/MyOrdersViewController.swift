@@ -22,10 +22,13 @@ class MyOrdersViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationItem.title = "My Orders"
 
         ARSLineProgress.show()
-        loader.loadMyOrders(completion: { loadedOrders in
+        loader.loadMyOrders(completion: { [weak self] loadedOrders in
             ARSLineProgress.hide()
-            self.orders = loadedOrders
-            self.tableView.reloadData()
+            if loadedOrders.count == 0 {
+                self?.emptyView.isHidden = false
+            }
+            self?.orders = loadedOrders
+            self?.tableView.reloadData()
         })
     }
 

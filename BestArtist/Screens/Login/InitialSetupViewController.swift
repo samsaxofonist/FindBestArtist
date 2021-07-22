@@ -69,6 +69,7 @@ class InitialSetupViewController: BaseViewController {
 
     func openEventDateScreen(fbProfile: Profile) {
         let cityDateSelectVC = UIStoryboard(name: "Helpers", bundle: nil).instantiateViewController(withIdentifier: "cityDateSelectVC") as! EventDateSelectionViewController
+        cityDateSelectVC.source = .createProfile
         cityDateSelectVC.userType = userType
         
         cityDateSelectVC.finishBlock = { [weak self] selectedDates, city, country in
