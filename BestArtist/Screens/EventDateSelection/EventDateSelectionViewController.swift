@@ -11,6 +11,11 @@ import KDCalendar
 import ARSLineProgress
 import VisualEffectView
 
+enum DateCitySelectionSource {
+    case createProfile
+    case settings
+}
+
 class EventDateSelectionViewController: UIViewController, CalendarViewDataSource, CalendarViewDelegate {
     @IBOutlet weak var selectedCityLabel: UILabel!
     @IBOutlet weak var calendarView: CalendarView!
@@ -26,6 +31,7 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
     var blur: VisualEffectView!
     
     var finishBlock: (([TimeInterval], City, String) -> Void)!
+    var source: DateCitySelectionSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +44,9 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
             selectDateLabel.text = "Date of event"
         }
         
-        if let city = GlobalManager.myUser?.city {
-            selectedCity = city
-            selectedCityLabel.text = city.name
+        if source == .settings {
+            selectedCity = GlobalManager.myUser?.city
+            selectedCityLabel.text = GlobalManager.myUser?.city.name
             selectedCountry = GlobalManager.myUser?.country
             
             continueButton.isHidden = true
@@ -151,7 +157,7 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
 
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {}
     func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
-        return true
+        return date > Date()
     }
     func calendar(_ calendar: CalendarView, didLongPressDate date: Date) {}
 }

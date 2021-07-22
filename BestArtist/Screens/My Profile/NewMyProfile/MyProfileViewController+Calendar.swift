@@ -44,7 +44,7 @@ extension MyProfileViewController: CalendarViewDataSource, CalendarViewDelegate 
 
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {}
     func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
-        return GlobalManager.myUser == artist
+        return GlobalManager.myUser == artist && date > Date()
     }
     func calendar(_ calendar: CalendarView, didLongPressDate date: Date) {}
 }

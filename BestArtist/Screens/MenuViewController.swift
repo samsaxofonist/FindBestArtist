@@ -127,6 +127,7 @@ class MenuViewController: UITableViewController {
     
     func openCityDateSelection() {
         let cityDateSelectVC = UIStoryboard(name: "Helpers", bundle: nil).instantiateViewController(withIdentifier: "cityDateSelectVC") as! EventDateSelectionViewController
+        cityDateSelectVC.source = .settings
         cityDateSelectVC.userType = GlobalManager.myUser!.type
         
         cityDateSelectVC.finishBlock = { selectedDates, city, country in
