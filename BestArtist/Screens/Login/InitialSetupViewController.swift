@@ -17,7 +17,7 @@ class InitialSetupViewController: BaseViewController {
 
     func finishLogin(fbProfile: Profile, existedArtist: User, city: City, country: String) {
         GlobalManager.myUser = existedArtist
-        self.openMainScreen()
+        self.openFirstScreen()
     }
     
     func processNewUser(fbProfile: Profile, city: City, country: String, dates: [TimeInterval]) {
@@ -49,7 +49,7 @@ class InitialSetupViewController: BaseViewController {
         ARSLineProgress.show()
         NetworkManager.saveCustomer(customer) {
             ARSLineProgress.hide()
-            self.openMainScreen()
+            self.openFirstScreen()
         }
     }
 
@@ -62,9 +62,34 @@ class InitialSetupViewController: BaseViewController {
         self.navigationController?.setViewControllers([profileVC], animated: false)
     }
 
+    func openFirstScreen() {
+        guard let userType = GlobalManager.myUser?.type else { return }
+        
+        if FirstLaunchDetector.isFirstLaunch(for: userType) {
+            openInstructionsScreen()
+        } else {
+            openMainScreen()
+        }
+    }
+    
     func openMainScreen() {
         let mainContainer = self.storyboard!.instantiateViewController(withIdentifier: "rootContainer")
         self.navigationController?.setViewControllers([mainContainer], animated: true)
+    }
+    
+    func openInstructionsScreen() {
+        guard let userType = GlobalManager.myUser?.type else { return }
+        
+        let instructionController = InstructionsViewController()
+        instructionController.userType = userType
+        instructionController.modalPresentationStyle = .fullScreen
+        instructionController.modalTransitionStyle = .crossDissolve
+        
+        instructionController.skipBlock = { [weak self] in
+            FirstLaunchDetector.markAsLaunched(for: userType)            
+            self?.openMainScreen()
+        }
+        self.present(instructionController, animated: true, completion: nil)
     }
 
     func openEventDateScreen(fbProfile: Profile) {

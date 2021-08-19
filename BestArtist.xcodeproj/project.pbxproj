@@ -41,6 +41,11 @@
 		3E60598A222ED0D100156CB4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E605989222ED0D100156CB4 /* UIView+Extensions.swift */; };
 		3E60598C222EDA4400156CB4 /* AppLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598B222EDA4400156CB4 /* AppLoginManager.swift */; };
 		3E60598E222EDEB100156CB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */; };
+		3E66955426CEC2B700BBE38C /* FirstLaunchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66955326CEC2B700BBE38C /* FirstLaunchDetector.swift */; };
+		3E66955826CEC3EF00BBE38C /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66955626CEC3EF00BBE38C /* InstructionsViewController.swift */; };
+		3E66955926CEC3EF00BBE38C /* InstructionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E66955726CEC3EF00BBE38C /* InstructionsViewController.xib */; };
+		3E66955C26CEC96600BBE38C /* artist_instruction.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3E66955A26CEC96600BBE38C /* artist_instruction.mov */; };
+		3E66955D26CEC96600BBE38C /* customer_instruction.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3E66955B26CEC96600BBE38C /* customer_instruction.mov */; };
 		3E6BE0F223AF965300B84BF7 /* MyProfileViewController+Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6BE0F123AF965300B84BF7 /* MyProfileViewController+Videos.swift */; };
 		3E6E3F2324A3CAF7001E90B3 /* InitialSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3F2224A3CAF7001E90B3 /* InitialSetupViewController.swift */; };
 		3E75CAAF228FEA67004F8127 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75CAAE228FEA67004F8127 /* NetworkManager.swift */; };
@@ -108,6 +113,11 @@
 		3E605989222ED0D100156CB4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3E60598B222EDA4400156CB4 /* AppLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoginManager.swift; sourceTree = "<group>"; };
 		3E60598D222EDEB100156CB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		3E66955326CEC2B700BBE38C /* FirstLaunchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDetector.swift; sourceTree = "<group>"; };
+		3E66955626CEC3EF00BBE38C /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		3E66955726CEC3EF00BBE38C /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsViewController.xib; sourceTree = "<group>"; };
+		3E66955A26CEC96600BBE38C /* artist_instruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = artist_instruction.mov; sourceTree = "<group>"; };
+		3E66955B26CEC96600BBE38C /* customer_instruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = customer_instruction.mov; sourceTree = "<group>"; };
 		3E6BE0F123AF965300B84BF7 /* MyProfileViewController+Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Videos.swift"; sourceTree = "<group>"; };
 		3E6E3F2224A3CAF7001E90B3 /* InitialSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupViewController.swift; sourceTree = "<group>"; };
 		3E75CAAE228FEA67004F8127 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -219,7 +229,10 @@
 				3E36FDCF21A35462007781E5 /* Screens */,
 				3E36FDC821A35462007781E5 /* UI */,
 				3E36FDB621A353AA007781E5 /* AppDelegate.swift */,
+				3E66955326CEC2B700BBE38C /* FirstLaunchDetector.swift */,
 				3E36FDBD21A353AB007781E5 /* Assets.xcassets */,
+				3E66955A26CEC96600BBE38C /* artist_instruction.mov */,
+				3E66955B26CEC96600BBE38C /* customer_instruction.mov */,
 				3E9C21F022BAB2F50080A7CC /* CountriesList.json */,
 				3E36FDC221A353AB007781E5 /* Info.plist */,
 			);
@@ -247,6 +260,7 @@
 		3E36FDCF21A35462007781E5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E66955526CEC3B900BBE38C /* Instructions */,
 				3E19045F265C177100956740 /* EventDateSelection */,
 				3EEFE24C2538A2D0008E4667 /* Orders */,
 				3E36FDD721A35462007781E5 /* Login */,
@@ -306,6 +320,15 @@
 				3E4AFED6230F18E3005B4E40 /* VideoCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3E66955526CEC3B900BBE38C /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				3E66955626CEC3EF00BBE38C /* InstructionsViewController.swift */,
+				3E66955726CEC3EF00BBE38C /* InstructionsViewController.xib */,
+			);
+			path = Instructions;
 			sourceTree = "<group>";
 		};
 		3E75CAB0228FEB2A004F8127 /* Models */ = {
@@ -453,15 +476,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E66955C26CEC96600BBE38C /* artist_instruction.mov in Resources */,
 				3EC0D00721BD38CF004627EA /* Profile.storyboard in Resources */,
 				3E36FDFA21A35463007781E5 /* ProfileCell.xib in Resources */,
 				3E36FDBE21A353AB007781E5 /* Assets.xcassets in Resources */,
 				3E36FDFC21A35463007781E5 /* Main.storyboard in Resources */,
 				3E190463265C17FC00956740 /* Helpers.storyboard in Resources */,
+				3E66955926CEC3EF00BBE38C /* InstructionsViewController.xib in Resources */,
 				3E9C21F122BAB2F60080A7CC /* CountriesList.json in Resources */,
 				3E36FE2221A355BE007781E5 /* GoogleService-Info.plist in Resources */,
 				3E36FDFB21A35463007781E5 /* LaunchScreen.storyboard in Resources */,
 				3EEFE2512538A36D008E4667 /* MyOrders.storyboard in Resources */,
+				3E66955D26CEC96600BBE38C /* customer_instruction.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,9 +566,11 @@
 				3E36FE0221A35463007781E5 /* MenuViewController.swift in Sources */,
 				3E85491122C9157400869A9B /* MyProfileViewController.swift in Sources */,
 				3E017C12220307F600CF2E96 /* GradientView.swift in Sources */,
+				3E66955826CEC3EF00BBE38C /* InstructionsViewController.swift in Sources */,
 				3E4AFED5230F08E5005B4E40 /* AddVideoCell.swift in Sources */,
 				3E32991E21C687B400BC33AB /* BaseViewController.swift in Sources */,
 				3E36FE0121A35463007781E5 /* LoginViewController.swift in Sources */,
+				3E66955426CEC2B700BBE38C /* FirstLaunchDetector.swift in Sources */,
 				3E017C1522030A8A00CF2E96 /* FirebaseManager.swift in Sources */,
 				3EFAD9FB22CE733100DF5093 /* MyProfileViewModel.swift in Sources */,
 				3EE899122540A064004C2C89 /* ArtistLoader.swift in Sources */,

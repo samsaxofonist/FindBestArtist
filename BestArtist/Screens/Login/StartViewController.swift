@@ -32,7 +32,7 @@ final class StartViewController: InitialSetupViewController {
                     self.showUserTypeSelection()
                 } else {
                     GlobalManager.myUser = user
-                    self.openMainScreen()
+                    self.openFirstScreen()
                 }
             }
         } else {
