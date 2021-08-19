@@ -90,7 +90,7 @@ enum Talent: Equatable {
     var description: String {
         switch self {
         case .moderator:
-            return "Moderator"
+            return "moderator"
 
         case .photo(let type):
             return type.rawValue
@@ -99,7 +99,7 @@ enum Talent: Equatable {
             return type.rawValue
 
         case .dj:
-            return "DJ"
+            return "dj"
         }
     }
 

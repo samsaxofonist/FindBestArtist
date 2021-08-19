@@ -13,6 +13,16 @@ import FirebaseDatabase
 import FBSDKCoreKit
 import ARSLineProgress
 
+enum SectionType {
+    case myDatesArtistsHeader
+    case myDatesTopArtists
+    case myDatesOtherArtists
+    case busyDatesArtistsHeader
+    case busyDatesTopArtists
+    case busyDatesOtherArtists
+    case error
+}
+
 class ProfilesListViewController: BaseViewController {
     @IBOutlet weak var profilesTableView: UITableView!
     @IBOutlet var listSettingsView: UIView!
@@ -25,6 +35,9 @@ class ProfilesListViewController: BaseViewController {
     let maxAnimationDelay: Double = 0.1
     var indexShown = [Int]()
     var artists = [Artist]()
+
+    var myDatesTopArtists = [Artist]()
+    var myDatesOtherArtists = [Artist]()
 
     var topArtists = [Artist]()
     var filteredArtists = [Artist]()
@@ -85,21 +98,19 @@ class ProfilesListViewController: BaseViewController {
 
                 artistsForCurrentTab.forEach { $0.adjustPriceForCustomerCity(customerCity: GlobalManager.myUser!.city) }
 
-                self.topArtists = artistsForCurrentTab.filter { $0.rating >= 4 }
-                let otherArtists = artistsForCurrentTab.filter { $0.rating < 4 }
-
-                self.artists = otherArtists
-                    .sorted(by: {
-                        if GlobalManager.sorting == .lowToHigh {
-                            return $0.price < $1.price
-                        } else {
-                            return $0.price > $1.price
-                        }
-                })
-
-
-                self.filterButton.isEnabled = (self.topArtists.count + self.artists.count) > 1
-                self.filteredArtists = otherArtists
+                if GlobalManager.myUser?.type == .customer  {
+                    self.setupMyDatesArtists(from: artistsForCurrentTab)
+                    
+                    let busyArtists = artistsForCurrentTab.filter {
+                        !self.myDatesTopArtists.contains($0) && !self.myDatesOtherArtists.contains($0)
+                    }
+                    self.setupNormalArtists(from: busyArtists)
+                    
+                } else {
+                    self.setupNormalArtists(from: artistsForCurrentTab)
+                    self.filterButton.isEnabled = (self.topArtists.count + self.artists.count) > 1
+                }
+                
                 self.showEmptyStateIfNeeded()
                 self.profilesTableView.reloadData()
             } else {
@@ -108,9 +119,54 @@ class ProfilesListViewController: BaseViewController {
             UIApplication.shared.endIgnoringInteractionEvents()
         })
     }
+    
+    func setupNormalArtists(from artistsForCurrentTab: [Artist]) {
+        self.topArtists = artistsForCurrentTab.filter { $0.rating >= 4 }
+        let otherArtists = artistsForCurrentTab.filter { $0.rating < 4 }
+
+        self.artists = otherArtists
+            .sorted(by: {
+                if GlobalManager.sorting == .lowToHigh {
+                    return $0.price < $1.price
+                } else {
+                    return $0.price > $1.price
+                }
+        })
+        self.filteredArtists = otherArtists
+    }
+    
+    func setupMyDatesArtists(from artistsForCurrentTab: [Artist]) {
+        let myEventDates = GlobalManager.myUser!.dates.map { Date(timeIntervalSince1970: $0) }
+        
+        let artistsForOurDates = artistsForCurrentTab.filter { artist in
+            let artistsBusyDays = artist.dates.map { Date(timeIntervalSince1970: $0) }
+
+            return !artistsBusyDays.allSatisfy { oneArtistBusyDate in
+                myEventDates.contains(where: { oneMyDate in
+                    isSameDay(date1: oneMyDate, date2: oneArtistBusyDate)
+                })
+            }
+        }
+        
+        self.myDatesTopArtists = artistsForOurDates.filter { $0.rating >= 4 }
+        
+        if self.myDatesTopArtists.isEmpty {
+            self.myDatesTopArtists = artistsForOurDates
+            self.myDatesOtherArtists = []
+        } else {
+            self.myDatesOtherArtists = artistsForOurDates.filter { $0.rating < 4 }
+        }
+    }
+    
+    func hasAtLeastOneArtist() -> Bool {
+        return !self.myDatesTopArtists.isEmpty ||
+            !self.myDatesOtherArtists.isEmpty ||
+            !self.topArtists.isEmpty ||
+            !self.filteredArtists.isEmpty
+    }
 
     func showEmptyStateIfNeeded() {
-        if self.topArtists.isEmpty && self.filteredArtists.isEmpty {
+        if !hasAtLeastOneArtist() {
             self.emptyStateImage.isHidden = false
             self.setSettingsViewVisible(false)
         } else {
@@ -216,35 +272,144 @@ class ProfilesListViewController: BaseViewController {
     func myUserIfExists(id: String) -> User? {
         return artists.filter({ $0.facebookId == id }).first
     }
+    
+    func hasSection(type: SectionType) -> Bool {
+        switch type {
+        case .myDatesArtistsHeader:
+            return !self.myDatesTopArtists.isEmpty || !self.myDatesOtherArtists.isEmpty
+        case .myDatesTopArtists:
+            return !self.myDatesTopArtists.isEmpty
+        case .myDatesOtherArtists:
+            return !self.myDatesOtherArtists.isEmpty
+        case .busyDatesArtistsHeader:
+            return !self.topArtists.isEmpty || !self.filteredArtists.isEmpty
+        case .busyDatesTopArtists:
+            return !self.topArtists.isEmpty
+        case .busyDatesOtherArtists:
+            return !self.filteredArtists.isEmpty
+        case .error:
+            return false
+        }
+    }
+    
+    func getSectionInfo(at section: Int) -> (cellsCount: Int, headerTitle: String, type: SectionType) {
+        if section == 0 {
+            if hasSection(type: .myDatesArtistsHeader) {
+                return (0, "My dates header", .myDatesArtistsHeader)
+            } else {
+                return (0, "Busy dates header", .busyDatesArtistsHeader)
+            }
+        }
+        
+        if section == 1 {
+            if hasSection(type: .myDatesTopArtists) {
+                return (self.myDatesTopArtists.count, "My dates TOP", .myDatesTopArtists)
+            } else if hasSection(type: .busyDatesTopArtists) {
+                return (self.topArtists.count, "Busy dates TOP", .busyDatesTopArtists)
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return (self.filteredArtists.count, "Busy dates others", .busyDatesOtherArtists)
+            } else {
+                return (0, "", .error)
+            }
+        }
+        
+        if section == 2 {
+            if hasSection(type: .myDatesOtherArtists) {
+                return (self.myDatesOtherArtists.count, "My dates others", .myDatesOtherArtists)
+            } else if hasSection(type: .busyDatesArtistsHeader) {
+                return (0, "Busy dates artist", .busyDatesArtistsHeader)
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return (self.filteredArtists.count, "Busy dates others", .busyDatesOtherArtists)
+            } else {
+                return (0, "", .error)
+            }
+        }
+        
+        if section == 3 {
+            if hasSection(type: .busyDatesArtistsHeader) {
+                return (0, "Busy dates artists", .busyDatesArtistsHeader)
+            } else if hasSection(type: .busyDatesTopArtists) {
+                return (self.topArtists.count, "Busy dates TOP", .busyDatesTopArtists)
+            } else {
+                return (0, "", .error)
+            }
+        }
+        
+        if section == 4 {
+            if hasSection(type: .busyDatesTopArtists) {
+                return (self.topArtists.count, "Busy dates TOP", .busyDatesTopArtists)
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return (self.filteredArtists.count, "Busy dates others", .busyDatesOtherArtists)
+            } else {
+                return (0, "", .error)
+            }
+        }
+        
+        if section == 5 {
+            if hasSection(type: .busyDatesOtherArtists) {
+                return (self.filteredArtists.count, "Busy dates others", .busyDatesOtherArtists)
+            } else {
+                return (0, "", .error)
+            }
+        }
+        
+        return (0, "", .error)
+    }
 }
 
 extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if !self.topArtists.isEmpty {
-            return 2
-        } else {
-            return 1
+        
+        var sectionsCount = 0
+        if hasSection(type: .myDatesArtistsHeader) {
+            sectionsCount += 1
         }
+        
+        if hasSection(type: .myDatesTopArtists) {
+            sectionsCount += 1
+        }
+        
+        if hasSection(type: .myDatesOtherArtists) {
+            sectionsCount += 1
+        }
+        
+        if hasSection(type: .busyDatesArtistsHeader) {
+            sectionsCount += 1
+        }
+        
+        if hasSection(type: .busyDatesTopArtists) {
+            sectionsCount += 1
+        }
+        
+        if hasSection(type: .busyDatesOtherArtists) {
+            sectionsCount += 1
+        }
+        return sectionsCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 && !self.topArtists.isEmpty {
-            return self.topArtists.count
-        } else {
-            return self.filteredArtists.count
-        }
+        return getSectionInfo(at: section).cellsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
 
         let artist: Artist
-
-        if indexPath.section == 0 && !self.topArtists.isEmpty {
-            artist = self.topArtists[indexPath.row]
-        } else {
+        
+        let headerInfo = getSectionInfo(at: indexPath.section)
+        
+        switch headerInfo.type {
+        case .busyDatesOtherArtists:
             artist = self.filteredArtists[indexPath.row]
+        case .busyDatesTopArtists:
+            artist = self.topArtists[indexPath.row]
+        case .myDatesOtherArtists:
+            artist = self.myDatesOtherArtists[indexPath.row]
+        case .myDatesTopArtists:
+            artist = self.myDatesTopArtists[indexPath.row]
+        default:
+            return cell
         }
 
         cell.setupWithArtist(artist)
@@ -295,47 +460,18 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 && !self.topArtists.isEmpty {
-            return makeTopHeaderLabel(text: "Top")
-        } else if !self.topArtists.isEmpty && !self.filteredArtists.isEmpty {
-            return makeOthersHeaderView()
-        } else {
-            return UIView()
-        }
+        return makeHeaderLabel(text: getSectionInfo(at: section).headerTitle)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 && !self.topArtists.isEmpty {
-            return 50
-        } else if !self.topArtists.isEmpty {
-            return 20
-        } else {
-            return 0
-        }
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
 
-    func makeOthersHeaderView() -> UIView {
-        let containerView = UIView()
-
-        let line = UIView()
-        line.translatesAutoresizingMaskIntoConstraints = false
-        line.backgroundColor = .lightGray
-
-        containerView.addSubview(line)
-
-        line.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 30).isActive = true
-        line.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -30).isActive = true
-        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        line.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-
-        return containerView
-    }
-
-    func makeTopHeaderLabel(text: String) -> UIView {
+    func makeHeaderLabel(text: String) -> UIView {
         let containerView = UIView()
         let label = UILabel()
         label.text = text
@@ -354,6 +490,15 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     
     func wasCellAlreadyPresent(index: IndexPath) -> Bool {
         if indexShown.contains(index.row) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isSameDay(date1: Date, date2: Date) -> Bool {
+        let diff = Calendar.current.dateComponents([.day, .month, .year], from: date1, to: date2)
+        if diff.day == 0 && diff.month == 0 && diff.year == 0 {
             return true
         } else {
             return false
