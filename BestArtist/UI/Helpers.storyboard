@@ -30,13 +30,13 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="rbK-yR-kZK"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select possible dates your events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-8A-r1D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mögliche Termine Ihrer Hochzeit" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-8A-r1D">
                                 <rect key="frame" x="30" y="283" width="368" height="95.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City of event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2W-6H-WFA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ort Ihrer Hochzeit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2W-6H-WFA">
                                 <rect key="frame" x="30" y="104" width="376" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +78,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtO-F1-FuS" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
                                 <rect key="frame" x="50" y="187" width="314" height="46"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
-                                <state key="normal" title="Select city">
+                                <state key="normal" title="Ort wählen">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -136,7 +136,7 @@
             <size key="intrinsicContentSize" width="77" height="35"/>
         </designable>
         <designable name="AtO-F1-FuS">
-            <size key="intrinsicContentSize" width="122" height="46"/>
+            <size key="intrinsicContentSize" width="128" height="46"/>
         </designable>
     </designables>
     <resources>
