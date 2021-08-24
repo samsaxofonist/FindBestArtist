@@ -40,8 +40,8 @@ class EventDateSelectionViewController: UIViewController, CalendarViewDataSource
             selectedCityLabel.text = "Your city"
             selectDateLabel.text = "Your busy dates"
         } else {
-            selectedCityLabel.text = "City of event"
-            selectDateLabel.text = "Date of event"
+            selectedCityLabel.text = "Ort Ihrer Hochzeit"
+            selectDateLabel.text = "Mögliche Termine Ihrer Hochzeit"
         }
         
         if source == .settings {
