@@ -20,6 +20,7 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var logoutCellTitleLabel: UILabel!
     @IBOutlet weak var myOrdersCellTitleLabel: UILabel!
     @IBOutlet weak var settingsCellTitleLabel: UILabel!
+    @IBOutlet weak var helpCellTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,7 @@ class MenuViewController: UITableViewController {
         self.logoutCellTitleLabel.textColor = theme.textColor
         self.myOrdersCellTitleLabel.textColor = theme.textColor
         self.settingsCellTitleLabel.textColor = theme.textColor
+        self.helpCellTitleLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +118,12 @@ class MenuViewController: UITableViewController {
         else if indexPath.row == 3 {
             openCityDateSelection()
         } else if indexPath.row == 4 {
+            let instruction = InstructionsViewController()
+            instruction.openFromMenu = true
+            neededNavigation?.pushViewController(instruction, animated: true)
+            dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
+        } else if indexPath.row == 5 {
             LoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             

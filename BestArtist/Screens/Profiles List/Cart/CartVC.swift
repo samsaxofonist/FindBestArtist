@@ -40,18 +40,11 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         return GlobalManager.selectedArtists.count
     }
     
-    //func blurEffect() {
-       // let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-       // let blurEffectView = UIVisualEffectView(effect: blurEffect)
-       // blurEffectView.frame = view.bounds
-       // blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-       // smallBackgroundView.addSubview(blurEffectView)
-    //}
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         cell.checkBox.isHidden = true
         let artist = GlobalManager.selectedArtists[indexPath.row]
+        cell.isDisplayedInCart = true
         cell.setupWithArtist(artist)
         return cell
     }
@@ -76,5 +69,13 @@ class CartVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     func updateTotalPrice() {
         let totalPrice = GlobalManager.selectedArtists.reduce(0) { $0 + $1.price }
         totalPriceLabel.text = "Total: \(totalPrice) €"
+        
+        if GlobalManager.selectedArtists.count == 0 {
+            getButton.isEnabled = false
+            getButton.alpha = 0.5
+        } else {
+            getButton.isEnabled = true
+            getButton.alpha = 1
+        }
     }
 }

@@ -11,15 +11,29 @@ import AVKit
 
 class InstructionsViewController: UIViewController {
     @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var skipButton: UIButton!
     
     var skipBlock: (() -> Void)?
     var userType: UserType!
     var moviePlayer: AVPlayerViewController?
-    
     var playerLayer: AVPlayerLayer!
+    var openFromMenu: Bool = false
+    @IBOutlet weak var videoToBottom: NSLayoutConstraint!
+    @IBOutlet weak var videoToSkipButton: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if openFromMenu {
+            skipButton.isHidden = true
+            self.navigationItem.title = "Wie funktioniert's"
+            videoToBottom.isActive = true
+            videoToSkipButton.isActive = false
+        } else {
+            videoToBottom.isActive = false
+            videoToSkipButton.isActive = true
+        }
+        
         playVideo()
     }
     
