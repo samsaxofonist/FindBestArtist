@@ -197,6 +197,7 @@ class ProfilesListViewController: BaseViewController {
         profilesTableView.rowHeight = UITableView.automaticDimension
         profilesTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1))
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        profilesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
     }
     
     @IBAction func sortButtonClicked(_ sender: UIButton) {
@@ -402,12 +403,16 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
         switch headerInfo.type {
         case .busyDatesOtherArtists:
             artist = self.filteredArtists[indexPath.row]
+            cell.isTop = false
         case .busyDatesTopArtists:
             artist = self.topArtists[indexPath.row]
+            cell.isTop = true
         case .myDatesOtherArtists:
             artist = self.myDatesOtherArtists[indexPath.row]
+            cell.isTop = false
         case .myDatesTopArtists:
             artist = self.myDatesTopArtists[indexPath.row]
+            cell.isTop = true
         default:
             return cell
         }

@@ -44,7 +44,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000 €" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-N4-LJw">
                                 <rect key="frame" x="111" y="77" width="65" height="23"/>
-                                <color key="backgroundColor" red="0.99195998910000005" green="0.4187951982" blue="0.18026822810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.41960784313725491" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="Amn-e2-pMP"/>
                                     <constraint firstAttribute="height" constant="23" id="hU4-W2-gvg"/>

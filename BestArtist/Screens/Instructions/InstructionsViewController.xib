@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstructionsViewController" customModule="BestArtist" customModuleProvider="target">
             <connections>
+                <outlet property="skipButton" destination="yuc-4E-1Ss" id="nqt-Yv-0Y1"/>
+                <outlet property="videoToBottom" destination="Kf3-6w-kfc" id="YlT-SM-XsC"/>
+                <outlet property="videoToSkipButton" destination="FXa-VM-SCL" id="aK9-Cj-Sgw"/>
                 <outlet property="videoView" destination="SDB-pC-Eq9" id="3jC-YA-y1j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,7 +46,8 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="SDB-pC-Eq9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="AeG-92-AuJ"/>
-                <constraint firstItem="yuc-4E-1Ss" firstAttribute="top" secondItem="SDB-pC-Eq9" secondAttribute="bottom" constant="24" id="FXa-VM-SCL"/>
+                <constraint firstItem="yuc-4E-1Ss" firstAttribute="top" secondItem="SDB-pC-Eq9" secondAttribute="bottom" priority="750" constant="24" id="FXa-VM-SCL"/>
+                <constraint firstAttribute="bottom" secondItem="SDB-pC-Eq9" secondAttribute="bottom" priority="250" constant="24" id="Kf3-6w-kfc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SDB-pC-Eq9" secondAttribute="trailing" constant="24" id="QE1-SP-MEq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yuc-4E-1Ss" secondAttribute="trailing" constant="16" id="ZSP-RM-meL"/>
                 <constraint firstItem="yuc-4E-1Ss" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ahL-I2-iOW"/>

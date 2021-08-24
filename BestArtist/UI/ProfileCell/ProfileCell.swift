@@ -23,6 +23,9 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var checkBox: M13Checkbox!
     var onClickBlock: (() -> ())?
     
+    var isTop: Bool = false
+    var isDisplayedInCart: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -51,10 +54,16 @@ class ProfileCell: UITableViewCell {
         
         ratingView.rating = 1
         ratingCount.text = String(artist.rating)
-        checkBox.isHidden = GlobalManager.myUser?.type == .artist
+        
+        if GlobalManager.myUser?.type == .artist {
+            checkBox.isHidden = true
+        } else {
+            checkBox.isHidden = isDisplayedInCart
+        }        
         
         if let link = artist.photoLink, let photoURL = URL(string: link) {
             photoImage.kf.setImage(with: ImageResource(downloadURL: photoURL))
         }
+        mainBackgroundProfileCell.layer.shadowColor = isTop ? UIColor(rgb: 0xFD6B2E).cgColor : UIColor(rgb: 0xAAAAAA).cgColor
     }
 }
