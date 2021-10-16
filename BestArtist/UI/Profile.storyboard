@@ -841,6 +841,13 @@
                                                         <action selector="segmentSelected:" destination="v0W-bV-a4w" eventType="valueChanged" id="Oyb-AF-b5h"/>
                                                     </connections>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJE-cv-bMe">
+                                                    <rect key="frame" x="301" y="12" width="62" height="30"/>
+                                                    <state key="normal" title="Message"/>
+                                                    <connections>
+                                                        <segue destination="CLH-yq-imV" kind="show" identifier="openSendMessage" id="vEE-P7-9WR"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="top" secondItem="KUI-kL-O1g" secondAttribute="bottom" constant="8" id="0Gt-3Z-uBV"/>
@@ -855,11 +862,13 @@
                                                 <constraint firstItem="nas-la-gPB" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leading" constant="16" id="JK4-8j-rsD"/>
                                                 <constraint firstAttribute="bottom" secondItem="nas-la-gPB" secondAttribute="bottom" constant="2" id="JZe-xW-oTK"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="lED-lc-99y" secondAttribute="bottom" constant="8" id="K4H-Ua-2h4"/>
+                                                <constraint firstAttribute="trailing" secondItem="MJE-cv-bMe" secondAttribute="trailing" constant="12" id="LMY-2l-YW2"/>
                                                 <constraint firstItem="coo-3g-1WJ" firstAttribute="centerY" secondItem="QNF-ZP-R6U" secondAttribute="centerY" id="MF7-GE-khI"/>
                                                 <constraint firstItem="coo-3g-1WJ" firstAttribute="centerX" secondItem="QNF-ZP-R6U" secondAttribute="centerX" id="Rx3-A3-kda"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="172" id="YdR-Ra-4F8"/>
                                                 <constraint firstItem="VHN-6M-FkL" firstAttribute="centerX" secondItem="lED-lc-99y" secondAttribute="centerX" id="YpQ-8l-C9k"/>
                                                 <constraint firstItem="IIV-1Y-9j5" firstAttribute="leading" secondItem="rXa-vC-wOQ" secondAttribute="leadingMargin" constant="16" id="aom-c5-SaG"/>
+                                                <constraint firstItem="MJE-cv-bMe" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="12" id="d5E-Xk-9B6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IIV-1Y-9j5" secondAttribute="trailing" constant="16" id="fRP-Ke-pse"/>
                                                 <constraint firstItem="lED-lc-99y" firstAttribute="top" secondItem="rXa-vC-wOQ" secondAttribute="top" constant="10" id="gH6-u0-ewO"/>
                                                 <constraint firstItem="QNF-ZP-R6U" firstAttribute="centerX" secondItem="rXa-vC-wOQ" secondAttribute="centerX" id="ha7-6e-xdb"/>
@@ -1247,10 +1256,12 @@
                             <outletCollection property="gestureRecognizers" destination="Q54-dG-gu0" appends="YES" id="MPC-95-2WX"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="7kA-QQ-XPQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="adminMessageButton" destination="MJE-cv-bMe" id="rJy-2b-XC7"/>
                         <outlet property="artistTypeLabel" destination="coo-3g-1WJ" id="JcW-LG-9tb"/>
                         <outlet property="artistTypeMenu" destination="QNF-ZP-R6U" id="oXj-hb-ze1"/>
                         <outlet property="backgroundTapGesture" destination="Q54-dG-gu0" id="P8R-80-iuW"/>
@@ -1282,6 +1293,68 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="8912.7999999999993" y="-1178.4107946026988"/>
+        </scene>
+        <!--Send message-->
+        <scene sceneID="lfv-Sn-LJl">
+            <objects>
+                <viewController title="Send message" id="CLH-yq-imV" customClass="AdminSendMessageViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZXK-Lm-RPR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lNu-Rl-duS">
+                                <rect key="frame" x="24" y="78" width="327" height="413"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeE-qz-BgV" customClass="HelpUIButtonClass" customModule="BestArtist" customModuleProvider="target">
+                                <rect key="frame" x="16" y="591" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.92948430780000002" green="0.45419591669999998" blue="0.18419191239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3qa-MU-Mr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendButtonClicked" destination="CLH-yq-imV" eventType="touchUpInside" id="Ksy-hS-7fv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h46-kw-62b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h46-kw-62b" firstAttribute="bottom" secondItem="xeE-qz-BgV" secondAttribute="bottom" constant="16" id="2XJ-pJ-153"/>
+                            <constraint firstItem="xeE-qz-BgV" firstAttribute="leading" secondItem="h46-kw-62b" secondAttribute="leading" constant="16" id="BIm-em-oXk"/>
+                            <constraint firstItem="lNu-Rl-duS" firstAttribute="top" secondItem="h46-kw-62b" secondAttribute="top" constant="34" id="J6n-hC-bdm"/>
+                            <constraint firstItem="h46-kw-62b" firstAttribute="trailing" secondItem="xeE-qz-BgV" secondAttribute="trailing" constant="16" id="VLk-M5-xSE"/>
+                            <constraint firstItem="h46-kw-62b" firstAttribute="trailing" secondItem="lNu-Rl-duS" secondAttribute="trailing" constant="24" id="kgI-9o-KV7"/>
+                            <constraint firstItem="xeE-qz-BgV" firstAttribute="top" secondItem="lNu-Rl-duS" secondAttribute="bottom" constant="100" id="lCV-7P-Llk"/>
+                            <constraint firstItem="lNu-Rl-duS" firstAttribute="leading" secondItem="h46-kw-62b" secondAttribute="leading" constant="24" id="rTp-o8-Nnt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zAK-a9-4IM">
+                        <barButtonItem key="rightBarButtonItem" title="User Profile" id="y2F-5m-knu">
+                            <connections>
+                                <segue destination="v0W-bV-a4w" kind="show" identifier="openProfile" id="3el-HK-2dK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="lNu-Rl-duS" id="THQ-fx-kwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ON8-5M-N3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9738" y="-1737"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ryF-Qb-DMX">
@@ -1339,13 +1412,22 @@
         <designable name="xb7-lH-G7W">
             <size key="intrinsicContentSize" width="75" height="40"/>
         </designable>
+        <designable name="xeE-qz-BgV">
+            <size key="intrinsicContentSize" width="56" height="40"/>
+        </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="vEE-P7-9WR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="closeCross" width="452" height="452"/>
         <image name="fakePhoto" width="210" height="140"/>
         <image name="plusIcon" width="128" height="128"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

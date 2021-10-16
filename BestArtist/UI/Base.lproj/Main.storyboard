@@ -370,7 +370,7 @@
             <objects>
                 <tableViewController id="h76-GU-FFq" customClass="MenuViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dw1-vq-eSH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.32404650421687509" green="0.64574319780345091" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -485,8 +485,26 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MVY-Wn-frs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tFz-bB-Ovy">
                                         <rect key="frame" x="0.0" y="260.33333396911621" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tFz-bB-Ovy" id="hga-as-rHK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-fG-deu">
+                                                    <rect key="frame" x="16" y="11" width="78" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MVY-Wn-frs">
+                                        <rect key="frame" x="0.0" y="304.33333396911621" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVY-Wn-frs" id="AeP-KF-Ubk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -504,7 +522,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mbk-0y-95l">
-                                        <rect key="frame" x="0.0" y="304.33333396911621" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="348.33333396911621" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mbk-0y-95l" id="lsQ-l1-0Pn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -534,6 +552,7 @@
                         <outlet property="backgroundView" destination="PLC-1L-lwh" id="sgX-jX-2wZ"/>
                         <outlet property="helpCellTitleLabel" destination="SVi-xN-owo" id="uxy-fZ-eoo"/>
                         <outlet property="logoutCellTitleLabel" destination="lKE-UR-gKG" id="Ayd-OI-ghm"/>
+                        <outlet property="messagesTitleLabel" destination="Zif-fG-deu" id="WI4-xk-H0t"/>
                         <outlet property="myOrdersCellTitleLabel" destination="v8M-5Q-6pd" id="D1w-1L-wcO"/>
                         <outlet property="nameLabel" destination="DqW-yI-y0V" id="oDT-4t-cJ7"/>
                         <outlet property="photoView" destination="9MD-ku-q87" id="eRQ-PU-h6W"/>
@@ -843,6 +862,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ctv-L6-ahN">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -861,6 +881,7 @@
                     <tabBarItem key="tabBarItem" title="" image="saxophone" id="dYy-lK-pxz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="seb-7Z-9Qu">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1519,7 +1540,7 @@
             <objects>
                 <viewController storyboardIdentifier="citySelectionVC" id="tgX-86-vzM" customClass="SelectAddressViewController" customModule="BestArtist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MPv-cy-44C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Select your address" translatesAutoresizingMaskIntoConstraints="NO" id="jc1-Um-VR2">
@@ -1581,9 +1602,6 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="8x1-El-Cha">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
-        </designable>
         <designable name="MbA-3k-GFz">
             <size key="intrinsicContentSize" width="102" height="35"/>
         </designable>
@@ -1592,9 +1610,6 @@
         </designable>
         <designable name="q0t-Nw-CXV">
             <size key="intrinsicContentSize" width="72" height="43"/>
-        </designable>
-        <designable name="uOD-MS-g2u">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="zik-yP-0Uc">
             <size key="intrinsicContentSize" width="106" height="40"/>

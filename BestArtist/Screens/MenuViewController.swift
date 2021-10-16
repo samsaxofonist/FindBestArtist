@@ -21,6 +21,7 @@ class MenuViewController: UITableViewController {
     @IBOutlet weak var myOrdersCellTitleLabel: UILabel!
     @IBOutlet weak var settingsCellTitleLabel: UILabel!
     @IBOutlet weak var helpCellTitleLabel: UILabel!
+    @IBOutlet weak var messagesTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +85,7 @@ class MenuViewController: UITableViewController {
         self.myOrdersCellTitleLabel.textColor = theme.textColor
         self.settingsCellTitleLabel.textColor = theme.textColor
         self.helpCellTitleLabel.textColor = theme.textColor
+        self.messagesTitleLabel.textColor = theme.textColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,12 +120,14 @@ class MenuViewController: UITableViewController {
         else if indexPath.row == 3 {
             openCityDateSelection()
         } else if indexPath.row == 4 {
+            openMessages()
+        } else if indexPath.row == 5 {
             let instruction = InstructionsViewController()
             instruction.openFromMenu = true
             neededNavigation?.pushViewController(instruction, animated: true)
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             LoginManager().logOut()
             let newLoginView = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             
@@ -131,6 +135,12 @@ class MenuViewController: UITableViewController {
                 rootNavigation?.setViewControllers([newLoginView], animated: true)
             }
         }
+    }
+    
+    func openMessages() {
+        let messagesVC = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as! AdminContactedUsersListViewController
+        GlobalManager.navigation?.pushViewController(messagesVC, animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func openCityDateSelection() {

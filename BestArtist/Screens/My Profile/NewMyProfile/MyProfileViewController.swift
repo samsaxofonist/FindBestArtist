@@ -42,7 +42,8 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     @IBOutlet weak var ratingToName: NSLayoutConstraint!
     @IBOutlet weak var ratingToPhoto: NSLayoutConstraint!
     @IBOutlet weak var ratingView: CosmosView!
-
+    @IBOutlet weak var adminMessageButton: UIButton!
+    
     let slideShow = ImageSlideshow()
 
     var screenState: ProfileScreenState = .info
@@ -53,6 +54,7 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
     let talents: [String] = Talent.allTalents
     let citySegueName = "selectCitySegue"
     let priceSegueName = "selectPriceSegue"
+    let sendAdminMessageSegueName = "openSendMessage"
 
     var artist: Artist!
     
@@ -158,7 +160,6 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         if isNewProfile {
             navigationController?.isNavigationBarHidden = true
         }
-        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -264,6 +265,9 @@ final class MyProfileViewController: UITableViewController, UIGestureRecognizerD
         } else if segue.identifier == priceSegueName {
             let priceVC = (segue.destination as! UINavigationController).viewControllers.first as! SelectPriceViewController
             setupPriceController(priceVC)
+        } else if segue.identifier == sendAdminMessageSegueName {
+            let sendMessageVC = segue.destination as! AdminSendMessageViewController
+            sendMessageVC.artist = artist
         }
     }
 

@@ -15,9 +15,10 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var mainBackgroundProfileCell: UIView!
     @IBOutlet weak var ratingCount: UILabel!
+    @IBOutlet weak var locationIcon: UIImageView!
     
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var checkBox: M13Checkbox!
@@ -39,17 +40,29 @@ class ProfileCell: UITableViewCell {
     func applyTheme(theme: Theme) {
         nameLabel.textColor = theme.darkColor
         priceLabel.textColor = theme.artistCellTextColor
-        informationLabel.textColor = theme.textColor
+        cityLabel.textColor = theme.textColor
     }
     
     @IBAction func selectionAction(_ sender: Any) {
         onClickBlock?()
     }
     
+    func setupWithContactedUser(_ contactedUser: ContactedUser) {
+        if let link = contactedUser.photoLink, let photoURL = URL(string: link) {
+            photoImage.kf.setImage(with: ImageResource(downloadURL: photoURL))
+        }
+        nameLabel.text = contactedUser.name
+        cityLabel.text = contactedUser.cityName
+        priceLabel.isHidden = true
+        ratingCount.isHidden = true
+        ratingView.isHidden = true
+        checkBox.isHidden = true
+    }
+    
     func setupWithArtist(_ artist: Artist) {
         nameLabel.text = artist.name
         priceLabel.text = "€ " + String(artist.price)
-        informationLabel.text = artist.city.name
+        cityLabel.text = artist.city.name
         checkBox.checkState = GlobalManager.selectedArtists.contains { $0.facebookId == artist.facebookId } ? .checked : .unchecked
         
         ratingView.rating = 1
