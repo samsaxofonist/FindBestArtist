@@ -28,6 +28,8 @@ extension MyProfileViewController: UITextViewDelegate {
         self.descriptionTextView.layer.borderColor = UIColor.red.cgColor
         self.ratingView.settings.fillMode = .precise
         self.ratingView.rating = artist.rating
+        
+        self.adminMessageButton.isHidden = !GlobalManager.myUser!.isAdmin
 
         if GlobalManager.myUser == artist {
             setDescriptionFieldEmptyState(isNotEnoughText: artist.description.count <= 20)

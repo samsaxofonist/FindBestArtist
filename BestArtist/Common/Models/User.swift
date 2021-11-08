@@ -14,8 +14,21 @@ enum UserType: Int {
     case customer = 2
 }
 
+struct Message {
+    let text: String
+    let date: Date
+}
+
+struct ContactedUser {
+    let name: String
+    let photoLink: String?
+    let cityName: String
+    let messages: [Message]
+}
+
 class User: Equatable {
     var type: UserType
+    var isAdmin: Bool = false
     var databaseId: String?
     var facebookId: String
     var name: String
@@ -24,6 +37,8 @@ class User: Equatable {
     var country: String
     var city: City
     var dates = [TimeInterval]()
+    var messagesFromAdmin = [Message]()    
+    var contactedUsers = [ContactedUser]()
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.facebookId == rhs.facebookId

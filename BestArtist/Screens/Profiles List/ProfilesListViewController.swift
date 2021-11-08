@@ -293,6 +293,57 @@ class ProfilesListViewController: BaseViewController {
         }
     }
     
+    func artist(at indexPath: IndexPath) -> Artist? {
+        switch indexPath.section {
+        case 0:
+            return nil
+        case 1:
+            if hasSection(type: .myDatesTopArtists) {
+                return self.myDatesTopArtists[indexPath.row]
+            } else if hasSection(type: .busyDatesTopArtists) {
+                return self.topArtists[indexPath.row]
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return self.filteredArtists[indexPath.row]
+            } else {
+                return nil
+            }
+        case 2:
+            if hasSection(type: .myDatesOtherArtists) {
+                return self.myDatesOtherArtists[indexPath.row]
+            } else if hasSection(type: .busyDatesArtistsHeader) {
+                return nil
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return self.filteredArtists[indexPath.row]
+            } else {
+                return nil
+            }
+        case 3:
+            if hasSection(type: .busyDatesArtistsHeader) {
+                return nil
+            } else if hasSection(type: .busyDatesTopArtists) {
+                return self.topArtists[indexPath.row]
+            } else {
+                return nil
+            }
+        case 4:
+            if hasSection(type: .busyDatesTopArtists) {
+                return self.topArtists[indexPath.row]
+            } else if hasSection(type: .busyDatesOtherArtists) {
+                return self.filteredArtists[indexPath.row]
+            } else {
+                return nil
+            }
+        case 5:
+            if hasSection(type: .busyDatesOtherArtists) {
+                return self.filteredArtists[indexPath.row]
+            } else {
+                return nil
+            }
+        default:
+            return nil
+        }
+    }
+    
     func getSectionInfo(at section: Int) -> (cellsCount: Int, headerTitle: String, type: SectionType) {
         if section == 0 {
             if hasSection(type: .myDatesArtistsHeader) {
@@ -430,18 +481,10 @@ extension ProfilesListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let artist = artist(at: indexPath) else { return }
+        
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-
         let detailsVC = profileStoryboard.instantiateViewController(withIdentifier: "NewProfile") as! MyProfileViewController
-
-        let artist: Artist
-
-        if indexPath.section == 0 && !self.topArtists.isEmpty {
-            artist = self.topArtists[indexPath.row]
-        } else {
-            artist = self.filteredArtists[indexPath.row]
-        }
-
         detailsVC.artist = artist
         self.navigationController?.pushViewController(detailsVC, animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NeedHideTabBar"), object: nil)

@@ -38,11 +38,6 @@ class OrderDetailsViewController: UIViewController, UITableViewDataSource, UITab
         tabBarController?.tabBar.isHidden = true
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedArtists.count
     }

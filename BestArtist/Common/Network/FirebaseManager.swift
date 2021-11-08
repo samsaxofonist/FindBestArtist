@@ -32,6 +32,7 @@ struct ArtistKeys {
     static let dates = "dates"
     static let gotBonus = "gotBonus"
     static let rating = "rating"
+    static let isAdmin = "isAdmin"
 }
 
 struct OrderKeys {
@@ -320,7 +321,11 @@ private extension FirebaseManager {
 
         customer.databaseId = userId
         customer.dates = dates
-
+        
+        if let admin = value[ArtistKeys.isAdmin] as? NSNumber {
+            customer.isAdmin = admin.boolValue
+        }
+        
         return customer
     }
 
